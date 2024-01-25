@@ -4,17 +4,15 @@ namespace App\Livewire\Admin\FoundDog;
 
 use Livewire\Component;
 use App\Models\FoundDog;
-use Livewire\Attributes\Url;
 use Livewire\WithPagination;
 use Livewire\Attributes\Title;
 
 class FoundDogComponent extends Component
 {
     use WithPagination;
-    #[Url('history:true')]
     public $sortingValue = 10, $searchTerm, $sortBy = 'created_at', $sortDirection = 'DESC';
     public $edit_id, $delete_id;
-    
+
     public function deleteConfirmation($id)
     {
         $this->delete_id = $id;
@@ -29,6 +27,18 @@ class FoundDogComponent extends Component
         $this->delete_id = '';
     }
 
+    public function changeStatus($id)
+    {
+        $category = FoundDog::find($id);
+        if ($category->status == 0) {
+            $category->status = 1;
+        } else {
+            $category->status = 0;
+        }
+        $category->save();
+        $this->dispatch('success', ['message' => 'Status updated successfully']);
+    }
+
     public function setSortBy($sortByField)
     {
         if ($this->sortBy === $sortByField) {
@@ -39,7 +49,8 @@ class FoundDogComponent extends Component
         $this->sortDirection = 'DESC';
     }
 
-    public function updateSearch(){
+    public function updateSearch()
+    {
         $this->resetPage();
     }
 
@@ -50,6 +61,6 @@ class FoundDogComponent extends Component
             ->orderBy($this->sortBy, $this->sortDirection)
             ->paginate($this->sortingValue);
         $this->dispatch('reload_scripts');
-        return view('livewire.admin.found-dog.found-dog-component', ['found_dogs'=>$found_dogs])->layout('livewire.admin.layouts.base');
+        return view('livewire.admin.found-dog.found-dog-component', ['found_dogs' => $found_dogs])->layout('livewire.admin.layouts.base');
     }
 }

@@ -4,14 +4,12 @@ namespace App\Livewire\Admin\LostDog;
 
 use App\Models\LostDog;
 use Livewire\Component;
-use Livewire\Attributes\Url;
 use Livewire\WithPagination;
 use Livewire\Attributes\Title;
 
 class LostDogComponent extends Component
 {
     use WithPagination;
-    #[Url('history:true')]
     public $sortingValue = 10, $searchTerm, $sortBy = 'created_at', $sortDirection = 'DESC';
     public $edit_id, $delete_id;
 
@@ -20,6 +18,32 @@ class LostDogComponent extends Component
         $this->delete_id = $id;
         $this->dispatch('show_delete_confirmation');
     }
+
+    public function changeStatus($id)
+    {
+        $lost_dog = LostDog::find($id);
+        if ($lost_dog->status == 0) {
+            $lost_dog->status = 1;
+        } else {
+            $lost_dog->status = 0;
+        }
+        $lost_dog->save();
+        $this->dispatch('success', ['message' => 'Status updated successfully']);
+    }
+
+    // public function changeMissingStatus($id)
+    // {
+    //     $Missing_lost_dog = LostDog::find($id);
+    //     if ($Missing_lost_dog->status == 0) {
+    //         # code...
+    //     } elseif($Missing_lost_dog->status == 0) {
+    //         # code...
+    //     }else{
+
+    //     }
+    //     $Missing_lost_dog->save();
+    //     $this->dispatch('success', ['message' => 'Status updated successfully']);
+    // }
 
     public function deleteData()
     {

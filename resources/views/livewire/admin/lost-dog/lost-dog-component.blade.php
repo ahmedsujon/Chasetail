@@ -55,45 +55,30 @@
                                 <table class="table align-middle table-nowrap table-bordered mb-0">
                                     <thead>
                                         <tr>
-                                            @include(
-                                                'livewire.admin.datatable.admin-datatable-sorting',
-                                                [
-                                                    'name' => 'id',
-                                                    'thDisplayName' => 'ID',
-                                                ]
-                                            )
-                                            @include(
-                                                'livewire.admin.datatable.admin-datatable-sorting',
-                                                [
-                                                    'name' => 'name',
-                                                    'thDisplayName' => 'Name',
-                                                ]
-                                            )
-                                            @include(
-                                                'livewire.admin.datatable.admin-datatable-sorting',
-                                                [
-                                                    'name' => 'gender',
-                                                    'thDisplayName' => 'Gender',
-                                                ]
-                                            )
-                                            @include(
-                                                'livewire.admin.datatable.admin-datatable-sorting',
-                                                [
-                                                    'name' => 'color',
-                                                    'thDisplayName' => 'Color',
-                                                ]
-                                            )
+                                            @include('livewire.admin.datatable.admin-datatable-sorting', [
+                                                'name' => 'id',
+                                                'thDisplayName' => 'ID',
+                                            ])
+                                            @include('livewire.admin.datatable.admin-datatable-sorting', [
+                                                'name' => 'name',
+                                                'thDisplayName' => 'Name',
+                                            ])
+                                            @include('livewire.admin.datatable.admin-datatable-sorting', [
+                                                'name' => 'gender',
+                                                'thDisplayName' => 'Gender',
+                                            ])
+                                            @include('livewire.admin.datatable.admin-datatable-sorting', [
+                                                'name' => 'color',
+                                                'thDisplayName' => 'Color',
+                                            ])
                                             @include('livewire.admin.datatable.admin-datatable-sorting', [
                                                 'name' => 'status',
                                                 'thDisplayName' => 'Status',
                                             ])
-                                            @include(
-                                                'livewire.admin.datatable.admin-datatable-sorting',
-                                                [
-                                                    'name' => 'missing_status',
-                                                    'thDisplayName' => 'Missing Status',
-                                                ]
-                                            )
+                                            @include('livewire.admin.datatable.admin-datatable-sorting', [
+                                                'name' => 'missing_status',
+                                                'thDisplayName' => 'Missing Status',
+                                            ])
                                             <th class="align-middle text-center">Action</th>
                                         </tr>
                                     </thead>
@@ -105,8 +90,33 @@
                                                     <td>{{ $lost_dog->name }}</td>
                                                     <td>{{ $lost_dog->gender }}</td>
                                                     <td>{{ $lost_dog->color }}</td>
-                                                    <td>{{ $lost_dog->status }}</td>
-                                                    <td>{{ $lost_dog->missing_status }}</td>
+                                                    <td style="width: 15%;">
+                                                        @if ($lost_dog->status == 0)
+                                                            <span
+                                                                class="badge badge-pill badge-soft-success font-size-11"
+                                                                wire:click.prevent='changeStatus({{ $lost_dog->id }})'>
+                                                                {!! loadingStateStatus('changeStatus(' . $lost_dog->id . ')', 'In-Active') !!}
+                                                            </span>
+                                                        @else
+                                                            <span
+                                                                class="badge badge-pill badge-soft-danger font-size-11"
+                                                                wire:click.prevent='changeStatus({{ $lost_dog->id }})'>
+                                                                {!! loadingStateStatus('changeStatus(' . $lost_dog->id . ')', 'Active') !!}
+                                                            </span>
+                                                        @endif
+                                                    </td>
+                                                    <td>
+                                                        @if ($lost_dog->missing_status == 'found')
+                                                            <span
+                                                                class="badge badge-pill badge-soft-success font-size-11">{{ $lost_dog->missing_status }}</span>
+                                                        @elseif($lost_dog->missing_status == 'searching')
+                                                            <span
+                                                                class="badge badge-pill badge-soft-warning font-size-11">{{ $lost_dog->missing_status }}</span>
+                                                        @else
+                                                            <span
+                                                                class="badge badge-pill badge-soft-danger font-size-11">{{ $lost_dog->missing_status }}</span>
+                                                        @endif
+                                                    </td>
                                                     <td class="text-center">
                                                         <button
                                                             class="btn btn-sm btn-soft-primary waves-effect waves-light action-btn edit_btn"
@@ -126,7 +136,8 @@
                                             @endforeach
                                         @else
                                             <tr>
-                                                <td colspan="7" class="text-center pt-5 pb-5">No lost dogs found!</td>
+                                                <td colspan="7" class="text-center pt-5 pb-5">No lost dogs found!
+                                                </td>
                                             </tr>
                                         @endif
                                     </tbody>
