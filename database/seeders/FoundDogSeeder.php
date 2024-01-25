@@ -24,6 +24,8 @@ class FoundDogSeeder extends Seeder
                 'description' => $faker->text,
                 'longitude' => $faker->longitude,
                 'latitude' => $faker->latitude,
+                'status' => $faker->randomDigit(0,1),
+                'missing_status' => $faker->randomElement(['found', 'searching', 'not_found']),
             ]);
         }
     }

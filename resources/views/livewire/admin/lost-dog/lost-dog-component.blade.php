@@ -20,9 +20,9 @@
                     <div class="card">
                         <div class="card-header bg-white" style="border-bottom: 1px solid #e2e2e7;">
                             <h4 class="card-title" style="float: left;">All Lost Dog</h4>
-                            <button class="btn btn-sm btn-dark waves-effect waves-light" data-bs-toggle="modal"
+                            {{-- <button class="btn btn-sm btn-dark waves-effect waves-light" data-bs-toggle="modal"
                                 data-bs-target="#addDataModal" style="float: right;"><i class="bx bx-plus"></i> Add
-                                Admin</button>
+                                Admin</button> --}}
                         </div>
                         <div class="card-body">
                             <div class="row mb-3">
@@ -83,6 +83,10 @@
                                                     'thDisplayName' => 'Color',
                                                 ]
                                             )
+                                            @include('livewire.admin.datatable.admin-datatable-sorting', [
+                                                'name' => 'status',
+                                                'thDisplayName' => 'Status',
+                                            ])
                                             @include(
                                                 'livewire.admin.datatable.admin-datatable-sorting',
                                                 [
@@ -101,6 +105,7 @@
                                                     <td>{{ $lost_dog->name }}</td>
                                                     <td>{{ $lost_dog->gender }}</td>
                                                     <td>{{ $lost_dog->color }}</td>
+                                                    <td>{{ $lost_dog->status }}</td>
                                                     <td>{{ $lost_dog->missing_status }}</td>
                                                     <td class="text-center">
                                                         <button

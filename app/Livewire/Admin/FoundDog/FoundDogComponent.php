@@ -25,7 +25,7 @@ class FoundDogComponent extends Component
     {
         $admin = FoundDog::find($this->delete_id);
         $admin->delete();
-        $this->dispatch('admin_deleted');
+        $this->dispatch('found_dog_deleted');
         $this->delete_id = '';
     }
 
@@ -46,7 +46,7 @@ class FoundDogComponent extends Component
     #[Title('Found Dogs')]
     public function render()
     {
-        $found_dogs = FoundDog::where('name', 'like', '%' . $this->searchTerm . '%')
+        $found_dogs = FoundDog::where('gender', 'like', '%' . $this->searchTerm . '%')
             ->orderBy($this->sortBy, $this->sortDirection)
             ->paginate($this->sortingValue);
         $this->dispatch('reload_scripts');
