@@ -7,7 +7,7 @@ use Livewire\Attributes\Title;
 
 class UsersComponent extends Component
 {
-    #[Title('USer List')]
+    #[Title('User List')]
     public function render()
     {
         return view('livewire.admin.users.users-component')->layout('livewire.admin.layouts.base');

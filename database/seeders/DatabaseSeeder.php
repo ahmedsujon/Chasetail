@@ -16,5 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call(AdminTableSeeder::class);
         $this->call(UserTableSeeder::class);
         $this->call(SettingTableSeeder::class);
+        $this->call(LostDogSeeder::class);
+        $this->call(FoundDogSeeder::class);
     }
 }

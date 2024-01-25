@@ -16,6 +16,25 @@
                         </a>
                     </li>
 
+                    @if (isAdminPermitted('users_manage') || isAdminPermitted('admins_manage'))
+                        <li class="menu-title" key="t-user">Dogs</li>
+                    @endif
+                    @if (isAdminPermitted('users_manage'))
+                        <li>
+                            <a href="{{ route('admin.lost.dogs') }}" class="waves-effect">
+                                <i class="bx bx-user"></i>
+                                <span key="t-chat">Lost Dogs</span>
+                            </a>
+                        </li>
+                    @endif
+                    @if (isAdminPermitted('admins_manage'))
+                        <li>
+                            <a href="{{ route('admin.found.dogs') }}" class="waves-effect">
+                                <i class="bx bx-user"></i>
+                                <span key="t-chat">Found Dogs</span>
+                            </a>
+                        </li>
+                    @endif
 
                     @if (isAdminPermitted('users_manage') || isAdminPermitted('admins_manage'))
                         <li class="menu-title" key="t-user">User</li>
