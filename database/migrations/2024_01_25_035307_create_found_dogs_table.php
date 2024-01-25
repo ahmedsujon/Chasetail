@@ -16,6 +16,7 @@ return new class extends Migration
             $table->integer('user_id')->unsigned()->nullable();
             $table->string('color')->nullable();
             $table->string('gender')->nullable();
+            $table->string('breed')->nullable();
             $table->string('description')->nullable();
             $table->string('longitude')->nullable();
             $table->string('latitude')->nullable();

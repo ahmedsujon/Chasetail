@@ -22,6 +22,7 @@ class LostDogSeeder extends Seeder
                 'name' => $faker->firstName,
                 'gender' => $faker->randomElement(['male', 'female']),
                 'color' => $faker->colorName,
+                'breed' => $faker->word, 
                 'description' => $faker->text,
                 'longitude' => $faker->longitude,
                 'latitude' => $faker->latitude,

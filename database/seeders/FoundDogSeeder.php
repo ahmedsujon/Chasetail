@@ -20,6 +20,7 @@ class FoundDogSeeder extends Seeder
                 'user_id' => $faker->randomDigit(1,10),
                 'color' => $faker->colorName,
                 'gender' => $faker->randomElement(['male', 'female']),
+                'breed' => $faker->word,
                 'description' => $faker->text,
                 'longitude' => $faker->longitude,
                 'latitude' => $faker->latitude,
