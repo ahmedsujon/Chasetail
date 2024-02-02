@@ -5,7 +5,7 @@
                 <div class="row align-items-center">
                     <div class="col-md-5 col-lg-7 col-12">
                         <div class="logo">
-                            <a href="index.html"><img class="img-fluid" src="{{ asset('assets/app/images/logo.png') }}"
+                            <a href="{{ route('app.home') }}"><img class="img-fluid" src="{{ asset('assets/app/images/logo.png') }}"
                                     alt="Find Fido Fast"></a>
                         </div>
                     </div>
@@ -19,18 +19,17 @@
                                     </ul>
                                 </div>
                             </div>
+
                             <div class="col-md-5 col-lg-5 col-5">
                                 <div class="my-account">
                                     <ul>
-                                        <li><a href="index.html"><img class="img-fluid"
-                                                    src="{{ asset('assets/app/images/icon-notification.jpg') }}"
-                                                    alt="Notification" /></a></li>
                                         <li><a href="index.html"><img class="img-fluid"
                                                     src="{{ asset('assets/app/images/profile.jpg') }}"
                                                     alt="Profile" /></a></li>
                                     </ul>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
