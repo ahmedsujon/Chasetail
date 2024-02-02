@@ -8,6 +8,6 @@ class FoundDogComponent extends Component
 {
     public function render()
     {
-        return view('livewire.app.found-dog.found-dog-component');
+        return view('livewire.app.found-dog.found-dog-component')->layout('livewire.app.layouts.base');
     }
 }
