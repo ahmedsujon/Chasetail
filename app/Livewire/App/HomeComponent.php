@@ -7,6 +7,7 @@ use Livewire\Attributes\Title;
 
 class HomeComponent extends Component
 {
+
     #[Title('Home Page')]
     public function render()
     {
