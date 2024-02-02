@@ -1,48 +1,59 @@
 <div>
-    <header id="page-topbar" style="background: #0F1932; color: white;">
-        <div class="container">
-            <div class="navbar-header">
-                <div class="d-flex">
-                    <span class="ms-3">
-                        <a href="/" class="d-block text-center">
-                            <img src="{{ asset(setting()->logo) }}" alt="" height="18" class="auth-logo-dark">
-                        </a>
-                    </span>
-                </div>
-
-                <div class="d-flex">
-                    @if (user())
-                    <div class="dropdown d-inline-block">
-                        <button type="button" class="btn header-item waves-effect" style="background: #0F1932; color: white;" id="page-header-user-dropdown"
-                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="rounded-circle header-profile-user" src="{{ asset(user()->avatar) }}" style="height: 27px; width: 27px;" alt="Header Avatar">
-                            <span class="ms-1" key="t-henry">{{ user()->first_name }} {{ user()->last_name }}</span>
-                            <i class="mdi mdi-chevron-down"></i>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-end" style="">
-                            <a class="dropdown-item" href="{{ route('user.dashboard') }}"><i class="bx bx-user font-size-16 align-middle me-1"></i> <span key="t-profile">My Account</span></a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item text-danger" href="{{ route('user.logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span key="t-logout">Logout</span></a>
-                            <form id="logout-form" style="display: none;" method="POST" action="{{ route('user.logout') }}">
-                                @csrf
-                            </form>
+    <header>
+        <div class="header">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-5 col-lg-7 col-12">
+                        <div class="logo">
+                            <a href="index.html"><img class="img-fluid" src="{{ asset('assets/app/images/logo.png') }}"
+                                    alt="Find Fido Fast"></a>
                         </div>
                     </div>
-                    @else
-                        <div class="dropdown d-inline-block">
-                            <button type="button" class="btn header-item waves-effect" style="background: #0F1932; color: white;" id="page-header-user-dropdown"
-                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="ms-1" key="t-henry">Account</span>
-                                <i class="mdi mdi-chevron-down"></i>
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-end" style="">
-                                <a class="dropdown-item" href="{{ route('login') }}">Sign In</span></a>
-                                <a class="dropdown-item" href="{{ route('register') }}">Sign Up</span></a>
+                    <div class="col-md-7 col-lg-5 col-12">
+                        <div class="row">
+                            <div class="col-md-7 col-lg-7 col-7">
+                                <div class="top-menu">
+                                    <ul>
+                                        <li><a href="#">Sign-in</a></li>
+                                        <li><a href="#">Sign-up</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-5 col-lg-5 col-5">
+                                <div class="my-account">
+                                    <ul>
+                                        <li><a href="index.html"><img class="img-fluid"
+                                                    src="{{ asset('assets/app/images/icon-notification.jpg') }}"
+                                                    alt="Notification" /></a></li>
+                                        <li><a href="index.html"><img class="img-fluid"
+                                                    src="{{ asset('assets/app/images/profile.jpg') }}"
+                                                    alt="Profile" /></a></li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    @endif
+                    </div>
                 </div>
             </div>
         </div>
     </header>
+    <!-- Main Menu -->
+    <div class="main-menu">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Lost Dogs</a></li>
+                        <li><a href="#">Found Dogs</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Donation</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
