@@ -18,9 +18,11 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->string('gender')->nullable();
             $table->string('color')->nullable();
+            $table->string('breed')->nullable();
             $table->string('description')->nullable();
             $table->string('longitude')->nullable();
             $table->string('latitude')->nullable();
+            $table->string('photos')->nullable();
             $table->string('missing_status')->default('searching');
             $table->boolean('status')->default(1);
             $table->timestamps();
