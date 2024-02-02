@@ -14,8 +14,8 @@
                             <div class="col-md-7 col-lg-7 col-7">
                                 <div class="top-menu">
                                     <ul>
-                                        <li><a href="#">Sign-in</a></li>
-                                        <li><a href="#">Sign-up</a></li>
+                                        <li><a href="{{ route('login') }}">Sign-in</a></li>
+                                        <li><a href="{{ route('register') }}">Sign-up</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -43,13 +43,13 @@
             <div class="row">
                 <div class="col-md-12">
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Lost Dogs</a></li>
-                        <li><a href="#">Found Dogs</a></li>
-                        <li><a href="#">Pricing</a></li>
-                        <li><a href="#">Donation</a></li>
-                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="{{ route('app.home') }}">Home</a></li>
+                        <li><a href="{{ route('app.aboutus') }}">About Us</a></li>
+                        <li><a href="{{ route('app.lost.dogs') }}">Lost Dogs</a></li>
+                        <li><a href="{{ route('app.found.dogs') }}">Found Dogs</a></li>
+                        <li><a href="{{ route('app.pricing') }}">Pricing</a></li>
+                        <li><a href="{{ route('app.donation') }}">Donation</a></li>
+                        <li><a href="{{ route('app.contact') }}">Contact Us</a></li>
                     </ul>
                 </div>
             </div>
