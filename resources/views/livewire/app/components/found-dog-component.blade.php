@@ -103,7 +103,7 @@
     <div class="view-all">
         <div class="row">
             <div class="col-md-12 text-center">
-                <a href="#" class="btn-view">View All</a>
+                <a href="/found-dogs"  wire:navigate class="btn-view">View All</a>
             </div>
         </div>
     </div>
