@@ -14,11 +14,12 @@ return new class extends Migration
         Schema::create('found_dogs', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->unsigned()->nullable();
+            $table->string('name')->nullable();
             $table->string('color')->nullable();
             $table->string('gender')->nullable();
             $table->string('breed')->nullable();
             $table->string('description')->nullable();
-            $table->string('photo')->nullable();
+            $table->string('photos')->nullable();
             $table->string('longitude')->nullable();
             $table->string('latitude')->nullable();
             $table->string('status')->default(1);

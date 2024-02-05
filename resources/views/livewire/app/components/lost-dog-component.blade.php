@@ -4,15 +4,15 @@
             <div class="row">
                 <div class="col-md-5 col-lg-5 col-5">
                     <div class="box-info-img">
-                        <img class="img-fluid" src="{{ asset('assets/app/images/found-dog-1.jpg') }}" alt="found dog" />
+                        <img class="img-fluid" src="{{ asset($lot_dog->photos) }}" alt="found dog" />
                     </div>
                 </div>
                 <div class="col-md-7 col-lg-7 col-7">
                     <div class="box-info-text">
-                        <h3>Pomeranian Puppy</h3>
-                        <p>Found Address: Dallas - Texas</p>
-                        <p>Color: White</p>
-                        <p>Gender: Male</p>
+                        <h3>{{ $lot_dog->name }}</h3>
+                        <p>Found Address: {{ $lot_dog->address }}</p>
+                        <p>Color: {{ $lot_dog->color }}</p>
+                        <p>Gender: {{ $lot_dog->gender }}</p>
                     </div>
                 </div>
             </div>
