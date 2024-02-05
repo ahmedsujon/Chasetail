@@ -22,10 +22,11 @@ class LostDogSeeder extends Seeder
                 'name' => $faker->firstName,
                 'gender' => $faker->randomElement(['male', 'female']),
                 'color' => $faker->colorName,
-                'breed' => $faker->word, 
+                'breed' => $faker->word,
                 'description' => $faker->text,
                 'longitude' => $faker->longitude,
                 'latitude' => $faker->latitude,
+                'photos' => 'assets/app/images/lost-dog-1.jpg',
                 'missing_status' => $faker->randomElement(['found', 'searching', 'not_found']),
                 'status' => $faker->numberBetween(0,1),
             ]);

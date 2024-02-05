@@ -21,13 +21,13 @@
             <div class="col-md-6 col-lg-6 col-sm-12">
                 <div class="content-box">
                     <h2>List of Found Dogs</h2>
-                    <livewire:app.components.lost-dog-component lazy />
+                    <livewire:app.components.found-dog-component lazy />
                 </div>
             </div>
             <div class="col-md-6 col-lg-6 col-sm-12">
                 <div class="content-box">
                     <h2>List of Lost Dogs</h2>
-                    <livewire:app.components.found-dog-component lazy />
+                    <livewire:app.components.lost-dog-component lazy />
                 </div>
             </div>
         </div>
