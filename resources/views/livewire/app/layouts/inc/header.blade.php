@@ -22,7 +22,6 @@
                                                     src="{{ asset('assets/admin/images/avatar.png') }}"
                                                     alt="Profile" />
                                             @endif
-
                                         </a>
                                     </li>
                                 @else
