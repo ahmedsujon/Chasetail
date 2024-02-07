@@ -39,7 +39,7 @@
             }
         }
     </style>
-    <div class="found_dog_skeleton d-flex justify-content-center align-items-center">
+    <div class="found_dog_skeleton d-flex justify-content-center align-items-center mb-5 mt-3">
         <div class="card">
             <div class="row">
                 <div class="col-5">
@@ -80,7 +80,7 @@
             </div>
         </div>
     </div>
-    <div class="found_dog_skeleton d-flex justify-content-center align-items-center">
+    <div class="found_dog_skeleton d-flex justify-content-center align-items-center mb-5">
         <div class="card">
             <div class="row">
                 <div class="col-5">
@@ -121,7 +121,7 @@
             </div>
         </div>
     </div>
-    <div class="found_dog_skeleton d-flex justify-content-center align-items-center">
+    <div class="found_dog_skeleton d-flex justify-content-center align-items-center mb-5">
         <div class="card">
             <div class="row">
                 <div class="col-5">
@@ -162,7 +162,7 @@
             </div>
         </div>
     </div>
-    <div class="found_dog_skeleton d-flex justify-content-center align-items-center">
+    <div class="found_dog_skeleton d-flex justify-content-center align-items-center mb-5">
         <div class="card">
             <div class="row">
                 <div class="col-5">
