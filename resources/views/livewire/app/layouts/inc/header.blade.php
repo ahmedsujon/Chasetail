@@ -25,8 +25,18 @@
                                         </a>
                                     </li>
                                 @else
-                                    <li><a href="/login" wire:navigate>Sign-in</a></li>
-                                    <li><a href="/register" wire:navigate>Sign-up</a></li>
+                                    <li>
+                                        <button type="button" class="btn" data-bs-toggle="modal"
+                                            data-bs-target="#signInModal">
+                                            Sign-in
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="button" class="btn" data-bs-toggle="modal"
+                                            data-bs-target="#signUpModal">
+                                            Sign-up
+                                        </button>
+                                    </li>
                                 @endif
                                 <li>
                                     <a class="dropdown-item text-danger" href="{{ route('user.logout') }}"

@@ -32,4 +32,8 @@
             </div>
         </div>
     </div>
+
+    <livewire:app.user.auth.login-component />
+    <livewire:app.user.auth.register-component />
+
 </div>
