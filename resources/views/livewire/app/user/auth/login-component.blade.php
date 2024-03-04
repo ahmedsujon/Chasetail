@@ -1,6 +1,6 @@
 <div>
-    <div class="signInSignUpModal" wire:ignore>
-        <div class="modal fade" id="signInModal">
+    <div class="signInSignUpModal">
+        <div class="modal fade" id="signInModal" wire:ignore.self>
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
