@@ -1,6 +1,6 @@
 <div>
-    <div class="signInSignUpModal" wire:ignore.self>
-        <div class="modal fade" id="signInModal">
+    <div class="signInSignUpModal">
+        <div class="modal fade" id="signInModal" wire:ignore.self>
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -12,14 +12,14 @@
                         <form wire:submit.prevent='userLogin'>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Enter email</label>
-                                <input type="email" class="form-control" wire:model='email' id="email">
+                                <input type="email" class="form-control" wire:model.blur='email' id="email">
                                 @error('email')
                                     <p class="text-danger font-size-12">{{ $message }}</p>
                                 @enderror
                             </div>
                             <div class="mb-3">
                                 <label for="password" class="form-label">Enter password</label>
-                                <input type="password" wire:model='password' class="form-control" id="password">
+                                <input type="password" wire:model.blur='password' class="form-control" id="password">
                                 @error('password')
                                     <p class="text-danger font-size-12">{{ $message }}</p>
                                 @enderror

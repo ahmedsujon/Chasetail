@@ -1,7 +1,6 @@
 <div>
-
-    <div class="signInSignUpModal" wire:ignore.self>
-        <div class="modal fade" id="signUpModal">
+    <div class="signInSignUpModal">
+        <div class="modal fade" id="signUpModal" wire:ignore.self>
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -25,6 +24,13 @@
                                     <p class="text-danger font-size-12 mb-0">{{ $message }}</p>
                                 @enderror
                             </div>
+                            {{-- <div class="mb-3">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input type="phone" wire:model.blur='phone' class="form-control" id="phone">
+                                @error('phone')
+                                    <p class="text-danger font-size-12 mb-0">{{ $message }}</p>
+                                @enderror
+                            </div> --}}
                             <div class="mb-3">
                                 <label for="password" class="form-label">password</label>
                                 <input type="password" wire:model.blur='password' class="form-control" id="password">
