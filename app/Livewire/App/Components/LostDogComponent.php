@@ -7,6 +7,11 @@ use Livewire\Component;
 
 class LostDogComponent extends Component
 {
+
+    public function placeholder()
+    {
+        return view('livewire.app.placeholders.lost-dog');
+    }
     public function render()
     {
         $lot_dogs = LostDog::orderBy("created_at","desc")->take(5)->get();

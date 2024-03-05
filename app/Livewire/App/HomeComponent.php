@@ -2,8 +2,11 @@
 
 namespace App\Livewire\App;
 
+use App\Models\User;
 use Livewire\Component;
 use Livewire\Attributes\Title;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class HomeComponent extends Component
 {

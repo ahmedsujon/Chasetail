@@ -7,6 +7,11 @@ use Livewire\Component;
 
 class FoundDogComponent extends Component
 {
+
+    public function placeholder()
+    {
+        return view('livewire.app.placeholders.found-dog');
+    }
     public function render()
     {
         $found_dogs = FoundDog::orderBy("created_at","desc")->take(5)->get();
