@@ -11,13 +11,12 @@ use Illuminate\Support\Facades\Hash;
 
 class RegisterComponent extends Component
 {
-    public $first_name, $last_name, $email, $phone, $password, $confirm_password;
+    public $name, $email, $phone, $password, $confirm_password;
 
     public function updated($fields)
     {
         $this->validateOnly($fields, [
-            'first_name' => 'required',
-            'last_name' => 'required',
+            'name' => 'required',
             'email' => 'required|email|unique:users,email',
             'phone' => 'required|unique:users,phone',
             'password' => 'required|min:8|max:30',
@@ -28,8 +27,7 @@ class RegisterComponent extends Component
     public function userRegistration()
     {
         $this->validate([
-            'first_name' => 'required',
-            'last_name' => 'required',
+            'name' => 'required',
             'email' => 'required|email|unique:users,email',
             'phone' => 'required|unique:users,phone',
             'password' => 'required|min:8|max:30',
@@ -54,7 +52,6 @@ class RegisterComponent extends Component
         }
     }
     
-    #[Title('Register')]
     public function render()
     {
         return view('livewire.app.user.auth.register-component')->layout('livewire.app.layouts.base');

@@ -1,5 +1,5 @@
 <div>
-    <div class="signInSignUpModal" wire:ignore>
+    <div class="signInSignUpModal" wire:ignore.self>
         <div class="modal fade" id="signInModal">
             <div class="modal-dialog">
                 <div class="modal-content">
