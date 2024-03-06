@@ -10,6 +10,7 @@ class LostDogComponent extends Component
 {
     use WithPagination;
     public $sortingValue = 10, $searchTerm;
+
     public function render()
     {
         $lost_dogs = LostDog::where('name', 'like', '%' . $this->searchTerm . '%')->orderBy('id', 'DESC')->paginate($this->sortingValue);

@@ -11,7 +11,14 @@ class LostDogComponent extends Component
 {
     use WithPagination;
     public $sortingValue = 10, $searchTerm, $sortBy = 'created_at', $sortDirection = 'DESC';
-    public $edit_id, $delete_id;
+    public $edit_id, $delete_id, $missing_status;
+
+    // public function mount($id)
+    // {
+    //     $this->edit_id = $id;
+    //     $order = LostDog::where('id', $id)->first();
+    //     $this->missing_status = $order->missing_status;
+    // }
 
     public function deleteConfirmation($id)
     {
@@ -31,19 +38,18 @@ class LostDogComponent extends Component
         $this->dispatch('success', ['message' => 'Status updated successfully']);
     }
 
-    // public function changeMissingStatus($id)
-    // {
-    //     $Missing_lost_dog = LostDog::find($id);
-    //     if ($Missing_lost_dog->status == 0) {
-    //         # code...
-    //     } elseif($Missing_lost_dog->status == 0) {
-    //         # code...
-    //     }else{
+    public function changeMissingStatus()
+    {
+        $this->validate([
+            'missing_status' => 'required',
+        ]);
 
-    //     }
-    //     $Missing_lost_dog->save();
-    //     $this->dispatch('success', ['message' => 'Status updated successfully']);
-    // }
+        $user = LostDog::find($this->edit_id);
+        $user->missing_status = $this->missing_status;
+        $user->save();
+        $this->dispatch('closeModal');
+        $this->dispatch('success', ['message' => 'Status updated successfully']);
+    }
 
     public function deleteData()
     {

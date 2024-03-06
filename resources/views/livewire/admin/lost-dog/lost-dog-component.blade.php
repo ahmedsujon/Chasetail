@@ -106,15 +106,21 @@
                                                         @endif
                                                     </td>
                                                     <td>
-                                                        @if ($lost_dog->missing_status == 'found')
-                                                            <span
-                                                                class="badge badge-pill badge-soft-success font-size-11">{{ $lost_dog->missing_status }}</span>
-                                                        @elseif($lost_dog->missing_status == 'searching')
-                                                            <span
-                                                                class="badge badge-pill badge-soft-warning font-size-11">{{ $lost_dog->missing_status }}</span>
+                                                        @if ($lost_dog->missing_status == 'Found')
+                                                            <button data-bs-toggle="modal"
+                                                                data-bs-target="#addDataModal"
+                                                                class="btn btn-xs btn-success"
+                                                                style="font-weight: normal; font-size: 11px; padding: 1px 7px;">{{ $lost_dog->missing_status }}</button>
+                                                        @elseif($lost_dog->missing_status == 'Searching')
+                                                            <button data-bs-toggle="modal"
+                                                                data-bs-target="#addDataModal"
+                                                                class="btn btn-xs btn-warning"
+                                                                style="font-weight: normal; font-size: 11px; padding: 1px 7px;">{{ $lost_dog->missing_status }}</button>
                                                         @else
-                                                            <span
-                                                                class="badge badge-pill badge-soft-danger font-size-11">{{ $lost_dog->missing_status }}</span>
+                                                            <button data-bs-toggle="modal"
+                                                                data-bs-target="#addDataModal"
+                                                                class="btn btn-xs btn-danger"
+                                                                style="font-weight: normal; font-size: 11px; padding: 1px 7px;">{{ $lost_dog->missing_status }}</button>
                                                         @endif
                                                     </td>
                                                     <td class="text-center">
@@ -146,6 +152,53 @@
                         </div>
                         <div class="card-footer bg-transparent">
                             {{ $lost_dogs->links('livewire.pagination-links') }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Data Modal -->
+    <div wire:ignore.self class="modal fade" id="addDataModal" tabindex="-1" role="dialog" data-bs-backdrop="static"
+        data-bs-keyboard="false" aria-labelledby="modelTitleId">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-zoom modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="background: white;">
+                    <h5 class="modal-title m-0" id="mySmallModalLabel">Update Status</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row justify-content-center">
+                        <div class="col-md-11">
+                            <form wire:submit.prevent='changeMissingStatus' enctype="multipart/form-data">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="mb-3 row">
+                                            <label class="col-md-2 col-form-label">Select Status</label>
+                                            <div class="col-md-12">
+                                                <select class="form-select" wire:model.bluer='missing_status'>
+                                                    <option disabled selected>Select Status</option>
+                                                    <option value="Searching">Searching</option>
+                                                    <option value="Not Found">Not Found</option>
+                                                    <option value="Found">Found</option>
+                                                </select>
+                                                @error('missing_status')
+                                                    <p class="text-danger" style="font-size: 11.5px;">{{ $message }}
+                                                    </p>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-3 row mt-4">
+                                    <div class="col-12 text-center">
+                                        <button type="submit" class="btn btn-primary waves-effect waves-light w-50">
+                                            {!! loadingStateWithText('changeMissingStatus', 'Update') !!}
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
