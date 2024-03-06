@@ -42,8 +42,7 @@ class LoginComponent extends Component
             session()->flash('error', 'Incorrect email or password');
         }
     }
-    
-    #[Title('Login')]
+
     public function render()
     {
         return view('livewire.app.user.auth.login-component')->layout('livewire.app.layouts.base');
