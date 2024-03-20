@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('longitude')->nullable();
             $table->string('latitude')->nullable();
             $table->string('status')->default(1);
-            $table->string('missing_status')->default('searching');
+            $table->string('missing_status')->default('Searching');
             $table->timestamps();
         });
     }

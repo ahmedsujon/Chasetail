@@ -2,19 +2,25 @@
 
 namespace Database\Factories;
 
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class UserFactory extends Factory
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Contact>
+ */
+class CustomerFactory extends Factory
 {
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
     public function definition(): array
     {
         return [
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
-            'password' => Hash::make('12345678'),
             'phone' => fake()->unique()->e164PhoneNumber(),
-            'status' => 1,
+            'status' => fake()->randomElement(['active', 'inactive']),
         ];
     }
 }

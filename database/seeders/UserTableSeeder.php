@@ -20,9 +20,9 @@ class UserTableSeeder extends Seeder
             $getUser = User::where('email', $email)->first();
             if (!$getUser) {
                 $user = new User();
-                $user->name = $key;
+                $user->name = "User";
                 $user->email = $email;
-                $user->phone = '0170000000' . $key;
+                $user->phone = '0170000000';
                 $user->password = Hash::make('12345678');
                 $user->avatar = 'assets/images/avatar.png';
                 $user->save();

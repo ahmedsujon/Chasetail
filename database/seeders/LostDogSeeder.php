@@ -27,7 +27,7 @@ class LostDogSeeder extends Seeder
                 'longitude' => $faker->longitude,
                 'latitude' => $faker->latitude,
                 'photos' => 'assets/app/images/lost-dog-1.jpg',
-                'missing_status' => $faker->randomElement(['found', 'searching', 'not_found']),
+                'missing_status' => $faker->randomElement(['Found', 'Searching', 'Not Found']),
                 'status' => $faker->numberBetween(0,1),
             ]);
         }

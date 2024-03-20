@@ -24,8 +24,9 @@
                                     <p class="text-danger font-size-12">{{ $message }}</p>
                                 @enderror
                             </div>
-                            <div class="mb-3 forgot">
-                                <a href="#">Forgot your password?</a>
+                            <div class="mb-3 forgot" data-bs-toggle="modal" data-bs-target="#ForgotPassModal">
+                                <a href="#">Forgot
+                                    your password?</a>
                             </div>
                             <button type="submit" class="btn btn-primary">{!! loadingStateWithText('userLogin', 'Sign in to your account') !!}</button>
                             <p>Don't have an account? <a href="#" class="btn" data-bs-toggle="modal"

@@ -87,17 +87,13 @@
                                                     <td>{{ $found_dog->color }}</td>
                                                     <td style="width: 15%;">
                                                         @if ($found_dog->status == 0)
-                                                        
-                                                        <button class="btn btn-xs btn-danger"
-                                                            wire:click.prevent='changeStatus({{ $found_dog->id }})'
-                                                            style="font-weight: normal; font-size: 11px; padding: 1px 7px;">{!!
-                                                            loadingStateStatus('changeStatus(' . $found_dog->id . ')', 'In-Active')
-                                                            !!}</button>
+                                                            <button class="btn btn-xs btn-danger"
+                                                                wire:click.prevent='changeStatus({{ $found_dog->id }})'
+                                                                style="font-weight: normal; font-size: 11px; padding: 1px 7px;">{!! loadingStateStatus('changeStatus(' . $found_dog->id . ')', 'In-Active') !!}</button>
                                                         @else
-                                                        <button class="btn btn-xs btn-success"
-                                                            wire:click.prevent='changeStatus({{ $found_dog->id }})'
-                                                            style="font-weight: normal; font-size: 11px; padding: 1px 7px;">{!!
-                                                            loadingStateStatus('changeStatus(' . $found_dog->id . ')', 'Active') !!}</button>
+                                                            <button class="btn btn-xs btn-success"
+                                                                wire:click.prevent='changeStatus({{ $found_dog->id }})'
+                                                                style="font-weight: normal; font-size: 11px; padding: 1px 7px;">{!! loadingStateStatus('changeStatus(' . $found_dog->id . ')', 'Active') !!}</button>
                                                         @endif
                                                     </td>
                                                     <td>{{ $found_dog->missing_status }}</td>
