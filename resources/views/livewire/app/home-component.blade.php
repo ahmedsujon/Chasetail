@@ -1,5 +1,5 @@
 <div>
-    <!-- Banner -->
+    <section id="banner-section">
         <div class="banner">
             <div class="banner-text">
                 <div class="container">
@@ -15,6 +15,7 @@
                 </div>
             </div>
         </div>
+    </section>
     <!-- Page content -->
     <div class="container">
         <div class="row">
