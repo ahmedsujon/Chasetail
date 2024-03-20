@@ -3,7 +3,6 @@
         <div class="header-top">
             <div class="container">
                 <div class="row align-items-center">
-
                     <div class="col-md-6 col-lg-8 col-7">
                         <div class="top-menu2">
                             <ul>
@@ -17,15 +16,26 @@
                     <div class="col-md-6 col-lg-4 col-5">
                         <div class="top-menu">
                             <ul>
-                                <li>
-                                    <a href="#">Sign-in</a>
-                                </li>
-                                <li>
-                                    <a href="signup.html">Sign-up</a>
-                                </li>
-                                <li><a href="index.html"><img class="img-fluid"
-                                            src="{{ asset('assets/app/images/profile.png') }}" alt="Profile" /></a>
-                                </li>
+                                @if (Auth::user())
+                                    @if (Auth::user()->avatar)
+                                        <li><a href="index.html"><img class="img-fluid"
+                                                    src="{{ asset('assets/app/images/profile.png') }}"
+                                                    alt="Profile" /></a>
+                                        </li>
+                                    @else
+                                        <li><a href="index.html"><img class="img-fluid"
+                                                    src="{{ asset('assets/app/images/profile.png') }}"
+                                                    alt="Profile" /></a>
+                                        </li>
+                                    @endif
+                                @else
+                                    <li>
+                                        <a href="/login" wire:navigate>Sign-in</a>
+                                    </li>
+                                    <li>
+                                        <a href="/register" wire:navigate>Sign-up</a>
+                                    </li>
+                                @endif
                             </ul>
                         </div>
                     </div>
@@ -37,8 +47,8 @@
                 <div class="row align-items-center">
                     <div class="col-md-6 col-lg-4 col-6">
                         <div class="logo">
-                            <a href="index.html"><img class="img-fluid" src="{{ asset('assets/app/images/logo.png') }}"
-                                    alt="Find Fido Fast"></a>
+                            <a href="/" wire:navigate><img class="img-fluid"
+                                    src="{{ asset('assets/app/images/logo.png') }}" alt="Find Fido Fast"></a>
                         </div>
                     </div>
 

@@ -22,7 +22,7 @@
                <div class="row">
                    <div class="col-md-12">
                        <div class="footer-text">
-                           <p>© 2023 findfidofast. All rights reserved. Website
+                           <p>© <?php echo date('Y'); ?> findfidofast. All rights reserved. Website
                                Design Development and SEO by <a href="https://www.intrigueit.com/" target="_blank"
                                    rel="noopener"> Intrigue IT
                                    Solutions</a></p>
