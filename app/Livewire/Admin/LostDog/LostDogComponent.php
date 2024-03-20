@@ -13,12 +13,6 @@ class LostDogComponent extends Component
     public $sortingValue = 10, $searchTerm, $sortBy = 'created_at', $sortDirection = 'DESC';
     public $edit_id, $delete_id, $missing_status;
 
-    // public function mount($id)
-    // {
-    //     $this->edit_id = $id;
-    //     $order = LostDog::where('id', $id)->first();
-    //     $this->missing_status = $order->missing_status;
-    // }
 
     public function deleteConfirmation($id)
     {

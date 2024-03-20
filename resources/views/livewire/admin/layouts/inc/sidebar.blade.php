@@ -43,7 +43,7 @@
                         <li>
                             <a href="{{ route('admin.allUsers') }}" class="waves-effect">
                                 <i class="bx bx-user"></i>
-                                <span key="t-chat">All Users</span>
+                                <span key="t-chat">Customers</span>
                             </a>
                         </li>
                     @endif
