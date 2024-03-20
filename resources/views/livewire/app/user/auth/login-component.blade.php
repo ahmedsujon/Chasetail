@@ -8,19 +8,27 @@
                             <div class="signup-form">
                                 <h4>Sign In</h4>
                                 <h5>Welcome back! Please sign in with your account</h5>
-                                <form>
+                                <form wire:submit.prevent='userLogin'>
                                     <div class="mb-3">
                                         <label for="email" class="form-label">Enter Username or email</label>
-                                        <input type="email" class="form-control" id="email">
+                                        <input type="email" wire:model.blur='email' class="form-control"
+                                            id="email">
+                                        @error('email')
+                                            <p class="text-danger font-size-12">{{ $message }}</p>
+                                        @enderror
                                     </div>
                                     <div class="mb-3">
                                         <label for="password" class="form-label">Enter password</label>
-                                        <input type="password" class="form-control" id="password">
+                                        <input type="password" wire:model.blur='password' class="form-control"
+                                            id="password">
+                                        @error('password')
+                                            <p class="text-danger font-size-12">{{ $message }}</p>
+                                        @enderror
                                     </div>
                                     <div class="mb-3 forgot">
                                         <a href="#">Forgot your password?</a>
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Sign in to your account</button>
+                                    <button type="submit" class="btn btn-primary">{!! loadingStateWithText('userLogin', 'Sign in to your account') !!}</button>
                                     <p>Don't have an account? <a href="/register" wire:navigate>Sign up</a></p>
                                 </form>
                             </div>
