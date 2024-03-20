@@ -116,6 +116,120 @@
         </div>
     </div>
 
+    <!-- Add Data Modal -->
+    <div wire:ignore.self class="modal fade" id="addDataModal" tabindex="-1" role="dialog" data-bs-backdrop="static"
+        data-bs-keyboard="false" aria-labelledby="modelTitleId">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-zoom modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="background: white;">
+                    <h5 class="modal-title m-0" id="mySmallModalLabel">Add New Admin</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row justify-content-center">
+                        <div class="col-md-11">
+                            <form wire:submit.prevent='storeData' enctype="multipart/form-data">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="example-number-input" class="col-form-label">Name</label>
+                                        <input class="form-control mb-2" type="text" wire:model="name"
+                                            placeholder="Enter name">
+                                        @error('name')
+                                            <p class="text-danger" style="font-size: 11.5px;">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label for="example-number-input" class="col-form-label">Email</label>
+                                        <input class="form-control mb-2" type="email" wire:model="email"
+                                            placeholder="Enter email">
+                                        @error('email')
+                                            <p class="text-danger" style="font-size: 11.5px;">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label for="example-number-input" class="col-form-label">Phone</label>
+                                        <input class="form-control mb-2" type="number" wire:model="phone"
+                                            placeholder="Enter phone">
+                                        @error('phone')
+                                            <p class="text-danger" style="font-size: 11.5px;">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="mb-3 row mt-4">
+                                    <div class="col-12 text-center">
+                                        <button type="submit" class="btn btn-primary waves-effect waves-light w-50">
+                                            {!! loadingStateWithText('storeData', 'Add Admin') !!}
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Data Modal -->
+    <div wire:ignore.self class="modal fade" id="editDataModal" tabindex="-1" role="dialog"
+        data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="modelTitleId">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-zoom modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="background: white;">
+                    <h5 class="modal-title m-0" id="mySmallModalLabel">Edit Admin</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        wire:click.prevent='close'></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row justify-content-center">
+                        <div class="col-md-11">
+                            <form wire:submit.prevent='updateData'>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="example-number-input" class="col-form-label">Name</label>
+                                        <input class="form-control mb-2" type="text" wire:model="name"
+                                            placeholder="Enter name">
+                                        @error('name')
+                                            <p class="text-danger" style="font-size: 11.5px;">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label for="example-number-input" class="col-form-label">Email</label>
+                                        <input class="form-control mb-2" type="email" wire:model="email"
+                                            placeholder="Enter email">
+                                        @error('email')
+                                            <p class="text-danger" style="font-size: 11.5px;">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label for="example-number-input" class="col-form-label">Phone</label>
+                                        <input class="form-control mb-2" type="number" wire:model="phone"
+                                            placeholder="Enter phone">
+                                        @error('phone')
+                                            <p class="text-danger" style="font-size: 11.5px;">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="mb-3 row mt-4">
+                                    <div class="col-12 text-center">
+                                        <button type="submit" class="btn btn-primary waves-effect waves-light w-50">
+                                            {!! loadingStateWithText('updateData', 'Update Admin') !!}
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Edit Data Modal -->
+
     <!-- Delete Modal -->
     <div wire:ignore.self class="modal fade" id="deleteDataModal" tabindex="-1" role="dialog"
         aria-labelledby="modelTitleId">
@@ -143,6 +257,7 @@
         </div>
     </div>
     <!-- End Delete Modal -->
+
 </div>
 
 @push('scripts')
