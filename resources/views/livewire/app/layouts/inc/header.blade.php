@@ -6,9 +6,9 @@
                     <div class="col-md-6 col-lg-8 col-7">
                         <div class="top-menu2">
                             <ul>
-                                <li><a href="#">Lost Dogs</a></li>
-                                <li><a href="#">Found Dogs</a></li>
-                                <li><a href="#">Contact With Us</a></li>
+                                <li><a href="/lost-dogs" wire:navigate>Lost Dogs</a></li>
+                                <li><a href="/found-dogs" wire:navigate>Found Dogs</a></li>
+                                <li><a href="/about-us" wire:navigate>Contact With Us</a></li>
                             </ul>
                         </div>
                     </div>
@@ -18,7 +18,7 @@
                             <ul>
                                 @if (Auth::user())
                                     @if (Auth::user()->avatar)
-                                        <li><a href="index.html"><img class="img-fluid"
+                                        <li><a href="/" wire:navigate><img class="img-fluid"
                                                     src="{{ asset('assets/app/images/profile.png') }}"
                                                     alt="Profile" /></a>
                                         </li>
@@ -33,7 +33,7 @@
                                             </form>
                                         </li>
                                     @else
-                                        <li><a href="index.html"><img class="img-fluid"
+                                        <li><a href="/" wire:navigate><img class="img-fluid"
                                                     src="{{ asset('assets/app/images/profile.png') }}"
                                                     alt="Profile" /></a>
                                         </li>

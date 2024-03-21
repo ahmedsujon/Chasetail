@@ -37,7 +37,7 @@
                     <div class="article-box">
                         <img class="img-fluid" src="{{ asset('assets/app/images/content-dog01.jpg') }}"
                             alt="Content Dog">
-                        <h4><a href="#">Dogs</a></h4>
+                        <h4><a href="/lost-dogs" wire:navigate>Lost Dogs</a></h4>
                         <p>We’re here to help you find your dog. Free and easy way to search lost dogs to help them
                             return home.</p>
                         <ul class="content-hr">
@@ -49,7 +49,7 @@
                     <div class="article-box">
                         <img class="img-fluid" src="{{ asset('assets/app/images/content-dog02.jpg') }}"
                             alt="Content Dog">
-                        <h4><a href="#">Found Dogs</a></h4>
+                        <h4><a href="/found-dogs" wire:navigate>Found Dogs</a></h4>
                         <p>Help reunite found dogs, by snapping a photo and uploading it or register your dog in case
                             they ever go missing. It’s free!</p>
                         <ul class="content-hr">
@@ -61,7 +61,7 @@
                     <div class="article-box">
                         <img class="img-fluid" src="{{ asset('assets/app/images/content-dog03.jpg') }}"
                             alt="Content Dog">
-                        <h4><a href="#">Donation</a></h4>
+                        <h4><a href="/donation" wire:navigate>Donation</a></h4>
                         <p>A little Love goes a long way. We can’t do this without you. Every dollar counts, just like
                             every dog helps make the world a better place.</p>
                         <ul class="content-hr">
