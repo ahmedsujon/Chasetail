@@ -3,15 +3,13 @@
     <section id="banner-section">
         <div class="banner">
             <div class="banner-text">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-5 col-lg-5 col-6">
-                            <h3>Do You Want To find
-                                your lost dog? </h3>
-                            <p>Find your new best friend. We’re here to help your lost pet find their way home. Browse
-                                pets from our network of your nearby shelters and rescues.</p>
-                            <a href="#">Get Started</a>
-                        </div>
+                <div class="row">
+                    <div class="col-md-5 col-lg-5 col-6">
+                        <h3>Do You Want To find
+                            your lost dog? </h3>
+                        <p>Find your new best friend. We’re here to help your lost pet find their way home. Browse
+                            pets from our network of your nearby shelters and rescues.</p>
+                        <a href="#">Get Started</a>
                     </div>
                 </div>
             </div>
