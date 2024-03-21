@@ -7,6 +7,9 @@ use App\Livewire\App\HomeComponent;
 use App\Livewire\App\LostDog\LostDogComponent;
 use App\Livewire\App\Pages\AboutUsComponent;
 use App\Livewire\App\Pages\PricingComponent;
+use App\Livewire\App\Subscription\SubscriptionComponent;
+use App\Livewire\App\User\Auth\ForgotPasswordComponent;
+use App\Livewire\App\User\Auth\UpdatePasswordComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,6 +30,11 @@ Route::get('/found-dogs', FoundDogComponent::class)->name('app.found.dogs');
 Route::get('/pricing', PricingComponent::class)->name('app.pricing');
 Route::get('/donation', DonationComponent::class)->name('app.donation');
 Route::get('/contact-us', ContactUsComponent::class)->name('app.contact');
+Route::get('/subscription', SubscriptionComponent::class)->name('app.subscription');
+
+// Forget Password
+Route::get('user-reset-password', ForgotPasswordComponent::class)->name('user.reset.password');
+Route::get('user-change-password', UpdatePasswordComponent::class)->name('user.change.password');
 
 //Call Route Files
 require __DIR__ . '/admin.php';

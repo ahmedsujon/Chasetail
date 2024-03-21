@@ -127,7 +127,8 @@ h3,
 h4,
 h5,
 h6,
-p {
+p,
+ul {
     padding: 0;
     margin: 0;
 }
@@ -164,23 +165,23 @@ p {
 }
 
 .top-menu ul li {
-    padding: 0 10px;
     vertical-align: middle;
     list-style-type: none;
     display: inline-block;
-    background: url(../images/top-menu-list.jpg) no-repeat right center;
-}
-
-.top-menu ul li:last-child {
-    background: none;
 }
 
 .top-menu ul li a {
+    padding: 0 10px;
     line-height: 24px;
     font-family: 'nunito_sansregular';
     font-size: 13px;
     text-decoration: none;
     color: #5d5d5d;
+    border-right: 1px solid #5d5d5d;
+}
+
+.top-menu ul li:last-child a {
+    border: none;
 }
 
 .top-menu ul li a:hover {
@@ -199,7 +200,6 @@ p {
 }
 
 .top-menu2 ul li {
-    padding: 0 15px;
     vertical-align: middle;
     list-style-type: none;
     display: inline-block;
@@ -207,20 +207,21 @@ p {
     font-size: 12px;
     font-weight: normal;
     color: #5d5d5d;
-    background: url(../images/top-menu-list2.jpg) no-repeat right center;
-}
-
-.top-menu2 ul li:last-child {
-    background: none;
 }
 
 .top-menu2 ul li a {
+    padding: 0 15px;
     line-height: 24px;
     font-family: 'nunito_sansregular';
     font-size: 12px;
     font-weight: normal;
     text-decoration: none;
     color: #5d5d5d;
+    border-right: 1px solid #5d5d5d;
+}
+
+.top-menu2 ul li:last-child a {
+    border: none;
 }
 
 .top-menu2 ul li a:hover {
@@ -335,7 +336,7 @@ p {
     width: 100%;
 }
 
-#banner-section {
+.banner {
     width: 100%;
     padding: 140px 0 70px 0;
     background: url("../images/banner01.jpg") no-repeat top center;
@@ -418,12 +419,12 @@ p {
 }
 
 .welcome h4 {
-    padding: 0 0 15px 0;
+    padding: 0 0 5px 0;
+    display: inline-block;
     line-height: 26px;
     font-family: 'nunito_sansregular';
     font-size: 20px;
     text-align: center;
-    background: url("../images/challenge-title.jpg") no-repeat center bottom;
 }
 
 .welcome h3 {
@@ -442,6 +443,18 @@ p {
     font-size: 20px;
     text-align: center;
     color: #0e1b28;
+}
+
+ul.solution-hr {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+.solution-hr li {
+    width: 70px;
+    height: 3px;
+    display: inline-block;
+    background: #0082f0;
 }
 
 .content-top {
@@ -475,7 +488,7 @@ p {
 }
 
 .article-box p {
-    width: 70%;
+    width: 80%;
     margin: 0 auto;
     padding: 20px 0 25px 0;
     line-height: 20px;
@@ -484,7 +497,19 @@ p {
     font-size: 14px;
     text-align: center;
     color: #0e1b28;
-    background: url("../images/content-hr-line.jpg") no-repeat center bottom;
+}
+
+ul.content-hr {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+.content-hr li {
+    width: 82px;
+    height: 8px;
+    display: inline-block;
+    border-radius: 20px;
+    background: #0082f0;
 }
 
 .challenge {
@@ -492,17 +517,18 @@ p {
     padding: 50px 0 80px 0;
     margin: 60px 0;
     overflow: hidden;
+    text-align: center;
     background: #f2f9fe;
 }
 
 .challenge h4 {
-    padding: 0 0 15px 0;
+    padding: 0 0 5px 0;
     line-height: 26px;
     font-family: 'nunito_sansregular';
     font-weight: normal;
     font-size: 20px;
     text-align: center;
-    background: url(../images/challenge-title.jpg) no-repeat center bottom;
+    display: inline-block;
 }
 
 .challenge h3 {
@@ -549,7 +575,7 @@ p {
 }
 
 
-.side-bar{
+.side-bar {
     background: rgb(57 104 221);
     backdrop-filter: blur(15px);
     width: 290px;
@@ -560,23 +586,23 @@ p {
     overflow-y: auto;
     transition: 0.6s ease;
     transition-property: left;
-  }
+}
 
-  .side-bar.active{
+.side-bar.active {
     left: 0;
-  }
+}
 
-  .side-bar .menu{
+.side-bar .menu {
     width: 100%;
     margin-top: 80px;
-  }
+}
 
-  .side-bar .menu .item{
+.side-bar .menu .item {
     position: relative;
     cursor: pointer;
-  }
+}
 
-  .side-bar .menu .item a{
+.side-bar .menu .item a {
     color: #fff;
     font-family: 'nunito_sanssemibold';
     font-size: 14px;
@@ -584,47 +610,47 @@ p {
     display: block;
     padding: 5px 30px;
     line-height: 30px;
-  }
+}
 
-  .side-bar .menu .item a:hover{
+.side-bar .menu .item a:hover {
     background: #8621F8;
     transition: 0.3s ease;
-  }
+}
 
-  .side-bar .menu .item i{
+.side-bar .menu .item i {
     margin-right: 15px;
-  }
+}
 
-  .side-bar .menu .item a .dropdown{
+.side-bar .menu .item a .dropdown {
     position: absolute;
     right: 0;
     margin: 20px;
     transition: 0.3s ease;
-  }
+}
 
-  .side-bar .menu .item .sub-menu{
+.side-bar .menu .item .sub-menu {
     background: rgba(255, 255, 255, 0.1);
     display: none;
-  }
+}
 
-  .side-bar .menu .item .sub-menu a{
+.side-bar .menu .item .sub-menu a {
     padding-left: 80px;
-  }
+}
 
-  .rotate{
+.rotate {
     transform: rotate(90deg);
-  }
+}
 
-  .close-btn{
+.close-btn {
     position: absolute;
     color: #fff;
     font-size: 20px;
     right: 0;
     margin: 25px;
     cursor: pointer;
-  }
+}
 
-  .menu-btn {
+.menu-btn {
     position: absolute;
     color: #0082f0;
     font-size: 35px;
@@ -877,9 +903,165 @@ p {
 }
 
 
+/* ================== 
+    Plan
+==================== */
+#page-banner {
+    width: 100%;
+    padding: 130px 0 110px 0;
+    background: url("../images/page-banner.jpg") no-repeat top center;
+    background-size: auto;
+}
+
+.page-banner-text {
+    width: 100%;
+    overflow: hidden;
+}
+
+.page-banner-text h4 {
+    padding: 0 0 30px 0;
+    line-height: 60px;
+    font-family: 'nunito_sansextrabold';
+    font-size: 56px;
+    text-align: center;
+    color: #fff;
+}
+
+.page-banner-text p {
+    line-height: 30px;
+    font-family: 'nunito_sanssemibold';
+    font-size: 24px;
+    text-align: center;
+    color: #fff;
+}
+
+.page-content {
+    width: 100%;
+    padding: 50px 180px 70px 180px;
+    overflow: hidden;
+}
+
+.package-list {
+    width: 100%;
+    padding: 40px 30px 40px 40px;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid #e4e6ea;
+    transition: all ease 0.5s;
+}
+
+.package-list:hover {
+    transform: translateY(-0.2px);
+    box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.package-list h5 {
+    padding-bottom: 30px;
+    line-height: 30px;
+    font-family: 'nunito_sansextrabold';
+    font-size: 26px;
+    text-align: left;
+    color: #253053;
+}
+
+.package-list h4 {
+    padding-bottom: 50px;
+    line-height: 60px;
+    font-family: 'nunito_sansextrabold';
+    font-size: 52px;
+    text-align: left;
+    color: #253053;
+}
+
+.package-list h4 span.user {
+    line-height: 22px;
+    font-size: 18px;
+}
+
+.package-list h6 {
+    padding: 40px 0 10px 0;
+    line-height: 26px;
+    font-family: 'nunito_sansextrabold';
+    font-size: 20px;
+    text-align: left;
+    color: #253053;
+}
+
+.package-list p {
+    padding: 0 0 40px 0;
+    line-height: 30px;
+    font-family: 'nunito_sanssemibold';
+    font-size: 18px;
+    text-align: left;
+    color: #636b83;
+}
+
+.package-list ul {
+    width: 100%;
+}
+
+.package-list ul li {
+    padding: 5px 0 0 0;
+    line-height: 26px;
+    font-family: 'nunito_sansregular';
+    font-size: 18px;
+    list-style: none;
+    color: #4d4e50;
+}
+
+.free-package {
+    min-height: 245px;
+}
+
+.btn-plan {
+    width: 100%;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.btn-plan a {
+    padding: 25px;
+    display: block;
+    line-height: 28px;
+    font-family: 'nunito_sansextrabold';
+    font-size: 22px;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 5px;
+    background: #294dff;
+}
+
+.btn-plan a:hover {
+    background: #0F2C88;
+}
+
+.btn-plan a:hover {
+    text-decoration: none;
+}
+
+/* ====================
+    Media Query 
+==================== */
+
 @media only screen and (max-width: 1440px) {
     .banner {
         padding: 65px 0 70px 0;
+    }
+
+    .page-content {
+        padding: 50px 50px 70px 50px;
+    }
+
+    .btn-plan a {
+        font-size: 18px;
+    }
+
+    .package-list h4 {
+        font-size: 32px;
+    }
+
+    .free-package {
+        min-height: 300px;
     }
 }
 
@@ -893,6 +1075,15 @@ p {
         margin-bottom: 15px;
         line-height: 68px;
         font-size: 60px;
+    }
+
+    .btn-plan a {
+        padding: 15px 10px;
+        font-size: 18px;
+    }
+
+    .package-list h4 {
+        font-size: 23px;
     }
 
     .footer-top-text ul li:nth-child(1) {
@@ -920,6 +1111,14 @@ p {
         font-size: 50px;
     }
 
+    .page-content {
+        padding: 50px 20px;
+    }
+
+    .package-list {
+        padding: 40px 25px;
+    }
+
     .footer-top-text ul li:nth-child(2) {
         margin: 0 20px;
     }
@@ -942,11 +1141,7 @@ p {
     .top-menu2 ul li a,
     .top-menu ul li a {
         color: #fff;
-    }
-
-    .top-menu2 ul li,
-    .top-menu ul li {
-        background: url(../images/top-menu-list-m.jpg) no-repeat right center;
+        border-right: 1px solid #fff;
     }
 
     .main-menu {
@@ -957,6 +1152,7 @@ p {
     .menu-btn {
         display: block;
     }
+
     .top-donate {
         display: none;
     }
@@ -1032,6 +1228,39 @@ p {
         padding: 30px 0 0 0;
     }
 
+    #page-banner {
+        padding: 130px 0 70px 0;
+    }
+
+    .page-banner-text h4 {
+        padding: 0 0 20px 0;
+        line-height: 56px;
+        font-size: 50px;
+    }
+
+    .page-banner-text p {
+        line-height: 30px;
+        font-size: 24px;
+    }
+
+    .package-list h4 {
+        font-size: 52px;
+    }
+
+    .package-list {
+        padding: 40px 25px;
+        margin-bottom: 20px;
+    }
+
+    .btn-plan a {
+        padding: 25px;
+        font-size: 20px;
+    }
+
+    .free-package {
+        min-height: 248px;
+    }
+
     .footer-top {
         padding: 40px 0;
     }
@@ -1063,6 +1292,21 @@ p {
         width: 100%;
     }
 
+    #page-banner {
+        padding: 120px 0 40px 0;
+    }
+
+    .page-banner-text h4 {
+        padding: 0 0 15px 0;
+        line-height: 45px;
+        font-size: 30px;
+    }
+
+    .page-banner-text p {
+        line-height: 20px;
+        font-size: 18px;
+    }
+
     .footer-top-text ul li {
         padding: 20px 12px;
     }
@@ -1080,20 +1324,16 @@ p {
         text-align: right;
     }
 
-    .top-menu2 ul li {
+    .top-menu2 ul li a {
         padding: 0 10px 0 2px;
     }
 
-    .top-menu ul li {
-        padding: 0 10px 0 5px;
-    }
-
-    .top-menu ul li {
-        padding: 0 10px 0 0;
+    .top-menu ul li a {
+        padding: 0 5px;
     }
 
     .top-menu ul li a {
-        font-size: 12px;
+        font-size: 11px;
     }
 
     .top-menu2 ul li a {

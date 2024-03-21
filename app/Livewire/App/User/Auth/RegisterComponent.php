@@ -40,17 +40,23 @@ class RegisterComponent extends Component
         $user->password = Hash::make($this->password);
         $user->avatar = 'assets/images/avatar.png';
         $user->save();
-        if ($user->save()) {
-            $getUsr = User::find($user->id);
-            $getUsr->username = Str::lower($getUsr->name . '_' . $getUsr->id);
-            $getUsr->save();
 
-            Auth::guard('web')->attempt(['email' => $this->email, 'password' => $this->password]);
-            session()->flash('success', 'Registration successful');
-            return redirect()->route('user.dashboard');
-        }
+        Auth::guard('web')->attempt(['email' => $this->email, 'password' => $this->password]);
+        session()->flash('success', 'Registration successful');
+        return redirect()->route('user.dashboard');
+
+        // if ($user->save()) {
+        //     $getUsr = User::find($user->id);
+        //     $getUsr->username = Str::lower($getUsr->name . '_' . $getUsr->id);
+        //     $getUsr->save();
+
+        //     Auth::guard('web')->attempt(['email' => $this->email, 'password' => $this->password]);
+        //     session()->flash('success', 'Registration successful');
+        //     return redirect()->route('user.dashboard');
+        // }
     }
 
+    #[Title('Sign Up')]
     public function render()
     {
         return view('livewire.app.user.auth.register-component')->layout('livewire.app.layouts.base');

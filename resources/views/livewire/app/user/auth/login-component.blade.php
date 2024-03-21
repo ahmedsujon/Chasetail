@@ -26,7 +26,7 @@
                                         @enderror
                                     </div>
                                     <div class="mb-3 forgot">
-                                        <a href="#">Forgot your password?</a>
+                                        <a href="/user-reset-password" wire:navigate>Forgot your password?</a>
                                     </div>
                                     <button type="submit" class="btn btn-primary">{!! loadingStateWithText('userLogin', 'Sign in to your account') !!}</button>
                                     <p>Don't have an account? <a href="/register" wire:navigate>Sign up</a></p>
