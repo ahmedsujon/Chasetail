@@ -1,5 +1,4 @@
 <div>
-
     <section id="banner-section">
         <div class="banner">
             <div class="banner-text">

@@ -1,7 +1,7 @@
 <div>
     <section id="signup-section">
         <div class="signup">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12 col-lg-12 col-12">
                         <div class="signInSignUpModal">
