@@ -332,8 +332,6 @@ ul {
 
 #banner-section {
     width: 100%;
-    background-size: cover;
-    background-attachment: fixed;
 }
 
 .banner {
@@ -341,6 +339,8 @@ ul {
     padding: 140px 0 70px 0;
     background: url("../images/banner01.jpg") no-repeat top center;
     background-size: auto;
+    background-size: cover;
+    /* background-attachment: fixed; */
 }
 
 .banner-text {

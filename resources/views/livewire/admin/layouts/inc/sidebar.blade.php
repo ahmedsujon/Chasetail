@@ -45,6 +45,18 @@
                     @endif
 
                     @if (isAdminPermitted('users_manage') || isAdminPermitted('admins_manage'))
+                        <li class="menu-title" key="t-user">Donations</li>
+                    @endif
+                    @if (isAdminPermitted('users_manage'))
+                        <li>
+                            <a href="{{ route('admin.donations') }}" class="waves-effect">
+                                <i class="bx bx-user"></i>
+                                <span key="t-chat">Donations</span>
+                            </a>
+                        </li>
+                    @endif
+
+                    @if (isAdminPermitted('users_manage') || isAdminPermitted('admins_manage'))
                         <li class="menu-title" key="t-user">User</li>
                     @endif
                     @if (isAdminPermitted('admins_manage'))
