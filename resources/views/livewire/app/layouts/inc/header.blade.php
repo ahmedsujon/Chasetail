@@ -73,10 +73,10 @@
                     </div>
 
                     <div class="col-md-6 col-lg-4 col-6">
-
                         <div class="menu-btn">
                             <i class="fas fa-bars"></i>
                         </div>
+
                         <!-- Main Menu -->
                         <div class="main-menu">
                             <div class="container">
