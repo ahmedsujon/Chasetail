@@ -1,4 +1,23 @@
 <div>
+
+    <section id="banner-section">
+        <div class="banner">
+            <div class="banner-text">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-5 col-lg-5 col-6">
+                            <h3>Do You Want To find
+                                your lost dog? </h3>
+                            <p>Find your new best friend. We’re here to help your lost pet find their way home. Browse
+                                pets from our network of your nearby shelters and rescues.</p>
+                            <a href="#">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-12">
@@ -29,7 +48,8 @@
                 </div>
                 <div class="col-lg-4 col-md-4 col-12">
                     <div class="article-box">
-                        <img class="img-fluid" src="{{ asset('assets/app/images/content-dog02.jpg') }}" alt="Content Dog">
+                        <img class="img-fluid" src="{{ asset('assets/app/images/content-dog02.jpg') }}"
+                            alt="Content Dog">
                         <h4><a href="#">Found Dogs</a></h4>
                         <p>Help reunite found dogs, by snapping a photo and uploading it or register your dog in case
                             they ever go missing. It’s free!</p>
@@ -40,7 +60,8 @@
                 </div>
                 <div class="col-lg-4 col-md-4 col-12">
                     <div class="article-box">
-                        <img class="img-fluid" src="{{ asset('assets/app/images/content-dog03.jpg') }}" alt="Content Dog">
+                        <img class="img-fluid" src="{{ asset('assets/app/images/content-dog03.jpg') }}"
+                            alt="Content Dog">
                         <h4><a href="#">Donation</a></h4>
                         <p>A little Love goes a long way. We can’t do this without you. Every dollar counts, just like
                             every dog helps make the world a better place.</p>
