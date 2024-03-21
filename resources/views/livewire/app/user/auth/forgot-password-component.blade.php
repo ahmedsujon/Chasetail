@@ -1,28 +1,38 @@
 <div>
-    <div class="signInSignUpModal">
-        <div class="modal fade" id="ForgotPassModal"  wire:ignore.self>
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                    </div>
-                    <div class="modal-body">
-                        <h4>Sign In</h4>
-                        <h5>Welcome back! Please sign in with your account</h5>
-                        <form>
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Enter Username or email</label>
-                                <input type="email" class="form-control" id="email">
+    <section id="signup-section">
+        <div class="signup">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-lg-12 col-12">
+                        <div class="signInSignUpModal">
+                            <div class="signup-form">
+                                <h5>Please enter your username or email address. You will receive an email message with
+                                    instructions on how to reset your password.</h5>
+                                <div class="mt-2">
+                                    @if (session()->has('error'))
+                                        <div class="alert alert-danger text-center">{{ session('error') }}</div>
+                                    @endif
+                                    @if (session()->has('success'))
+                                        <div class="alert alert-success text-center">{{ session('success') }}</div>
+                                    @endif
+                                </div>
+                                <form wire:submit.prevent='sendEmail'>
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label">Enter your email</label>
+                                        <input type="email" wire:model.blur='email' class="form-control"
+                                            id="email">
+                                        @error('email')
+                                            <p class="text-danger font-size-12">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">{!! loadingStateWithText('sendEmail', 'Get New Password') !!}</button>
+                                    <p>Have an account? <a href="/login" wire:navigate>Sign In</a></p>
+                                </form>
                             </div>
-                            <div class="mb-3 forgot">
-                                <a href="#">Forgot your password?</a>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Sign in to your account</button>
-                            <p>Don't have an account? <a href="#">Sign up</a></p>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 </div>
