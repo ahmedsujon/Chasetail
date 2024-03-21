@@ -142,7 +142,7 @@
                     </div>
                     <div class="col-md-7 col-lg-4 col-12">
                         <div class="top-donate">
-                            <a href="#">Donate</a>
+                            <a href="/donation" wire:navigate>Donate</a>
                         </div>
                     </div>
                 </div>

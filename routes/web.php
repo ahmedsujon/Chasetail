@@ -1,16 +1,17 @@
 <?php
 
-use App\Livewire\App\ContactUs\ContactUsComponent;
-use App\Livewire\App\Donation\DonationComponent;
-use App\Livewire\App\FoundDog\FoundDogComponent;
+use App\Http\Controllers\Subscription\SubscriptionController;
 use App\Livewire\App\HomeComponent;
-use App\Livewire\App\LostDog\LostDogComponent;
+use Illuminate\Support\Facades\Route;
 use App\Livewire\App\Pages\AboutUsComponent;
 use App\Livewire\App\Pages\PricingComponent;
-use App\Livewire\App\Subscription\SubscriptionComponent;
+use App\Livewire\App\LostDog\LostDogComponent;
+use App\Livewire\App\Donation\DonationComponent;
+use App\Livewire\App\FoundDog\FoundDogComponent;
+use App\Livewire\App\ContactUs\ContactUsComponent;
 use App\Livewire\App\User\Auth\ForgotPasswordComponent;
 use App\Livewire\App\User\Auth\UpdatePasswordComponent;
-use Illuminate\Support\Facades\Route;
+use App\Livewire\App\Subscription\SubscriptionComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,11 @@ Route::get('/subscription', SubscriptionComponent::class)->name('app.subscriptio
 // Forget Password
 Route::get('user-reset-password', ForgotPasswordComponent::class)->name('user.reset.password');
 Route::get('user-change-password', UpdatePasswordComponent::class)->name('user.change.password');
+
+// Subscription
+Route::get('payment', [SubscriptionController::class, 'index']);
+Route::post('charge', [SubscriptionController::class, 'charge']);
+
 
 //Call Route Files
 require __DIR__ . '/admin.php';
