@@ -8,6 +8,7 @@ use App\Livewire\Admin\Users\UsersComponent;
 use App\Livewire\Admin\Users\AdminsComponent;
 use App\Livewire\Admin\Auth\ForgotPasswordComponent;
 use App\Livewire\Admin\Auth\UpdatePasswordComponent;
+use App\Livewire\Admin\Donation\DonationComponent;
 use App\Livewire\Admin\FoundDog\FoundDogComponent;
 use App\Livewire\Admin\LostDog\LostDogComponent;
 
@@ -33,6 +34,7 @@ Route::prefix('admin/')->name('admin.')->middleware('auth:admin')->group(functio
     Route::get('dashboard', DashboardComponent::class)->name('dashboard');
     Route::get('lost-dogs', LostDogComponent::class)->name('lost.dogs');
     Route::get('found-dogs', FoundDogComponent::class)->name('found.dogs');
+    Route::get('donations', DonationComponent::class)->name('donations');
 
     //user management
     Route::get('all-users', UsersComponent::class)->name('allUsers')->middleware('adminPermission:users_manage');
