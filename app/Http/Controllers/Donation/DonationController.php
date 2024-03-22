@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Subscription;
+namespace App\Http\Controllers\Donation;
 
 use App\Http\Controllers\Controller;
+use App\Models\Donation;
 use Illuminate\Http\Request;
 use Omnipay\Omnipay;
-use App\Models\Subscription;
-use Illuminate\Support\Facades\Auth;
 
-class SubscriptionController extends Controller
+class DonationController extends Controller
 {
     public $gateway;
 
@@ -20,7 +19,12 @@ class SubscriptionController extends Controller
         $this->gateway->setTestMode(true); //comment this line when move to 'live'
     }
 
-    public function subscription(Request $request)
+    public function index()
+    {
+        return view('payment');
+    }
+
+    public function charge(Request $request)
     {
         try {
             $creditCard = new \Omnipay\Common\CreditCard([
@@ -34,35 +38,35 @@ class SubscriptionController extends Controller
             $transactionId = rand(100000000, 999999999);
 
             $response = $this->gateway->authorize([
-                'amount' => session('plan_price'),
+                'amount' => $request->input('amount'),
                 'currency' => 'USD',
                 'transactionId' => $transactionId,
                 'card' => $creditCard,
             ])->send();
 
             if ($response->isSuccessful()) {
+
                 // Captured from the authorization response.
                 $transactionReference = $response->getTransactionReference();
 
                 $response = $this->gateway->capture([
-                    'amount' => session('plan_price'),
+                    'amount' => $request->input('amount'),
                     'currency' => 'USD',
                     'transactionReference' => $transactionReference,
                 ])->send();
 
                 $transaction_id = $response->getTransactionReference();
-                $amount = session('plan_price');
+                $amount = $request->input('amount');
 
                 // Insert transaction data into the database
-                $isPaymentExist = Subscription::where('transaction_id', $transaction_id)->first();
+                $isPaymentExist = Donation::where('transaction_id', $transaction_id)->first();
 
                 if (!$isPaymentExist) {
-                    $payment = new Subscription;
+                    $payment = new Donation;
                     $payment->transaction_id = $transaction_id;
-                    $payment->amount = session('plan_price');
+                    $payment->amount = $request->input('amount');
                     $payment->currency = 'USD';
                     $payment->payment_status = 'Captured';
-                    $payment->user_id = Auth::user()->id;
                     $payment->save();
                 }
                 return redirect()->route('app.donation', ['transaction_id' => $transaction_id]);

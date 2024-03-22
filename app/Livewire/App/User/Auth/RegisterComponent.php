@@ -11,12 +11,14 @@ use Illuminate\Support\Facades\Hash;
 
 class RegisterComponent extends Component
 {
-    public $name, $username, $email, $phone, $password, $confirm_password;
+    public $name, $username, $email, $phone, $password, $confirm_password, $latitude, $longitude;
 
     public function updated($fields)
     {
         $this->validateOnly($fields, [
             'name' => 'required',
+            'latitude' => 'required',
+            'longitude' => 'required',
             'email' => 'required|email|unique:users,email',
             'phone' => 'required|unique:users,phone',
             'password' => 'required|min:8|max:30',
@@ -35,6 +37,8 @@ class RegisterComponent extends Component
 
         $user = new User();
         $user->name = $this->name;
+        $user->latitude = $this->latitude;
+        $user->longitude = $this->longitude;
         $user->email = $this->email;
         $user->phone = $this->phone;
         $user->password = Hash::make($this->password);
@@ -44,16 +48,6 @@ class RegisterComponent extends Component
         Auth::guard('web')->attempt(['email' => $this->email, 'password' => $this->password]);
         session()->flash('success', 'Registration successful');
         return redirect()->route('user.dashboard');
-
-        // if ($user->save()) {
-        //     $getUsr = User::find($user->id);
-        //     $getUsr->username = Str::lower($getUsr->name . '_' . $getUsr->id);
-        //     $getUsr->save();
-
-        //     Auth::guard('web')->attempt(['email' => $this->email, 'password' => $this->password]);
-        //     session()->flash('success', 'Registration successful');
-        //     return redirect()->route('user.dashboard');
-        // }
     }
 
     #[Title('Sign Up')]

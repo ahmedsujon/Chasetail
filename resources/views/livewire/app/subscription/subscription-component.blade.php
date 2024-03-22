@@ -23,7 +23,7 @@
                         <h4>FREE<span class="user">/ 100 User</span></h4>
                         <p>Free User</p>
                         <div class="btn-plan">
-                            <a href="#">Choose Starter Plan</a>
+                            <a href="#" wire:click.prevent="subscriptionEvent(0)">Choose Starter Plan</a>
                         </div>
                         <h6>Includes</h6>
                         <ul class="free-package">
@@ -44,7 +44,7 @@
                         <h4>$50<span class="user">/ 500 User Search</span></h4>
                         <p>Basic User</p>
                         <div class="btn-plan">
-                            <a href="#">Choose Basic Plan</a>
+                            <a href="#" wire:click.prevent="subscriptionEvent(50)">Choose Basic Plan</a>
                         </div>
                         <h6>Includes</h6>
                         <ul>
@@ -69,7 +69,7 @@
                         <h4>$75<span class="user">/ 750 User Search</span></h4>
                         <p>Gold User</p>
                         <div class="btn-plan">
-                            <a href="#">Choose Gold Plan</a>
+                            <a href="#" wire:click.prevent="subscriptionEvent(75)">Choose Gold Plan</a>
                         </div>
                         <h6>Includes</h6>
                         <ul>
@@ -94,7 +94,7 @@
                         <h4>$100<span class="user">/ 1000 User Search</span></h4>
                         <p>Premium User</p>
                         <div class="btn-plan">
-                            <a href="#">Choose Premium Plan</a>
+                            <a href="#" wire:click.prevent="subscriptionEvent(100)">Choose Premium Plan</a>
                         </div>
                         <h6>Includes</h6>
                         <ul>
@@ -118,3 +118,4 @@
         </div>
     </section>
 </div>
+
