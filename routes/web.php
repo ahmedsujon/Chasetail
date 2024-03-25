@@ -51,7 +51,7 @@ Route::get('/donation-success/{transaction_id}', DonationSuccessComponent::class
 Route::get('/subscription', SubscriptionComponent::class)->name('app.subscription');
 Route::get('/subscription-payment', PaymentComponent::class)->name('app.payment');
 Route::post('/payment', [SubscriptionController::class, 'subscription']);
-Route::get('/subscription-success', SubscriptionSuccessComponent::class)->name('app.subscription.success');
+Route::get('/subscription-success/{transaction_id}', SubscriptionSuccessComponent::class)->name('app.subscription.success');
 
 
 //Call Route Files

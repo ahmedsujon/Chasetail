@@ -1,3 +1,3 @@
 <div>
-    Payment is successful.
+    Payment is successful. Transection Id : {{ $transaction_id }}
 </div>
