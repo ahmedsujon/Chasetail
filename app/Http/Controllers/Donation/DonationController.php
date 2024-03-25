@@ -19,11 +19,6 @@ class DonationController extends Controller
         $this->gateway->setTestMode(true); //comment this line when move to 'live'
     }
 
-    public function index()
-    {
-        return view('payment');
-    }
-
     public function charge(Request $request)
     {
         try {
@@ -69,7 +64,7 @@ class DonationController extends Controller
                     $payment->payment_status = 'Captured';
                     $payment->save();
                 }
-                return redirect()->route('app.donation', ['transaction_id' => $transaction_id]);
+                return redirect()->route('app.donation.success');
             } else {
                 // not successful
                 return $response->getMessage();

@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Subscription\SubscriptionController;
 use App\Livewire\App\HomeComponent;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\App\Pages\AboutUsComponent;
@@ -9,11 +8,15 @@ use App\Livewire\App\LostDog\LostDogComponent;
 use App\Livewire\App\Donation\DonationComponent;
 use App\Livewire\App\FoundDog\FoundDogComponent;
 use App\Livewire\App\ContactUs\ContactUsComponent;
-use App\Livewire\App\Donation\DonationSuccessComponent;
 use App\Livewire\App\Subscription\PaymentComponent;
+use App\Http\Controllers\Donation\DonationController;
+use App\Livewire\App\Donation\DonationSuccessComponent;
 use App\Livewire\App\User\Auth\ForgotPasswordComponent;
 use App\Livewire\App\User\Auth\UpdatePasswordComponent;
 use App\Livewire\App\Subscription\SubscriptionComponent;
+use App\Livewire\App\Subscription\PaymentSuccessComponent;
+use App\Http\Controllers\Subscription\SubscriptionController;
+use App\Livewire\App\Subscription\SubscriptionSuccessComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,14 +43,15 @@ Route::get('user-reset-password', ForgotPasswordComponent::class)->name('user.re
 Route::get('user-change-password', UpdatePasswordComponent::class)->name('user.change.password');
 
 // Donation
-Route::get('payment', [DonationComponent::class, 'index']);
-Route::post('charge', [DonationComponent::class, 'charge']);
-Route::post('charge', [DonationComponent::class, 'charge']);
+Route::get('/donation', DonationComponent::class)->name('app.donation');
+Route::post('charge', [DonationController::class, 'charge']);
+Route::get('/donation-success', DonationSuccessComponent::class)->name('app.donation.success');
 
 // Subscription
 Route::get('/subscription', SubscriptionComponent::class)->name('app.subscription');
 Route::get('/subscription-payment', PaymentComponent::class)->name('app.payment');
 Route::post('/payment', [SubscriptionController::class, 'subscription']);
+Route::get('/subscription-success', SubscriptionSuccessComponent::class)->name('app.subscription.success');
 
 
 //Call Route Files
