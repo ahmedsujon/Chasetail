@@ -6,11 +6,11 @@ use Livewire\Component;
 
 class DonationSuccessComponent extends Component
 {
-    // public $transaction_id;
-    // public function mount($transaction_id)
-    // {
-    //     $this->transaction_id = $transaction_id;
-    // }
+    public $transaction_id;
+    public function mount($transaction_id)
+    {
+        $this->transaction_id = $transaction_id;
+    }
 
     public function render()
     {

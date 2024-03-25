@@ -107,17 +107,17 @@
                                                     </td>
                                                     <td>
                                                         @if ($lost_dog->missing_status == 'Found')
-                                                            <button data-bs-toggle="modal"
+                                                            <button data-bs-toggle="modal" wire:click.prevent='editMissingStatusData({{ $lost_dog->id }})'
                                                                 data-bs-target="#addDataModal"
                                                                 class="btn btn-xs btn-success"
                                                                 style="font-weight: normal; font-size: 11px; padding: 1px 7px;">{{ $lost_dog->missing_status }}</button>
                                                         @elseif($lost_dog->missing_status == 'Searching')
-                                                            <button data-bs-toggle="modal"
+                                                            <button data-bs-toggle="modal" wire:click.prevent='editMissingStatusData({{ $lost_dog->id }})'
                                                                 data-bs-target="#addDataModal"
                                                                 class="btn btn-xs btn-warning"
                                                                 style="font-weight: normal; font-size: 11px; padding: 1px 7px;">{{ $lost_dog->missing_status }}</button>
                                                         @else
-                                                            <button data-bs-toggle="modal"
+                                                            <button data-bs-toggle="modal" wire:click.prevent='editMissingStatusData({{ $lost_dog->id }})'
                                                                 data-bs-target="#addDataModal"
                                                                 class="btn btn-xs btn-danger"
                                                                 style="font-weight: normal; font-size: 11px; padding: 1px 7px;">{{ $lost_dog->missing_status }}</button>
@@ -237,6 +237,10 @@
 
 @push('scripts')
     <script>
+        window.addEventListener('closeModal', event => {
+            $('#addDataModal').modal('hide');
+        });
+
         window.addEventListener('lost_dog_deleted', event => {
             $('#deleteDataModal').modal('hide');
             Swal.fire(

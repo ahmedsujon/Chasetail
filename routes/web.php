@@ -45,7 +45,7 @@ Route::get('user-change-password', UpdatePasswordComponent::class)->name('user.c
 // Donation
 Route::get('/donation', DonationComponent::class)->name('app.donation');
 Route::post('charge', [DonationController::class, 'charge']);
-Route::get('/donation-success', DonationSuccessComponent::class)->name('app.donation.success');
+Route::get('/donation-success/{transaction_id}', DonationSuccessComponent::class)->name('app.donation.success');
 
 // Subscription
 Route::get('/subscription', SubscriptionComponent::class)->name('app.subscription');
