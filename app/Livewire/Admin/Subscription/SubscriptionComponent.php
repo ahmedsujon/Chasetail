@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Livewire\Admin\Donation;
+namespace App\Livewire\Admin\Subscription;
 
-use App\Models\Donation;
 use Livewire\Component;
+use App\Models\Subscription;
 use Livewire\WithPagination;
 
-class DonationComponent extends Component
+class SubscriptionComponent extends Component
 {
     use WithPagination;
     public $sortingValue = 10, $searchTerm, $sortBy = 'created_at', $sortDirection = 'DESC';
@@ -29,10 +29,10 @@ class DonationComponent extends Component
 
     public function render()
     {
-        $donations = Donation::where('amount', 'like', '%' . $this->searchTerm . '%')
+        $subscriptions = Subscription::where('amount', 'like', '%' . $this->searchTerm . '%')
             ->orderBy($this->sortBy, $this->sortDirection)
             ->paginate($this->sortingValue);
         $this->dispatch('reload_scripts');
-        return view('livewire.admin.donation.donation-component', ['donations' => $donations])->layout('livewire.admin.layouts.base');
+        return view('livewire.admin.subscription.subscription-component', ['subscriptions' => $subscriptions])->layout('livewire.admin.layouts.base');
     }
 }

@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('subscriptions', function (Blueprint $table) {
             $table->id();
-            $table->string('transaction_id');
+            $table->bigInteger('user_id');
+            $table->string('transaction_id')->nullable();
             $table->float('amount', 10, 2);
             $table->string('currency');
-            $table->string('payment_status');
+            $table->string('payment_status')->default('unpaid');
             $table->timestamps();
         });
     }

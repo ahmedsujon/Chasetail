@@ -54,6 +54,12 @@
                                 <span key="t-chat">Donations</span>
                             </a>
                         </li>
+                        <li>
+                            <a href="{{ route('admin.subscriptions') }}" class="waves-effect">
+                                <i class="bx bx-user"></i>
+                                <span key="t-chat">Subscriptions</span>
+                            </a>
+                        </li>
                     @endif
 
                     @if (isAdminPermitted('users_manage') || isAdminPermitted('admins_manage'))

@@ -11,6 +11,7 @@ use App\Livewire\Admin\Auth\UpdatePasswordComponent;
 use App\Livewire\Admin\Donation\DonationComponent;
 use App\Livewire\Admin\FoundDog\FoundDogComponent;
 use App\Livewire\Admin\LostDog\LostDogComponent;
+use App\Livewire\Admin\Subscription\SubscriptionComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,13 +29,18 @@ Route::get('admin/forget-password', ForgotPasswordComponent::class)->middleware(
 Route::get('admin/change-password', UpdatePasswordComponent::class)->middleware('guest:admin')->name('admin.changePassword');
 
 Route::get('admin', DashboardComponent::class)->middleware('auth:admin');
-Route::prefix('admin/')->name('admin.')->middleware('auth:admin')->group(function(){
+Route::prefix('admin/')->name('admin.')->middleware('auth:admin')->group(function () {
     Route::post('logout', [LogoutController::class, 'adminLogout'])->name('logout');
 
     Route::get('dashboard', DashboardComponent::class)->name('dashboard');
     Route::get('lost-dogs', LostDogComponent::class)->name('lost.dogs');
     Route::get('found-dogs', FoundDogComponent::class)->name('found.dogs');
+
+    // Donation
     Route::get('donations', DonationComponent::class)->name('donations');
+
+    // Subscription
+    Route::get('subscription', SubscriptionComponent::class)->name('subscriptions');
 
     //user management
     Route::get('all-users', UsersComponent::class)->name('allUsers')->middleware('adminPermission:users_manage');
