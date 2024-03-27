@@ -83,6 +83,22 @@
                             </a>
                         </li>
                     @endif
+
+                    @if (isAdminPermitted('settings_manage'))
+                        <li class="menu-title" key="t-setting">Reports</li>
+                        <li class="">
+                            <a href="javascript: void(0);" class="has-arrow waves-effect" aria-expanded="false">
+                                <i class="bx bx-detail"></i>
+                                <span key="t-blog">Reports</span>
+                            </a>
+                            <ul class="sub-menu mm-collapse" aria-expanded="false" style="height: 0px;">
+                                <li><a href="blog-list.html" key="t-blog-list">Lost Dog Report</a></li>
+                                <li><a href="blog-grid.html" key="t-blog-grid">Found Dog Report</a></li>
+                                <li><a href="blog-details.html" key="t-blog-details">Donation Report</a></li>
+                                <li><a href="blog-details.html" key="t-blog-details">Subscription Report</a></li>
+                            </ul>
+                        </li>
+                    @endif
                 </ul>
             </div>
         </div>

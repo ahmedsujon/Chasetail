@@ -32,6 +32,14 @@ class LostDogComponent extends Component
         $this->dispatch('success', ['message' => 'Status updated successfully']);
     }
 
+    public function editMissingStatusData($id)
+    {
+        $data = LostDog::find($id);
+        $this->missing_status = $data->missing_status;
+        $this->edit_id = $data->id;
+        $this->dispatch('showEditModal');
+    }
+
     public function changeMissingStatus()
     {
         $this->validate([

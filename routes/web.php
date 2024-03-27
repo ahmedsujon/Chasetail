@@ -45,13 +45,13 @@ Route::get('user-change-password', UpdatePasswordComponent::class)->name('user.c
 // Donation
 Route::get('/donation', DonationComponent::class)->name('app.donation');
 Route::post('charge', [DonationController::class, 'charge']);
-Route::get('/donation-success', DonationSuccessComponent::class)->name('app.donation.success');
+Route::get('/donation-success/{transaction_id}', DonationSuccessComponent::class)->name('app.donation.success');
 
 // Subscription
 Route::get('/subscription', SubscriptionComponent::class)->name('app.subscription');
 Route::get('/subscription-payment', PaymentComponent::class)->name('app.payment');
 Route::post('/payment', [SubscriptionController::class, 'subscription']);
-Route::get('/subscription-success', SubscriptionSuccessComponent::class)->name('app.subscription.success');
+Route::get('/subscription-success/{transaction_id}', SubscriptionSuccessComponent::class)->name('app.subscription.success');
 
 
 //Call Route Files

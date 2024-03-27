@@ -64,7 +64,7 @@ class DonationController extends Controller
                     $payment->payment_status = 'Captured';
                     $payment->save();
                 }
-                return redirect()->route('app.donation.success');
+                return redirect()->route('app.donation.success', ['transaction_id' => $transaction_id]);
             } else {
                 // not successful
                 return $response->getMessage();
