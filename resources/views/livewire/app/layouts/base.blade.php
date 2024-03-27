@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Find Fido Fast</title>
+    <link rel="icon" href="{{ asset('assets/images/dog-fav.png') }}" type="image/x-icon">
     <link href="{{ asset('assets/app/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/app/css/customize.css') }}" rel="stylesheet">
 </head>
