@@ -65,7 +65,7 @@
                     <div class="col-md-6 col-lg-3 col-12">
                         <div class="package-list">
                             <h5>Basic</h5>
-                            <h4>$99<span class="user">/ 500 User Search</span></h4>
+                            <h4>$99<span class="user">/ 500 User</span></h4>
                             <p>Basic User</p>
                             <div class="btn-plan">
                                 <a href="#" wire:click.prevent="subscriptionEvent(99)">Choose Basic Plan</a>
@@ -74,7 +74,7 @@
                             <ul>
                                 <li>500 User Nearby</li>
                                 <li>Can add single photo</li>
-                                <li>Add multiple photo ($29 extra)</li>
+                                <li>Add multiple photo <span style="font-weight: 600">($29 extra)</span></li>
                                 <li>Can add short description</li>
                                 <li>Add food & medicine info.</li>
                                 <li>Share with selected areas neighbor</li>
@@ -91,7 +91,7 @@
                     <div class="col-md-6 col-lg-3 col-12">
                         <div class="package-list">
                             <h5>Basic</h5>
-                            <h4>$99<span class="user">/ 500 User Search</span></h4>
+                            <h4>$99<span class="user">/ 500 User</span></h4>
                             <p>Basic User</p>
                             <div class="btn-plan">
                                 <a href="/login" wire:navigate>Choose Basic Plan</a>
@@ -100,7 +100,7 @@
                             <ul>
                                 <li>500 User Nearby</li>
                                 <li>Can add single photo</li>
-                                <li>Add multiple photo ($29 extra)</li>
+                                <li>Add multiple photo <span style="font-weight: 600">($29 extra)</span></li>
                                 <li>Can add short description</li>
                                 <li>Add food & medicine info.</li>
                                 <li>Share with selected areas neighbor</li>
@@ -119,7 +119,7 @@
                     <div class="col-md-6 col-lg-3 col-12">
                         <div class="package-list">
                             <h5>Gold</h5>
-                            <h4>$149<span class="user">/ 750 User Search</span></h4>
+                            <h4>$149<span class="user">/ 750 User</span></h4>
                             <p>Gold User</p>
                             <div class="btn-plan">
                                 <a href="#" wire:click.prevent="subscriptionEvent(149)">Choose Gold Plan</a>
@@ -128,7 +128,7 @@
                             <ul>
                                 <li>750 User Nearby</li>
                                 <li>Can add single photo</li>
-                                <li>Add multiple photo ($29 extra)</li>
+                                <li>Add multiple photo <span style="font-weight: 600">($29 extra)</span></li>
                                 <li>Can add short description</li>
                                 <li>Add food & medicine info.</li>
                                 <li>Share with selected areas neighbor</li>
@@ -145,7 +145,7 @@
                     <div class="col-md-6 col-lg-3 col-12">
                         <div class="package-list">
                             <h5>Gold</h5>
-                            <h4>$149<span class="user">/ 750 User Search</span></h4>
+                            <h4>$149<span class="user">/ 750 User</span></h4>
                             <p>Gold User</p>
                             <div class="btn-plan">
                                 <a href="/login" wire:navigate>Choose Gold Plan</a>
@@ -154,7 +154,7 @@
                             <ul>
                                 <li>750 User Nearby</li>
                                 <li>Can add single photo</li>
-                                <li>Add multiple photo ($29 extra)</li>
+                                <li>Add multiple photo <span style="font-weight: 600">($29 extra)</span></li>
                                 <li>Can add short description</li>
                                 <li>Add food & medicine info.</li>
                                 <li>Share with selected areas neighbor</li>
@@ -173,7 +173,7 @@
                     <div class="col-md-6 col-lg-3 col-12">
                         <div class="package-list">
                             <h5>Premium</h5>
-                            <h4>$169<span class="user">/ 1000 User Search</span></h4>
+                            <h4>$169<span class="user">/ 1000 User</span></h4>
                             <p>Premium User</p>
                             <div class="btn-plan">
                                 <a href="#" wire:click.prevent="subscriptionEvent(149)">Choose Premium Plan</a>
@@ -182,7 +182,7 @@
                             <ul>
                                 <li>1000 User Nearby</li>
                                 <li>Can add single photo</li>
-                                <li>Add multiple photo ($29 extra)</li>
+                                <li>Add multiple photo <span style="font-weight: 600">($29 extra)</span></li>
                                 <li>Can add short description</li>
                                 <li>Add food & medicine info.</li>
                                 <li>Share with selected areas neighbor</li>
@@ -199,7 +199,7 @@
                     <div class="col-md-6 col-lg-3 col-12">
                         <div class="package-list">
                             <h5>Premium</h5>
-                            <h4>$169<span class="user">/ 1000 User Search</span></h4>
+                            <h4>$169<span class="user">/ 1000 User</span></h4>
                             <p>Premium User</p>
                             <div class="btn-plan">
                                 <a href="/login" wire:navigate>Choose Premium Plan</a>
@@ -208,7 +208,7 @@
                             <ul>
                                 <li>1000 User Nearby</li>
                                 <li>Can add single photo</li>
-                                <li>Add multiple photo ($29 extra)</li>
+                                <li>Add multiple photo <span style="font-weight: 600">($29 extra)</span></li>
                                 <li>Can add short description</li>
                                 <li>Add food & medicine info.</li>
                                 <li>Share with selected areas neighbor</li>
