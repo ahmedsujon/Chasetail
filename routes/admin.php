@@ -44,7 +44,7 @@ Route::prefix('admin/')->name('admin.')->middleware('auth:admin')->group(functio
     Route::get('subscription', SubscriptionComponent::class)->name('subscriptions');
 
     // Chart Report
-    Route::post('lost-dog-chart', [ChartController::class, 'lostDogs']);
+    Route::get('lost-dog-chart', [ChartController::class, 'lostDogs'])->name('lost.dog.chart');
 
     //user management
     Route::get('all-users', UsersComponent::class)->name('allUsers')->middleware('adminPermission:users_manage');

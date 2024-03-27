@@ -12,15 +12,54 @@
 
     <div class="chart-container"></div>
 
-    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="{{ asset('assets/admin/js/highcharts.js') }}"></script>
 
     <script>
-        var datas = <?php echo json_encode($datas) ?>
-        Hightcharts.chart('chart-container', {
-            title:{
-                text:'New User Grouth, 2024'
+        var datas = <?php echo json_encode($datas); ?>;
+        Highcharts.chart('chart-container', {
+            title: {
+                text: 'New User Growth, 2024'
+            },
+            subtitle: {
+                text: 'Lost Dog'
+            },
+            xAxis: {
+                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']
+            },
+            yAxis: {
+                title: {
+                    text: 'Number of dogs'
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle'
+            },
+            plotOptions: {
+                series: {
+                    allowPointSelect: true
+                }
+            },
+            series: [{
+                name: 'New Dog',
+                data: datas
+            }],
+            responsive: {
+                rules: [{
+                    condition: {
+                        maxWidth: 500
+                    },
+                    chartOptions: {
+                        legend: {
+                            layout: 'horizontal',
+                            align: 'center',
+                            verticalAlign: 'bottom',
+                        }
+                    }
+                }]
             }
-        })
+        });
     </script>
 
 </body>
