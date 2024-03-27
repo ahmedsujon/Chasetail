@@ -6,9 +6,9 @@
                     <div class="col-md-6 col-lg-8 col-7">
                         <div class="top-menu2">
                             <ul>
-                                <li><a href="/lost-dogs" wire:navigate>Lost Dogs</a></li>
-                                <li><a href="/found-dogs" wire:navigate>Found Dogs</a></li>
-                                <li><a href="/about-us" wire:navigate>Contact With Us</a></li>
+                                <li><a href="/about-us" wire:navigate>About Us</a></li>
+                                <li><a href="/partners" wire:navigate>Partners</a></li>
+                                <li><a href="/contact-us" wire:navigate>Contact Us</a></li>
                             </ul>
                         </div>
                     </div>
@@ -98,6 +98,34 @@
                                                                 wire:navigate>Pricing</a>
                                                         </li>
                                                         <li class="nav-item dropdown">
+                                                            <a class="nav-link" href="/found-dogs" wire:navigate>Found
+                                                                Dogs</a>
+                                                        </li>
+                                                        <li class="nav-item dropdown">
+                                                            <a class="nav-link" href="/lost-dogs" wire:navigate>Lost
+                                                                Dogs</a>
+                                                        </li>
+
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </nav>
+                                        {{-- <nav class="navbar navbar-expand-lg">
+                                            <div class="container-fluid">
+                                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                                    data-bs-target="#navbarSupportedContent"
+                                                    aria-controls="navbarSupportedContent" aria-expanded="false"
+                                                    aria-label="Toggle navigation">
+                                                    <span class="navbar-toggler-icon"></span>
+                                                </button>
+                                                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                                    <ul class="navbar-nav me-auto mb-2 mb-lg-0"
+                                                        style="flex-direction: row-reverse;">
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" href="/subscription"
+                                                                wire:navigate>Pricing</a>
+                                                        </li>
+                                                        <li class="nav-item dropdown">
                                                             <a class="nav-link dropdown-toggle" href="#"
                                                                 id="navbarDropdown" role="button"
                                                                 data-bs-toggle="dropdown" aria-expanded="false">
@@ -134,7 +162,7 @@
                                                     </ul>
                                                 </div>
                                             </div>
-                                        </nav>
+                                        </nav> --}}
                                     </div>
                                 </div>
                             </div>

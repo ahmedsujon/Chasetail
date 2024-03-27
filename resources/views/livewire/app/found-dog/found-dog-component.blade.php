@@ -9,7 +9,7 @@
                             <div class="row">
                                 <div class="col-md-5 col-lg-5 col-5">
                                     <div class="box-info-img">
-                                        <img class="img-fluid" src="{{ asset($found_dog->photos) }}" alt="found dog" />
+                                        <img class="img-fluid" src="{{ asset($found_dog->photos) }}" alt="found dog" style="height: 200px; margin-bottom: 50px;" />
                                     </div>
                                 </div>
                                 <div class="col-md-7 col-lg-7 col-7">
