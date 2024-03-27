@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Chart\ChartController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LogoutController;
 use App\Livewire\Admin\DashboardComponent;
@@ -41,6 +42,9 @@ Route::prefix('admin/')->name('admin.')->middleware('auth:admin')->group(functio
 
     // Subscription
     Route::get('subscription', SubscriptionComponent::class)->name('subscriptions');
+
+    // Chart Report
+    Route::post('lost-dog-chart', [ChartController::class, 'lostDogs']);
 
     //user management
     Route::get('all-users', UsersComponent::class)->name('allUsers')->middleware('adminPermission:users_manage');
