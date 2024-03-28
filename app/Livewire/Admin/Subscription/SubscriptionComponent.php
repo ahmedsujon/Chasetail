@@ -5,6 +5,8 @@ namespace App\Livewire\Admin\Subscription;
 use Livewire\Component;
 use App\Models\Subscription;
 use Livewire\WithPagination;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\SubscriptionExportComponent;
 
 class SubscriptionComponent extends Component
 {
@@ -25,6 +27,16 @@ class SubscriptionComponent extends Component
     public function updateSearch()
     {
         $this->resetPage();
+    }
+
+    public function subscriptionExcel()
+    {
+        return Excel::download(new SubscriptionExportComponent, 'subscription-list.xlsx');
+    }
+
+    public function subscriptionCSV()
+    {
+        return Excel::download(new SubscriptionExportComponent, 'subscription-list.csv');
     }
 
     public function render()

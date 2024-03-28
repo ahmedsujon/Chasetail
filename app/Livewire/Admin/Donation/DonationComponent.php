@@ -2,9 +2,11 @@
 
 namespace App\Livewire\Admin\Donation;
 
-use App\Models\Donation;
+use App\Exports\DonationExportComponent;
 use Livewire\Component;
+use App\Models\Donation;
 use Livewire\WithPagination;
+use Maatwebsite\Excel\Facades\Excel;
 
 class DonationComponent extends Component
 {
@@ -25,6 +27,16 @@ class DonationComponent extends Component
     public function updateSearch()
     {
         $this->resetPage();
+    }
+
+    public function donationExcel()
+    {
+        return Excel::download(new DonationExportComponent, 'donation-list.xlsx');
+    }
+
+    public function donationCSV()
+    {
+        return Excel::download(new DonationExportComponent, 'donation-list.csv');
     }
 
     public function render()

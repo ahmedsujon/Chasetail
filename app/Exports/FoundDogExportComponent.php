@@ -2,19 +2,19 @@
 
 namespace App\Exports;
 
-use App\Models\LostDog;
+use App\Models\FoundDog;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 
-class LostDogExportComponent implements FromCollection, WithHeadings
+class FoundDogExportComponent implements FromCollection, WithHeadings
 {
     /**
-     * @return \Illuminate\Support\Collection
-     */
+    * @return \Illuminate\Support\Collection
+    */
     public function collection()
     {
-        $lost_dogs = DB::table('lost_dogs')
+        $found_dogs = DB::table('found_dogs')
             ->select(
                 'name',
                 'gender',
@@ -22,10 +22,9 @@ class LostDogExportComponent implements FromCollection, WithHeadings
                 'breed',
                 'description',
                 'missing_status',
-                'payment_status',
             )
             ->get();
-        return $lost_dogs;
+        return $found_dogs;
     }
     public function headings(): array
     {
@@ -36,12 +35,11 @@ class LostDogExportComponent implements FromCollection, WithHeadings
             'Breed',
             'Description',
             'Missing Status',
-            'Payment Status',
         ];
     }
 
     public function collections()
     {
-        return LostDog::all();
+        return FoundDog::all();
     }
 }

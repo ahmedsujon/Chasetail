@@ -20,6 +20,12 @@
                     <div class="card">
                         <div class="card-header bg-white" style="border-bottom: 1px solid #e2e2e7;">
                             <h4 class="card-title" style="float: left;">Donation List</h4>
+                            <button wire:click="subscriptionExcel" class="btn btn-sm btn-dark waves-effect waves-light"
+                                style="float: right;"><i class="bx bxs-file-pdf"></i> Export Excel</button>
+                            <button wire:click="subscriptionCSV" class="btn btn-sm btn-dark waves-effect waves-light"
+                                style="float: right !important; margin-right: 5px;"><i class="bx bxs-file-pdf"></i>
+                                Export
+                                CSV</button>
                         </div>
                         <div class="card-body">
                             <div class="row mb-3">
@@ -94,7 +100,9 @@
                                     <tbody>
                                         @if ($subscriptions->count() > 0)
                                             @php
-                                                $sl = $subscriptions->perPage() * $subscriptions->currentPage() - ($subscriptions->perPage() - 1);
+                                                $sl =
+                                                    $subscriptions->perPage() * $subscriptions->currentPage() -
+                                                    ($subscriptions->perPage() - 1);
                                             @endphp
                                             @foreach ($subscriptions as $subscription)
                                                 <tr>
