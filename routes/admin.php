@@ -9,6 +9,7 @@ use App\Livewire\Admin\Users\UsersComponent;
 use App\Livewire\Admin\Users\AdminsComponent;
 use App\Livewire\Admin\Auth\ForgotPasswordComponent;
 use App\Livewire\Admin\Auth\UpdatePasswordComponent;
+use App\Livewire\Admin\Charts\LostDogChartComponent;
 use App\Livewire\Admin\Donation\DonationComponent;
 use App\Livewire\Admin\FoundDog\FoundDogComponent;
 use App\Livewire\Admin\LostDog\LostDogComponent;
@@ -44,7 +45,8 @@ Route::prefix('admin/')->name('admin.')->middleware('auth:admin')->group(functio
     Route::get('subscription', SubscriptionComponent::class)->name('subscriptions');
 
     // Chart Report
-    Route::get('lost-dog-chart', [ChartController::class, 'lostDogs'])->name('lost.dog.chart');
+    Route::get('lost-dog-chart-report', LostDogChartComponent::class)->name('lostdog.chart.report');
+
 
     //user management
     Route::get('all-users', UsersComponent::class)->name('allUsers')->middleware('adminPermission:users_manage');
