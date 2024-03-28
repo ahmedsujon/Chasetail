@@ -20,8 +20,16 @@
                     <div class="card">
                         <div class="card-header bg-white" style="border-bottom: 1px solid #e2e2e7;">
                             <h4 class="card-title" style="float: left;">All Lost Dog</h4>
-                            <button wire:click="exportLostDogs" class="btn btn-sm btn-dark waves-effect waves-light"
-                                style="float: right;"><i class="bx bx-plus"></i> Export XLSX</button>
+                            <button wire:click="exportLostDogsExcel"
+                                class="btn btn-sm btn-dark waves-effect waves-light" style="float: right;"><i
+                                    class="bx bxs-file-pdf"></i> Export Excel</button>
+                            <button wire:click="exportLostDogsCSV" class="btn btn-sm btn-dark waves-effect waves-light"
+                                style="float: right !important; margin-right: 5px;"><i class="bx bxs-file-pdf"></i>
+                                Export
+                                CSV</button>
+                            {{-- <button wire:click="exportLostDogsPDF" class="btn btn-sm btn-dark waves-effect waves-light"
+                                style="float: right !important; margin-right: 5px;"><i class="bx bxs-file-pdf"></i> Export
+                                PDF</button> --}}
                         </div>
 
                         <div class="card-body">

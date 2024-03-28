@@ -78,11 +78,20 @@ class LostDogComponent extends Component
         $this->resetPage();
     }
 
-    public function exportLostDogs()
+    public function exportLostDogsExcel()
     {
         return Excel::download(new LostDogExportComponent, 'lost-dog-list.xlsx');
     }
 
+    public function exportLostDogsCSV()
+    {
+        return Excel::download(new LostDogExportComponent, 'lost-dog-list.csv');
+    }
+
+    // public function exportLostDogsPDF()
+    // {
+    //     return Excel::download(new LostDogExportComponent, 'lost-dog-list.pdf');
+    // }
 
     #[Title('Lost Dogs')]
     public function render()

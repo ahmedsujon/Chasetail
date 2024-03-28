@@ -5,8 +5,9 @@ namespace App\Exports;
 use App\Models\LostDog;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\WithHeadings;
 
-class LostDogExportComponent implements FromCollection
+class LostDogExportComponent implements FromCollection, WithHeadings
 {
     /**
      * @return \Illuminate\Support\Collection
