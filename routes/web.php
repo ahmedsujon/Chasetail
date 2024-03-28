@@ -16,6 +16,7 @@ use App\Livewire\App\Subscription\SubscriptionComponent;
 use App\Livewire\App\Subscription\PaymentSuccessComponent;
 use App\Http\Controllers\Subscription\SubscriptionController;
 use App\Livewire\App\Pages\ContactUsComponent;
+use App\Livewire\App\Pages\HowItsWorkComponent;
 use App\Livewire\App\Pages\PartnersComponent;
 use App\Livewire\App\Pages\PrivacyPolicyComponent;
 use App\Livewire\App\Pages\TermsConditionsComponent;
@@ -44,6 +45,7 @@ Route::get('/about-us', AboutUsComponent::class)->name('app.aboutus');
 Route::get('/partners', PartnersComponent::class)->name('app.partners');
 Route::get('/privacy-policy', PrivacyPolicyComponent::class)->name('app.privacy.policy');
 Route::get('/terms-conditions', TermsConditionsComponent::class)->name('app.terms.conditions');
+Route::get('/how-its-work', HowItsWorkComponent::class)->name('app.how.its.work');
 
 
 // Forget Password

@@ -9,6 +9,7 @@
                                 <li><a href="/about-us" wire:navigate>About Us</a></li>
                                 <li><a href="/partners" wire:navigate>Partners</a></li>
                                 <li><a href="/contact-us" wire:navigate>Contact Us</a></li>
+                                <li><a href="/how-its-work" wire:navigate>How it's work?</a></li>
                             </ul>
                         </div>
                     </div>
