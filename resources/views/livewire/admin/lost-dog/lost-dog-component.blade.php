@@ -20,10 +20,10 @@
                     <div class="card">
                         <div class="card-header bg-white" style="border-bottom: 1px solid #e2e2e7;">
                             <h4 class="card-title" style="float: left;">All Lost Dog</h4>
-                            {{-- <button class="btn btn-sm btn-dark waves-effect waves-light" data-bs-toggle="modal"
-                                data-bs-target="#addDataModal" style="float: right;"><i class="bx bx-plus"></i> Add
-                                Admin</button> --}}
+                            <button wire:click="exportLostDogs" class="btn btn-sm btn-dark waves-effect waves-light"
+                                style="float: right;"><i class="bx bx-plus"></i> Export XLSX</button>
                         </div>
+
                         <div class="card-body">
                             <div class="row mb-3">
                                 <div class="col-md-6 col-sm-12 mb-2 sort_cont">
@@ -107,17 +107,20 @@
                                                     </td>
                                                     <td>
                                                         @if ($lost_dog->missing_status == 'Found')
-                                                            <button data-bs-toggle="modal" wire:click.prevent='editMissingStatusData({{ $lost_dog->id }})'
+                                                            <button data-bs-toggle="modal"
+                                                                wire:click.prevent='editMissingStatusData({{ $lost_dog->id }})'
                                                                 data-bs-target="#addDataModal"
                                                                 class="btn btn-xs btn-success"
                                                                 style="font-weight: normal; font-size: 11px; padding: 1px 7px;">{{ $lost_dog->missing_status }}</button>
                                                         @elseif($lost_dog->missing_status == 'Searching')
-                                                            <button data-bs-toggle="modal" wire:click.prevent='editMissingStatusData({{ $lost_dog->id }})'
+                                                            <button data-bs-toggle="modal"
+                                                                wire:click.prevent='editMissingStatusData({{ $lost_dog->id }})'
                                                                 data-bs-target="#addDataModal"
                                                                 class="btn btn-xs btn-warning"
                                                                 style="font-weight: normal; font-size: 11px; padding: 1px 7px;">{{ $lost_dog->missing_status }}</button>
                                                         @else
-                                                            <button data-bs-toggle="modal" wire:click.prevent='editMissingStatusData({{ $lost_dog->id }})'
+                                                            <button data-bs-toggle="modal"
+                                                                wire:click.prevent='editMissingStatusData({{ $lost_dog->id }})'
                                                                 data-bs-target="#addDataModal"
                                                                 class="btn btn-xs btn-danger"
                                                                 style="font-weight: normal; font-size: 11px; padding: 1px 7px;">{{ $lost_dog->missing_status }}</button>

@@ -6,6 +6,8 @@ use App\Models\LostDog;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Livewire\Attributes\Title;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\LostDogExportComponent;
 
 class LostDogComponent extends Component
 {
@@ -75,6 +77,12 @@ class LostDogComponent extends Component
     {
         $this->resetPage();
     }
+
+    public function exportLostDogs()
+    {
+        return Excel::download(new LostDogExportComponent, 'lost-dog-list.xlsx');
+    }
+
 
     #[Title('Lost Dogs')]
     public function render()
