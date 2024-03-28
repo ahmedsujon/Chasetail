@@ -17,6 +17,7 @@ class RegisterComponent extends Component
     {
         $this->validateOnly($fields, [
             'name' => 'required',
+            'phone' => 'required',
             'latitude' => 'required',
             'longitude' => 'required',
             'email' => 'required|email|unique:users,email',
@@ -31,7 +32,7 @@ class RegisterComponent extends Component
         $this->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
-            // 'phone' => 'required|unique:users,phone',
+            'phone' => 'required|unique:users,phone',
             'password' => 'required|min:8|max:30',
         ]);
 
