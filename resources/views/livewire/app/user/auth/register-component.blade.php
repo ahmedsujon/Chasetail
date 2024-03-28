@@ -26,6 +26,14 @@
                                         @enderror
                                     </div>
                                     <div class="mb-3">
+                                        <label for="phone" class="form-label">Phone Number</label>
+                                        <input type="text" wire:model.blur='phone' class="form-control"
+                                            id="phone">
+                                        @error('phone')
+                                            <p class="text-danger font-size-12 mb-0">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                    <div class="mb-3">
                                         <label for="password" class="form-label">password</label>
                                         <input type="password" wire:model.blur='password' class="form-control"
                                             id="password">
@@ -45,7 +53,7 @@
                                     @endif
 
                                     <p class="click">By clicking "<span>Create Your Account</span>", you agree to our
-                                        <a href="#">Terms & Conditions</a> and <a href="#">Privacy
+                                        <a href="/terms-conditions" wire:navigate>Terms & Conditions</a> and <a href="/privacy-policy" wire:navigate>Privacy
                                             Policy</a>.
                                     </p>
                                     <p>Have an account? <a href="/login" wire:navigate>Sign in</a></p>
