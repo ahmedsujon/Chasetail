@@ -77,14 +77,15 @@
                     @if (isAdminPermitted('settings_manage'))
                         <li class="menu-title" key="t-setting">Setting</li>
                         <li>
-                            <a href="#" class="waves-effect">
+                            <a href="#" class="waves-effect" data-bs-toggle="modal"
+                                data-bs-target="#editProfileModal">
                                 <i class="bx bx-wrench"></i>
                                 <span key="t-chat">Settings</span>
                             </a>
                         </li>
                     @endif
 
-                    @if (isAdminPermitted('settings_manage'))
+                    {{-- @if (isAdminPermitted('settings_manage'))
                         <li class="menu-title" key="t-setting">Reports</li>
                         <li class="">
                             <a href="javascript: void(0);" class="has-arrow waves-effect" aria-expanded="false">
@@ -98,7 +99,7 @@
                                 <li><a href="blog-details.html" key="t-blog-details">Subscription Report</a></li>
                             </ul>
                         </li>
-                    @endif
+                    @endif --}}
                 </ul>
             </div>
         </div>
