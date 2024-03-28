@@ -20,6 +20,12 @@
                     <div class="card">
                         <div class="card-header bg-white" style="border-bottom: 1px solid #e2e2e7;">
                             <h4 class="card-title" style="float: left;">Donation List</h4>
+                            <button wire:click="donationExcel" class="btn btn-sm btn-dark waves-effect waves-light"
+                                style="float: right;"><i class="bx bxs-file-pdf"></i> Export Excel</button>
+                            <button wire:click="donationCSV" class="btn btn-sm btn-dark waves-effect waves-light"
+                                style="float: right !important; margin-right: 5px;"><i class="bx bxs-file-pdf"></i>
+                                Export
+                                CSV</button>
                         </div>
                         <div class="card-body">
                             <div class="row mb-3">

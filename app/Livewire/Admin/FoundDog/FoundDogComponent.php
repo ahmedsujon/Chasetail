@@ -6,6 +6,8 @@ use Livewire\Component;
 use App\Models\FoundDog;
 use Livewire\WithPagination;
 use Livewire\Attributes\Title;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\FoundDogExportComponent;
 
 class FoundDogComponent extends Component
 {
@@ -47,6 +49,16 @@ class FoundDogComponent extends Component
         }
         $this->sortBy = $sortByField;
         $this->sortDirection = 'DESC';
+    }
+
+    public function exportFoundDogsExcel()
+    {
+        return Excel::download(new FoundDogExportComponent, 'found-dog-list.xlsx');
+    }
+
+    public function exportFoundDogsCSV()
+    {
+        return Excel::download(new FoundDogExportComponent, 'found-dog-list.csv');
     }
 
     public function updateSearch()
