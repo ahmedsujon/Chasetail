@@ -12,7 +12,7 @@ class DatabaseSeeder extends Seeder
     {
 
         // \App\Models\User::factory(1000)->create();
-        \App\Models\User::factory(100)->create();
+        \App\Models\User::factory(50)->create();
 
         $this->call(PermissionTableSeeder::class);
         $this->call(AdminTableSeeder::class);
