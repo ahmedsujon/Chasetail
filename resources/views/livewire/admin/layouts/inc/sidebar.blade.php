@@ -95,7 +95,7 @@
                             <ul class="sub-menu mm-collapse" aria-expanded="false" style="height: 0px;">
                                 <li><a href="{{ route('admin.lostdog.chart.report') }}" key="t-blog-list">Lost Dog Report</a></li>
                                 <li><a href="blog-grid.html" key="t-blog-grid">Found Dog Report</a></li>
-                                <li><a href="blog-details.html" key="t-blog-details">Donation Report</a></li>
+                                <li><a href="{{ route('admin.donation.chart.report') }}" key="t-blog-details">Donation Report</a></li>
                                 <li><a href="blog-details.html" key="t-blog-details">Subscription Report</a></li>
                             </ul>
                         </li>
