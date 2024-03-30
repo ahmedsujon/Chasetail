@@ -4,10 +4,15 @@ use App\Livewire\App\HomeComponent;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\App\Pages\AboutUsComponent;
 use App\Livewire\App\Pages\PricingComponent;
+use App\Livewire\App\Pages\PartnersComponent;
 use App\Livewire\App\LostDog\LostDogComponent;
+use App\Livewire\App\Pages\ContactUsComponent;
+use App\Livewire\App\Pages\HowItsWorkComponent;
 use App\Livewire\App\Donation\DonationComponent;
 use App\Livewire\App\FoundDog\FoundDogComponent;
+use App\Livewire\App\Pages\PrivacyPolicyComponent;
 use App\Livewire\App\Subscription\PaymentComponent;
+use App\Livewire\App\Pages\TermsConditionsComponent;
 use App\Http\Controllers\Donation\DonationController;
 use App\Livewire\App\Donation\DonationSuccessComponent;
 use App\Livewire\App\User\Auth\ForgotPasswordComponent;
@@ -15,12 +20,10 @@ use App\Livewire\App\User\Auth\UpdatePasswordComponent;
 use App\Livewire\App\Subscription\SubscriptionComponent;
 use App\Livewire\App\Subscription\PaymentSuccessComponent;
 use App\Http\Controllers\Subscription\SubscriptionController;
-use App\Livewire\App\Pages\ContactUsComponent;
-use App\Livewire\App\Pages\HowItsWorkComponent;
-use App\Livewire\App\Pages\PartnersComponent;
-use App\Livewire\App\Pages\PrivacyPolicyComponent;
-use App\Livewire\App\Pages\TermsConditionsComponent;
+use App\Livewire\App\LostDogReport\LostReportStepOneComponent;
+use App\Livewire\App\LostDogReport\LostReportStepTwoComponent;
 use App\Livewire\App\Subscription\SubscriptionSuccessComponent;
+use App\Livewire\App\LostDogReport\LostReportStepThreeComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +49,11 @@ Route::get('/partners', PartnersComponent::class)->name('app.partners');
 Route::get('/privacy-policy', PrivacyPolicyComponent::class)->name('app.privacy.policy');
 Route::get('/terms-conditions', TermsConditionsComponent::class)->name('app.terms.conditions');
 Route::get('/how-its-work', HowItsWorkComponent::class)->name('app.how.its.work');
+
+// Lost Dog report
+Route::get('lost-dog-report-first', LostReportStepOneComponent::class)->name('user.report.first.step');
+Route::get('lost-dog-report-seceond', LostReportStepTwoComponent::class)->name('user.report.seceond.step');
+Route::get('lost-dog-report-third', LostReportStepThreeComponent::class)->name('user.report.third.step');
 
 
 // Forget Password

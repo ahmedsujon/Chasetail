@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Current Location</title>
+</head>
+<body>
+    <h2>Get Current Location</h2>
+    <button onclick="getLocation()">Get My Location</button>
+    <input type="text" id="locationInput" placeholder="Your Location">
+
+    <script>
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(reverseGeocode);
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+
+        function reverseGeocode(position) {
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+            var locationInput = document.getElementById("locationInput");
+
+            // Call Google Maps Geocoding API
+            fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyCXv58qv814Onl51mNpX5v1WCE6QV0XNWE`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.results.length > 0) {
+                    locationInput.value = data.results[0].formatted_address;
+                } else {
+                    locationInput.value = "Address not found";
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                locationInput.value = "Error fetching address";
+            });
+        }
+    </script>
+</body>
+</html>

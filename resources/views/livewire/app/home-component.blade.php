@@ -9,7 +9,11 @@
                                 your lost dog? </h3>
                             <p>Find your new best friend. We’re here to help your lost pet find their way home. Browse
                                 pets from our network of your nearby shelters and rescues.</p>
-                            <a href="#">Get Started</a>
+                            @auth
+                                <a href="/lost-dog-report-first" wire:navigate>Get Started</a>
+                            @else
+                                <a href="/login" wire:navigate>Get Started</a>
+                            @endauth
                         </div>
                     </div>
                 </div>
