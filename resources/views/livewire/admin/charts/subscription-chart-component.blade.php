@@ -4,7 +4,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="card-header bg-white">
-                        <h4 class="card-title" style="float: left;">Donation Graph Report</h4>
+                        <h4 class="card-title" style="float: left;">Subscription Graph Report</h4>
                         <div class="btn-group" style="float: right;">
                             <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
                                 aria-expanded="false">Report Filter By Date <i

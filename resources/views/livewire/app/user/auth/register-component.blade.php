@@ -43,7 +43,7 @@
                                     </div>
 
                                     @if ($latitude == null || $longitude == null)
-                                        <p style="color: red">Lang is requred!</p>
+                                        <p style="color: red">Please allow location access in your browser settings!</p>
                                     @endif
 
                                     @if ($latitude == null || $longitude == null)

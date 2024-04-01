@@ -92,9 +92,14 @@
                                     </thead>
                                     <tbody>
                                         @if ($lost_dogs->count() > 0)
+                                            @php
+                                                $sl =
+                                                    $lost_dogs->perPage() * $lost_dogs->currentPage() -
+                                                    ($lost_dogs->perPage() - 1);
+                                            @endphp
                                             @foreach ($lost_dogs as $lost_dog)
                                                 <tr>
-                                                    <td>{{ $lost_dog->id }}</td>
+                                                    <td>{{ $sl++ }}</td>
                                                     <td>{{ $lost_dog->name }}</td>
                                                     <td>{{ $lost_dog->gender }}</td>
                                                     <td>{{ $lost_dog->color }}</td>
