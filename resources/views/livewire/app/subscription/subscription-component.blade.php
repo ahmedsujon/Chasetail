@@ -176,7 +176,7 @@
                             <h4>$169<span class="user">/ 1000 User</span></h4>
                             <p>Premium User</p>
                             <div class="btn-plan">
-                                <a href="#" wire:click.prevent="subscriptionEvent(149)">Choose Premium Plan</a>
+                                <a href="#" wire:click.prevent="subscriptionEvent(169)">Choose Premium Plan</a>
                             </div>
                             <h6>Includes</h6>
                             <ul>

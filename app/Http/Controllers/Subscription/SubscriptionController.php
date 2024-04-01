@@ -34,7 +34,7 @@ class SubscriptionController extends Controller
             $transactionId = rand(100000000, 999999999);
 
             $response = $this->gateway->authorize([
-                'amount' => session('plan_price'),
+                'amount' => $request->multiple_image ? session('plan_price') + 29 : session('plan_price'),
                 'currency' => 'USD',
                 'transactionId' => $transactionId,
                 'card' => $creditCard,
@@ -45,13 +45,13 @@ class SubscriptionController extends Controller
                 $transactionReference = $response->getTransactionReference();
 
                 $response = $this->gateway->capture([
-                    'amount' => session('plan_price'),
+                    'amount' => $request->multiple_image ? session('plan_price') + 29 : session('plan_price'),
                     'currency' => 'USD',
                     'transactionReference' => $transactionReference,
                 ])->send();
 
                 $transaction_id = $response->getTransactionReference();
-                $amount = session('plan_price');
+                $amount = $request->multiple_image ? session('plan_price') + 29 : session('plan_price');
 
                 // Insert transaction data into the database
                 $isPaymentExist = Subscription::where('transaction_id', $transaction_id)->first();
@@ -59,10 +59,15 @@ class SubscriptionController extends Controller
                 if (!$isPaymentExist) {
                     $payment = new Subscription;
                     $payment->transaction_id = $transaction_id;
-                    $payment->amount = session('plan_price');
+                    $payment->card_holder_name = $request->card_holder_name;
+                    $payment->multiple_image = $request->multiple_image;
+                    $payment->amount = $request->multiple_image ? session('plan_price') + 29 : session('plan_price');
                     $payment->currency = 'USD';
                     $payment->payment_status = 'Captured';
                     $payment->user_id = Auth::user()->id;
+
+                    dd($payment);
+
                     $payment->save();
                 }
                 return redirect()->route('app.subscription.success', ['transaction_id' => $transaction_id]);

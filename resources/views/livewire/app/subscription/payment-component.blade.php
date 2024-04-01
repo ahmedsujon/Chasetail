@@ -14,7 +14,7 @@
 
     <section class="step-content">
         <div class="container">
-            <form action="{{ url('payment') }}"  method="post" class="form-step">
+            <form action="{{ url('payment') }}" method="post" class="form-step">
                 @csrf
                 <div class="row">
                     <div class="col-md-12 col-lg-12 col-12">
@@ -30,8 +30,9 @@
                                             Back</a></p>
                                     <div class="multiple-photo">
                                         <div class="form-check">
-                                            <input class="form-check-input" wire:model.blur='multiple_image'
-                                                type="checkbox" value id="flexCheckChecked" checked>
+                                            <input class="form-check-input" wire:model.live='multiple_image'
+                                                name="multiple_image" type="checkbox" value="1"
+                                                id="flexCheckChecked" checked>
                                             <label class="form-check-label" for="flexCheckChecked">
                                                 Add multiple photo <span class="extra">($29
                                                     extra)
@@ -47,25 +48,25 @@
                             <div class="row">
                                 <div class="col-md-12 col-lg-6 col-12">
                                     <div class="form-left-right">
+
                                         <div class="mb-4" style="display: none;">
-                                            <label for="exampleFormControlInput1" class="form-label">Amount</label>
-                                            <input type="text" wire:model.blur='amount'
+                                            <label for="amount" class="form-label">Amount</label>
+                                            <input type="text" name='amount' value="{{ $multiple_image ? session('plan_price') + 29 : session('plan_price') }}"
                                                 class="form-control card-number" />
                                         </div>
 
                                         <div class="mb-4">
-                                            <label for="exampleFormControlInput1" class="form-label">Card
+                                            <label for="cc_number" class="form-label">Card
                                                 Number</label>
-                                            <input type="text" wire:model.blur='cc_number'
-                                                class="form-control card-number" id="sddsd"
-                                                placeholder="1234    4567    8919    1234" />
+                                            <input type="text" name='cc_number' class="form-control card-number"
+                                                id="sddsd" placeholder="1234    4567    8919    1234" />
                                         </div>
 
                                         <div class="mb-4" style="text-align: left;">
-                                            <label for="exampleFormControlInput1" class="form-label">Card
+                                            <label for="card_holder_name" class="form-label">Card
                                                 Holder Name</label>
-                                            <input type="text" wire:model.blur='card_holder_name'
-                                                class="form-control" id="sddsd" placeholder='Card holder name' />
+                                            <input type="text" name='card_holder_name' class="form-control"
+                                                id="sddsd" placeholder='Card holder name' />
                                         </div>
                                     </div>
                                 </div>
@@ -75,27 +76,27 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="mb-4">
-                                                    <label for="exampleFormControlInput1" class="form-label">Expiration
+                                                    <label for="expiry_month" class="form-label">Expiration
                                                         Month
                                                         (MM)</label>
-                                                    <input type="number" wire:model.blur="expiry_month"
-                                                        class="form-control" id="expiry_month" placeholder="MM">
+                                                    <input type="number" name="expiry_month" class="form-control"
+                                                        id="expiry_month" placeholder="MM">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="mb-4">
-                                                    <label for="exampleFormControlInput1" class="form-label">Expiration
+                                                    <label for="expiry_year" class="form-label">Expiration
                                                         Year
                                                         (YYYY)</label>
-                                                    <input type="number" wire:model.blur="expiry_month"
-                                                        class="form-control" id="expiry_month" placeholder="YYYY">
+                                                    <input type="number" name="expiry_year" class="form-control"
+                                                        id="expiry_year" placeholder="YYYY">
                                                 </div>
                                             </div>
                                         </div>
 
                                         <div class="mb-4">
-                                            <label for="exampleFormControlInput1" class="form-label">CVV</label>
-                                            <input type="text" wire:model.blur='cvv' class="form-control card-cww"
+                                            <label for="cvv" class="form-label">CVV</label>
+                                            <input type="text" name='cvv' class="form-control card-cww"
                                                 id="ereterer" placeholder="CVV">
                                         </div>
                                     </div>
@@ -110,17 +111,32 @@
                                                 <tr>
                                                     <td>Package Plan - Gold</td>
                                                     <td style="text-align: center;"> - </td>
-                                                    <td style="text-align: right;">${{ session('plan_price') }}.00</td>
+                                                    @if ($multiple_image)
+                                                        <td style="text-align: right;">${{ session('plan_price') + 29 }}
+                                                        </td>
+                                                    @else
+                                                        <td style="text-align: right;">${{ session('plan_price') }}</td>
+                                                    @endif
                                                 </tr>
                                                 <tr>
                                                     <td style="text-align: left;">For Adding Multiple Photos</td>
                                                     <td style="text-align: center;"> - </td>
-                                                    <td style="text-align: right;">$29.00</td>
+                                                    @if ($multiple_image)
+                                                        <td style="text-align: right;">$29.00</td>
+                                                    @else
+                                                        <td style="text-align: right;">$0.00</td>
+                                                    @endif
                                                 </tr>
                                                 <tr>
                                                     <td colspan="2"></td>
+                                                    @if ($multiple_image)
                                                     <td style="text-align: right;"><span class="subtotal">Subtotal:
-                                                            $178.00</span></td>
+                                                        ${{ session('plan_price') + 29 }}.00</span></td>
+                                                    @else
+                                                    <td style="text-align: right;"><span class="subtotal">Subtotal:
+                                                        ${{ session('plan_price') }}.00</span></td>
+                                                    @endif
+
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -131,7 +147,7 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="make-payment">
-                                        <button type="submit" class="btn btn-payment" type="button">Make
+                                        <button type="submit" value="Submit" class="btn btn-payment">Make
                                             Payment</button>
                                     </div>
                                 </div>
