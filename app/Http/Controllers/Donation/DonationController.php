@@ -59,9 +59,13 @@ class DonationController extends Controller
                 if (!$isPaymentExist) {
                     $payment = new Donation;
                     $payment->transaction_id = $transaction_id;
+                    $payment->card_holder_name = $request->card_holder_name;
                     $payment->amount = $request->input('amount');
                     $payment->currency = 'USD';
                     $payment->payment_status = 'Captured';
+
+                    dd($payment);
+
                     $payment->save();
                 }
                 return redirect()->route('app.donation.success', ['transaction_id' => $transaction_id]);

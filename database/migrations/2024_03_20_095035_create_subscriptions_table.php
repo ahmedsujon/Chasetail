@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('subscriptions', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id');
+            $table->string('card_holder_name');
+            $table->boolean('multiple_image')->default(1);
             $table->string('transaction_id')->nullable();
             $table->float('amount', 10, 2);
             $table->string('currency');
