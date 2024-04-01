@@ -67,13 +67,17 @@
                                     </thead>
                                     <tbody>
                                         @if ($admins->count() > 0)
+                                            @php
+                                                $sl =
+                                                    $admins->perPage() * $admins->currentPage() -
+                                                    ($admins->perPage() - 1);
+                                            @endphp
                                             @foreach ($admins as $admin)
                                                 <tr>
-                                                    <td>{{ $admin->id }}</td>
+                                                    <td>{{ $sl++ }}</td>
                                                     <td>{{ $admin->name }}</td>
                                                     <td>{{ $admin->email }}</td>
                                                     <td>{{ $admin->phone }}</td>
-                                                    {{-- <td>{{ getAdminByID($admin->added_by)->name }}</td> --}}
                                                     <td>{{ $admin->added_by }}</td>
                                                     <td>{{ $admin->created_at }}</td>
                                                     <td class="text-center">
