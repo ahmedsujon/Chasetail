@@ -42,7 +42,7 @@ Route::prefix('admin/')->name('admin.')->middleware('auth:admin')->group(functio
 
     // Donation
     Route::get('donations', DonationComponent::class)->name('donations');
-
+    
     // Subscription
     Route::get('subscription', SubscriptionComponent::class)->name('subscriptions');
 

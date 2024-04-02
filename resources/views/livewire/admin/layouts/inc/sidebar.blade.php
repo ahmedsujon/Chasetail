@@ -44,21 +44,18 @@
                         </li>
                     @endif
 
-                    @if (isAdminPermitted('users_manage') || isAdminPermitted('admins_manage'))
-                        <li class="menu-title" key="t-user">Donations</li>
-                    @endif
-                    @if (isAdminPermitted('users_manage'))
-                        <li>
-                            <a href="{{ route('admin.donations') }}" class="waves-effect">
-                                <i class="bx bx-user"></i>
-                                <span key="t-chat">Donations</span>
+                    @if (isAdminPermitted('settings_manage'))
+                        <li class="menu-title" key="t-setting">Payments</li>
+                        <li class="{{ request()->is('admin/donations') ? 'mm-active' : '' }}">
+                            <a href="javascript: void(0);" class="has-arrow waves-effect" aria-expanded="false">
+                                <i class="bx bx-detail"></i>
+                                <span key="t-blog">Payments</span>
                             </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('admin.subscriptions') }}" class="waves-effect">
-                                <i class="bx bx-user"></i>
-                                <span key="t-chat">Subscriptions</span>
-                            </a>
+                            <ul class="sub-menu mm-collapse" aria-expanded="false" style="height: 0px;">
+                                <li><a href="{{ route('admin.donations') }}" key="t-blog-details">Donations</a></li>
+                                <li><a href="{{ route('admin.subscriptions') }}" key="t-blog-details">Subscription</a>
+                                </li>
+                            </ul>
                         </li>
                     @endif
 
@@ -81,6 +78,17 @@
                                 data-bs-target="#editProfileModal">
                                 <i class="bx bx-wrench"></i>
                                 <span key="t-chat">Settings</span>
+                            </a>
+                        </li>
+                    @endif
+
+                    @if (isAdminPermitted('settings_manage'))
+                        <li class="menu-title" key="t-setting">Spam Report</li>
+                        <li>
+                            <a href="#" class="waves-effect" data-bs-toggle="modal"
+                                data-bs-target="#editProfileModal">
+                                <i class="bx bxs-flag-alt"></i>
+                                <span key="t-chat">Reported Listing</span>
                             </a>
                         </li>
                     @endif
