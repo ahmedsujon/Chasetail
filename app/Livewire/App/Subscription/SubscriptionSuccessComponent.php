@@ -6,7 +6,7 @@ use Livewire\Component;
 
 class SubscriptionSuccessComponent extends Component
 {
-    public $transaction_id;
+    public $transaction_id, $amount;
     public function mount($transaction_id)
     {
         $this->transaction_id = $transaction_id;
