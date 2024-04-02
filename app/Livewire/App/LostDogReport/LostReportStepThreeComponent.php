@@ -3,6 +3,7 @@
 namespace App\Livewire\App\LostDogReport;
 
 use App\Models\LostDog;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -34,10 +35,14 @@ class LostReportStepThreeComponent extends Component
         $data->last_seen = $this->last_seen;
         $data->microchip_id = $this->microchip_id;
         $data->description = $this->description;
-
-        dd($data);
-
         $data->save();
+
+        $user = User::find(Auth::user()->id);
+        $user->subscription = 0;
+        $user->save();
+
+        return $this->redirect('/user/dashboard', navigate: true);
+        session()->flash('success', 'Report posted added successfully');
         $this->resetInputs();
     }
 

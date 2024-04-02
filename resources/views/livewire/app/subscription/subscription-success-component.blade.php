@@ -10,7 +10,7 @@
                             <tbody>
                                 <tr>
                                     <td>Amount paid</td>
-                                    <td>$149</td>
+                                    <td>${{ request()->query('amount') }}</td>
                                 </tr>
                                 <tr>
                                     <td>Transaction id</td>
@@ -18,7 +18,7 @@
                                 </tr>
                                 <tr>
                                     <td>Date / Time</td>
-                                    <td>Mar-29, 2024, 6:14PM - USA (GMT-4)</td>
+                                    <td>{{ now()->format('Y-m-d H:i:s') }}</td>
                                 </tr>
                             </tbody>
                         </table>

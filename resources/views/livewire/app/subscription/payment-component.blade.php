@@ -48,7 +48,6 @@
                             <div class="row">
                                 <div class="col-md-12 col-lg-6 col-12">
                                     <div class="form-left-right">
-
                                         <div class="mb-4" style="display: none;">
                                             <label for="amount" class="form-label">Amount</label>
                                             <input type="text" name='amount'
@@ -127,14 +126,8 @@
                                                 <tr>
                                                     <td>Package Plan - Gold</td>
                                                     <td style="text-align: center;"> - </td>
-                                                    @if ($multiple_image)
-                                                        <td style="text-align: right;">
-                                                            ${{ session('plan_price') + 29 }}
-                                                        </td>
-                                                    @else
-                                                        <td style="text-align: right;">${{ session('plan_price') }}
-                                                        </td>
-                                                    @endif
+                                                    <td style="text-align: right;">${{ session('plan_price') }}
+                                                    </td>
                                                 </tr>
                                                 <tr>
                                                     <td style="text-align: left;">For Adding Multiple Photos</td>

@@ -1,3 +1,7 @@
 <div>
-    {{-- In work, do what you enjoy. --}}
+    @if (session()->has('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
 </div>

@@ -10,7 +10,11 @@
                             <p>Find your new best friend. We’re here to help your lost pet find their way home. Browse
                                 pets from our network of your nearby shelters and rescues.</p>
                             @auth
-                                <a href="/lost-dog-report-first" wire:navigate>Get Started</a>
+                                @if ($subscription == 1)
+                                    <a href="/lost-dog-report-first" wire:navigate>Get Started</a>
+                                @else
+                                    <a href="/subscription" wire:navigate>Get Started</a>
+                                @endif
                             @else
                                 <a href="/login" wire:navigate>Get Started</a>
                             @endauth

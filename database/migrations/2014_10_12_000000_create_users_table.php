@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('longitude')->nullable();
             $table->string('latitude')->nullable();
             $table->boolean('status')->default(1);
+            $table->boolean('subscription')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });
