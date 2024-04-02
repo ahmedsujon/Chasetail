@@ -14,7 +14,7 @@
 
     <section class="step-content">
         <div class="container">
-            <form class="form-step">
+            <form class="form-step" wire:submit.prevent="lostDogReportOne">
                 <div class="row">
                     <div class="col-md-12 col-lg-12 col-12">
                         <div class="step-page">
@@ -22,6 +22,9 @@
                             <p>You may provide the specific address. We will never share your exact location.</p>
                             <input class="form-control form-location" type="text" wire:model.blur="longitude"
                                 placeholder="Lost near (address or zip)">
+                                @error('longitude')
+                                <p class="text-danger" style="font-size: 11.5px;">{{ $message }}</p>
+                            @enderror
                             <h5> Use current location</h5>
                             <div class="location-map">
                                 <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0"
@@ -35,7 +38,7 @@
                 <div class="row mb-5">
                     <div class="col-12">
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <a href="/lost-dog-report-seceond" wire:navigate class="btn btn-primary mt-3" type="button">Next</a>
+                            <button type="submit" class="btn btn-primary mt-3">Next</button>
                         </div>
                     </div>
                 </div>

@@ -15,7 +15,7 @@ class LostDogSeeder extends Seeder
     public function run(): void
     {
         $faker = Faker::create();
-        foreach (range(1, 100) as $index) {
+        foreach (range(1, 10) as $index) {
             LostDog::create([
                 'user_id' => $faker->randomDigit(1,10),
                 'payment_status' => $faker->randomElement(['paid', 'unpaid']),

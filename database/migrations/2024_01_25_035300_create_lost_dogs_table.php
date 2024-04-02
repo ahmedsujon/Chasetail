@@ -19,10 +19,12 @@ return new class extends Migration
             $table->string('gender')->nullable();
             $table->string('color')->nullable();
             $table->string('breed')->nullable();
-            $table->string('description')->nullable();
+            $table->string('last_seen')->nullable();
+            $table->string('microchip_id')->nullable();
+            $table->longText('description')->nullable();
             $table->string('longitude')->nullable();
             $table->string('latitude')->nullable();
-            $table->string('photos')->nullable();
+            $table->string('images')->nullable();
             $table->string('missing_status')->default('Searching');
             $table->boolean('status')->default(1);
             $table->timestamps();

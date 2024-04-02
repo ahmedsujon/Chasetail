@@ -67,7 +67,7 @@ class SubscriptionController extends Controller
                     $payment->user_id = Auth::user()->id;
                     $payment->save();
                 }
-                return redirect()->route('app.subscription.success', ['transaction_id' => $transaction_id]);
+                return redirect()->route('app.subscription.success', ['transaction_id' => $transaction_id, 'amount'=>$amount]);
             } else {
                 // not successful
                 return $response->getMessage();

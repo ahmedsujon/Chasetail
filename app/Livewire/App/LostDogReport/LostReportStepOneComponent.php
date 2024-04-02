@@ -7,10 +7,15 @@ use Livewire\Component;
 class LostReportStepOneComponent extends Component
 {
 
-    public function subscriptionEvent($longitude)
+    public $longitude;
+    public function lostDogReportOne()
     {
-        session()->put('longitude', $longitude);
-        return redirect()->route('user.report.seceond.step');
+        $this->validate([
+            'longitude' => 'required',
+        ]);
+
+        session()->put('longitude', $this->longitude);
+        return $this->redirect('/lost-dog-report-seceond', navigate: true);
     }
 
     public function render()
