@@ -51,7 +51,8 @@
 
                                         <div class="mb-4" style="display: none;">
                                             <label for="amount" class="form-label">Amount</label>
-                                            <input type="text" name='amount' value="{{ $multiple_image ? session('plan_price') + 29 : session('plan_price') }}"
+                                            <input type="text" name='amount'
+                                                value="{{ $multiple_image ? session('plan_price') + 29 : session('plan_price') }}"
                                                 class="form-control card-number" />
                                         </div>
 
@@ -59,7 +60,10 @@
                                             <label for="cc_number" class="form-label">Card
                                                 Number</label>
                                             <input type="text" name='cc_number' class="form-control card-number"
-                                                id="sddsd" placeholder="1234    4567    8919    1234" />
+                                                placeholder="1234    4567    8919    1234" />
+                                            @error('cc_number')
+                                                <p class="text-danger font-size-12">{{ $message }}</p>
+                                            @enderror
                                         </div>
 
                                         <div class="mb-4" style="text-align: left;">
@@ -67,6 +71,9 @@
                                                 Holder Name</label>
                                             <input type="text" name='card_holder_name' class="form-control"
                                                 id="sddsd" placeholder='Card holder name' />
+                                            @error('card_holder_name')
+                                                <p class="text-danger font-size-12">{{ $message }}</p>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
@@ -81,6 +88,9 @@
                                                         (MM)</label>
                                                     <input type="number" name="expiry_month" class="form-control"
                                                         id="expiry_month" placeholder="MM">
+                                                    @error('expiry_month')
+                                                        <p class="text-danger font-size-12">{{ $message }}</p>
+                                                    @enderror
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -90,6 +100,9 @@
                                                         (YYYY)</label>
                                                     <input type="number" name="expiry_year" class="form-control"
                                                         id="expiry_year" placeholder="YYYY">
+                                                    @error('expiry_year')
+                                                        <p class="text-danger font-size-12">{{ $message }}</p>
+                                                    @enderror
                                                 </div>
                                             </div>
                                         </div>
@@ -98,6 +111,9 @@
                                             <label for="cvv" class="form-label">CVV</label>
                                             <input type="text" name='cvv' class="form-control card-cww"
                                                 id="ereterer" placeholder="CVV">
+                                            @error('cvv')
+                                                <p class="text-danger font-size-12">{{ $message }}</p>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
@@ -112,10 +128,12 @@
                                                     <td>Package Plan - Gold</td>
                                                     <td style="text-align: center;"> - </td>
                                                     @if ($multiple_image)
-                                                        <td style="text-align: right;">${{ session('plan_price') + 29 }}
+                                                        <td style="text-align: right;">
+                                                            ${{ session('plan_price') + 29 }}
                                                         </td>
                                                     @else
-                                                        <td style="text-align: right;">${{ session('plan_price') }}</td>
+                                                        <td style="text-align: right;">${{ session('plan_price') }}
+                                                        </td>
                                                     @endif
                                                 </tr>
                                                 <tr>
@@ -130,11 +148,13 @@
                                                 <tr>
                                                     <td colspan="2"></td>
                                                     @if ($multiple_image)
-                                                    <td style="text-align: right;"><span class="subtotal">Subtotal:
-                                                        ${{ session('plan_price') + 29 }}.00</span></td>
+                                                        <td style="text-align: right;"><span
+                                                                class="subtotal">Subtotal:
+                                                                ${{ session('plan_price') + 29 }}.00</span></td>
                                                     @else
-                                                    <td style="text-align: right;"><span class="subtotal">Subtotal:
-                                                        ${{ session('plan_price') }}.00</span></td>
+                                                        <td style="text-align: right;"><span
+                                                                class="subtotal">Subtotal:
+                                                                ${{ session('plan_price') }}.00</span></td>
                                                     @endif
 
                                                 </tr>

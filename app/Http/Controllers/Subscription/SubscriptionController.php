@@ -65,9 +65,6 @@ class SubscriptionController extends Controller
                     $payment->currency = 'USD';
                     $payment->payment_status = 'Captured';
                     $payment->user_id = Auth::user()->id;
-
-                    dd($payment);
-
                     $payment->save();
                 }
                 return redirect()->route('app.subscription.success', ['transaction_id' => $transaction_id]);

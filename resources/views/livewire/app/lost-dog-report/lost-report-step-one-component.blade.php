@@ -20,7 +20,7 @@
                         <div class="step-page">
                             <h3>Where did your dog get lost?</h3>
                             <p>You may provide the specific address. We will never share your exact location.</p>
-                            <input class="form-control form-location" type="text"
+                            <input class="form-control form-location" type="text" wire:model.blur="longitude"
                                 placeholder="Lost near (address or zip)">
                             <h5> Use current location</h5>
                             <div class="location-map">
