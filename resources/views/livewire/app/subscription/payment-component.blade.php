@@ -26,7 +26,7 @@
                                             <span class="plan-price">${{ session('plan_price') }}</span>
                                         </h4>
                                     </div>
-                                    <p>Think to Upgrade Plan? <a href="#">Click Here to Roll
+                                    <p>Think to Upgrade Plan? <a href="/subscription" wire:navigate>Click Here to Roll
                                             Back</a></p>
                                     <div class="multiple-photo">
                                         <div class="form-check">

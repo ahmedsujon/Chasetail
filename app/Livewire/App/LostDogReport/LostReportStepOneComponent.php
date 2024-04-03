@@ -12,10 +12,19 @@ class LostReportStepOneComponent extends Component
     {
         $this->validate([
             'longitude' => 'required',
+        ], [
+            'longitude.required' => 'Location field is required',
         ]);
 
         session()->put('longitude', $this->longitude);
         return $this->redirect('/lost-dog-report-seceond', navigate: true);
+    }
+
+    public function updated($fields)
+    {
+        $this->validateOnly($fields, [
+            'longitude' => 'required',
+        ]);
     }
 
     public function render()

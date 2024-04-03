@@ -22,8 +22,8 @@
                             <p>You may provide the specific address. We will never share your exact location.</p>
                             <input class="form-control form-location" type="text" wire:model.blur="longitude"
                                 placeholder="Lost near (address or zip)">
-                                @error('longitude')
-                                <p class="text-danger" style="font-size: 11.5px;">{{ $message }}</p>
+                            @error('longitude')
+                                <p class="text-danger" style="font-size: 16px;">{{ $message }}</p>
                             @enderror
                             <h5> Use current location</h5>
                             <div class="location-map">

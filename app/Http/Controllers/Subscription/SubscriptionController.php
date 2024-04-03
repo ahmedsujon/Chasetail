@@ -29,7 +29,7 @@ class SubscriptionController extends Controller
         $validatedData = $request->validate([
             'cc_number' => 'required',
             'expiry_month' => 'required|numeric|min:1|max:12',
-            'expiry_year' => 'required|numeric|min:' . Carbon::now()->format('Y'),
+            'expiry_year' => 'required',
             'card_holder_name' => 'required',
             'cvv' => 'required',
         ]);

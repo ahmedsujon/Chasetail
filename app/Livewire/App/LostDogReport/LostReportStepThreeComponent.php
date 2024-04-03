@@ -13,16 +13,12 @@ class LostReportStepThreeComponent extends Component
 
     public function storeData()
     {
-        // $this->validate([
-        //     'user_id' => 'required',
-        //     'longitude' => 'required',
-        //     'photos' => 'required',
-        //     'name' => 'required',
-        //     'gender' => 'required',
-        //     'last_seen' => 'required',
-        //     'microchip_id' => 'required',
-        //     'description' => 'required',
-        // ]);
+        $this->validate([
+            'name' => 'required',
+            'gender' => 'required',
+            'last_seen' => 'required',
+            'description' => 'required',
+        ]);
 
         $data = new LostDog();
         $data->user_id = Auth::user()->id;

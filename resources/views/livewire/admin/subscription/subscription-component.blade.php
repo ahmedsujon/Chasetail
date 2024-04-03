@@ -69,6 +69,13 @@
                                             @include(
                                                 'livewire.admin.datatable.subscriptions-datatable-sorting',
                                                 [
+                                                    'name' => 'card_holder_name',
+                                                    'thDisplayName' => 'Card Holder Name',
+                                                ]
+                                            )
+                                            @include(
+                                                'livewire.admin.datatable.subscriptions-datatable-sorting',
+                                                [
                                                     'name' => 'transaction_id',
                                                     'thDisplayName' => 'Transaction ID',
                                                 ]
@@ -107,6 +114,7 @@
                                             @foreach ($subscriptions as $subscription)
                                                 <tr>
                                                     <td>{{ $sl++ }}</td>
+                                                    <td>{{ $subscription->card_holder_name }}</td>
                                                     <td>{{ $subscription->transaction_id }}</td>
                                                     <td>{{ $subscription->amount }}</td>
                                                     <td>{{ $subscription->currency }}</td>
