@@ -27,6 +27,7 @@ class LostReportStepThreeComponent extends Component
         $data->images = session('images');
 
         $data->name = $this->name;
+        $data->payment_status = 'paid';
         $data->gender = $this->gender;
         $data->last_seen = $this->last_seen;
         $data->microchip_id = $this->microchip_id;

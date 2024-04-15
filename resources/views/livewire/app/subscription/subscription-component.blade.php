@@ -24,7 +24,7 @@
                             <h4>FREE</h4>
                             <p>Free User</p>
                             <div class="btn-plan">
-                                <a href="#" wire:click.prevent="subscriptionEvent(0)">Choose Starter Plan</a>
+                                <a href="/free-lost-dog-report-first" wire:navigate >Choose Starter Plan</a>
                             </div>
                             <h6>Includes</h6>
                             <ul class="free-package">
