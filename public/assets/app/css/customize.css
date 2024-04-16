@@ -902,7 +902,7 @@ ul.content-hr {
 }
 
 
-/* ================== 
+/* ==================
     Plan
 ==================== */
 #page-banner {
@@ -1521,7 +1521,7 @@ ul.content-hr {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 200px;
+    height: 280px;
     padding: 20px;
     border-radius: 10px;
     border: 2px dashed #555;
@@ -1529,18 +1529,18 @@ ul.content-hr {
     cursor: pointer;
     transition: background .2s ease-in-out, border .2s ease-in-out;
   }
-  
-  .drop-container:hover,
+
+  /* .drop-container:hover,
   .drop-container.drag-active {
     background: #eee;
     border-color: #111;
-  }
-  
+  } */
+
   .drop-container:hover .drop-title,
   .drop-container.drag-active .drop-title {
     color: #222;
   }
-  
+
   .drop-title {
     color: #444;
     font-size: 20px;
@@ -1548,7 +1548,7 @@ ul.content-hr {
     text-align: center;
     transition: color .2s ease-in-out;
   }
-  
+
   input[type=file] {
     width: 350px;
     max-width: 100%;
@@ -1558,7 +1558,7 @@ ul.content-hr {
     border-radius: 10px;
     border: 1px solid #555;
   }
-  
+
   input[type=file]::file-selector-button {
     margin-right: 20px;
     border: none;
@@ -1569,7 +1569,7 @@ ul.content-hr {
     cursor: pointer;
     transition: background .2s ease-in-out;
   }
-  
+
   input[type=file]::file-selector-button:hover {
     background: #0d45a5;
   }
@@ -1673,7 +1673,7 @@ ul.content-hr {
 }
 
 /* ====================
-    Media Query 
+    Media Query
 ==================== */
 
 @media only screen and (max-width: 1440px) {
@@ -1998,7 +1998,7 @@ ul.content-hr {
         padding-left: 0;
         font-size: 20px;
     }
-    
+
     .step-page {
         padding: 30px 0;
     }
@@ -2019,7 +2019,7 @@ ul.content-hr {
     .btn-group .btn-check:checked+.btn {
         background: #fff url(../images/icon-male-active.png) no-repeat 5px 15px;
     }
-    
+
 
     .step-page label {
         line-height: 20px;

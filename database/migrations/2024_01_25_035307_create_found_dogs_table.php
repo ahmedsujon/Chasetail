@@ -15,11 +15,13 @@ return new class extends Migration
             $table->id();
             $table->integer('user_id')->unsigned()->nullable();
             $table->string('name')->nullable();
+            $table->string('found_date')->nullable();
             $table->string('color')->nullable();
             $table->string('gender')->nullable();
             $table->string('breed')->nullable();
+            $table->string('microchip_id')->nullable();
             $table->string('description')->nullable();
-            $table->string('photos')->nullable();
+            $table->string('images')->nullable();
             $table->string('longitude')->nullable();
             $table->string('latitude')->nullable();
             $table->string('status')->default(1);
