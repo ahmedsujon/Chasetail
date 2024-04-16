@@ -623,7 +623,7 @@ ul.content-hr {
 .side-bar .menu .item a .dropdown {
     position: absolute;
     right: 0;
-    margin: 20px;
+    margin: 8px 20px 10px 10px;
     transition: 0.3s ease;
 }
 
@@ -771,14 +771,13 @@ ul.content-hr {
 
 .signup {
     width: 100%;
-    padding: 60px 0 50px 0;
-    background: url("../images/bg-signup.jpg") no-repeat top center;
-    background-size: cover;
+    padding: 45px 0 100px 0;
+    background: #edf2f6;
 }
 
 .signup-form {
     width: 50%;
-    padding: 40px 60px 20px 60px;
+    padding: 40px 90px 20px 90px;
     text-align: center;
     overflow: hidden;
     margin: 0 auto;
@@ -789,11 +788,11 @@ ul.content-hr {
 .signInSignUpModal .signup-form h4 {
     padding: 0 0 20px 0;
     line-height: 60px;
-    font-size: 56px;
+    font-size: 48px;
     font-family: 'robotomedium';
     text-align: center;
     text-transform: uppercase;
-    color: #000;
+    color: #101c1d;
     border-bottom: 2px solid #007ae2;
 }
 
@@ -801,7 +800,7 @@ ul.content-hr {
     padding: 20px 0 0 0;
     line-height: 26px;
     font-family: 'Heebo';
-    font-size: 20px;
+    font-size: 22px;
     text-align: center;
     color: #333740;
 }
@@ -902,7 +901,7 @@ ul.content-hr {
 }
 
 
-/* ==================
+/* ================== 
     Plan
 ==================== */
 #page-banner {
@@ -1080,12 +1079,12 @@ ul.content-hr {
 }
 
 .page-header-text p a {
-    color: #454c55;
+    color: #0082f0;
     text-decoration: none;
 }
 
 .page-header-text p a:hover {
-    color: #0e2264;
+    color: #454c55;
     text-decoration: none;
 }
 
@@ -1416,6 +1415,28 @@ ul.content-hr {
     font-family: 'nunito_sansextrabold';
 }
 
+.multiple-photo {
+    width: 30%;
+    padding: 15px 20px 10px 20px;
+    overflow: hidden;
+    text-align: center;
+    margin: 0 auto 30px;
+    border-radius: 6px;
+    background: #eaeff3;
+}
+
+.multiple-photo label {
+    line-height: 22px;
+    font-size: 18px;
+    font-family: 'nunito_sansregular';
+    text-align: left;
+    color: #454c55;
+}
+
+.multiple-photo label span.extra {
+    color: #0082f0;
+}
+
 .card-info {
     margin-bottom: 30px;
 }
@@ -1521,7 +1542,7 @@ ul.content-hr {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 280px;
+    height: 200px;
     padding: 20px;
     border-radius: 10px;
     border: 2px dashed #555;
@@ -1529,28 +1550,28 @@ ul.content-hr {
     cursor: pointer;
     transition: background .2s ease-in-out, border .2s ease-in-out;
   }
-
-  /* .drop-container:hover,
+  
+  .drop-container:hover,
   .drop-container.drag-active {
     background: #eee;
     border-color: #111;
-  } */
-
+  }
+  
   .drop-container:hover .drop-title,
   .drop-container.drag-active .drop-title {
     color: #222;
   }
-
-  .drop-title {
+  
+  .drop-container .drop-title {
     color: #444;
     font-size: 20px;
     font-weight: bold;
     text-align: center;
     transition: color .2s ease-in-out;
   }
-
-  input[type=file] {
-    width: 350px;
+  
+  .drop-container input[type=file] {
+    width: 370px;
     max-width: 100%;
     color: #444;
     padding: 5px;
@@ -1558,8 +1579,8 @@ ul.content-hr {
     border-radius: 10px;
     border: 1px solid #555;
   }
-
-  input[type=file]::file-selector-button {
+  
+  .drop-container input[type=file]::file-selector-button {
     margin-right: 20px;
     border: none;
     background: #084cdf;
@@ -1569,8 +1590,8 @@ ul.content-hr {
     cursor: pointer;
     transition: background .2s ease-in-out;
   }
-
-  input[type=file]::file-selector-button:hover {
+  
+  .drop-container input[type=file]::file-selector-button:hover {
     background: #0d45a5;
   }
 
@@ -1671,9 +1692,275 @@ ul.content-hr {
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
 }
-
 /* ====================
-    Media Query
+    Lost Deatils Page
+==================== */
+.lost-detail-content {
+    width: 100%;
+    padding: 70px 0 150px 0;
+    overflow: hidden;
+}
+.lost-detail-left {
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+}
+.lost-detail-left p {
+    padding: 0;
+    margin: 20px 0 0 0;
+    line-height: 22px;
+    font-family: 'nunito_sansbold';
+    text-align: center;
+    font-size: 16px;
+    color: #000;
+}
+.lost-detail-left .btn-dog-parent {
+    padding: 10px 25px;
+    line-height: 22px;
+    font-family: 'nunito_sansbold';
+    text-align: center;
+    font-size: 17px;
+    color: #fff;
+    border-radius: 100px;
+    background: #0082f0;
+}
+.lost-detail-left .btn-dog-parent:hover {
+    background: #1C3786;
+}
+.lost-detail-left img {
+    border-radius: 10px;
+}
+.lost-detail-right {
+    width: 100%;
+    padding-left: 20px;
+    overflow: hidden;
+}
+.lost-detail-right h4 {
+    padding: 0;
+    margin: 0;
+    line-height: 34px;
+    font-family: 'nunito_sansregular';
+    font-weight: normal;
+    text-align: left;
+    font-size: 30px;
+    color: #454c55;
+}
+.lost-detail-right h5 {
+    padding: 10px 0 0 0;
+    margin: 0;
+    line-height: 22px;
+    font-family: 'nunito_sansbold';
+    font-size: 16px;
+    text-align: left;
+    color: #000;
+}
+.lost-detail-right ul {
+    width: 100%;
+    padding: 30px 0 40px 0;
+    overflow: hidden;
+}
+.lost-detail-right ul li {
+    width: 30%;
+    padding: 15px 20px;
+    margin: 0 30px 0 0;
+    line-height: 18px;
+    display: inline-block;
+    font-family: 'nunito_sansregular';
+    font-size: 15px;
+    font-weight: 500;
+    text-align: left;
+    color: #767676;
+    border-radius: 8px;
+    background: #f1f9ff;
+}
+.lost-detail-right ul li span {
+    padding: 10px 0 0 0;
+    display: block;
+    font-family: 'nunito_sansbold';
+    font-size: 19px;
+    text-transform: uppercase;
+    color: #0082f0;
+}
+.lost-detail-right table {
+    width: 100%;
+    overflow: hidden;
+    margin: 30px 0 20px 0;
+}
+.lost-detail-right table td {
+    padding: 10px 0;
+    line-height: 18px;
+    text-align: left;
+    font-family: 'nunito_sansregular';
+    font-size: 13px;
+    color: #767676;
+    border-color: #e7e7e7;
+}
+.lost-detail-right table td:last-child {
+    font-family: 'nunito_sansbold';
+    font-size: 16px;
+    text-align: right;
+    color: #000;
+}
+.lost-detail-right h6 {
+    padding: 13px 0 13px 0;
+    margin: 60px 0 0 0;
+    line-height: 24px;
+    font-family: 'nunito_sansbold';
+    font-size: 16px;
+    text-align: center;
+    border-top: 1px solid #e7e7e7;
+    border-bottom: 1px solid #e7e7e7;
+    background: url("../images/icon-listing.png") no-repeat 39% 18px;
+}
+.lost-detail-right h6 a {
+    color: #0082f0;
+    text-decoration: none;
+}
+.lost-detail-right h6 a:hover {
+    color: #0082f0;
+    text-decoration: none;
+}
+.lost-detail-right p {
+    padding: 10px 0;
+    line-height: 22px;
+    text-align: left;
+    font-family: 'nunito_sansregular';
+    font-size: 16px;
+    color: #000;
+}
+.lost-detail-right .contact-info {
+    width: 100%;
+    padding: 10px 0 0px 0;
+    overflow: hidden;
+}
+.lost-detail-right .contact-info li {
+    width: 100%;
+    padding: 10px 0 10px 30px;
+    margin: 0;
+    line-height: 22px;
+    text-align: left;
+    font-family: 'nunito_sansregular';
+    font-size: 16px;
+    color: #000;
+    list-style-type: none;
+    background: none;
+}
+.lost-detail-right .contact-info li:nth-child(1) {
+    background: url("../images/icon-call.png") no-repeat left center;
+}
+.lost-detail-right .contact-info li:nth-child(2) {
+    background: url("../images/icon-mail.png") no-repeat left center;
+}
+.lost-detail-right .contact-info li:nth-child(3) {
+    background: url("../images/icon-location.png") no-repeat left center;
+}
+.lost-detail-right .contact-info li a {
+    text-decoration: none;
+    color: #000;
+    border-bottom: 2px solid #b0b0b0;
+}
+.lost-detail-right .contact-info li a:hover {
+    text-decoration: none;
+}
+/* =========================
+    Lost Dog List Page
+========================= */
+.lost-dog-list-content {
+    width: 100%;
+    padding: 50px 0 50px 0;
+    overflow: hidden;
+}
+.lost-dog-list-left {
+    width: 100%;
+    overflow: hidden;
+}
+.lost-dog-list-right {
+    width: 100%;
+    overflow: hidden;
+}
+.lost-dog-list-right img {
+    border-radius: 10px;
+}
+.lost-dog-list-right h4 {
+    padding: 15px 0 0 0;
+    margin: 0;
+    line-height: 24px;
+    font-family: 'nunito_sansbold';
+    font-size: 18px;
+    text-align: left;
+    color: #032763;
+}
+.lost-dog-list-right h4 a {
+    text-decoration: none;
+    color: #032763;
+}
+.lost-dog-list-right h4 a:hover {
+    text-decoration: none;
+    color: #032763;
+}
+.lost-dog-list-right p {
+    padding: 5px 0 0 0;
+    margin: 0;
+    display: inline-block;
+    line-height: 22px;
+    font-family: 'nunito_sansregular';
+    font-size: 14px;
+    text-transform: capitalize;
+    text-align: left;
+    color: #5e656f;
+}
+.lost-dog-list-right ul {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+.lost-dog-list-right ul li {
+    margin: 0 0 0 30px;
+    padding: 0;
+    line-height: 22px;
+    font-family: 'nunito_sansregular';
+    font-size: 14px;
+    text-transform: capitalize;
+    text-align: left;
+    color: #5e656f;
+}
+.lost-dog-list-right ul li::marker {
+    font-size: 25px;
+    color: #b9dbf8;
+}
+.lost-dog-list-right-text {
+    width: 100%;
+    padding: 15px 5px;
+    overflow: hidden;
+}
+.dog-pagination {
+    width: 100%;
+    padding: 40px 0;
+    margin: 40px 0 0 0;
+    overflow: hidden;
+    text-align: center;
+    border-top: 2px solid #f1f2f2;
+}
+.dog-pagination ul {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: block;
+}
+.dog-pagination ul li {
+    padding: 0 5px;
+    margin: 0;
+    display: inline-block;
+}
+.dog-pagination ul li a {
+    line-height: 22px;
+    font-family: 'nunito_sansbold';
+    font-size: 16px;
+    color: #032763;
+    border: 0;
+}
+/* ====================
+    Media Query 
 ==================== */
 
 @media only screen and (max-width: 1440px) {
@@ -1936,6 +2223,24 @@ ul.content-hr {
         font-size: 20px;
     }
 
+    .lost-detail-right ul li {
+        width: 100%;
+        margin: 0 0 10px 0;
+    }
+
+    .lost-detail-right ul {
+        padding: 30px 0 20px 0;
+    }
+
+    .lost-detail-right h6 {
+        margin: 30px 0 0 0;
+        background: url(../images/icon-listing.png) no-repeat 20% 18px;
+    }
+
+    .lost-detail-content {
+        padding: 30px 0 50px 0;
+    }
+
     .footer-top {
         padding: 40px 0;
     }
@@ -1963,6 +2268,14 @@ ul.content-hr {
 
     .signup-form {
         width: 100%;
+    }
+
+    #page-header {
+        padding: 30px 0;
+    }
+
+    .page-header-text p {
+        font-size: 20px;
     }
 
     #page-banner {
@@ -1998,7 +2311,7 @@ ul.content-hr {
         padding-left: 0;
         font-size: 20px;
     }
-
+    
     .step-page {
         padding: 30px 0;
     }
@@ -2019,7 +2332,7 @@ ul.content-hr {
     .btn-group .btn-check:checked+.btn {
         background: #fff url(../images/icon-male-active.png) no-repeat 5px 15px;
     }
-
+    
 
     .step-page label {
         line-height: 20px;
@@ -2041,6 +2354,27 @@ ul.content-hr {
     .payment-success-content {
         width: 100%;
         padding: 30px 20px;
+    }
+
+    .lost-detail-left {
+        padding: 0 10px 0 10px;
+    }
+
+    .lost-detail-right {
+        padding: 30px 10px 0 10px;
+    }
+
+    .lost-detail-right h5 {
+        padding: 10px 0 0 0;
+    }
+
+    .lost-detail-right table {
+        margin: 30px 10px 0 0;
+    }
+
+    .page-header-text h4 {
+        line-height: 40px;
+        font-size: 35px;
     }
 
     .footer-top-text ul li {
