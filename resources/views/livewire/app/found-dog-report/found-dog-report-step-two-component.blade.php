@@ -1,4 +1,9 @@
 <div>
+    <style>
+        .drop-container{
+            height: 270px !important;
+        }
+    </style>
     <section id="page-header">
         <div class="container-fluid">
             <div class="row">
@@ -22,7 +27,8 @@
                                 looking directly at the camera.</p>
                             <label for="images" class="drop-container" id="dropcontainer">
                                 <span class="drop-title">Upload your dogs photos</span>
-                                <input type="file" wire:model.blur="images" id="images" accept="image/*" style="display:none;" required>
+                                <input type="file" wire:model.blur="images" id="images" accept="image/*"
+                                    style="display:none;" required>
                                 @error('images')
                                     <p class="text-danger" style="font-size: 16px;">{{ $message }}</p>
                                 @enderror
@@ -32,7 +38,8 @@
                                 <small>Uploading</small>
                             </div>
                             @if ($images)
-                                <img src="{{ $images->temporaryUrl() }}" class="img-fluid mt-2" style="margin-top: -20.9rem !important; height: 260px !important" />
+                                <img src="{{ $images->temporaryUrl() }}" class="img-fluid mt-2"
+                                    style="margin-top: -20.4rem !important; height: 260px !important" />
                             @endif
                         </div>
                     </div>
