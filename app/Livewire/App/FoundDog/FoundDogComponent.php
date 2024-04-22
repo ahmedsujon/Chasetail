@@ -9,7 +9,7 @@ use Livewire\WithPagination;
 class FoundDogComponent extends Component
 {
     use WithPagination;
-    public $sortingValue = 10, $searchTerm;
+    public $sortingValue = 12, $searchTerm;
     public function render()
     {
         $found_dogs = FoundDog::where('name', 'like', '%' . $this->searchTerm . '%')->orderBy('id', 'DESC')->paginate($this->sortingValue);

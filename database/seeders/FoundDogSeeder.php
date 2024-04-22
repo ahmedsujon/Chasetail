@@ -15,9 +15,9 @@ class FoundDogSeeder extends Seeder
     public function run(): void
     {
         $faker = Faker::create();
-        foreach (range(1, 5) as $index) {
+        foreach (range(1, 15) as $index) {
             FoundDog::create([
-                'user_id' => $faker->randomDigit(1,5),
+                'user_id' => $faker->randomDigit(1,15),
                 'name' => $faker->name,
                 'color' => $faker->colorName,
                 'gender' => $faker->randomElement(['male', 'female']),

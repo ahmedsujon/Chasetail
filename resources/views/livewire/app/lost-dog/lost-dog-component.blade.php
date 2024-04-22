@@ -118,119 +118,25 @@
                 <div class="col-lg-9 col-md-8 col-12">
                     <div class="lost-dog-list-right">
                         <div class="row">
-                            <div class="col-lg-4 col-md-6 col-12">
-                                <div class="lost-dog-list-right-text">
-                                    <img class="img-fluid" src="{{ asset('assets/app/images/lost-dog-list01.jpg') }}" alt="Lost Dog">
-                                    <h4><a href="#">Pomeranian
-                                            Puppy</a></h4>
-                                    <p>Dallas - Texas:
-                                    <ul>
-                                        <li>Adult
-                                            female</li>
-                                    </ul>
-                                    </p>
+                            @foreach ($lost_dogs as $lost_dog)
+                                <div class="col-lg-4 col-md-6 col-12">
+                                    <div class="lost-dog-list-right-text">
+                                        <img class="img-fluid"
+                                            src="{{ asset('assets/app/images/lost-dog-list01.jpg') }}" alt="Lost Dog">
+                                        <h4><a href="#">Pomeranian
+                                                Puppy</a></h4>
+                                        <p>Dallas - Texas:
+                                        <ul>
+                                            <li>Adult
+                                                female</li>
+                                        </ul>
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-12">
-                                <div class="lost-dog-list-right-text">
-                                    <img class="img-fluid" src="{{ asset('assets/app/images/lost-dog-list02.jpg') }}" alt="Lost Dog">
-                                    <h4><a href="#">Papillon</a></h4>
-                                    <p>Dallas - Texas:
-                                    <ul>
-                                        <li>Adult
-                                            Male</li>
-                                    </ul>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-12">
-                                <div class="lost-dog-list-right-text">
-                                    <img class="img-fluid" src="{{ asset('assets/app/images/lost-dog-list03.jpg') }}" alt="Lost Dog">
-                                    <h4><a href="#">Toy Poodle</a></h4>
-                                    <p>Dallas - Texas:
-                                    <ul>
-                                        <li>Adult
-                                            female</li>
-                                    </ul>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-12">
-                                <div class="lost-dog-list-right-text">
-                                    <img class="img-fluid" src="{{ asset('assets/app/images/lost-dog-list04.jpg') }}" alt="Lost Dog">
-                                    <h4><a href="#">Chihuahua Puppy</a></h4>
-                                    <p>Dallas - Texas:
-                                    <ul>
-                                        <li>Adult
-                                            female</li>
-                                    </ul>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-12">
-                                <div class="lost-dog-list-right-text">
-                                    <img class="img-fluid" src="{{ asset('assets/app/images/lost-dog-list05.jpg') }}" alt="Lost Dog">
-                                    <h4><a href="#">Affenpinscher</a></h4>
-                                    <p>Dallas - Texas:
-                                    <ul>
-                                        <li>Adult
-                                            female</li>
-                                    </ul>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-12">
-                                <div class="lost-dog-list-right-text">
-                                    <img class="img-fluid" src="{{ asset('assets/app/images/lost-dog-list06.jpg') }}" alt="Lost Dog">
-                                    <h4><a href="#">Yorkshire
-                                            Terrier</a></h4>
-                                    <p>Dallas - Texas:
-                                    <ul>
-                                        <li>Adult
-                                            female</li>
-                                    </ul>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-12">
-                                <div class="lost-dog-list-right-text">
-                                    <img class="img-fluid" src="{{ asset('assets/app/images/lost-dog-list07.jpg') }}" alt="Lost Dog">
-                                    <h4><a href="#">Chin Chin</a></h4>
-                                    <p>Dallas - Texas:
-                                    <ul>
-                                        <li>Adult
-                                            female</li>
-                                    </ul>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-12">
-                                <div class="lost-dog-list-right-text">
-                                    <img class="img-fluid" src="{{ asset('assets/app/images/lost-dog-list08.jpg') }}" alt="Lost Dog">
-                                    <h4><a href="#">Cuty Terrier</a></h4>
-                                    <p>Dallas - Texas:
-                                    <ul>
-                                        <li>Adult
-                                            female</li>
-                                    </ul>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-12">
-                                <div class="lost-dog-list-right-text">
-                                    <img class="img-fluid" src="{{ asset('assets/app/images/lost-dog-list09.jpg') }}" alt="Lost Dog">
-                                    <h4><a href="#">Shih Tzu</a></h4>
-                                    <p>Dallas - Texas:
-                                    <ul>
-                                        <li>Adult
-                                            female</li>
-                                    </ul>
-                                    </p>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
-{{-- hh --}}
                     </div>
+                    {{ $lost_dogs->links('livewire.pagination-links') }}
                 </div>
             </div>
         </div>

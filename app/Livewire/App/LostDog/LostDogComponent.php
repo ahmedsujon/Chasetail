@@ -9,12 +9,12 @@ use Livewire\WithPagination;
 class LostDogComponent extends Component
 {
     use WithPagination;
-    public $sortingValue = 10, $searchTerm;
+    public $sortingValue = 12, $searchTerm;
 
     public function render()
     {
         $lost_dogs = LostDog::where('name', 'like', '%' . $this->searchTerm . '%')->orderBy('id', 'DESC')->paginate($this->sortingValue);
         $this->dispatch('reload_scripts');
-        return view('livewire.app.lost-dog.lost-dog-component', ['lost_dogs'=>$lost_dogs])->layout('livewire.app.layouts.base');
+        return view('livewire.app.lost-dog.lost-dog-component', ['lost_dogs' => $lost_dogs])->layout('livewire.app.layouts.base');
     }
 }
