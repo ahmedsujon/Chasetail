@@ -13,7 +13,7 @@ class LostDogComponent extends Component
 
     public function render()
     {
-        $lost_dogs = LostDog::where('name', 'like', '%' . $this->searchTerm . '%')->orderBy('id', 'DESC')->paginate($this->sortingValue);
+        $lost_dogs = LostDog::where('name', 'like', '%' . $this->searchTerm . '%')->inRandomOrder()->paginate($this->sortingValue);
         $this->dispatch('reload_scripts');
         return view('livewire.app.lost-dog.lost-dog-component', ['lost_dogs' => $lost_dogs])->layout('livewire.app.layouts.base');
     }

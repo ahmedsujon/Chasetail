@@ -12,7 +12,7 @@ class FoundDogComponent extends Component
     public $sortingValue = 12, $searchTerm;
     public function render()
     {
-        $found_dogs = FoundDog::where('name', 'like', '%' . $this->searchTerm . '%')->orderBy('id', 'DESC')->paginate($this->sortingValue);
+        $found_dogs = FoundDog::where('name', 'like', '%' . $this->searchTerm . '%')->inRandomOrder()->paginate($this->sortingValue);
         $this->dispatch('reload_scripts');
         return view('livewire.app.found-dog.found-dog-component', ['found_dogs'=>$found_dogs])->layout('livewire.app.layouts.base');
     }
