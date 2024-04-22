@@ -7,7 +7,7 @@
                        <div class="footer-top-text">
                            <ul>
                                <li><a href="tel:+11234567890"><span class="call">Call Now:</span> <span
-                                           class="number">123-456-7890</span></a></li>
+                                           class="number">855-700-3436</span></a></li>
                                <li><a href="mailto:info@findfidofast.com">info@findfidofast.com</a></li>
                                @auth
                                    @if ($subscription == 1)
