@@ -20,6 +20,7 @@ use App\Livewire\App\User\Auth\UpdatePasswordComponent;
 use App\Livewire\App\Subscription\SubscriptionComponent;
 use App\Livewire\App\Subscription\PaymentSuccessComponent;
 use App\Http\Controllers\Subscription\SubscriptionController;
+use App\Livewire\App\FoundDog\FoundDogDetailsComponent;
 use App\Livewire\App\LostDogReport\LostReportStepOneComponent;
 use App\Livewire\App\LostDogReport\LostReportStepTwoComponent;
 use App\Livewire\App\Subscription\SubscriptionSuccessComponent;
@@ -30,6 +31,7 @@ use App\Livewire\App\FoundDogReport\FoundDogReportStepThreeComponent;
 use App\Livewire\App\FreeLostDogReport\FreeDogReportStepOneComponent;
 use App\Livewire\App\FreeLostDogReport\FreeDogReportStepTwoComponent;
 use App\Livewire\App\FreeLostDogReport\FreeDogReportStepThreeComponent;
+use App\Livewire\App\LostDog\LostDogDetailsComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,8 +45,15 @@ use App\Livewire\App\FreeLostDogReport\FreeDogReportStepThreeComponent;
 */
 
 Route::get('/', HomeComponent::class)->name('app.home');
+
+// Lost Dog Routes
 Route::get('/lost-dogs', LostDogComponent::class)->name('app.lost.dogs');
+Route::get('/lost-dogs/details/{id}', LostDogDetailsComponent::class)->name('app.lost.dogs.details');
+
+// Found Dog Routes
 Route::get('/found-dogs', FoundDogComponent::class)->name('app.found.dogs');
+Route::get('/found-dogs/details/{id}', FoundDogDetailsComponent::class)->name('app.found.dogs.details');
+
 Route::get('/pricing', PricingComponent::class)->name('app.pricing');
 Route::get('/donation', DonationComponent::class)->name('app.donation');
 

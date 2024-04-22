@@ -123,7 +123,7 @@
                                     <div class="lost-dog-list-right-text">
                                         <img class="img-fluid"
                                             src="{{ asset($lost_dog->images) }}" alt="Lost Dog">
-                                        <h4><a href="#">Pomeranian
+                                        <h4><a href="{{ route('app.lost.dogs.details', ['id' => $lost_dog->id]) }}">Pomeranian
                                                 Puppy</a></h4>
                                         <p>Dallas - Texas:
                                         <ul>
