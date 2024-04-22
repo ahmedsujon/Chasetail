@@ -122,7 +122,7 @@
                                 <div class="col-lg-4 col-md-6 col-12">
                                     <div class="lost-dog-list-right-text">
                                         <img class="img-fluid"
-                                            src="{{ asset('assets/app/images/lost-dog-list01.jpg') }}" alt="Lost Dog">
+                                            src="{{ asset($lost_dog->images) }}" alt="Lost Dog">
                                         <h4><a href="#">Pomeranian
                                                 Puppy</a></h4>
                                         <p>Dallas - Texas:
