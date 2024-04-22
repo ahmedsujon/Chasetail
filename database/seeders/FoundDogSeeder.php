@@ -15,9 +15,9 @@ class FoundDogSeeder extends Seeder
     public function run(): void
     {
         $faker = Faker::create();
-        foreach (range(1, 15) as $index) {
+        foreach (range(1, 9) as $index) {
             FoundDog::create([
-                'user_id' => $faker->randomDigit(1,15),
+                'user_id' => $faker->randomDigit(1,9),
                 'name' => $faker->name,
                 'color' => $faker->colorName,
                 'gender' => $faker->randomElement(['male', 'female']),
@@ -25,7 +25,7 @@ class FoundDogSeeder extends Seeder
                 'description' => $faker->text,
                 'longitude' => $faker->longitude,
                 'latitude' => $faker->latitude,
-                'images' => 'assets/app/images/content-dog02.jpg',
+                'images' => 'assets/app/images/lost-dog-list' . sprintf('%02d', $index) . '.jpg',
                 'status' => $faker->numberBetween(0,1),
                 'missing_status' => $faker->randomElement(['found', 'searching', 'not_found']),
             ]);
