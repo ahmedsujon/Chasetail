@@ -41,6 +41,18 @@ class FoundDogComponent extends Component
         $this->dispatch('success', ['message' => 'Status updated successfully']);
     }
 
+    public function changeMissingStatus($id)
+    {
+        $data = FoundDog::find($id);
+        if ($data->missing_status == "Found") {
+            $data->missing_status = "Rescued";
+        } else {
+            $data->missing_status = "Found";
+        }
+        $data->save();
+        $this->dispatch('success', ['message' => 'Missing status updated successfully']);
+    }
+
     public function setSortBy($sortByField)
     {
         if ($this->sortBy === $sortByField) {

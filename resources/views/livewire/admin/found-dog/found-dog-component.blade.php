@@ -105,7 +105,19 @@
                                                                 style="font-weight: normal; font-size: 11px; padding: 1px 7px;">{!! loadingStateStatus('changeStatus(' . $found_dog->id . ')', 'Active') !!}</button>
                                                         @endif
                                                     </td>
-                                                    <td>{{ $found_dog->missing_status }}</td>
+
+                                                    <td style="width: 15%;">
+                                                        @if ($found_dog->missing_status == "Found")
+                                                            <button class="btn btn-xs btn-warning"
+                                                                wire:click.prevent='changeMissingStatus({{ $found_dog->id }})'
+                                                                style="font-weight: normal; font-size: 11px; padding: 1px 7px;">{!! loadingStateStatus('changeMissingStatus(' . $found_dog->id . ')', 'Found') !!}</button>
+                                                        @else
+                                                            <button class="btn btn-xs btn-success"
+                                                                wire:click.prevent='changeMissingStatus({{ $found_dog->id }})'
+                                                                style="font-weight: normal; font-size: 11px; padding: 1px 7px;">{!! loadingStateStatus('changeMissingStatus(' . $found_dog->id . ')', 'Rescued') !!}</button>
+                                                        @endif
+                                                    </td>
+
                                                     <td class="text-center">
                                                         <button
                                                             class="btn btn-sm btn-soft-primary waves-effect waves-light action-btn edit_btn"
