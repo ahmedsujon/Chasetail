@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class FreeDogReportStepThreeComponent extends Component
 {
-    public $user_id, $payment_status, $longitude, $photos, $name, $gender, $last_seen, $microchip_id, $description;
+    public $user_id, $payment_status, $address, $longitude, $photos, $name, $gender, $last_seen, $microchip_id, $description;
 
     public function storeData()
     {
@@ -32,6 +32,7 @@ class FreeDogReportStepThreeComponent extends Component
         $data->last_seen = $this->last_seen;
         $data->microchip_id = $this->microchip_id;
         $data->description = $this->description;
+        $data->address = $this->address;
         $data->save();
 
         $user = User::find(Auth::user()->id);
@@ -51,6 +52,7 @@ class FreeDogReportStepThreeComponent extends Component
         $this->photos = null;
         $this->name = null;
         $this->gender = null;
+        $this->address = null;
         $this->last_seen = null;
         $this->microchip_id = null;
         $this->description = null;

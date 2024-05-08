@@ -57,7 +57,7 @@
                                 </tr>
                                 <tr>
                                     <td>Lost Near</td>
-                                    <td>Dallas, TX 75211</td>
+                                    <td>{{ $found_dog->address }}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -68,3 +68,24 @@
         </div>
     </section>
 </div>
+
+@push('scripts')
+    <script>
+        $(document).ready(function() {
+            $(".maps").each(function(index) {
+                var latitude = $(this).data('latitude');
+                var longitude = $(this).data('longitude');
+                var name = $(this).data('name');
+                let mapOptions = {
+                    center: [latitude, longitude],
+                    zoom: 10
+                }
+                let map = new L.map('map', mapOptions);
+                let layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+                map.addLayer(layer);
+                let marker = new L.Marker([latitude, longitude]);
+                marker.addTo(map);
+            });
+        });
+    </script>
+@endpush

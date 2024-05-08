@@ -511,3 +511,53 @@
         </div>
     </section>
 </div>
+
+@push('scripts')
+    <script>
+        
+        function reverseGeocode(latitude, longitude) {
+            const apiUrl =
+                `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=18&addressdetails=1`;
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    // console.log(data.address);
+                    if (data.display_name) {
+                        // console.log(data.address);
+
+                        var road = data.address.road != undefined ? data.address.road + ', ' : '';
+                        var county = data.address.county != undefined ? data.address.county + ', ' : '';
+                        var postcode = data.address.postcode != undefined ? data.address.postcode + ', ' : '';
+                        var state = data.address.state != undefined ? data.address.state : '';
+
+                        // const fullAddress = data.display_name;
+                        const fullAddress = road + county + postcode + state;
+                        // $('#location_address').val(fullAddress);
+                        $('#location').html(fullAddress);
+                        @this.set('address', fullAddress);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+
+        $(document).ready(function() {
+            $(".maps").each(function(index) {
+                var latitude = $(this).data('latitude');
+                var longitude = $(this).data('longitude');
+                var name = $(this).data('name');
+                let mapOptions = {
+                    center: [latitude, longitude],
+                    zoom: 10
+                }
+                let map = new L.map('map', mapOptions);
+                let layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+                map.addLayer(layer);
+                let marker = new L.Marker([latitude, longitude]);
+                marker.addTo(map);
+            });
+        });
+    </script>
+@endpush

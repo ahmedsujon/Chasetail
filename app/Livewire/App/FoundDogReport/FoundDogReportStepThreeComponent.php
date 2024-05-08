@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class FoundDogReportStepThreeComponent extends Component
 {
-    public $user_id, $longitude, $latitude, $images, $name, $breed, $gender, $color, $found_date, $microchip_id, $description;
+    public $user_id, $longitude, $latitude, $images, $name, $breed, $address, $gender, $color, $found_date, $microchip_id, $description;
 
     public function storeData()
     {
@@ -33,6 +33,7 @@ class FoundDogReportStepThreeComponent extends Component
         $data->found_date = $this->found_date;
         $data->microchip_id = $this->microchip_id;
         $data->description = $this->description;
+        $data->address = $this->address;
         $data->save();
 
         return $this->redirect('/user/dashboard', navigate: true);
@@ -49,6 +50,7 @@ class FoundDogReportStepThreeComponent extends Component
         $this->name = null;
         $this->breed = null;
         $this->color = null;
+        $this->address = null;
         $this->gender = null;
         $this->found_date = null;
         $this->microchip_id = null;

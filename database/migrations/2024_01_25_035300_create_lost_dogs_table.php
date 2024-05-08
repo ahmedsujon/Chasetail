@@ -24,6 +24,7 @@ return new class extends Migration
             $table->longText('description')->nullable();
             $table->string('longitude')->nullable();
             $table->string('latitude')->nullable();
+            $table->string('address')->nullable();
             $table->string('images')->nullable();
             $table->string('missing_status')->default('Searching');
             $table->boolean('status')->default(1);
