@@ -32,7 +32,7 @@
                 <div class="col-md-12 col-lg-12 col-12">
                     <div class="page-header-text">
                         <h4>Showing all dogs near you</h4>
-                        <p>Showing results within 10 miles</p>
+                        {{-- <p>Showing results within 10 miles</p> --}}
                     </div>
                 </div>
             </div>
@@ -497,8 +497,7 @@
                                         </h4>
                                         <p>Dallas - Texas:
                                         <ul>
-                                            <li>Adult
-                                                female</li>
+                                            <li>{{ $found_dog->gender }}</li>
                                         </ul>
                                         </p>
                                     </div>

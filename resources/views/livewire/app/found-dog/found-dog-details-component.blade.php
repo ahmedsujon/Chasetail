@@ -6,7 +6,7 @@
                 <div class="col-md-12 col-lg-12 col-12">
                     <div class="page-header-text">
                         <h4>Lost Dog Report</h4>
-                        <p>You have a found dog. <a href="#">Click to Search</a></p>
+                        <p>You have a found dog. <a href="/found-dogs" wire:navigate>Click to Search</a></p>
                     </div>
                 </div>
             </div>
@@ -28,23 +28,32 @@
                     <div class="lost-detail-right">
                         <h4>Lost Pet Report</h4>
                         <ul>
-                            <li>Pet Status<span>FOUND</span></li>
-                            <li>Found Date<span>2/3/2024</span></li>
+                            <li>Pet Status<span>{{ $found_dog->missing_status }}</span></li>
+                            <li>Found Date<span>{{ date('F j, Y', strtotime($found_dog->found_date)) }}</span></li>
                         </ul>
                         <h5>About This Pet</h5>
                         <table class="table">
                             <tbody>
                                 <tr>
                                     <td>Sex</td>
-                                    <td>Female</td>
+                                    <td>{{ $found_dog->gender }}</td>
                                 </tr>
                                 <tr>
                                     <td>Microchip</td>
-                                    <td>Not Available</td>
+                                    @if ($found_dog->microchip_id)
+                                        <td>{{ $found_dog->microchip_id }}</td>
+                                    @else
+                                        <td>Not Available</td>
+                                    @endif
+
                                 </tr>
                                 <tr>
                                     <td>Dog Name</td>
-                                    <td>Chu Pappy</td>
+                                    @if ($found_dog->name)
+                                        <td>{{ $found_dog->name }}</td>
+                                    @else
+                                        <td>Not Available</td>
+                                    @endif
                                 </tr>
                                 <tr>
                                     <td>Lost Near</td>
