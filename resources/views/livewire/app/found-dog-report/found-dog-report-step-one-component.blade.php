@@ -28,8 +28,8 @@
                             @enderror
                             <h5 onclick="getCurrentLocation();" style="cursor: pointer;"> Use current location</h5>
                             <div class="row justify-content-center">
-                                <div class="col-md-5">
-                                    <div id="map" style="width: 100%; height: 220px; margin-top: 25px;"></div>
+                                <div class="col-md-9">
+                                    <div id="map" style="width: 100%; height: 280px; margin-top: 25px; border: 1px solid; border-radius: 5px;"></div>
                                     <br>
                                     <input type="hidden" name="latitude" id="latitude">
                                     <input type="hidden" name="longitude" id="longitude">

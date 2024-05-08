@@ -10,8 +10,10 @@ class FoundDogReportStepOneComponent extends Component
     public function lostDogReportOne()
     {
         $this->validate([
+            'latitude' => 'required',
             'longitude' => 'required',
         ], [
+            'latitude.required' => 'Location field is required',
             'longitude.required' => 'Location field is required',
         ]);
 
@@ -23,6 +25,7 @@ class FoundDogReportStepOneComponent extends Component
     public function updated($fields)
     {
         $this->validateOnly($fields, [
+            'latitude' => 'required',
             'longitude' => 'required',
         ]);
     }

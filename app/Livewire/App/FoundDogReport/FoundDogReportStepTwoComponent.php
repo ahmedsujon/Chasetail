@@ -22,7 +22,7 @@ class FoundDogReportStepTwoComponent extends Component
 
         if ($this->images) {
             $fileName = uniqid() . Carbon::now()->timestamp . '.' . $this->images->extension();
-            $this->images->storeAs('images', $fileName);
+            $this->images->storeAs('founddogs', $fileName);
             $uploadedImages = 'uploads/founddogs/' . $fileName;
             session()->put('images', $uploadedImages);
         }

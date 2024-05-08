@@ -492,8 +492,9 @@
                                 <div class="col-lg-4 col-md-6 col-12">
                                     <div class="lost-dog-list-right-text">
                                         <img class="img-fluid" src="{{ asset($found_dog->images) }}" alt="Lost Dog">
-                                        <h4><a href="{{ route('app.found.dogs.details', ['id' => $found_dog->id]) }}">Pomeranian
-                                                Puppy</a></h4>
+                                        <h4><a
+                                                href="{{ route('app.found.dogs.details', ['id' => $found_dog->id]) }}">{{ $found_dog->name }}</a>
+                                        </h4>
                                         <p>Dallas - Texas:
                                         <ul>
                                             <li>Adult

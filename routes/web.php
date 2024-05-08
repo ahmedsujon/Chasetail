@@ -75,11 +75,12 @@ Route::get('free-lost-dog-report-first', FreeDogReportStepOneComponent::class)->
 Route::get('free-lost-dog-report-seceond', FreeDogReportStepTwoComponent::class)->name('user.free.report.seceond.step');
 Route::get('free-lost-dog-report-third', FreeDogReportStepThreeComponent::class)->name('user.free.report.third.step');
 
-// Found Dog Report
-Route::get('found/dog/report/first/step', FoundDogReportStepOneComponent::class)->name('user.found.dog.report.first.step');
-Route::get('found/dog/report/seceond/step', FoundDogReportStepTwoComponent::class)->name('user.found.dog.report.seceond.step');
-Route::get('found/dog/report/third/step', FoundDogReportStepThreeComponent::class)->name('user.found.dog.report.third.step');
-
+Route::prefix('/')->middleware('auth:web')->group(function () {
+    // Found Dog Report
+    Route::get('found/dog/report/first/step', FoundDogReportStepOneComponent::class)->name('user.found.dog.report.first.step');
+    Route::get('found/dog/report/seceond/step', FoundDogReportStepTwoComponent::class)->name('user.found.dog.report.seceond.step');
+    Route::get('found/dog/report/third/step', FoundDogReportStepThreeComponent::class)->name('user.found.dog.report.third.step');
+});
 
 // Forget Password
 Route::get('user-reset-password', ForgotPasswordComponent::class)->name('user.reset.password');
@@ -95,7 +96,6 @@ Route::get('/subscription', SubscriptionComponent::class)->name('app.subscriptio
 Route::get('/subscription-payment', PaymentComponent::class)->name('app.payment');
 Route::post('/payment', [SubscriptionController::class, 'subscription']);
 
-// Route::prefix('/')->middleware('auth:web')->group(function () {});
 
 Route::get('/subscription-success/{transaction_id}', SubscriptionSuccessComponent::class)->name('app.subscription.success');
 

@@ -1,6 +1,6 @@
 <div>
     <style>
-        .drop-container{
+        .drop-container {
             height: 270px !important;
         }
     </style>
@@ -33,8 +33,8 @@
                                     <p class="text-danger" style="font-size: 16px;">{{ $message }}</p>
                                 @enderror
                             </label>
-                            <div wire:loading wire:target='image' wire:key='images'>
-                                <span class="spinner-border spinner-border-xs" role="status" aria-hidden="true"></span>
+                            <div wire:loading wire:target='images' wire:key='images'>
+                                <span class="spinner-border spinner-border-xs" role="status"></span>
                                 <small>Uploading</small>
                             </div>
                             @if ($images)

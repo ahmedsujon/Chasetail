@@ -13,7 +13,6 @@ class FoundDogComponent extends Component
     public function render()
     {
 
-
         $found_dogs = FoundDog::where('name', 'like', '%' . $this->searchTerm . '%')
 
         ->when($this->searchByGenderTerm !== null && $this->searchByGenderTerm !== '', function ($query) {
