@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\LostDog;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
 
@@ -28,7 +27,7 @@ class LostDogSeeder extends Seeder
                 'latitude' => $faker->latitude,
                 'address' => $faker->address(),
                 'images' => 'assets/app/images/lost-dog-list' . sprintf('%02d', $index) . '.jpg',
-                'missing_status' => $faker->randomElement(['Found', 'Searching', 'Not Found']),
+                'missing_status' => $faker->randomElement(['Found', 'Rescued']),
                 'status' => $faker->numberBetween(0, 1),
             ]);
         }
