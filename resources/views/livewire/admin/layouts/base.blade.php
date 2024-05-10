@@ -135,7 +135,6 @@
 
     <!-- App js -->
     <script src="{{ asset('assets/admin/js/app.js') }}"></script>
-
     <script>
         //Toastr Notification
         $(document).ready(function() {
@@ -208,8 +207,6 @@
     </script>
 
     @stack('scripts')
-
     @livewireScripts
 </body>
-
 </html>
