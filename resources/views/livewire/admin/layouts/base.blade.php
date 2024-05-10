@@ -11,7 +11,8 @@
     <link rel="shortcut icon" href="{{ asset('assets/admin/images/favicon.ico') }}">
 
     <!-- Styles Css -->
-    <link href="{{ asset('assets/admin/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/admin/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet"
+        type="text/css" />
     <link href="{{ asset('assets/admin/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-lite.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
@@ -85,12 +86,14 @@
     .swal2-modal {
         font-size: 12px;
     }
+
     .btn:focus,
-    .btn:active{
+    .btn:active {
         outline: none !important;
         box-shadow: none;
     }
-    .action-btn{
+
+    .action-btn {
         height: 30px;
         width: 30px;
     }
@@ -138,17 +141,17 @@
         $(document).ready(function() {
             toastr.options = {
                 "progressBar": true,
-                "positionClass": "toast-bottom-left"
+                "positionClass": "toast-top-right"
             };
         });
         window.addEventListener('success', event => {
-            toastr.success(event.detail.message);
+            toastr.success(event.detail[0].message);
         });
         window.addEventListener('warning', event => {
-            toastr.warning(event.detail.message);
+            toastr.warning(event.detail[0].message);
         });
         window.addEventListener('error', event => {
-            toastr.error(event.detail.message);
+            toastr.error(event.detail[0].message);
         });
         @if (Session::has('success'))
             toastr.success("{{ Session::get('success') }}");
@@ -172,18 +175,34 @@
     <script>
         window.addEventListener('reload_scripts', event => {
             $('.delete_btn').on('click', function(event) {
-                $(this).html('<span class="spinner-border spinner-border-xs align-middle" role="status" aria-hidden="true"></span>');
+                $(this).html(
+                    '<span class="spinner-border spinner-border-xs align-middle" role="status" aria-hidden="true"></span>'
+                    );
             });
             $('.edit_btn').on('click', function(event) {
-                $(this).html('<span class="spinner-border spinner-border-xs align-middle" role="status" aria-hidden="true"></span>');
+                $(this).html(
+                    '<span class="spinner-border spinner-border-xs align-middle" role="status" aria-hidden="true"></span>'
+                    );
             });
+
+            setTimeout(() => {
+                $('.save_btn').on('click', function(event) {
+                    $(this).html(
+                        '<span class="spinner-border spinner-border-xs align-middle" role="status" aria-hidden="true"></span> Store'
+                        );
+                });
+            }, 500);
         });
-        $(document).ready(function(){
+        $(document).ready(function() {
             $('.delete_btn').on('click', function(event) {
-                $(this).html('<span class="spinner-border spinner-border-xs align-middle" role="status" aria-hidden="true"></span>');
+                $(this).html(
+                    '<span class="spinner-border spinner-border-xs align-middle" role="status" aria-hidden="true"></span>'
+                    );
             });
             $('.edit_btn').on('click', function(event) {
-                $(this).html('<span class="spinner-border spinner-border-xs align-middle" role="status" aria-hidden="true"></span>');
+                $(this).html(
+                    '<span class="spinner-border spinner-border-xs align-middle" role="status" aria-hidden="true"></span>'
+                    );
             });
         });
     </script>
