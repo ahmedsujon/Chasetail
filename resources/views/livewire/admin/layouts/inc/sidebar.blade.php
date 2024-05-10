@@ -47,11 +47,11 @@
                     @if (isAdminPermitted('settings_manage'))
                         <li class="menu-title" key="t-setting">Payments</li>
                         <li class="{{ request()->is('admin/donations') ? 'mm-active' : '' }}">
-                            <a href="javascript: void(0);" class="has-arrow waves-effect" aria-expanded="false">
-                                <i class="bx bx-detail"></i>
-                                <span key="t-blog">Payments</span>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="bx bx-share-alt"></i>
+                                <span key="t-multi-level">Payments</span>
                             </a>
-                            <ul class="sub-menu mm-collapse" aria-expanded="false" style="height: 0px;">
+                            <ul class="sub-menu" aria-expanded="true">
                                 <li><a href="{{ route('admin.donations') }}" key="t-blog-details">Donations</a></li>
                                 <li><a href="{{ route('admin.subscriptions') }}" key="t-blog-details">Subscription</a>
                                 </li>
@@ -82,6 +82,18 @@
                         </li>
                     @endif
 
+                    {{-- <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <i class="bx bx-share-alt"></i>
+                            <span key="t-multi-level">Multi Level</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="true">
+                            <li><a href="{{ route('admin.allAdmins') }}" key="t-level-1-1">Level 1.1</a></li>
+                            <li><a href="javascript: void(0);" key="t-level-1-1">Level 1.1</a></li>
+                            <li><a href="javascript: void(0);" key="t-level-1-1">Level 1.1</a></li>
+                        </ul>
+                    </li> --}}
+
                     @if (isAdminPermitted('settings_manage'))
                         <li class="menu-title" key="t-setting">Spam Report</li>
                         <li>
@@ -108,6 +120,7 @@
                             </ul>
                         </li>
                     @endif
+
                 </ul>
             </div>
         </div>
