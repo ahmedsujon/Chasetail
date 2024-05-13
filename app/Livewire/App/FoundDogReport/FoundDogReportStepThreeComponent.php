@@ -35,7 +35,7 @@ class FoundDogReportStepThreeComponent extends Component
         $data->description = $this->description;
         $data->address = $this->address;
 
-        dd($data);
+        // dd($data);
 
         $data->save();
 
