@@ -34,6 +34,9 @@ class FoundDogReportStepThreeComponent extends Component
         $data->microchip_id = $this->microchip_id;
         $data->description = $this->description;
         $data->address = $this->address;
+
+        dd($data);
+
         $data->save();
 
         return $this->redirect('/user/dashboard', navigate: true);

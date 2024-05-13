@@ -11,42 +11,6 @@
     <link href="{{ asset('assets/app/css/customize.css') }}" rel="stylesheet">
 </head>
 
-<style>
-    ul#search-result {
-        position: absolute;
-        z-index: 1001;
-        width: 90%;
-        background: #FFF;
-        list-style: none;
-        padding: 0;
-        max-height: 220px;
-        overflow-y: scroll;
-        border: 1px solid #DFDFDF;
-    }
-
-    ul#search-result li {
-        padding: 10px;
-        font-size: 13px;
-    }
-
-    ul#to-search-result {
-        position: absolute;
-        z-index: 1001;
-        width: 90%;
-        background: #FFF;
-        list-style: none;
-        padding: 0;
-        max-height: 220px;
-        overflow-y: scroll;
-        border: 1px solid #DFDFDF;
-    }
-
-    ul#to-search-result li {
-        padding: 10px;
-        font-size: 13px;
-    }
-</style>
-
 <body>
 
     @livewire('app.layouts.inc.header')

@@ -1,5 +1,4 @@
 @push('styles')
-
 @endpush
 <div>
     <section id="page-header">
@@ -24,10 +23,10 @@
                                 <div class="col-md-12 col-lg-6 col-12">
                                     <div class="form-left-right">
 
-                                        <div class="mb-4 myselect">
+                                        <div class="mb-4 myselect" wire:ignore>
                                             <label for="breed" class="form-label">Dog's
                                                 Breed?</label>
-                                            <select wire:model.blur="breed" class="form-select form-control select2"
+                                            <select wire:model.blur="breed" class="form-select form-control select2 dogBreed"
                                                 aria-label="Default select example">
                                                 <option selected value="">Dog's
                                                     Breed?</option>
@@ -587,6 +586,15 @@
         </div>
     </section>
 </div>
+
 @push('scripts')
-  
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('.dogBreed').select2();
+        });
+    </script>
 @endpush

@@ -1,5 +1,44 @@
+@push('styles')
+@endpush
 <div>
+    <style>
+        ul#search-result {
+            position: absolute;
+            z-index: 1001;
+            width: 47%;
+            margin-left: 146px;
+            background: #FFF;
+            list-style: none;
+            padding: 0;
+            max-height: 220px;
+            overflow-y: scroll;
+        }
 
+        ul#search-result li {
+            padding: 10px;
+            font-size: 13px;
+        }
+
+        ul#to-search-result {
+            position: absolute;
+            z-index: 1001;
+            width: 90%;
+            background: #FFF;
+            list-style: none;
+            padding: 0;
+            max-height: 220px;
+            overflow-y: scroll;
+            border: 1px solid #DFDFDF;
+        }
+
+        ul#to-search-result li {
+            padding: 10px;
+            font-size: 13px;
+        }
+        ul#to-search-result li a {
+            text-decoration: none !important;
+        }
+    </style>
     <section id="page-header">
         <div class="container-fluid">
             <div class="row">
@@ -20,8 +59,9 @@
                         <div class="step-page">
                             <h3>Where did you find the pet?</h3>
                             <p>You may provide the specific address. We will never share your exact location.</p>
-                            <input class="form-control form-location" id="location_address"
-                            name="location_address" oninput="onTyping(this)" autocomplete="off" type="text" placeholder="Found near (address or zip)">
+                            <input class="form-control form-location" id="location_address" name="location_address"
+                                oninput="onTyping(this)" autocomplete="off" type="text"
+                                placeholder="Found near (address or zip)">
                             <ul id="search-result"></ul>
                             @error('longitude')
                                 <p class="text-danger" style="font-size: 16px;">{{ $message }}</p>
@@ -29,7 +69,9 @@
                             <h5 onclick="getCurrentLocation();" style="cursor: pointer;"> Use current location</h5>
                             <div class="row justify-content-center">
                                 <div class="col-md-9">
-                                    <div id="map" style="width: 100%; height: 280px; margin-top: 25px; border: 1px solid; border-radius: 5px;"></div>
+                                    <div id="map"
+                                        style="width: 100%; height: 280px; margin-top: 25px; border: 1px solid; border-radius: 5px;">
+                                    </div>
                                     <br>
                                     <input type="hidden" name="latitude" id="latitude">
                                     <input type="hidden" name="longitude" id="longitude">
