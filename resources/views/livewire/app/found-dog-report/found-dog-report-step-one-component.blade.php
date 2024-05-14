@@ -104,6 +104,7 @@
                 @this.set('latitude', p.latitude);
                 @this.set('longitude', p.longitude);
 
+                reverseGeocode(p.latitude, p.longitude);
                 setLocation(p.latitude, p.longitude, '');
 
             }, function(error) {
@@ -114,6 +115,34 @@
                 }
             });
         }
+
+        function reverseGeocode(latitude, longitude) {
+                const apiUrl =
+                    `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=18&addressdetails=1`;
+
+                fetch(apiUrl)
+                    .then(response => response.json())
+                    .then(data => {
+                        // console.log(data.address);
+                        if (data.display_name) {
+                            // console.log(data.address);
+
+                            // var road = data.address.road != undefined ? data.address.road + ', ' : '';
+                            // var county = data.address.county != undefined ? data.address.county + ', ' : '';
+                            // var postcode = data.address.postcode != undefined ? data.address.postcode + ', ' : '';
+                            // var state = data.address.state != undefined ? data.address.state : '';
+
+                            const fullAddress = data.display_name;
+                            // const fullAddress = road + county + postcode + state;
+                            $('#location_address').val(fullAddress);
+                            // $('#location_address').html(fullAddress);
+                            @this.set('address', fullAddress);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            }
 
         const resultsWrapperHTML = document.getElementById("search-result");
         let mapOptions = {
@@ -141,6 +170,7 @@
 
             @this.set('latitude', event.latlng.lat);
             @this.set('longitude', event.latlng.lng);
+            reverseGeocode(event.latlng.lat, event.latlng.lng);
         });
 
 
@@ -207,6 +237,7 @@
 
             @this.set('latitude', lat);
             @this.set('longitude', lon);
+            @this.set('address', display_name);
 
             // clear results
             clearResults()

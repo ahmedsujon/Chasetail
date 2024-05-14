@@ -6,7 +6,7 @@ use Livewire\Component;
 
 class FoundDogReportStepOneComponent extends Component
 {
-    public $latitude, $longitude;
+    public $latitude, $longitude, $address;
     public function lostDogReportOne()
     {
         $this->validate([
@@ -19,6 +19,7 @@ class FoundDogReportStepOneComponent extends Component
 
         session()->put('latitude', $this->latitude);
         session()->put('longitude', $this->longitude);
+        session()->put('address', $this->address);
         return $this->redirect('/found/dog/report/seceond/step', navigate: true);
     }
 
