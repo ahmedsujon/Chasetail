@@ -123,19 +123,18 @@
                 fetch(apiUrl)
                     .then(response => response.json())
                     .then(data => {
-                        // console.log(data.address);
+                        console.log(data.address);
                         if (data.display_name) {
-                            // console.log(data.address);
+                            console.log(data.address);
 
-                            // var road = data.address.road != undefined ? data.address.road + ', ' : '';
-                            // var county = data.address.county != undefined ? data.address.county + ', ' : '';
-                            // var postcode = data.address.postcode != undefined ? data.address.postcode + ', ' : '';
-                            // var state = data.address.state != undefined ? data.address.state : '';
+                            var road = data.address.road != undefined ? data.address.road + ', ' : '';
+                            var postcode = data.address.postcode != undefined ? data.address.postcode + ', ' : '';
+                            var state = data.address.state != undefined ? data.address.state : '';
 
-                            const fullAddress = data.display_name;
-                            // const fullAddress = road + county + postcode + state;
+                            // const fullAddress = data.display_name;
+                            const fullAddress = road + postcode + state;
                             $('#location_address').val(fullAddress);
-                            // $('#location_address').html(fullAddress);
+                            $('#location_address').html(fullAddress);
                             @this.set('address', fullAddress);
                         }
                     })
