@@ -23,8 +23,10 @@ class FreeDogReportStepThreeComponent extends Component
         $data = new LostDog();
         $data->user_id = Auth::user()->id;
 
+        $data->latitude = session('latitude');
         $data->longitude = session('longitude');
         $data->images = session('images');
+        $data->address = session('address');
 
         $data->name = $this->name;
         $data->payment_status = 'free';
@@ -32,7 +34,6 @@ class FreeDogReportStepThreeComponent extends Component
         $data->last_seen = $this->last_seen;
         $data->microchip_id = $this->microchip_id;
         $data->description = $this->description;
-        $data->address = $this->address;
         $data->save();
 
         $user = User::find(Auth::user()->id);

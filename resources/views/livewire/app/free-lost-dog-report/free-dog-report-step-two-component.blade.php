@@ -1,4 +1,9 @@
 <div>
+    <style>
+        .drop-container {
+            height: 270px !important;
+        }
+    </style>
     <section id="page-header">
         <div class="container-fluid">
             <div class="row">
@@ -18,22 +23,25 @@
                 <div class="row">
                     <div class="col-md-12 col-lg-12 col-12">
                         <div class="step-page">
+                            <h3>{{ session('address') }}</h3>
                             <h3>Add your dog photo</h3>
                             <p>Photo quality will affect your search results. Please select a clear image of one pet
                                 looking directly at the camera.</p>
                             <label for="images" class="drop-container" id="dropcontainer">
                                 <span class="drop-title">Upload your dogs photos</span>
-                                <input type="file" wire:model.blur="images" id="images" accept="image/*" style="display:none;" required>
+                                <input type="file" wire:model.blur="images" id="images" accept="image/*"
+                                    style="display:none;" required>
                                 @error('images')
                                     <p class="text-danger" style="font-size: 16px;">{{ $message }}</p>
                                 @enderror
                             </label>
-                            <div wire:loading wire:target='image' wire:key='images'>
-                                <span class="spinner-border spinner-border-xs" role="status" aria-hidden="true"></span>
+                            <div wire:loading wire:target='images' wire:key='images'>
+                                <span class="spinner-border spinner-border-xs" role="status"></span>
                                 <small>Uploading</small>
                             </div>
                             @if ($images)
-                                <img src="{{ $images->temporaryUrl() }}" class="img-fluid mt-2" style="margin-top: -15.5rem !important;" />
+                                <img src="{{ $images->temporaryUrl() }}" class="img-fluid mt-2"
+                                    style="margin-top: -20.4rem !important; height: 260px !important" />
                             @endif
                         </div>
                     </div>

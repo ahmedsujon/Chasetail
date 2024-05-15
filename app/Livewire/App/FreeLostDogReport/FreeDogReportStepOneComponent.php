@@ -6,16 +6,21 @@ use Livewire\Component;
 
 class FreeDogReportStepOneComponent extends Component
 {
-    public $longitude;
+    public $latitude, $longitude, $address;
+
     public function lostDogReportOne()
     {
         $this->validate([
+            'latitude' => 'required',
             'longitude' => 'required',
         ], [
+            'latitude.required' => 'Location field is required',
             'longitude.required' => 'Location field is required',
         ]);
 
+        session()->put('latitude', $this->latitude);
         session()->put('longitude', $this->longitude);
+        session()->put('address', $this->address);
         return $this->redirect('/free-lost-dog-report-seceond', navigate: true);
     }
 
