@@ -25,6 +25,7 @@ class FoundDogReportStepThreeComponent extends Component
         $data->latitude = session('latitude');
         $data->longitude = session('longitude');
         $data->images = session('images');
+        $data->address = session('address');
 
         $data->name = 'Unknown';
         $data->breed = $this->breed;

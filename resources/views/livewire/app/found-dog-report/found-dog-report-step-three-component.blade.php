@@ -22,7 +22,6 @@
                             <div class="row">
                                 <div class="col-md-12 col-lg-6 col-12">
                                     <div class="form-left-right">
-
                                         <div class="mb-4 myselect" wire:ignore>
                                             <label for="breed" class="form-label">Dog's
                                                 Breed?</label>
