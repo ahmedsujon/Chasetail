@@ -9,11 +9,12 @@ use Livewire\WithPagination;
 class FoundDogComponent extends Component
 {
     use WithPagination;
-    public $sortingValue = 12, $searchTerm, $searchByGenderTerm, $searchByColorTerm;
+    public $sortingValue = 12, $searchTerm, $searchByGenderTerm, $searchByColorTerm, $searchByAddressTerm;
     public function render()
     {
 
         $found_dogs = FoundDog::where('name', 'like', '%' . $this->searchTerm . '%')
+            ->where('address', 'like', '%' . $this->searchByAddressTerm . '%')
 
         ->when($this->searchByGenderTerm !== null && $this->searchByGenderTerm !== '', function ($query) {
             return $query->where('gender', $this->searchByGenderTerm);

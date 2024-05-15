@@ -34,7 +34,6 @@ class FoundDogReportStepThreeComponent extends Component
         $data->found_date = $this->found_date;
         $data->microchip_id = $this->microchip_id;
         $data->description = $this->description;
-        $data->address = $this->address;
 
         // dd($data);
 

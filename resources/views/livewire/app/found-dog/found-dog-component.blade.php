@@ -50,8 +50,7 @@
                                         Filters</a></span></h4>
                             <h5>Location</h5>
                             <div class="location-left">
-                                <p>City or zip</p>
-                                <h5>Plano, TX 75025, USA</h5>
+                                <input type="text" wire:model.live="searchByAddressTerm" name="" id="">
                             </div>
                             <div class="current-location">
                                 <p><a href="#">Use current location</a></p>
@@ -514,7 +513,7 @@
 
 @push('scripts')
     <script>
-        
+
         function reverseGeocode(latitude, longitude) {
             const apiUrl =
                 `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=18&addressdetails=1`;
