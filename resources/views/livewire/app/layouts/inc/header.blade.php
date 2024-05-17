@@ -10,6 +10,7 @@
                                 <li><a href="/partners" wire:navigate>Partners</a></li>
                                 <li><a href="/contact-us" wire:navigate>Contact Us</a></li>
                                 <li><a href="/how-its-work" wire:navigate>How it's work?</a></li>
+                                <li><a href="/how-its-work" wire:navigate>FAQ</a></li>
                             </ul>
                         </div>
                     </div>
@@ -98,10 +99,10 @@
                                                             <a class="nav-link" href="/subscription"
                                                                 wire:navigate>Pricing</a>
                                                         </li>
-                                                        <li class="nav-item dropdown">
+                                                        {{-- <li class="nav-item dropdown">
                                                             <a class="nav-link" href="/found-dogs" wire:navigate>Found
                                                                 Dogs</a>
-                                                        </li>
+                                                        </li> --}}
                                                         <li class="nav-item dropdown">
                                                             <a class="nav-link" href="/lost-dogs" wire:navigate>Lost
                                                                 Dogs</a>
@@ -169,11 +170,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-7 col-lg-4 col-12">
+                    {{-- <div class="col-md-7 col-lg-4 col-12">
                         <div class="top-donate">
                             <a href="/donation" wire:navigate>Donate</a>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

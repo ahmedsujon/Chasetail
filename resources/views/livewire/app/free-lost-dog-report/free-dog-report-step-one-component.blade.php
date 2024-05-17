@@ -149,7 +149,7 @@
 
         const resultsWrapperHTML = document.getElementById("search-result");
         let mapOptions = {
-            center: [23.9456166, 90.2526382],
+            center: [32.779167, -96.808891],
             zoom: 10
         }
 
