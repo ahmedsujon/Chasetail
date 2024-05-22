@@ -150,7 +150,7 @@
         const resultsWrapperHTML = document.getElementById("search-result");
         let mapOptions = {
             center: [32.779167, -96.808891],
-            zoom: 10
+            zoom: 15
         }
 
         let map = new L.map('map', mapOptions);

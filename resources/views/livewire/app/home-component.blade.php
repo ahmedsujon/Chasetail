@@ -9,7 +9,8 @@
                                 your lost dog? </h3>
                             <p>Find your new best friend. We’re here to help your lost pet find their way home. Browse
                                 pets from our network of your nearby shelters and rescues.</p>
-                            @auth
+                            <a href="/subscription" wire:navigate>Get Started</a>
+                            {{-- @auth
                                 @if ($subscription == 1)
                                     <a href="/lost-dog-report-first" wire:navigate>Get Started</a>
                                 @else
@@ -17,7 +18,7 @@
                                 @endif
                             @else
                                 <a href="/login" wire:navigate>Get Started</a>
-                            @endauth
+                            @endauth --}}
                         </div>
                     </div>
                 </div>
@@ -34,10 +35,11 @@
                         <li></li>
                     </ul>
                     <h3>Unleashing the power of advanced technology to Find Fido Fast!!</h3>
-                    <p>Time matters when you’ve lost your pet. We actively engage with the majority of households and
+                    <p>
+                        Time matters when you’ve lost your pet. We actively engage with the majority of households and
                         people in the area around the last known place of your precious pet. This is not a passive
-                        posting on
-                        other websites. We engage in a one on one basis to those in range of your beloved/lost animal.
+                        posting on other websites. We engage in a one on one basis to those in range of your
+                        beloved/lost animal.
                     </p>
                 </div>
             </div>
@@ -92,9 +94,10 @@
                     <ul class="solution-hr">
                         <li></li>
                     </ul>
-                    <h3>Time matters when you lose your pet. Don’t waste the most critical first few hours!! Making
-                        posters is
-                        time consuming and hoping you pick the correct corners to post them is a gamble.</h3>
+                    <h3>
+                        Time matters when you lose your pet. Don’t waste the most critical first few hours!! Making
+                        posters is time consuming and hoping you pick the correct corners to post them is a gamble.
+                    </h3>
                     <div class="challenge-content">
                         <div class="row">
                             <div class="col-lg-4 col-md-4 col-12">
