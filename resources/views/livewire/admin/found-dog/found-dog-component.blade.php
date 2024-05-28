@@ -84,7 +84,7 @@
                                     </thead>
                                     <tbody>
                                         @if ($found_dogs->count() > 0)
-                                        @php
+                                            @php
                                                 $sl =
                                                     $found_dogs->perPage() * $found_dogs->currentPage() -
                                                     ($found_dogs->perPage() - 1);
@@ -107,7 +107,7 @@
                                                     </td>
 
                                                     <td style="width: 15%;">
-                                                        @if ($found_dog->missing_status == "Found")
+                                                        @if ($found_dog->missing_status == 'Found')
                                                             <button class="btn btn-xs btn-warning"
                                                                 wire:click.prevent='changeMissingStatus({{ $found_dog->id }})'
                                                                 style="font-weight: normal; font-size: 11px; padding: 1px 7px;">{!! loadingStateStatus('changeMissingStatus(' . $found_dog->id . ')', 'Found') !!}</button>

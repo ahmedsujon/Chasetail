@@ -16,6 +16,34 @@
             </div>
 
             <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header bg-white" style="border-bottom: 1px solid #e2e2e7;">
+                            <h4 class="card-title">Advance Search</h4>
+                            <div class="row pt-3 pb-3">
+                                <div class="col-md-4">
+                                    <input class="form-control" type="text" placeholder="Search by name"
+                                        wire:model="searchTerm" wire:keyup='resetPage'>
+                                </div>
+                                <div class="col-md-4">
+                                    <select class="form-select" wire:model="searchTermGender" wire:keyup='resetPage'>
+                                        <option value="">Select Gender</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Unknown">Unknown</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <select class="form-select" wire:model="searchTermMissingSatus" wire:keyup='resetPage'>
+                                        <option value="">Select Missing Status</option>
+                                        <option value="Found">Found</option>
+                                        <option value="Searching">Searching</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header bg-white" style="border-bottom: 1px solid #e2e2e7;">
@@ -176,8 +204,8 @@
     </div>
 
     <!-- Add Data Modal -->
-    <div wire:ignore.self class="modal fade" id="addDataModal" tabindex="-1" role="dialog" data-bs-backdrop="static"
-        data-bs-keyboard="false" aria-labelledby="modelTitleId">
+    <div wire:ignore.self class="modal fade" id="addDataModal" tabindex="-1" role="dialog"
+        data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="modelTitleId">
         <div class="modal-dialog modal-dialog-centered modal-dialog-zoom modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header" style="background: white;">
