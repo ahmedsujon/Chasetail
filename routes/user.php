@@ -20,7 +20,6 @@ use App\Livewire\App\User\Auth\RegisterComponent;
 Route::get('/login', LoginComponent::class)->name('login')->middleware('guest');
 Route::get('/register', RegisterComponent::class)->name('register')->middleware('guest');
 
-Route::get('user', DashboardComponent::class)->middleware('auth:user');
 Route::prefix('user/')->name('user.')->middleware('auth')->group(function(){
     Route::post('logout', [LogoutController::class, 'userLogout'])->name('logout');
 

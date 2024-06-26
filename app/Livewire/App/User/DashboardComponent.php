@@ -11,9 +11,6 @@ class DashboardComponent extends Component
 {
     public $edit_id, $delete_id;
 
-
-
-
     public function deleteConfirmation($id)
     {
         $this->delete_id = $id;
@@ -32,6 +29,6 @@ class DashboardComponent extends Component
     public function render()
     {
         $lost_dogs = LostDog::orderBy('id', 'DESC')->get();
-        return view('livewire.app.user.dashboard-component', ['lost_dogs'=>$lost_dogs])->layout('livewire.app.layouts.base');
+        return view('livewire.app.user.dashboard-component', ['lost_dogs' => $lost_dogs])->layout('livewire.app.layouts.base');
     }
 }
