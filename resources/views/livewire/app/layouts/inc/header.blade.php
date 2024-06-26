@@ -121,7 +121,8 @@
                 <div class="row align-items-center">
                     <div class="col-md-6 col-lg-3 col-6">
                         <div class="logo">
-                            <a href="/" wire:navigate><img class="img-fluid" src="{{ asset('assets/app/images/logo.png') }}" alt="Find Fido Fast"></a>
+                            <a href="/" wire:navigate><img class="img-fluid"
+                                    src="{{ asset('assets/app/images/logo.png') }}" alt="Find Fido Fast"></a>
                         </div>
                     </div>
 
@@ -141,23 +142,23 @@
                                         style="flex-direction: row-reverse;">
                                         <ul class="navbar-nav mb-2 mb-lg-0">
                                             <li class="nav-item">
-                                                <a class="nav-link" href="/about-us" wire:navigate >About</a>
+                                                <a class="nav-link" href="/about-us" wire:navigate>About</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="/lost-dogs" wire:navigate >Lost Dogs</a>
+                                                <a class="nav-link" href="/lost-dogs" wire:navigate>Lost Dogs</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="/subscription"
-                                                wire:navigate >Pricing</a>
+                                                <a class="nav-link" href="/subscription" wire:navigate>Pricing</a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" href="/contact-us" wire:navigate>Contact Us</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="/how-its-work" wire:navigate >How it's work?</a>
+                                                <a class="nav-link" href="/how-its-work" wire:navigate>How it's
+                                                    work?</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="/faq" wire:navigate >FAQ</a>
+                                                <a class="nav-link" href="/faq" wire:navigate>FAQ</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -170,13 +171,22 @@
                         <div class="top-menu">
                             <ul>
                                 <li>
-                                    <a href="/login" wire:navigate >Sign-in</a>
+                                    <a href="/login" wire:navigate>Sign-in</a>
                                 </li>
                                 <li>
-                                    <a href="/register" wire:navigate >Sign-up</a>
+                                    <a href="/register" wire:navigate>Sign-up</a>
                                 </li>
-                                <li><a href="index.html"><img class="img-fluid" src="{{ asset('assets/app/images/profile.png') }}"
-                                            alt="Profile" /></a></li>
+
+                                <li>
+                                    <a class="dropdown-item text-danger" href="{{ route('user.logout') }}"
+                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
+                                            class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i>
+                                        <span key="t-logout">Logout</span></a>
+                                    <form id="logout-form" style="display: none;" method="POST"
+                                        action="{{ route('user.logout') }}">
+                                        @csrf
+                                    </form>
+                                </li>
                             </ul>
                         </div>
                     </div>
