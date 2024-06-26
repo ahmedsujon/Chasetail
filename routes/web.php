@@ -32,6 +32,7 @@ use App\Livewire\App\FreeLostDogReport\FreeDogReportStepOneComponent;
 use App\Livewire\App\FreeLostDogReport\FreeDogReportStepTwoComponent;
 use App\Livewire\App\FreeLostDogReport\FreeDogReportStepThreeComponent;
 use App\Livewire\App\LostDog\LostDogDetailsComponent;
+use App\Livewire\App\Pages\FAQComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,6 +65,7 @@ Route::get('/partners', PartnersComponent::class)->name('app.partners');
 Route::get('/privacy-policy', PrivacyPolicyComponent::class)->name('app.privacy.policy');
 Route::get('/terms-conditions', TermsConditionsComponent::class)->name('app.terms.conditions');
 Route::get('/how-its-work', HowItsWorkComponent::class)->name('app.how.its.work');
+Route::get('/faq', FAQComponent::class)->name('app.faq');
 
 // Lost Dog report
 Route::get('lost-dog-report-first', LostReportStepOneComponent::class)->name('user.report.first.step');
