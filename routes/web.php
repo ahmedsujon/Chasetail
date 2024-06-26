@@ -33,6 +33,9 @@ use App\Livewire\App\FreeLostDogReport\FreeDogReportStepTwoComponent;
 use App\Livewire\App\FreeLostDogReport\FreeDogReportStepThreeComponent;
 use App\Livewire\App\LostDog\LostDogDetailsComponent;
 use App\Livewire\App\Pages\FAQComponent;
+use App\Livewire\App\Profile\MessageComponent;
+use App\Livewire\App\Profile\PaymentHistoryComponent;
+use App\Livewire\App\Profile\PersonalInfoComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -82,6 +85,11 @@ Route::prefix('/')->middleware('auth:web')->group(function () {
     Route::get('found/dog/report/first/step', FoundDogReportStepOneComponent::class)->name('user.found.dog.report.first.step');
     Route::get('found/dog/report/seceond/step', FoundDogReportStepTwoComponent::class)->name('user.found.dog.report.seceond.step');
     Route::get('found/dog/report/third/step', FoundDogReportStepThreeComponent::class)->name('user.found.dog.report.third.step');
+
+    // Profile Pages Routes
+    Route::get('messages', MessageComponent::class)->name('messages');
+    Route::get('personal-information', PersonalInfoComponent::class)->name('personal.information');
+    Route::get('payment-history', PaymentHistoryComponent::class)->name('payment.history');
 });
 
 // Forget Password

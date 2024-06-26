@@ -20,26 +20,28 @@
 
     <link rel="stylesheet" href="{{ asset('assets/app/css/all.min.css') }}">
     <script src="{{ asset('assets/app/js/jquery.min.js') }}" charset="utf-8"></script>
-
+    <script src="{{ asset('assets/app/js/tab.js') }}"></script>
+    
     <script type="text/javascript">
-        $(document).ready(function() {
-            //jquery for toggle sub menus
-            $('.sub-btn').click(function() {
-                $(this).next('.sub-menu').slideToggle();
-                $(this).find('.dropdown').toggleClass('rotate');
-            });
-
-            //jquery for expand and collapse the sidebar
-            $('.menu-btn').click(function() {
-                $('.side-bar').addClass('active');
-                $('.menu-btn').css("visibility", "hidden");
-            });
-
-            $('.close-btn').click(function() {
-                $('.side-bar').removeClass('active');
-                $('.menu-btn').css("visibility", "visible");
-            });
+        $(document).ready(function(){
+        //jquery for toggle sub menus
+        $('.sub-btn').click(function(){
+            $(this).next('.sub-menu').slideToggle();
+            $(this).find('.dropdown').toggleClass('rotate');
         });
+
+        //jquery for expand and collapse the sidebar menu
+        $('.menu-btn').click(function(){
+            $('.side-bar').addClass('active');
+            $('.menu-btn').css("visibility", "hidden");
+        });
+
+        $('.close-btn').click(function(){
+            $('.side-bar').removeClass('active');
+            $('.menu-btn').css("visibility", "visible");
+        });
+        });
+
     </script>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>

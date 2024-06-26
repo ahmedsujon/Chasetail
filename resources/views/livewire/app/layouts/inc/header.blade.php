@@ -142,23 +142,23 @@
                                         style="flex-direction: row-reverse;">
                                         <ul class="navbar-nav mb-2 mb-lg-0">
                                             <li class="nav-item">
-                                                <a class="nav-link" href="/about-us" wire:navigate>About</a>
+                                                <a class="nav-link" href="/about-us" wire:navigate >About</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="/lost-dogs" wire:navigate>Lost Dogs</a>
+                                                <a class="nav-link" href="/lost-dogs" wire:navigate >Lost Dogs</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="/subscription" wire:navigate>Pricing</a>
+                                                <a class="nav-link" href="/subscription" wire:navigate >Pricing</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="/contact-us" wire:navigate>Contact Us</a>
+                                                <a class="nav-link" href="/contact-us" wire:navigate >Contact Us</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="/how-its-work" wire:navigate>How it's
+                                                <a class="nav-link" href="/how-its-work" wire:navigate >How it's
                                                     work?</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="/faq" wire:navigate>FAQ</a>
+                                                <a class="nav-link" href="/faq" wire:navigate >FAQ</a>
                                             </li>
                                         </ul>
                                     </div>
