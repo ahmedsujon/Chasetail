@@ -62,7 +62,7 @@
                             </div> --}}
 
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="address" name="address"
+                                <input type="text" class="form-control" id="location_address" name="location_address"
                                     autocomplete="off" placeholder="Found near (address or zip)"
                                     wire:model.live="searchByAddressTerm" wire:keyup='resetPage'>
                                 <label for="floatingInputValue">Found near (address or zip)</label>
@@ -545,15 +545,6 @@
 </div>
 
 @push('scripts')
-    <script src="{{ asset('assets/app/js/select2.min.js') }}"></script>
-
-    <script type="text/javascript">
-        var j = jQuery.noConflict();
-        j(document).ready(function() {
-            j('.select2').select2();
-        });
-    </script>
-
     <script>
         function getCurrentLocation() {
             navigator.geolocation.getCurrentPosition((position) => {
@@ -704,4 +695,16 @@
             clearResults()
         }
     </script>
+    
 @endpush
+
+{{-- @push('scripts')
+    <script src="{{ asset('assets/app/js/select2.min.js') }}"></script>
+
+    <script type="text/javascript">
+        var j = jQuery.noConflict();
+        j(document).ready(function() {
+            j('.select2').select2();
+        });
+    </script>
+@endpush --}}
