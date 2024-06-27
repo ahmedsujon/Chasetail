@@ -49,6 +49,7 @@
                             <h4>Filters <span> <a href="#">Reset
                                         Filters</a></span></h4>
                             <h5>Location</h5>
+                            
                             <div class="location-left">
                                 <input class="form-control form-location" id="location_address" name="location_address"
                                     autocomplete="off" type="text" placeholder="Found near (address or zip)">
@@ -56,6 +57,7 @@
                             <div class="current-location">
                                 <p><a onclick="getCurrentLocation();">Use current location</a></p>
                             </div>
+
                             <div class="search-radius">
                                 <label for="formControlRange" class="form-label">Search Radius</label>
                                 <input type="range" class="form-control-range" id="formControlRange"
