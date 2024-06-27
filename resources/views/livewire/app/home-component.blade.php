@@ -10,7 +10,7 @@
                                 your lost dog? </h3>
                             <p>Find your new best friend. We’re here to help your lost pet find their way home. Browse
                                 pets from our network of your nearby shelters and rescues.</p>
-                            <a href="#">Get Started</a>
+                            <a href="/subscription" wire:navigate>Get Started</a>
                         </div>
                     </div>
                 </div>

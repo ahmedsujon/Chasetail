@@ -9,12 +9,11 @@ use Illuminate\Support\Facades\Auth;
 
 class FreeDogReportStepThreeComponent extends Component
 {
-    public $user_id, $payment_status, $address, $longitude, $photos, $name, $gender, $last_seen, $microchip_id, $description;
+    public $user_id, $breed, $payment_status, $address, $longitude, $photos, $name, $gender, $last_seen, $microchip_id, $description;
 
     public function storeData()
     {
         $this->validate([
-            'name' => 'required',
             'gender' => 'required',
             'last_seen' => 'required',
             'description' => 'required',
@@ -28,6 +27,7 @@ class FreeDogReportStepThreeComponent extends Component
         $data->images = session('images');
         $data->address = session('address');
 
+        $data->breed = $this->breed;
         $data->name = $this->name;
         $data->payment_status = 'free';
         $data->gender = $this->gender;
@@ -51,6 +51,7 @@ class FreeDogReportStepThreeComponent extends Component
         $this->longitude = null;
         $this->payment_status = null;
         $this->photos = null;
+        $this->breed = null;
         $this->name = null;
         $this->gender = null;
         $this->address = null;

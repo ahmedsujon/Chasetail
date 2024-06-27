@@ -29,26 +29,34 @@
                         <h4>Lost Pet Report</h4>
                         <ul>
                             <li>Pet Status<span>FOUND</span></li>
-                            <li>Found Date<span>2/3/2024</span></li>
+                            <li>Lost Date<span>{{ $lost_dog->last_seen }}</span></li>
                         </ul>
                         <h5>About This Pet</h5>
                         <table class="table">
                             <tbody>
                                 <tr>
                                     <td>Sex</td>
-                                    <td>Female</td>
+                                    <td>{{ $lost_dog->gender }}</td>
                                 </tr>
                                 <tr>
                                     <td>Microchip</td>
-                                    <td>Not Available</td>
+                                    @if ($lost_dog->microchip_id)
+                                        <td>{{ $lost_dog->microchip_id }}</td>
+                                    @else
+                                        <td>Not Available</td>
+                                    @endif
                                 </tr>
                                 <tr>
                                     <td>Dog Name</td>
-                                    <td>Chu Pappy</td>
+                                    @if ($lost_dog->name)
+                                        <td>{{ $lost_dog->name }}</td>
+                                    @else
+                                        <td>Unknown</td>
+                                    @endif
                                 </tr>
                                 <tr>
                                     <td>Lost Near</td>
-                                    <td>Dallas, TX 75211</td>
+                                    <td>{{ $lost_dog->address }}</td>
                                 </tr>
                             </tbody>
                         </table>
