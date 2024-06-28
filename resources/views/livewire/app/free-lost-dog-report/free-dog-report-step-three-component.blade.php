@@ -45,11 +45,10 @@
                                 <div class="col-md-12 col-lg-6 col-12">
                                     <div class="form-left-right">
 
-                                        <div class="mb-4 myselect" wire:ignore>
+                                        <div class="mb-4 myselect">
                                             <label for="breed" class="form-label">Dog's Breed?</label>
                                             <select class="form-select form-control select2 dogBreed">
-                                                <option selected value="">Dog's
-                                                    Breed?</option>
+                                                <option selected value="">Dog's Breed?</option>
                                                 <option value="ENGLISH POINTER">ENGLISH POINTER</option>
                                                 <option value="ENGLISH SETTER">ENGLISH SETTER</option>
                                                 <option value="KERRY BLUE TERRIER">KERRY BLUE TERRIER</option>

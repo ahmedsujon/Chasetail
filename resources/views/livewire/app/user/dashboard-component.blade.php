@@ -1,4 +1,11 @@
 <div>
+    <style>
+        .notfound-message {
+            text-align: center;
+            padding-top: 80px;
+            padding-bottom: 20px;
+        }
+    </style>
     <div class="dashboard-search">
         <div class="container-fluid">
             <div class="row">
@@ -25,36 +32,43 @@
                             <a class="btn btn-primary add-dog" href="/subscription" wire:navigate>Add a dog</a>
                             <div id="lost" class="carousel slide" data-bs-ride="carousel">
                                 <div class="carousel-inner">
-                                    @foreach ($lost_dogs as $index => $lost_dog)
-                                        <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
-                                            <div class="row">
-                                                <a href="{{ route('app.lost.dogs.details', ['id' => $lost_dog->id]) }}">
-                                                    <div class="col-lg-4 col-md-6 col-12">
-                                                        <img style="height: 116px; width: 116px;"
-                                                            src="{{ asset($lost_dog->images) }}"
-                                                            alt="{{ $lost_dog->name }}" class="img-fluid">
-                                                    </div>
-                                                    <div class="col-lg-8 col-md-6 col-12">
-                                                        <div class="carousel-caption">
-                                                            <h3>{{ $lost_dog->name }}</h3>
-                                                            <p>{{ $lost_dog->address }}</p>
+                                    @if ($lost_dogs->count() > 0)
+                                        @foreach ($lost_dogs as $index => $lost_dog)
+                                            <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+                                                <div class="row">
+                                                    <a
+                                                        href="{{ route('app.lost.dogs.details', ['id' => $lost_dog->id]) }}">
+                                                        <div class="col-lg-4 col-md-6 col-12">
+                                                            <img style="height: 116px; width: 116px;"
+                                                                src="{{ asset($lost_dog->images) }}"
+                                                                alt="{{ $lost_dog->name }}" class="img-fluid">
                                                         </div>
-                                                    </div>
-                                                </a>
+                                                        <div class="col-lg-8 col-md-6 col-12">
+                                                            <div class="carousel-caption">
+                                                                <h3>{{ $lost_dog->name }}</h3>
+                                                                <p>{{ $lost_dog->address }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
                                             </div>
-                                        </div>
-                                    @endforeach
+                                        @endforeach
+                                    @else
+                                        <p class="notfound-message" style="text-align: center;">You didn't report about
+                                            your lost dog yet!</p>
+                                    @endif
                                 </div>
 
-                                <!-- Left and right controls/icons -->
-                                <button class="carousel-control-prev" type="button" data-bs-target="#lost"
-                                    data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon"></span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#lost"
-                                    data-bs-slide="next">
-                                    <span class="carousel-control-next-icon"></span>
-                                </button>
+                                @if ($lost_dogs->count() > 0)
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#lost"
+                                        data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon"></span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#lost"
+                                        data-bs-slide="next">
+                                        <span class="carousel-control-next-icon"></span>
+                                    </button>
+                                @endif
                             </div>
                         </div>
                     </div>
