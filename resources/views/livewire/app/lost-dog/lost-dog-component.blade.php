@@ -89,7 +89,7 @@
                             </div>
 
                             <div class="myselect">
-                                <select class="form-select">
+                                <select class="form-select select2" wire:model.live="searchByBreedTerm">
                                     <option selected>Bread</option>
                                     <option value="ENGLISH POINTER">ENGLISH POINTER</option>
                                     <option value="ENGLISH SETTER">ENGLISH SETTER</option>
@@ -495,7 +495,7 @@
                             {{-- <div class="top-donate text-center mt-4">
                                 <a href="#">Apply Filters</a>
                             </div> --}}
-                            
+
                         </form>
                     </div>
                 </div>
@@ -524,10 +524,11 @@
                                     </div>
                                 @endforeach
                             @else
-                                <tr>
-                                    <td style="padding-top: 100px;" colspan="7" class="text-center pt-5 pb-5">No
-                                        dogs found!</td>
-                                </tr>
+                                <div class="col-lg-4 col-md-6 col-12">
+                                    <div class="lost-dog-list-right-text text-center">
+                                        <p>No dogs found!</p>
+                                    </div>
+                                </div>
                             @endif
                         </div>
                         <div class="row">
@@ -695,16 +696,4 @@
             clearResults()
         }
     </script>
-
 @endpush
-
-{{-- @push('scripts')
-    <script src="{{ asset('assets/app/js/select2.min.js') }}"></script>
-
-    <script type="text/javascript">
-        var j = jQuery.noConflict();
-        j(document).ready(function() {
-            j('.select2').select2();
-        });
-    </script>
-@endpush --}}
