@@ -5,7 +5,6 @@
                 <div class="col-md-12 col-lg-12 col-12">
                     <div class="page-header-text">
                         <h4>Posting as Starter or Free User</h4>
-                        <p>Update Plan? <a href="#">Roll-Back</a></p>
                     </div>
                 </div>
             </div>
