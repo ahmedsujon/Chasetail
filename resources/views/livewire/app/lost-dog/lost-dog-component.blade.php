@@ -35,7 +35,6 @@
                 <div class="col-md-12 col-lg-12 col-12">
                     <div class="page-header-text">
                         <h4>Showing all dogs near you</h4>
-                        {{-- <p>Showing results within 10 miles</p> --}}
                     </div>
                 </div>
             </div>
@@ -483,7 +482,7 @@
                                 </select>
                             </div>
 
-                            <div class="myselect">
+                            {{-- <div class="myselect">
                                 <select class="form-select" wire:model.live="searchByGenderTerm"
                                     aria-label="Default select example">
                                     <option selected value="">Color</option>
@@ -491,11 +490,12 @@
                                         <option value="{{ $found_dog->color }}">{{ $found_dog->color }}</option>
                                     @endforeach
                                 </select>
-                            </div>
+                            </div> --}}
 
-                            <div class="top-donate text-center mt-4">
+                            {{-- <div class="top-donate text-center mt-4">
                                 <a href="#">Apply Filters</a>
-                            </div>
+                            </div> --}}
+                            
                         </form>
                     </div>
                 </div>
@@ -695,7 +695,7 @@
             clearResults()
         }
     </script>
-    
+
 @endpush
 
 {{-- @push('scripts')
