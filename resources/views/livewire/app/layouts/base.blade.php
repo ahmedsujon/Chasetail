@@ -9,6 +9,7 @@
     <link href="{{ asset('assets/app/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/app/css/customize.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/app/css/fontawesome.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
     <link href="{{ asset('assets/app/css/all.min.css') }}" rel="stylesheet">
     @stack('styles')
 </head>
@@ -18,7 +19,6 @@
     @livewire('app.layouts.inc.header')
     {{ $slot }}
     @livewire('app.layouts.inc.footer')
-
 
 
     <script src="{{ asset('assets/app/js/jquery.min.js') }}" charset="utf-8"></script>
@@ -47,6 +47,7 @@
 
     <script src="{{ asset('assets/app/js/popper.min.js') }}"></script>
     <script src="{{ asset('assets/app/js/bootstrap.min.js') }}"></script>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
     @stack('scripts')
 </body>
 
