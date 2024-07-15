@@ -9,7 +9,7 @@ use Livewire\WithPagination;
 class LostDogComponent extends Component
 {
     use WithPagination;
-    public $sortingValue = 12, $searchTerm, $searchByGenderTerm, $searchByColorTerm, $searchByAddressTerm;
+    public $sortingValue = 12, $searchTerm, $searchByGenderTerm, $searchByBreedTerm, $searchByAddressTerm;
 
     public function render()
     {
@@ -19,8 +19,8 @@ class LostDogComponent extends Component
                 return $query->where('gender', $this->searchByGenderTerm);
             })
 
-            ->when($this->searchByColorTerm !== null && $this->searchByColorTerm !== '', function ($query) {
-                return $query->where('color', $this->searchByColorTerm);
+            ->when($this->searchByBreedTerm !== null && $this->searchByBreedTerm !== '', function ($query) {
+                return $query->where('breed', $this->searchByBreedTerm);
             })
 
             ->inRandomOrder()->paginate($this->sortingValue);

@@ -45,7 +45,7 @@
                                 <div class="col-md-12 col-lg-6 col-12">
                                     <div class="form-left-right">
 
-                                        <div class="mb-4 myselect">
+                                        <div class="mb-4 myselect" wire:ignore>
                                             <label for="breed" class="form-label">Dog's Breed?</label>
                                             <select class="form-select form-control select2 dogBreed">
                                                 <option selected value="">Dog's Breed?</option>
@@ -593,7 +593,6 @@
                     <div class="col-12">
                         <div class="form-left-right">
                             <button class="btn btn-submit-post" type="submit">{!! loadingStateWithText('storeData', 'Submit Post') !!}</button>
-                            <p class="plan"><a href="#"> Update Plan ? Roll-Back</a></p>
                         </div>
                     </div>
                 </div>

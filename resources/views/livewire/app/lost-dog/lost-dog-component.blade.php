@@ -35,7 +35,6 @@
                 <div class="col-md-12 col-lg-12 col-12">
                     <div class="page-header-text">
                         <h4>Showing all dogs near you</h4>
-                        {{-- <p>Showing results within 10 miles</p> --}}
                     </div>
                 </div>
             </div>
@@ -49,8 +48,9 @@
                 <div class="col-lg-3 col-md-4 col-12">
                     <div class="lost-dog-list-left">
                         <form>
-                            <h4>Filters <span> <a href="#">Reset
-                                        Filters</a></span></h4>
+                            <h4>Filters</h4>
+                            {{-- <h4>Filters <span> <a href="#">Reset
+                                        Filters</a></span></h4> --}}
                             <h5>Location</h5>
 
                             {{-- <div class="location-left">
@@ -65,32 +65,32 @@
                                 <input type="text" class="form-control" id="location_address" name="location_address"
                                     autocomplete="off" placeholder="Found near (address or zip)"
                                     wire:model.live="searchByAddressTerm" wire:keyup='resetPage'>
-                                <label for="floatingInputValue">Found near (address or zip)</label>
+                                <label for="floatingInputValue">City or Zip</label>
                             </div>
 
                             <div class="current-location">
                                 <p><a onclick="getCurrentLocation();">Use current location</a></p>
                             </div>
 
-                            <div class="search-radius">
+                            {{-- <div class="search-radius">
                                 <label for="formControlRange" class="form-label">Search Radius</label>
                                 <input type="range" class="form-control-range" id="formControlRange"
                                     onInput="$('#rangeval').html($(this).val())">
                                 <span id="rangeval">50<!-- Default value -->
                                 </span> Miles
-                            </div>
+                            </div> --}}
 
-                            <div class="myselect">
+                            {{-- <div class="myselect">
                                 <select wire:model.live="searchByGenderTerm" class="form-select">
                                     <option selected value="">Sex</option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
                                     <option value="Unknown">Unknown</option>
                                 </select>
-                            </div>
+                            </div> --}}
 
-                            <div class="myselect">
-                                <select class="form-select">
+                            {{-- <div class="myselect">
+                                <select class="form-select select2" wire:model.live="searchByBreedTerm">
                                     <option selected>Bread</option>
                                     <option value="ENGLISH POINTER">ENGLISH POINTER</option>
                                     <option value="ENGLISH SETTER">ENGLISH SETTER</option>
@@ -481,9 +481,9 @@
                                     <option value="CONTINENTAL BULLDOG">CONTINENTAL BULLDOG</option>
                                     <option value="VALENCIAN TERRIER">VALENCIAN TERRIER</option>
                                 </select>
-                            </div>
+                            </div> --}}
 
-                            <div class="myselect">
+                            {{-- <div class="myselect">
                                 <select class="form-select" wire:model.live="searchByGenderTerm"
                                     aria-label="Default select example">
                                     <option selected value="">Color</option>
@@ -491,11 +491,12 @@
                                         <option value="{{ $found_dog->color }}">{{ $found_dog->color }}</option>
                                     @endforeach
                                 </select>
-                            </div>
+                            </div> --}}
 
-                            <div class="top-donate text-center mt-4">
+                            {{-- <div class="top-donate text-center mt-4">
                                 <a href="#">Apply Filters</a>
-                            </div>
+                            </div> --}}
+
                         </form>
                     </div>
                 </div>
@@ -524,10 +525,11 @@
                                     </div>
                                 @endforeach
                             @else
-                                <tr>
-                                    <td style="padding-top: 100px;" colspan="7" class="text-center pt-5 pb-5">No
-                                        dogs found!</td>
-                                </tr>
+                                <div class="col-lg-4 col-md-6 col-12">
+                                    <div class="lost-dog-list-right-text text-center">
+                                        <p>No dogs found!</p>
+                                    </div>
+                                </div>
                             @endif
                         </div>
                         <div class="row">
@@ -695,16 +697,4 @@
             clearResults()
         }
     </script>
-    
 @endpush
-
-{{-- @push('scripts')
-    <script src="{{ asset('assets/app/js/select2.min.js') }}"></script>
-
-    <script type="text/javascript">
-        var j = jQuery.noConflict();
-        j(document).ready(function() {
-            j('.select2').select2();
-        });
-    </script>
-@endpush --}}
