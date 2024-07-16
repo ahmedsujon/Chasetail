@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('breed')->nullable();
             $table->string('last_seen')->nullable();
             $table->string('microchip_id')->nullable();
+            $table->longText('medicine_info')->nullable();
             $table->longText('description')->nullable();
             $table->string('longitude')->nullable();
             $table->string('latitude')->nullable();

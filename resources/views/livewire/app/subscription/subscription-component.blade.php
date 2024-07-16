@@ -51,13 +51,15 @@
                             <h4>FREE</h4>
                             <p>Free User</p>
                             <div class="btn-plan">
-                                <a href="/free-lost-dog-report-first" wire:navigate>Choose Starter Plan</a>
+                                <a href="/free-lost-dog-report-first" wire:navigate>Starter Plan</a>
                             </div>
                             <h6>Includes</h6>
                             <ul class="free-package">
                                 <li>Can add single photo</li>
                                 <li>Can add short description</li>
-                                <li>Add food & medicine info.</li>
+                                <li>Add food & medicine info</li>
+                                <li>Add short description (150 character)</li>
+                                <li>Add food & medicine info</li>
                             </ul>
                             <h6>Support:</h6>
                             <ul>
@@ -72,13 +74,15 @@
                             <h4>FREE</h4>
                             <p>Free User</p>
                             <div class="btn-plan">
-                                <a href="/login" wire:navigate>Choose Starter Plan</a>
+                                <a href="/login" wire:navigate>Starter Plan</a>
                             </div>
                             <h6>Includes</h6>
                             <ul class="free-package">
                                 <li>Can add single photo</li>
                                 <li>Can add short description</li>
                                 <li>Add food & medicine info.</li>
+                                <li>Add short description (150 character)</li>
+                                <li>Add food & medicine info</li>
                             </ul>
                             <h6>Support:</h6>
                             <ul>
@@ -91,22 +95,20 @@
                 @auth
                     <div class="col-md-6 col-lg-3 col-12">
                         <div class="package-list">
-                            <h5>Basic</h5>
-                            <h4>$99<span class="user">/ 500 User</span></h4>
-                            <p>Basic User</p>
+                            <h5>Text Plan</h5>
+                            <h4>$99<span class="user">/ 250 User</span></h4>
+                            <p>Basic Text Plan</p>
                             <div class="btn-plan">
-                                <a href="#" wire:click.prevent="subscriptionEvent(99)">Choose Basic Plan</a>
+                                <a href="#" wire:click.prevent="subscriptionEvent(99)">Basic Text Plan</a>
                             </div>
                             <h6>Includes</h6>
                             <ul>
-                                <li>500 User Nearby</li>
-                                <li>Can add single photo</li>
-                                <li>Add multiple photo <span style="font-weight: 600">($29 extra)</span></li>
-                                <li>Can add short description</li>
+                                <li>250 User Nearby</li>
+                                <li>Add short description (100 character)</li>
                                 <li>Add food & medicine info.</li>
                                 <li>Share with selected areas neighbor</li>
                                 <li>Send SMS & Email</li>
-                                <li>Get notification from rescue team</li>
+                                <li>Get real time notification of sightings or rescue</li>
                             </ul>
                             <h6>Support:</h6>
                             <ul>
@@ -118,49 +120,104 @@
                     <div class="col-md-6 col-lg-3 col-12">
                         <div class="package-list">
                             <h5>Basic</h5>
-                            <h4>$99<span class="user">/ 500 User</span></h4>
-                            <p>Basic User</p>
+                            <h4>$99<span class="user">/ 250 User</span></h4>
+                            <p>Basic Text Plan</p>
                             <div class="btn-plan">
-                                <a href="/login" wire:navigate>Choose Basic Plan</a>
+                                <a href="/login" wire:navigate>Basic Text Plan</a>
+                            </div>
+                            <h6>Includes</h6>
+                            <ul>
+                                <li>250 User Nearby</li>
+                                <li>Add short description (100 character)</li>
+                                <li>Add food & medicine info.</li>
+                                <li>Share with selected areas neighbor</li>
+                                <li>Send SMS & Email</li>
+                                <li>Get real time notification of sightings or rescue</li>
+                            </ul>
+                            <h6>Support:</h6>
+                            <ul>
+                                <li>Email Only</li>
+                            </ul>
+                        </div>
+                    </div>
+                @endauth
+
+                @auth
+                    <div class="col-md-6 col-lg-3 col-12">
+                        <div class="package-list">
+                            <h5>Level One</h5>
+                            <h4>$139<span class="user">/ 250 User</span></h4>
+                            <p>Level One Plan</p>
+                            <div class="btn-plan">
+                                <a href="#" wire:click.prevent="subscriptionEvent(139)">Level One Plan</a>
+                            </div>
+                            <h6>Includes</h6>
+                            <ul>
+                                <li>250 User Nearby</li>
+                                <li>Can add single photo</li>
+                                <li>Add multiple photo <span style="font-weight: 600">($29 extra)</span></li>
+                                <li>Can add 275 character description</li>
+                                <li>Add food & medicine info.</li>
+                                <li>Share with selected areas neighbor</li>
+                                <li>Send MMS with picture</li>
+                                <li>Send SMS & Email</li>
+                                <li>Get real time notification of sightings or rescue</li>
+                            </ul>
+                            <h6>Support:</h6>
+                            <ul>
+                                <li>Email Only</li>
+                            </ul>
+                        </div>
+                    </div>
+                @else
+                    <div class="col-md-6 col-lg-3 col-12">
+                        <div class="package-list">
+                            <h5>Level One</h5>
+                            <h4>$139<span class="user">/ 250 User</span></h4>
+                            <p>Level One Plan</p>
+                            <div class="btn-plan">
+                                <a href="/login" wire:navigate>Level One Plan</a>
+                            </div>
+                            <h6>Includes</h6>
+                            <ul>
+                                <li>250 User Nearby</li>
+                                <li>Can add single photo</li>
+                                <li>Add multiple photo <span style="font-weight: 600">($29 extra)</span></li>
+                                <li>Can add 275 character description</li>
+                                <li>Add food & medicine info.</li>
+                                <li>Share with selected areas neighbor</li>
+                                <li>Send MMS with picture</li>
+                                <li>Send SMS & Email</li>
+                                <li>Get real time notification of sightings or rescue</li>
+                            </ul>
+                            <h6>Support:</h6>
+                            <ul>
+                                <li>Email Only</li>
+                            </ul>
+                        </div>
+                    </div>
+                @endauth
+
+                @auth
+                    <div class="col-md-6 col-lg-3 col-12">
+                        <div class="package-list">
+                            <h5>Level Two</h5>
+                            <h4>$169<span class="user">/ 500 User</span></h4>
+                            <p>Level Two Plan</p>
+                            <div class="btn-plan">
+                                <a href="#" wire:click.prevent="subscriptionEvent(169)">Level Two Plan</a>
                             </div>
                             <h6>Includes</h6>
                             <ul>
                                 <li>500 User Nearby</li>
                                 <li>Can add single photo</li>
                                 <li>Add multiple photo <span style="font-weight: 600">($29 extra)</span></li>
-                                <li>Can add short description</li>
+                                <li>Can add 275 character description</li>
                                 <li>Add food & medicine info.</li>
+                                <li>Send MMS with picture</li>
                                 <li>Share with selected areas neighbor</li>
                                 <li>Send SMS & Email</li>
-                                <li>Get notification from rescue team</li>
-                            </ul>
-                            <h6>Support:</h6>
-                            <ul>
-                                <li>Email Only</li>
-                            </ul>
-                        </div>
-                    </div>
-                @endauth
-
-                @auth
-                    <div class="col-md-6 col-lg-3 col-12">
-                        <div class="package-list">
-                            <h5>Gold</h5>
-                            <h4>$149<span class="user">/ 750 User</span></h4>
-                            <p>Gold User</p>
-                            <div class="btn-plan">
-                                <a href="#" wire:click.prevent="subscriptionEvent(149)">Choose Gold Plan</a>
-                            </div>
-                            <h6>Includes</h6>
-                            <ul>
-                                <li>750 User Nearby</li>
-                                <li>Can add single photo</li>
-                                <li>Add multiple photo <span style="font-weight: 600">($29 extra)</span></li>
-                                <li>Can add short description</li>
-                                <li>Add food & medicine info.</li>
-                                <li>Share with selected areas neighbor</li>
-                                <li>Send SMS & Email</li>
-                                <li>Get notification from rescue team</li>
+                                <li>Get real time notification of sightings or rescue</li>
                             </ul>
                             <h6>Support:</h6>
                             <ul>
@@ -171,22 +228,23 @@
                 @else
                     <div class="col-md-6 col-lg-3 col-12">
                         <div class="package-list">
-                            <h5>Gold</h5>
-                            <h4>$149<span class="user">/ 750 User</span></h4>
-                            <p>Gold User</p>
+                            <h5>Level Two</h5>
+                            <h4>$169<span class="user">/ 500 User</span></h4>
+                            <p>Level Two Plan</p>
                             <div class="btn-plan">
-                                <a href="/login" wire:navigate>Choose Gold Plan</a>
+                                <a href="/login" wire:navigate>Level Two Plan</a>
                             </div>
                             <h6>Includes</h6>
                             <ul>
-                                <li>750 User Nearby</li>
+                                <li>500 User Nearby</li>
                                 <li>Can add single photo</li>
                                 <li>Add multiple photo <span style="font-weight: 600">($29 extra)</span></li>
-                                <li>Can add short description</li>
+                                <li>Can add 275 character description</li>
                                 <li>Add food & medicine info.</li>
+                                <li>Send MMS with picture</li>
                                 <li>Share with selected areas neighbor</li>
                                 <li>Send SMS & Email</li>
-                                <li>Get notification from rescue team</li>
+                                <li>Get real time notification of sightings or rescue</li>
                             </ul>
                             <h6>Support:</h6>
                             <ul>
@@ -195,26 +253,26 @@
                         </div>
                     </div>
                 @endauth
-
                 @auth
                     <div class="col-md-6 col-lg-3 col-12">
                         <div class="package-list">
-                            <h5>Premium</h5>
-                            <h4>$169<span class="user">/ 1000 User</span></h4>
-                            <p>Premium User</p>
+                            <h5>Level Three</h5>
+                            <h4>$199<span class="user">/ 750 User</span></h4>
+                            <p>Level Three Plan</p>
                             <div class="btn-plan">
-                                <a href="#" wire:click.prevent="subscriptionEvent(169)">Choose Premium Plan</a>
+                                <a href="#" wire:click.prevent="subscriptionEvent(199)">Level Three Plan</a>
                             </div>
                             <h6>Includes</h6>
                             <ul>
-                                <li>1000 User Nearby</li>
+                                <li>750 User Nearby</li>
                                 <li>Can add single photo</li>
                                 <li>Add multiple photo <span style="font-weight: 600">($29 extra)</span></li>
-                                <li>Can add short description</li>
+                                <li>Can add 275 character description</li>
                                 <li>Add food & medicine info.</li>
+                                <li>Send MMS with picture</li>
                                 <li>Share with selected areas neighbor</li>
                                 <li>Send SMS & Email</li>
-                                <li>Get notification from rescue team</li>
+                                <li>Get real time notification of sightings or rescue</li>
                             </ul>
                             <h6>Support:</h6>
                             <ul>
@@ -225,22 +283,78 @@
                 @else
                     <div class="col-md-6 col-lg-3 col-12">
                         <div class="package-list">
-                            <h5>Premium</h5>
-                            <h4>$169<span class="user">/ 1000 User</span></h4>
-                            <p>Premium User</p>
+                            <h5>Level Three</h5>
+                            <h4>$199<span class="user">/ 750 User</span></h4>
+                            <p>Level Three Plan</p>
                             <div class="btn-plan">
-                                <a href="/login" wire:navigate>Choose Premium Plan</a>
+                                <a href="/login" wire:navigate>Level Three Plan</a>
+                            </div>
+                            <h6>Includes</h6>
+                            <ul>
+                                <li>750 User Nearby</li>
+                                <li>Can add single photo</li>
+                                <li>Add multiple photo <span style="font-weight: 600">($29 extra)</span></li>
+                                <li>Can add 275 character description</li>
+                                <li>Add food & medicine info.</li>
+                                <li>Send MMS with picture</li>
+                                <li>Share with selected areas neighbor</li>
+                                <li>Send SMS & Email</li>
+                                <li>Get real time notification of sightings or rescue</li>
+                            </ul>
+                            <h6>Support:</h6>
+                            <ul>
+                                <li>Email Only</li>
+                            </ul>
+                        </div>
+                    </div>
+                @endauth
+                @auth
+                    <div class="col-md-6 col-lg-3 col-12">
+                        <div class="package-list">
+                            <h5>Level Four</h5>
+                            <h4>$239<span class="user">/ 1000 User</span></h4>
+                            <p>Level Four Plan</p>
+                            <div class="btn-plan">
+                                <a href="#" wire:click.prevent="subscriptionEvent(239)">Level Four Plan</a>
                             </div>
                             <h6>Includes</h6>
                             <ul>
                                 <li>1000 User Nearby</li>
                                 <li>Can add single photo</li>
                                 <li>Add multiple photo <span style="font-weight: 600">($29 extra)</span></li>
-                                <li>Can add short description</li>
+                                <li>Can add 275 character description</li>
                                 <li>Add food & medicine info.</li>
+                                <li>Send MMS with picture</li>
                                 <li>Share with selected areas neighbor</li>
                                 <li>Send SMS & Email</li>
-                                <li>Get notification from rescue team</li>
+                                <li>Get real time notification of sightings or rescue</li>
+                            </ul>
+                            <h6>Support:</h6>
+                            <ul>
+                                <li>Email Only</li>
+                            </ul>
+                        </div>
+                    </div>
+                @else
+                    <div class="col-md-6 col-lg-3 col-12">
+                        <div class="package-list">
+                            <h5>Level Four</h5>
+                            <h4>$239<span class="user">/ 1000 User</span></h4>
+                            <p>Level Four Plan</p>
+                            <div class="btn-plan">
+                                <a href="/login" wire:navigate>Level Four Plan</a>
+                            </div>
+                            <h6>Includes</h6>
+                            <ul>
+                                <li>1000 User Nearby</li>
+                                <li>Can add single photo</li>
+                                <li>Add multiple photo <span style="font-weight: 600">($29 extra)</span></li>
+                                <li>Can add 275 character description</li>
+                                <li>Add food & medicine info.</li>
+                                <li>Send MMS with picture</li>
+                                <li>Share with selected areas neighbor</li>
+                                <li>Send SMS & Email</li>
+                                <li>Get real time notification of sightings or rescue</li>
                             </ul>
                             <h6>Support:</h6>
                             <ul>
