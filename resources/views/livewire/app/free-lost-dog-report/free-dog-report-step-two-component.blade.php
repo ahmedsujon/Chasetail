@@ -23,7 +23,6 @@
                 <div class="row">
                     <div class="col-md-12 col-lg-12 col-12">
                         <div class="step-page">
-                            {{-- <h3>{{ session('address') }}</h3> --}}
                             <h3>Add your dog photo</h3>
                             <p>Photo quality will affect your search results. Please select a clear image of one pet
                                 looking directly at the camera.</p>

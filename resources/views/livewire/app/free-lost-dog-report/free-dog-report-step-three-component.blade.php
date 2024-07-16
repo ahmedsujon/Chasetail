@@ -27,15 +27,14 @@
             <div class="row">
                 <div class="col-md-12 col-lg-12 col-12">
                     <div class="page-header-text">
-                        <h4>Posting as Starter or Free User</h4>
-                        <p>Update Plan? <a href="#">Roll-Back</a></p>
+                        <h4>Posting as Free User</h4>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="step-content">
+    <section class="step-content mb-5">
         <div class="container">
             <form class="form-step" wire:submit.prevent="storeData">
                 <div class="row">
@@ -45,7 +44,7 @@
                                 <div class="col-md-12 col-lg-6 col-12">
                                     <div class="form-left-right">
 
-                                        <div class="mb-4 myselect" wire:ignore>
+                                        {{-- <div class="mb-4 myselect" wire:ignore>
                                             <label for="breed" class="form-label">Dog's Breed?</label>
                                             <select class="form-select form-control select2 dogBreed">
                                                 <option selected value="">Dog's Breed?</option>
@@ -511,6 +510,15 @@
                                                 <option value="CONTINENTAL BULLDOG">CONTINENTAL BULLDOG</option>
                                                 <option value="VALENCIAN TERRIER">VALENCIAN TERRIER</option>
                                             </select>
+                                        </div> --}}
+
+                                        <div class="mb-4">
+                                            <label for="exampleFormControlInput1" class="form-label">Dog Name</label>
+                                            <input type="text" wire:model.blur="name" class="form-control"
+                                                placeholder="Enter dog name">
+                                            @error('name')
+                                                <span class="label-bot-validate">{{ $message }}</span>
+                                            @enderror
                                         </div>
 
                                         <div class="mb-4" style="text-align: left;">
@@ -520,20 +528,18 @@
                                                 aria-label="Basic radio toggle button group">
 
                                                 <input type="radio" wire:model.blur="gender" value="Male"
-                                                    class="btn-check" name="btnradio" id="Male"
-                                                    autocomplete="off" checked>
+                                                    class="btn-check" name="btnradio" id="Male" autocomplete="off"
+                                                    checked>
                                                 <label class="btn btn-outline-secondary btn-male"
                                                     for="Male">Male</label>
 
                                                 <input type="radio" wire:model.blur="gender" value="Female"
-                                                    class="btn-check" name="btnradio" id="Female"
-                                                    autocomplete="off">
+                                                    class="btn-check" name="btnradio" id="Female" autocomplete="off">
                                                 <label class="btn btn-outline-secondary btn-female"
                                                     for="Female">Female</label>
 
                                                 <input type="radio" wire:model.blur="gender" value="Unknown"
-                                                    class="btn-check" name="btnradio" id="Unknown"
-                                                    autocomplete="off">
+                                                    class="btn-check" name="btnradio" id="Unknown" autocomplete="off">
                                                 <label class="btn btn-outline-secondary btn-unknown"
                                                     for="Unknown">Unknown</label>
                                             </div>
@@ -570,7 +576,22 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-lg-12 col-md-12 col-12">
+                                <div class="col-lg-6 col-md-6 col-6">
+                                    <div class="form-left-right">
+                                        <div class="mb-4">
+                                            <label for="exampleFormControlInput1" class="form-label">Add food & medicine
+                                                information</label>
+                                            <span class="label-bot"><a href="#">Describe dog food & medicine
+                                                    information etc.</a></span>
+                                            <textarea class="form-control mt-4" wire:model.blur="medicine_info" rows="3"
+                                                placeholder="Description dog food & medicine information"></textarea>
+                                            @error('medicine_info')
+                                                <span class="label-bot-validate">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-6">
                                     <div class="form-left-right">
                                         <div class="mb-4">
                                             <label for="exampleFormControlInput1" class="form-label">What is you dog

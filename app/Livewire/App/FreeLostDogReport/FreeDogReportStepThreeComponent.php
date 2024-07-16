@@ -9,14 +9,14 @@ use Illuminate\Support\Facades\Auth;
 
 class FreeDogReportStepThreeComponent extends Component
 {
-    public $user_id, $breed, $payment_status, $address, $longitude, $photos, $name, $gender, $last_seen, $microchip_id, $description;
+    public $user_id, $breed, $medicine_info, $payment_status, $address, $longitude, $photos, $name, $gender, $last_seen, $microchip_id, $description;
 
     public function storeData()
     {
         $this->validate([
+            'name' => 'required',
             'gender' => 'required',
             'last_seen' => 'required',
-            'description' => 'required',
         ]);
 
         $data = new LostDog();
@@ -33,6 +33,7 @@ class FreeDogReportStepThreeComponent extends Component
         $data->gender = $this->gender;
         $data->last_seen = $this->last_seen;
         $data->microchip_id = $this->microchip_id;
+        $data->medicine_info = $this->medicine_info;
         $data->description = $this->description;
         $data->save();
 
@@ -57,6 +58,7 @@ class FreeDogReportStepThreeComponent extends Component
         $this->address = null;
         $this->last_seen = null;
         $this->microchip_id = null;
+        $this->medicine_info = null;
         $this->description = null;
     }
 

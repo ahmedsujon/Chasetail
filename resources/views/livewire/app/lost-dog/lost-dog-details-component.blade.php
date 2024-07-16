@@ -6,7 +6,7 @@
                 <div class="col-md-12 col-lg-12 col-12">
                     <div class="page-header-text">
                         <h4>Lost Dog Report</h4>
-                        <p>You have a found dog. <a href="/subscription" wire:navigate >Click to Search</a></p>
+                        <p>You have a found dog. <a href="/subscription" wire:navigate>Click to Search</a></p>
                     </div>
                 </div>
             </div>
@@ -57,6 +57,14 @@
                                 <tr>
                                     <td>Lost Near</td>
                                     <td>{{ $lost_dog->address }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Food & medicine info</td>
+                                    <td>{{ $lost_dog->medicine_info }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Description</td>
+                                    <td>{{ $lost_dog->description }}</td>
                                 </tr>
                             </tbody>
                         </table>

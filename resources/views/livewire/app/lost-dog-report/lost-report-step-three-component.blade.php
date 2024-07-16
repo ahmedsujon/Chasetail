@@ -22,7 +22,7 @@
                                 <div class="col-md-12 col-lg-6 col-12">
                                     <div class="form-left-right">
 
-                                        <div class="mb-4">
+                                        {{-- <div class="mb-4">
                                             <label for="breed" class="form-label">Dog's
                                                 Breed?</label>
                                             <select wire:model.blur="breed"
@@ -492,17 +492,15 @@
                                                 <option value="CONTINENTAL BULLDOG">CONTINENTAL BULLDOG</option>
                                                 <option value="VALENCIAN TERRIER">VALENCIAN TERRIER</option>
                                             </select>
-                                        </div>
-
-                                        {{-- <div class="mb-4">
-                                            <label for="exampleFormControlInput1" class="form-label">What is your dog's
-                                                name?</label>
+                                        </div> --}}
+                                        <div class="mb-4">
+                                            <label for="exampleFormControlInput1" class="form-label">Dog Name</label>
                                             <input type="text" wire:model.blur="name" class="form-control"
-                                                placeholder="Dog Name">
+                                                placeholder="Enter dog name">
                                             @error('name')
                                                 <span class="label-bot-validate">{{ $message }}</span>
                                             @enderror
-                                        </div> --}}
+                                        </div>
 
                                         <div class="mb-4" style="text-align: left;">
                                             <label for="exampleFormControlInput1" class="form-label">Your Dog is
@@ -527,8 +525,8 @@
                                                     for="Unknown">Unknown</label>
                                             </div>
                                             @error('gender')
-                                            <span class="label-bot-validate">{{ $message }}</span>
-                                        @enderror
+                                                <span class="label-bot-validate">{{ $message }}</span>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
@@ -539,7 +537,7 @@
                                                 last seen?</label>
                                             <input type="date" wire:model.blur="last_seen" class="form-control"
                                                 placeholder="Lost date ( mm/dd/yyyy)">
-                                                @error('last_seen')
+                                            @error('last_seen')
                                                 <span class="label-bot-validate">{{ $message }}</span>
                                             @enderror
                                             <span class="label-bot">It may take 24 hours for this pet to be reported in
@@ -550,7 +548,7 @@
                                                 Microchip ID?</label>
                                             <input type="text" wire:model.blur="microchip_id" class="form-control"
                                                 placeholder="Enter microchip ID (optional)">
-                                                @error('microchip_id')
+                                            @error('microchip_id')
                                                 <span class="label-bot-validate">{{ $message }}</span>
                                             @enderror
                                         </div>
@@ -558,7 +556,22 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-lg-12 col-md-12 col-12">
+                                <div class="col-lg-6 col-md-6 col-6">
+                                    <div class="form-left-right">
+                                        <div class="mb-4">
+                                            <label for="exampleFormControlInput1" class="form-label">Add food & medicine
+                                                information</label>
+                                            <span class="label-bot"><a href="#">Describe dog food & medicine
+                                                    information etc.</a></span>
+                                            <textarea class="form-control mt-4" wire:model.blur="medicine_info" rows="3"
+                                                placeholder="Description dog food & medicine information"></textarea>
+                                            @error('medicine_info')
+                                                <span class="label-bot-validate">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-6">
                                     <div class="form-left-right">
                                         <div class="mb-4">
                                             <label for="exampleFormControlInput1" class="form-label">What is you dog
@@ -567,7 +580,7 @@
                                                     physical traits, etc.</a></span>
                                             <textarea class="form-control mt-4" wire:model.blur="description" rows="3"
                                                 placeholder="Description ( 160 Words only )"></textarea>
-                                                @error('description')
+                                            @error('description')
                                                 <span class="label-bot-validate">{{ $message }}</span>
                                             @enderror
                                         </div>
@@ -581,7 +594,6 @@
                     <div class="col-12">
                         <div class="form-left-right">
                             <button class="btn btn-submit-post" type="submit">{!! loadingStateWithText('storeData', 'Submit Post') !!}</button>
-                            <p class="plan"><a href="#"> Update Plan ? Roll-Back</a></p>
                         </div>
                     </div>
                 </div>

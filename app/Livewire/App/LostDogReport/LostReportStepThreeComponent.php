@@ -9,7 +9,7 @@ use Livewire\Component;
 
 class LostReportStepThreeComponent extends Component
 {
-    public $user_id, $longitude, $photos, $name, $gender, $last_seen, $microchip_id, $description;
+    public $user_id, $longitude, $photos, $name, $gender, $last_seen, $microchip_id, $medicine_info, $description;
 
     public function storeData()
     {
@@ -31,6 +31,7 @@ class LostReportStepThreeComponent extends Component
         $data->gender = $this->gender;
         $data->last_seen = $this->last_seen;
         $data->microchip_id = $this->microchip_id;
+        $data->medicine_info = $this->medicine_info;
         $data->description = $this->description;
         $data->save();
 
@@ -52,6 +53,7 @@ class LostReportStepThreeComponent extends Component
         $this->gender = null;
         $this->last_seen = null;
         $this->microchip_id = null;
+        $this->medicine_info = null;
         $this->description = null;
     }
 

@@ -27,6 +27,7 @@ class FreeDogReportStepOneComponent extends Component
     public function updated($fields)
     {
         $this->validateOnly($fields, [
+            'latitude' => 'required',
             'longitude' => 'required',
         ]);
     }
