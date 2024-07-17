@@ -18,7 +18,7 @@ class LostDogSeeder extends Seeder
             LostDog::create([
                 'user_id' => $faker->randomDigit(1, 2),
                 'payment_status' => $faker->randomElement(['paid', 'unpaid']),
-                'name' => "",
+                'name' => "Dummy Name",
                 'gender' => $faker->randomElement(['male', 'female']),
                 'color' => $faker->colorName,
                 'breed' => $faker->word,
@@ -26,7 +26,7 @@ class LostDogSeeder extends Seeder
                 'longitude' => $faker->longitude,
                 'latitude' => $faker->latitude,
                 'address' => $faker->address(),
-                'images' => 'assets/app/images/lost-dog-list' . sprintf('%02d', $index) . '.jpg',
+                'images' => 'assets/app/images/placeholder.jpg',
                 'missing_status' => $faker->randomElement(['Found', 'Rescued']),
                 'status' => $faker->numberBetween(0, 1),
             ]);
