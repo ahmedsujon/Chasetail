@@ -8,7 +8,7 @@
                            <ul>
                                <li><a href="tel:+11234567890"><span class="call">Call Now:</span> <span
                                            class="number">855 550 8245</span></a></li>
-                               <li><a href="mailto:info@findfidofast.com">info@findfidofast.com</a></li>
+                               <li><a href="mailto:info@chasetail.com">info@chasetail.com</a></li>
                                @auth
                                    @if ($subscription == 1)
                                        <li><a href="/lost-dog-report-first" wire:navigate>Get Started</a></li>
@@ -30,7 +30,7 @@
                <div class="row">
                    <div class="col-md-12">
                        <div class="footer-text">
-                           <p>© <?php echo date('Y'); ?> findfidofast. All rights reserved. Website
+                           <p>© <?php echo date('Y'); ?> Chase Tail. All rights reserved. Website
                                Design Development and SEO by <a href="https://www.intrigueit.com/" target="_blank"
                                    rel="noopener"> Intrigue IT
                                    Solutions</a></p>

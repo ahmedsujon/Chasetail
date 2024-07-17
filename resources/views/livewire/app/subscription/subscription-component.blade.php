@@ -30,10 +30,10 @@
         <div class="col-md-2"></div>
         <div class="col-md-8">
             <div class="how-work">
-                <h3 style="padding-bottom: 10px;">How It's Work</h3>
-                <p>At FFF we have the technology to contact the majority of the nearest cell phones registered in your
+                <h3 style="padding-bottom: 10px;">How It Works</h3>
+                <p>At Chase Tail we have the technology to contact the majority of the nearest cell phones registered in your
                     area. You fill out your lost pet’s description and information and upload a picture. You choose the
-                    size of the search that fits your needs and FindFidoFast will actively contact the majority of
+                    size of the search that fits your needs and Chase Tail will actively contact the majority of
                     phones in the area immediately surrounding where your pet disappeared. The majority of found pets
                     that don’t return on their own are found in the first day after we start the search.</p>
             </div>

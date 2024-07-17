@@ -27,7 +27,7 @@
                     <ul class="solution-hr">
                         <li></li>
                     </ul>
-                    <h3>Unleashing the power of advanced technology to Find Fido Fast!!</h3>
+                    <h3>Unleashing the power of advanced technology to Chase Tail!</h3>
                     <p>Time matters when you’ve lost your pet. We actively engage with the majority of households and
                         people in the area around the last known place of your precious pet. This is not a passive
                         posting on other websites. We engage in a one on one basis to those in range of your

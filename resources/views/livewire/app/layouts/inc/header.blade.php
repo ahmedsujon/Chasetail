@@ -6,7 +6,7 @@
                     <div class="col-md-6 col-lg-3 col-6">
                         <div class="logo">
                             <a href="/" wire:navigate><img class="img-fluid"
-                                    src="{{ asset('assets/app/images/logo.png') }}" alt="Find Fido Fast"></a>
+                                    src="{{ asset('assets/app/images/logo.png') }}" alt="Chase Tail"></a>
                         </div>
                     </div>
 
@@ -38,7 +38,7 @@
                                                 <a class="nav-link" href="/contact-us" wire:navigate >CONTACT US</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="/how-its-work" wire:navigate >HOW IT'S WORK?</a>
+                                                <a class="nav-link" href="/how-it-works" wire:navigate >HOW IT WORKS?</a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" href="/faq" wire:navigate >FAQ</a>

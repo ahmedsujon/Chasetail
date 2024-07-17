@@ -14,11 +14,11 @@ class LostDogSeeder extends Seeder
     public function run(): void
     {
         $faker = Faker::create();
-        foreach (range(1, 9) as $index) {
+        foreach (range(1,2) as $index) {
             LostDog::create([
-                'user_id' => $faker->randomDigit(1, 9),
+                'user_id' => $faker->randomDigit(1, 2),
                 'payment_status' => $faker->randomElement(['paid', 'unpaid']),
-                'name' => $faker->firstName,
+                'name' => "",
                 'gender' => $faker->randomElement(['male', 'female']),
                 'color' => $faker->colorName,
                 'breed' => $faker->word,
