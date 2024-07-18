@@ -18,7 +18,7 @@ class LostDogSeeder extends Seeder
             LostDog::create([
                 'user_id' => $faker->randomDigit(1, 2),
                 'payment_status' => $faker->randomElement(['paid', 'unpaid']),
-                'name' => "Dummy Name",
+                'name' => "Your pets name",
                 'gender' => $faker->randomElement(['male', 'female']),
                 'color' => $faker->colorName,
                 'breed' => $faker->word,
