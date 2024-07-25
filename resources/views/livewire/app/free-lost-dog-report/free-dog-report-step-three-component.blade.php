@@ -594,7 +594,7 @@
                                 <div class="col-lg-6 col-md-6 col-6">
                                     <div class="form-left-right">
                                         <div class="mb-4">
-                                            <label for="exampleFormControlInput1" class="form-label">What is you dog
+                                            <label for="exampleFormControlInput1" class="form-label">What is your dog
                                                 looks like?</label>
                                             <span class="label-bot"><a href="#">Describe their personality,
                                                     physical traits, etc.</a></span>

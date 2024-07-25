@@ -7,7 +7,7 @@ use Livewire\Component;
 class LostReportStepOneComponent extends Component
 {
 
-    public $longitude;
+    public $longitude, $latitude;
     public function lostDogReportOne()
     {
         $this->validate([

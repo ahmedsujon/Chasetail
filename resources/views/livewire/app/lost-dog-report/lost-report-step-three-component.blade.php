@@ -12,7 +12,7 @@
         </div>
     </section>
 
-    <section class="step-content">
+    <section class="step-content mb-5">
         <div class="container">
             <form class="form-step" wire:submit.prevent="storeData">
                 <div class="row">
@@ -493,6 +493,7 @@
                                                 <option value="VALENCIAN TERRIER">VALENCIAN TERRIER</option>
                                             </select>
                                         </div> --}}
+                                        
                                         <div class="mb-4">
                                             <label for="exampleFormControlInput1" class="form-label">Dog Name</label>
                                             <input type="text" wire:model.blur="name" class="form-control"
