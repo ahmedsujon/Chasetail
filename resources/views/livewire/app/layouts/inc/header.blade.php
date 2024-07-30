@@ -3,6 +3,7 @@
         <div class="header-bot">
             <div class="container-fluid">
                 <div class="row align-items-center">
+
                     <div class="col-md-6 col-lg-3 col-6">
                         <div class="logo">
                             <a href="/" wire:navigate><img class="img-fluid"
@@ -10,7 +11,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 col-lg-6 col-6">
+                    <div class="col-md-6 col-lg-7 col-6">
                         <div class="menu-btn">
                             <i class="fas fa-bars"></i>
                         </div>
@@ -26,10 +27,13 @@
                                         style="flex-direction: row-reverse;">
                                         <ul class="navbar-nav mb-2 mb-lg-0">
                                             <li class="nav-item">
+                                                <a class="nav-link" href="/" wire:navigate >CHASETAIL</a>
+                                            </li>
+                                            <li class="nav-item">
                                                 <a class="nav-link" href="/about-us" wire:navigate >ABOUT</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="/lost-dogs" wire:navigate >LOST DOGS</a>
+                                                <a class="nav-link" href="/lost-dogs" wire:navigate >LOST PETS</a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" href="/subscription" wire:navigate >PRICING</a>
@@ -50,7 +54,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-7 col-lg-3 col-12 d-none d-sm-block d-md-none d-lg-block">
+                    <div class="col-md-7 col-lg-2 col-12 d-none d-sm-block d-md-none d-lg-block">
                         <div class="top-menu">
                             <ul>
                                 <li>
@@ -73,6 +77,7 @@
                             </ul>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>

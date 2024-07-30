@@ -6,11 +6,11 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-5 col-lg-5 col-6">
-                            <h3>Do You Want To find
-                                your lost dog? </h3>
-                            <p>Find your new best friend. We’re here to help your lost pet find their way home. Browse
-                                pets from our network of your nearby shelters and rescues.</p>
-                            <a href="/subscription" wire:navigate>Get Started</a>
+                            <h3>We’ll help you find your lost pet! </h3>
+                            <p>We’ll help you find your lost pet as quickly as possible! Post a picture on our Lost Pet page for free.
+                                Choose an option to send a digital flyer to areas immediately around your location. It’s the most
+                                efficient way to enlist the aid of caring neighbors in the recovery of your beloved animal.</p>
+                            {{-- <a href="/subscription" wire:navigate>Get Started</a> --}}
                         </div>
                     </div>
                 </div>
@@ -27,11 +27,10 @@
                     <ul class="solution-hr">
                         <li></li>
                     </ul>
-                    <h3>Unleashing the power of advanced technology to Chase Tail!</h3>
-                    <p>Time matters when you’ve lost your pet. We actively engage with the majority of households and
-                        people in the area around the last known place of your precious pet. This is not a passive
-                        posting on other websites. We engage in a one on one basis to those in range of your
-                        beloved/lost animal.</p>
+                    <h3>Unleashing the power of advanced technology to Find Your Pet!</h3>
+                    <p>Time matters when you’ve lost your pet. We actively engage with the majority of people in the area
+                        nearest the last known place of your precious pet. This is not a passive posting on other websites.
+                        We engage directly with those in range of your beloved/lost animal.</p>
                 </div>
             </div>
         </div>
@@ -42,8 +41,7 @@
                         <img class="img-fluid" src="{{ asset('assets/app/images/content-dog01.jpg') }}"
                             alt="Content Dog">
                         <h4><a href="#">Dogs</a></h4>
-                        <p>We’re here to help you find your dog. Free and easy way to search lost dogs to help them
-                            return home.</p>
+                        <p>We’re here to help you find your pet. It’s a Free and Easy way to post and search for lost pets to help them return home.</p>
                         <ul class="content-hr">
                             <li></li>
                         </ul>
@@ -54,8 +52,7 @@
                         <img class="img-fluid" src="{{ asset('assets/app/images/content-dog02.jpg') }}"
                             alt="Content Dog">
                         <h4><a href="#">Found Dogs</a></h4>
-                        <p>Help reunite found dogs, by snapping a photo and uploading it or register your dog in case
-                            they ever go missing. It’s free!</p>
+                        <p>Help reunite a found pet by snapping a photo and uploading the pet when they go missing. It’s free!</p>
                         <ul class="content-hr">
                             <li></li>
                         </ul>
@@ -66,8 +63,8 @@
                         <img class="img-fluid" src="{{ asset('assets/app/images/content-dog03.jpg') }}"
                             alt="Content Dog">
                         <h4><a href="#">Donation</a></h4>
-                        <p>A little Love goes a long way. We can’t do this without you. Every dollar counts, just like
-                            every dog helps make the world a better place.</p>
+                        <p>We can’t do this without you. Our most basic posting service is free. We charge a fee for our larger distribution
+                            packages.</p>
                         <ul class="content-hr">
                             <li></li>
                         </ul>
@@ -102,13 +99,13 @@
                         posters is time consuming and hoping you pick the correct corners to post them is a gamble.</p>
                     <div class="challenge-content">
                         <div class="row">
+                            <div class="col-md-2"></div>
                             <div class="col-lg-4 col-md-4 col-12">
                                 <div class="challenge-box">
                                     <img class="img-fluid" src="{{ asset('assets/app/images/icon-millions-dogs.jpg') }}"
-                                        alt="Millions of dogs">
-                                    <h5>Millions of dogs</h5>
+                                        alt="Millions of Dogs In the U.S.">
+                                    <h5>Millions of Dogs In the U.S.</h5>
                                     <ul>
-                                        <li>Never find a loving home.</li>
                                         <li>There are 63.4 million Households in the US.</li>
                                         <li>There are 89.7 million dogs in the US as Household Pets.</li>
                                         <li>The average is 1.46 Dogs in Households with dogs.</li>
@@ -118,25 +115,15 @@
                             <div class="col-lg-4 col-md-4 col-12">
                                 <div class="challenge-box">
                                     <img class="img-fluid" src="{{ asset('assets/app/images/icon-inevery.jpg') }}"
-                                        alt="In every 1 in 10">
-                                    <h5>In every 1 in 10</h5>
+                                        alt="1 in every 10 Dogs">
+                                    <h5>1 in every 10 Dogs</h5>
                                     <ul>
-                                        <li>15 percent of the total pet owners experience a pet loss.</li>
+                                        <li>15 percent of pet owners experience a pet loss.</li>
                                         <li>Only 16% of lost pets eventually return on their own to their owners.</li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="col-lg-4 col-md-4 col-12">
-                                <div class="challenge-box">
-                                    <img class="img-fluid" src="{{ asset('assets/app/images/icon-countless.jpg') }}"
-                                        alt="Loving Home">
-                                    <h5>Countless</h5>
-                                    <ul>
-                                        <li>Shelters around the country euthanize millions of dogs and cats every year.
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                            <div class="col-md-2"></div>
                         </div>
                     </div>
                 </div>
