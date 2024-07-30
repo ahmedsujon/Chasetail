@@ -109,6 +109,9 @@ Route::post('/payment', [SubscriptionController::class, 'subscription']);
 
 Route::get('/subscription-success/{transaction_id}', SubscriptionSuccessComponent::class)->name('app.subscription.success');
 
+use App\Http\Controllers\SmsTwilioController;
+
+Route::get('sms/send', [SmsTwilioController::class, 'sendSms']);
 
 //Call Route Files
 require __DIR__ . '/admin.php';

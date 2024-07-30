@@ -9,7 +9,7 @@
                                <li><a href="tel:+11234567890"><span class="call">Call Now:</span> <span
                                            class="number">855 550 8245</span></a></li>
                                <li><a href="mailto:info@chasetail.com">info@chasetail.com</a></li>
-                               @auth
+                               {{-- @auth
                                    @if ($subscription == 1)
                                        <li><a href="/lost-dog-report-first" wire:navigate>Get Started</a></li>
                                    @else
@@ -17,7 +17,7 @@
                                    @endif
                                @else
                                    <li><a href="/subscription" wire:navigate>Get Started</a></li>
-                               @endauth
+                               @endauth --}}
                            </ul>
                        </div>
                    </div>

@@ -10,7 +10,7 @@
                             <p>We’ll help you find your lost pet as quickly as possible! Post a picture on our Lost Pet page for free.
                                 Choose an option to send a digital flyer to areas immediately around your location. It’s the most
                                 efficient way to enlist the aid of caring neighbors in the recovery of your beloved animal.</p>
-                            <a href="/subscription" wire:navigate>Get Started</a>
+                            {{-- <a href="/subscription" wire:navigate>Get Started</a> --}}
                         </div>
                     </div>
                 </div>
