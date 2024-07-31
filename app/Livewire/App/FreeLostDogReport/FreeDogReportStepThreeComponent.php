@@ -12,6 +12,14 @@ class FreeDogReportStepThreeComponent extends Component
 {
     public $user_id, $breed, $medicine_info, $payment_status, $address, $longitude, $photos, $images, $name, $gender, $last_seen, $microchip_id, $description;
 
+    public $wordCount = 0;
+    public $maxWords = 150;
+
+    public function updatedDescription()
+    {
+        $this->wordCount = str_word_count($this->description);
+    }
+
     public function storeData()
     {
         $this->validate([
