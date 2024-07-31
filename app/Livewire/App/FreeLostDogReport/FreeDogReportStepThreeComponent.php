@@ -6,10 +6,11 @@ use App\Models\User;
 use App\Models\LostDog;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class FreeDogReportStepThreeComponent extends Component
 {
-    public $user_id, $breed, $medicine_info, $payment_status, $address, $longitude, $photos, $name, $gender, $last_seen, $microchip_id, $description;
+    public $user_id, $breed, $medicine_info, $payment_status, $address, $longitude, $photos, $images, $name, $gender, $last_seen, $microchip_id, $description;
 
     public function storeData()
     {
@@ -40,6 +41,27 @@ class FreeDogReportStepThreeComponent extends Component
         $user = User::find(Auth::user()->id);
         $user->subscription = 0;
         $user->save();
+
+        // Prepare email data
+        $mailData['name'] = $this->name;
+        $mailData['last_seen'] = $this->last_seen;
+        $mailData['images'] = $this->images;
+        $mailData['gender'] = $this->gender;
+        $mailData['address'] = $this->address;
+        $mailData['microchip_id'] = $this->microchip_id;
+        $mailData['medicine_info'] = $this->medicine_info;
+        $mailData['description'] = $this->description;
+
+        // Get all users' emails
+        $users = User::all();
+        $author_emails = $users->pluck('email');
+
+        foreach ($author_emails as $email) {
+            Mail::send('emails.lostdog-report', $mailData, function ($message) use ($mailData, $email) {
+                $message->to($email)
+                    ->subject('Lost Dog Notification');
+            });
+        }
 
         return $this->redirect('/user/dashboard', navigate: true);
         session()->flash('success', 'Report posted added successfully');

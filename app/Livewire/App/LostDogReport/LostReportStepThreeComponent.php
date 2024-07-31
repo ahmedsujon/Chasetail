@@ -2,15 +2,16 @@
 
 namespace App\Livewire\App\LostDogReport;
 
-use App\Models\LostDog;
 use App\Models\User;
-use Illuminate\Support\Facades\Auth;
+use App\Models\LostDog;
 use Livewire\Component;
 use Twilio\Rest\Client;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class LostReportStepThreeComponent extends Component
 {
-    public $user_id, $longitude, $photos, $name, $gender, $last_seen, $microchip_id, $medicine_info, $description;
+    public $user_id, $longitude, $photos, $name, $gender, $last_seen, $address, $images, $microchip_id, $medicine_info, $description;
 
     public function storeData()
     {
@@ -39,6 +40,28 @@ class LostReportStepThreeComponent extends Component
         $user = User::find(Auth::user()->id);
         $user->subscription = 0;
         $user->save();
+
+        // Send Email to all users
+
+        // Prepare email data
+        $mailData['name'] = $this->name;
+        $mailData['last_seen'] = $this->last_seen;
+        $mailData['images'] = $this->images;
+        $mailData['gender'] = $this->gender;
+        $mailData['address'] = $this->address;
+        $mailData['microchip_id'] = $this->microchip_id;
+        $mailData['medicine_info'] = $this->medicine_info;
+        $mailData['description'] = $this->description;
+        
+        // Get all users' emails
+        $users = User::all();
+        $author_emails = $users->pluck('email');
+        foreach ($author_emails as $email) {
+            Mail::send('emails.lostdog-report', $mailData, function ($message) use ($mailData, $email) {
+                $message->to($email)
+                    ->subject('Lost Dog Notification');
+            });
+        }
 
         // Send SMS to all users
         $users = User::all(); // Get all users

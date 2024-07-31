@@ -1,4 +1,43 @@
 <div>
+    <style>
+        ul#search-result {
+            position: absolute;
+            z-index: 1001;
+            width: 47%;
+            margin-left: 146px;
+            background: #FFF;
+            list-style: none;
+            padding: 0;
+            max-height: 220px;
+            overflow-y: scroll;
+        }
+
+        ul#search-result li {
+            padding: 10px;
+            font-size: 13px;
+        }
+
+        ul#to-search-result {
+            position: absolute;
+            z-index: 1001;
+            width: 90%;
+            background: #FFF;
+            list-style: none;
+            padding: 0;
+            max-height: 220px;
+            overflow-y: scroll;
+            border: 1px solid #DFDFDF;
+        }
+
+        ul#to-search-result li {
+            padding: 10px;
+            font-size: 13px;
+        }
+
+        ul#to-search-result li a {
+            text-decoration: none !important;
+        }
+    </style>
     <section id="page-header">
         <div class="container-fluid">
             <div class="row">

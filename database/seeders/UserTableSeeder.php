@@ -14,15 +14,17 @@ class UserTableSeeder extends Seeder
      */
     public function run(): void
     {
-        $emails = ["user@example.com"];
+        $emails = ["user@example.com", "user1@example.com"];
+        $phones = ["+14698783479", "+14696625784"];
+        $names = ["Shihab", "Andrew"];
 
         foreach ($emails as $key => $email) {
             $getUser = User::where('email', $email)->first();
             if (!$getUser) {
                 $user = new User();
-                $user->name = "User";
+                $user->name = $names[$key];
                 $user->email = $email;
-                $user->phone = '0170000000';
+                $user->phone = $phones[$key];
                 $user->password = Hash::make('12345678');
                 $user->avatar = 'assets/images/avatar.png';
                 $user->save();
