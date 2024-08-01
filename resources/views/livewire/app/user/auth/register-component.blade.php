@@ -59,7 +59,7 @@
                                         <input class="form-check-input" wire:model.blur="notify_status" value="0"
                                             type="checkbox" id="flexCheckDefault" onchange="updateCheckboxValue(this)">
                                         <label class="form-check-label" for="flexCheckDefault">
-                                            I agree to receive email
+                                            I would like to receive SMS and MMS
                                         </label>
                                         @error('notify_status')
                                             <p class="text-danger font-size-12 mb-0">{{ $message }}</p>
