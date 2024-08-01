@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Hash;
 
 class RegisterComponent extends Component
 {
-    public $name, $username, $email, $phone, $password, $confirm_password, $latitude, $longitude;
+    public $name, $username, $email, $phone, $password, $confirm_password, $notify_status, $latitude, $longitude;
 
     public function updated($fields)
     {
@@ -24,6 +24,7 @@ class RegisterComponent extends Component
             'phone' => 'required|unique:users,phone',
             'password' => 'required|min:8|max:30',
             'confirm_password' => 'required|min:8|max:30|same:password',
+            'notify_status' => 'required',
         ]);
     }
 
@@ -34,6 +35,7 @@ class RegisterComponent extends Component
             'email' => 'required|email|unique:users,email',
             'phone' => 'required|unique:users,phone',
             'password' => 'required|min:8|max:30',
+            'notify_status' => 'required',
         ]);
 
         $user = new User();
@@ -42,6 +44,7 @@ class RegisterComponent extends Component
         $user->longitude = $this->longitude;
         $user->email = $this->email;
         $user->phone = $this->phone;
+        $user->notify_status = $this->notify_status;
         $user->password = Hash::make($this->password);
         $user->avatar = 'assets/images/avatar.png';
         $user->save();

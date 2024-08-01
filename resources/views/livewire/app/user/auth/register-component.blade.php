@@ -1,4 +1,17 @@
 <div>
+    <style>
+        .form-check {
+            text-align: left;
+            padding-top: 5px;
+        }
+
+        .form-check-input {}
+
+        .form-check-label {
+            padding: 0px 0px 0px 5px !important;
+            padding:
+        }
+    </style>
     <section id="signup-section">
         <div class="signup">
             <div class="container">
@@ -42,18 +55,31 @@
                                         @enderror
                                     </div>
 
+                                    <div class="form-check">
+                                        <input class="form-check-input" wire:model.blur="notify_status" value="0"
+                                            type="checkbox" id="flexCheckDefault" onchange="updateCheckboxValue(this)">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            I agree to receive email
+                                        </label>
+                                        @error('notify_status')
+                                            <p class="text-danger font-size-12 mb-0">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+
                                     @if ($latitude == null || $longitude == null)
                                         <p style="color: red">Please allow location access in your browser settings!</p>
                                     @endif
 
                                     @if ($latitude == null || $longitude == null)
-                                    <button type="submit" disabled class="btn btn-primary">{!! loadingStateWithText('userRegistration', 'Create Your Account') !!}</button>
+                                        <button type="submit" disabled
+                                            class="btn btn-primary">{!! loadingStateWithText('userRegistration', 'Create Your Account') !!}</button>
                                     @else
-                                    <button type="submit" class="btn btn-primary">{!! loadingStateWithText('userRegistration', 'Create Your Account') !!}</button>
+                                        <button type="submit" class="btn btn-primary">{!! loadingStateWithText('userRegistration', 'Create Your Account') !!}</button>
                                     @endif
 
                                     <p class="click">By clicking "<span>Create Your Account</span>", you agree to our
-                                        <a href="/terms-conditions" wire:navigate>Terms & Conditions</a> and <a href="/privacy-policy" wire:navigate>Privacy
+                                        <a href="/terms-conditions" wire:navigate>Terms & Conditions</a> and <a
+                                            href="/privacy-policy" wire:navigate>Privacy
                                             Policy</a>.
                                     </p>
                                     <p>Have an account? <a href="/login" wire:navigate>Sign in</a></p>
@@ -83,5 +109,13 @@
                 }
             });
         });
+    </script>
+
+    <script>
+        function updateCheckboxValue(checkbox) {
+            checkbox.value = checkbox.checked ? '1' : '0';
+            // Trigger Livewire update
+            Livewire.emit('input', checkbox.name, checkbox.value);
+        }
     </script>
 @endpush
