@@ -1,4 +1,9 @@
 <div>
+    <style>
+        .nav-link.active {
+            color: #007AE2 !important;
+        }
+    </style>
     <header>
         <div class="header-bot">
             <div class="container-fluid">
@@ -27,25 +32,32 @@
                                         style="flex-direction: row-reverse;">
                                         <ul class="navbar-nav mb-2 mb-lg-0">
                                             <li class="nav-item">
-                                                <a class="nav-link" href="/" wire:navigate >CHASETAIL</a>
+                                                <a class="{{ request()->is('/') || request()->is('/*') ? 'nav-link active' : '' }}"
+                                                    href="/" wire:navigate>CHASETAIL</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="/about-us" wire:navigate >ABOUT</a>
+                                                <a class="{{ request()->is('about-us') || request()->is('about-us/*') ? 'nav-link active' : '' }}"
+                                                    href="/about-us" wire:navigate>ABOUT</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="/lost-dogs" wire:navigate >LOST PETS</a>
+                                                <a class="{{ request()->is('lost-dogs') || request()->is('lost-dogs/*') ? 'nav-link active' : '' }}"
+                                                    href="/lost-dogs" wire:navigate>LOST PETS</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="/subscription" wire:navigate >PRICING</a>
+                                                <a class="{{ request()->is('subscription') || request()->is('subscription/*') ? 'nav-link active' : '' }}"
+                                                    href="/subscription" wire:navigate>PRICING</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="/contact-us" wire:navigate >CONTACT US</a>
+                                                <a class="{{ request()->is('contact-us') || request()->is('contact-us/*') ? 'nav-link active' : '' }}"
+                                                    href="/contact-us" wire:navigate>CONTACT US</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="/how-it-works" wire:navigate >HOW IT WORKS?</a>
+                                                <a class="{{ request()->is('how-it-works') || request()->is('how-it-works/*') ? 'nav-link active' : '' }}"
+                                                    href="/how-it-works" wire:navigate>HOW IT WORKS?</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="/faq" wire:navigate >FAQ</a>
+                                                <a class="{{ request()->is('faq') || request()->is('faq/*') ? 'nav-link active' : '' }}"
+                                                    href="/faq" wire:navigate>FAQ</a>
                                             </li>
                                         </ul>
                                     </div>
