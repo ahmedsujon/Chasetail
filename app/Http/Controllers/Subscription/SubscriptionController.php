@@ -74,11 +74,11 @@ class SubscriptionController extends Controller
                     $payment->card_holder_name = $request->card_holder_name;
                     $payment->multiple_image = $request->multiple_image;
                     $payment->amount = $request->multiple_image ? session('plan_price') + 29 : session('plan_price');
+                    $payment->plan = session('plan');
                     $payment->currency = 'USD';
                     $payment->payment_status = 'Captured';
                     $payment->user_id = Auth::user()->id;
                     $payment->save();
-
                     $user = User::find(Auth::user()->id);
                     $user->subscription = 1;
                     $user->save();

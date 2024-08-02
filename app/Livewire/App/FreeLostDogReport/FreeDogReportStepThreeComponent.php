@@ -53,9 +53,9 @@ class FreeDogReportStepThreeComponent extends Component
         // Prepare email data
         $mailData['name'] = $this->name;
         $mailData['last_seen'] = $this->last_seen;
-        $mailData['images'] = $this->images;
+        $mailData['images'] = session('images');
         $mailData['gender'] = $this->gender;
-        $mailData['address'] = $this->address;
+        $mailData['address'] = session('address');
         $mailData['microchip_id'] = $this->microchip_id;
         $mailData['medicine_info'] = $this->medicine_info;
         $mailData['description'] = $this->description;

@@ -6,9 +6,10 @@ use Livewire\Component;
 
 class SubscriptionComponent extends Component
 {
-    public function subscriptionEvent($price)
+    public function subscriptionEvent($price, $plan)
     {
         session()->put('plan_price', $price);
+        session()->put('plan', $plan);
         return redirect()->route('app.payment');
     }
 

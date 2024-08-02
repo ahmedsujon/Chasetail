@@ -52,7 +52,7 @@ class LostReportStepThreeComponent extends Component
         $mailData['microchip_id'] = $this->microchip_id;
         $mailData['medicine_info'] = $this->medicine_info;
         $mailData['description'] = $this->description;
-        
+
         // Get all users' emails
         $users = User::all();
         $author_emails = $users->pluck('email');

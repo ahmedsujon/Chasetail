@@ -99,7 +99,7 @@
                             <h4>$99<span class="user">/ 250 User</span></h4>
                             <p>Basic Text Plan</p>
                             <div class="btn-plan">
-                                <a href="#" wire:click.prevent="subscriptionEvent(99)">Basic Text Plan</a>
+                                <a href="#" wire:click.prevent="subscriptionEvent(99, 'TextPlan')">Basic Text Plan</a>
                             </div>
                             <h6>Includes</h6>
                             <ul>
