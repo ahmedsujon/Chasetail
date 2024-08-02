@@ -30,7 +30,7 @@
                <div class="row">
                    <div class="col-md-12">
                        <div class="footer-text">
-                           <p>© <?php echo date('Y'); ?> Chase Tail. All rights reserved. Website
+                           <p>© <?php echo date('Y'); ?> ChaseTail.com pet recovery service. All rights reserved. Website
                                Design Development and SEO by <a href="https://www.intrigueit.com/" target="_blank"
                                    rel="noopener"> Intrigue IT
                                    Solutions</a></p>

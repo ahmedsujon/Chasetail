@@ -3,7 +3,7 @@
         <div class="title" style="margin-bottom: 300px; margin-top: 150px;">
             <h5>
                 <strong style="padding-bottom: 2px;">Will people see my phone number?</strong><br>
-                No. ChaseTail.com will never distribute your phone number publicly. Anyone seeing or finding
+                No. ChaseTail.com pet recovery service will never distribute your phone number publicly. Anyone seeing or finding
                 your pet will either be routed to our operator to contact you or they can contact you directly
                 through our system with your phone number hidden from their view.
             </h5><br>

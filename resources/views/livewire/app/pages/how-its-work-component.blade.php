@@ -9,7 +9,7 @@
     <div style="padding-left: 150px; padding-right: 150px;" class="contaier">
         <div class="title" style="margin-bottom: 300px; margin-top: 150px;">
             <h5>
-                At ChaseTail.com we have the technology to contact the majority of the nearest cell
+                At ChaseTail.com pet recovery service we have the technology to contact the majority of the nearest cell
                 phones registered in your area. Fill out your lost pet’s description, information and
                 upload a picture. You choose the size of the search that fits your needs and Chase Tail
                 will actively contact most cell phones registered in the area immediately surrounding
