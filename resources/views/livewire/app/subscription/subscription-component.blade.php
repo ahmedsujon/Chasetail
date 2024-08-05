@@ -98,7 +98,7 @@
                             <h4>$99<span class="user">/ 250 User</span></h4>
                             <p>Basic Text Plan</p>
                             <div class="btn-plan">
-                                <a href="#" wire:click.prevent="subscriptionEvent(99, 'TextPlan')">Basic Text Plan</a>
+                                <a href="#" wire:click.prevent="subscriptionEvent(99, 'PlanA')">Basic Text Plan</a>
                             </div>
                             <h6>Includes</h6>
                             <ul>
@@ -148,7 +148,7 @@
                             <h4>$139<span class="user">/ 250 User</span></h4>
                             <p>Level One Plan</p>
                             <div class="btn-plan">
-                                <a href="#" wire:click.prevent="subscriptionEvent(139)">Level One Plan</a>
+                                <a href="#" wire:click.prevent="subscriptionEvent(139, 'PlanB')">Level One Plan</a>
                             </div>
                             <h6>Includes</h6>
                             <ul>
@@ -204,7 +204,7 @@
                             <h4>$169<span class="user">/ 500 User</span></h4>
                             <p>Level Two Plan</p>
                             <div class="btn-plan">
-                                <a href="#" wire:click.prevent="subscriptionEvent(169)">Level Two Plan</a>
+                                <a href="#" wire:click.prevent="subscriptionEvent(169, 'PlanC')">Level Two Plan</a>
                             </div>
                             <h6>Includes</h6>
                             <ul>
@@ -252,6 +252,7 @@
                         </div>
                     </div>
                 @endauth
+
                 @auth
                     <div class="col-md-6 col-lg-3 col-12">
                         <div class="package-list">
@@ -259,7 +260,7 @@
                             <h4>$199<span class="user">/ 750 User</span></h4>
                             <p>Level Three Plan</p>
                             <div class="btn-plan">
-                                <a href="#" wire:click.prevent="subscriptionEvent(199)">Level Three Plan</a>
+                                <a href="#" wire:click.prevent="subscriptionEvent(199, 'PlanD')">Level Three Plan</a>
                             </div>
                             <h6>Includes</h6>
                             <ul>
@@ -307,6 +308,7 @@
                         </div>
                     </div>
                 @endauth
+
                 @auth
                     <div class="col-md-6 col-lg-3 col-12">
                         <div class="package-list">
@@ -314,7 +316,7 @@
                             <h4>$239<span class="user">/ 1000 User</span></h4>
                             <p>Level Four Plan</p>
                             <div class="btn-plan">
-                                <a href="#" wire:click.prevent="subscriptionEvent(239)">Level Four Plan</a>
+                                <a href="#" wire:click.prevent="subscriptionEvent(239, 'PlanE')">Level Four Plan</a>
                             </div>
                             <h6>Includes</h6>
                             <ul>

@@ -36,6 +36,17 @@ use App\Livewire\App\FreePlan\FreePlanStepOneComponent;
 use App\Livewire\App\FreePlan\FreePlanStepTwoComponent;
 use App\Livewire\App\LostDog\LostDogDetailsComponent;
 use App\Livewire\App\Pages\FAQComponent;
+use App\Livewire\App\PlanA\PlanAComponent;
+use App\Livewire\App\PlanA\PlanAStepOneComponent;
+use App\Livewire\App\PlanB\PlanBComponent;
+use App\Livewire\App\PlanB\PlanBStepOneComponent;
+use App\Livewire\App\PlanB\PlanBStepTwoComponent;
+use App\Livewire\App\PlanC\PlanCComponent;
+use App\Livewire\App\PlanC\PlanCStepOneComponent;
+use App\Livewire\App\PlanC\PlanCStepTwoComponent;
+use App\Livewire\App\PlanD\PlanDComponent;
+use App\Livewire\App\PlanD\PlanDStepOneComponent;
+use App\Livewire\App\PlanD\PlanDStepTwoComponent;
 use App\Livewire\App\Profile\MessageComponent;
 use App\Livewire\App\Profile\PaymentHistoryComponent;
 use App\Livewire\App\Profile\PersonalInfoComponent;
@@ -84,6 +95,31 @@ Route::get('free-plan-report-step-two', FreePlanStepOneComponent::class)->name('
 Route::get('free-plan-report-step-three', FreePlanStepTwoComponent::class)->name('free.plan.report.step.three');
 
 Route::prefix('/')->middleware('auth:web')->group(function () {
+
+    // Plan A
+    Route::get('text-plan-report', PlanAComponent::class)->name('free.plan.report');
+    Route::get('text-plan-report-step-two', PlanAStepOneComponent::class)->name('free.plan.report.step.two');
+
+    // Plan B
+    Route::get('plan-one-report', PlanBComponent::class)->name('plan.one.report');
+    Route::get('plan-one-report-step-two', PlanBStepOneComponent::class)->name('plan.one.report.step.two');
+    Route::get('plan-one-report-step-three', PlanBStepTwoComponent::class)->name('plan.one.report.step.three');
+
+    // Plan C
+    Route::get('plan-two-report', PlanCComponent::class)->name('plan.two.report');
+    Route::get('plan-two-report-step-two', PlanCStepOneComponent::class)->name('plan.two.report.step.two');
+    Route::get('plan-two-report-step-three', PlanCStepTwoComponent::class)->name('plan.two.report.step.three');
+
+    // Plan D
+    Route::get('plan-three-report', PlanDComponent::class)->name('plan.three.report');
+    Route::get('plan-three-report-step-two', PlanDStepOneComponent::class)->name('plan.three.report.step.two');
+    Route::get('plan-three-report-step-three', PlanDStepTwoComponent::class)->name('plan.three.report.step.three');
+
+    // Plan E
+    Route::get('plan-four-report', FreePlanComponent::class)->name('plan.four.report');
+    Route::get('plan-four-report-step-two', FreePlanStepOneComponent::class)->name('plan.four.report.step.two');
+    Route::get('plan-four-report-step-three', FreePlanStepTwoComponent::class)->name('plan.four.report.step.three');
+
     // Found Dog Report
     Route::get('found/dog/report/first/step', FoundDogReportStepOneComponent::class)->name('user.found.dog.report.first.step');
     Route::get('found/dog/report/seceond/step', FoundDogReportStepTwoComponent::class)->name('user.found.dog.report.seceond.step');

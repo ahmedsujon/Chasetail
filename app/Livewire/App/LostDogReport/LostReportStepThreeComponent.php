@@ -97,7 +97,6 @@ class LostReportStepThreeComponent extends Component
             $resultMessage .= " Errors: " . implode(", ", $errors);
         }
 
-        return $resultMessage;
 
         return $this->redirect('/user/dashboard', navigate: true);
         session()->flash('success', 'Report posted added successfully');

@@ -5,7 +5,8 @@
                 <div class="col-md-12 col-lg-12 col-12">
                     <div class="payment-success-content">
                         <h4>Payment Successful !</h4>
-                        <img class="img-fluid" src="{{ asset('assets/app/images/icon-payment-success.png') }}" alt="Payment Success" />
+                        <img class="img-fluid" src="{{ asset('assets/app/images/icon-payment-success.png') }}"
+                            alt="Payment Success" />
                         <table class="table ">
                             <tbody>
                                 <tr>
@@ -23,7 +24,22 @@
                             </tbody>
                         </table>
                         <div class="btn-group" role="group" aria-label="Basic example">
-                            <a href="/lost-dog-report-first" wire:navigate class="btn btn-primary print">Get Started</a>
+                            @if ($plan = 'PlanA')
+                                <a href="/text-plan-report" wire:navigate class="btn btn-primary">Get
+                                    Started</a>
+                            @elseif($plan = 'PlanB')
+                                <a href="/plan-one-report" wire:navigate class="btn btn-primary">Get
+                                    Started</a>
+                            @elseif($plan = 'PlanC')
+                                <a href="/plan-two-report" wire:navigate class="btn btn-primary">Get
+                                    Started</a>
+                            @elseif($plan = 'PlanD')
+                                <a href="/plan-three-report" wire:navigate class="btn btn-primary">Get
+                                    Started</a>
+                            @elseif($plan = 'PlanE')
+                                <a href="/plan-four-report" wire:navigate class="btn btn-primary">Get
+                                    Started</a>
+                            @endif
                             <button type="button" class="btn btn-primary close">Close</button>
                         </div>
                     </div>
