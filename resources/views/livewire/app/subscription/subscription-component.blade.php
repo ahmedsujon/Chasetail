@@ -31,7 +31,8 @@
         <div class="col-md-8">
             <div class="how-work">
                 <h3 style="padding-bottom: 10px;">How It Works</h3>
-                <p>At Chase Tail we have the technology to contact the majority of the nearest cell phones registered in your
+                <p>At Chase Tail we have the technology to contact the majority of the nearest cell phones registered in
+                    your
                     area. You fill out your lost pet’s description and information and upload a picture. You choose the
                     size of the search that fits your needs and Chase Tail will actively contact the majority of
                     phones in the area immediately surrounding where your pet disappeared. The majority of found pets
@@ -51,7 +52,7 @@
                             <h4>FREE</h4>
                             <p>Free User</p>
                             <div class="btn-plan">
-                                <a href="/free-lost-dog-report-first" wire:navigate>Starter Plan</a>
+                                <a href="/free-plan-report" wire:navigate>Starter Plan</a>
                             </div>
                             <h6>Includes</h6>
                             <ul class="free-package">
@@ -59,7 +60,6 @@
                                 <li>Can add short description</li>
                                 <li>Add food & medicine info</li>
                                 <li>Add short description (150 character)</li>
-                                <li>Add food & medicine info</li>
                             </ul>
                             <h6>Support:</h6>
                             <ul>
@@ -82,7 +82,6 @@
                                 <li>Can add short description</li>
                                 <li>Add food & medicine info.</li>
                                 <li>Add short description (150 character)</li>
-                                <li>Add food & medicine info</li>
                             </ul>
                             <h6>Support:</h6>
                             <ul>

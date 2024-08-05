@@ -31,6 +31,9 @@ use App\Livewire\App\FoundDogReport\FoundDogReportStepThreeComponent;
 use App\Livewire\App\FreeLostDogReport\FreeDogReportStepOneComponent;
 use App\Livewire\App\FreeLostDogReport\FreeDogReportStepTwoComponent;
 use App\Livewire\App\FreeLostDogReport\FreeDogReportStepThreeComponent;
+use App\Livewire\App\FreePlan\FreePlanComponent;
+use App\Livewire\App\FreePlan\FreePlanStepOneComponent;
+use App\Livewire\App\FreePlan\FreePlanStepTwoComponent;
 use App\Livewire\App\LostDog\LostDogDetailsComponent;
 use App\Livewire\App\Pages\FAQComponent;
 use App\Livewire\App\Profile\MessageComponent;
@@ -76,9 +79,9 @@ Route::get('lost-dog-report-seceond', LostReportStepTwoComponent::class)->name('
 Route::get('lost-dog-report-third', LostReportStepThreeComponent::class)->name('user.report.third.step');
 
 // Free Lost Dog report
-Route::get('free-lost-dog-report-first', FreeDogReportStepOneComponent::class)->name('user.free.report.first.step');
-Route::get('free-lost-dog-report-seceond', FreeDogReportStepTwoComponent::class)->name('user.free.report.seceond.step');
-Route::get('free-lost-dog-report-third', FreeDogReportStepThreeComponent::class)->name('user.free.report.third.step');
+Route::get('free-plan-report', FreePlanComponent::class)->name('free.plan.report');
+Route::get('free-plan-report-step-two', FreePlanStepOneComponent::class)->name('free.plan.report.step.two');
+Route::get('free-plan-report-step-three', FreePlanStepTwoComponent::class)->name('free.plan.report.step.three');
 
 Route::prefix('/')->middleware('auth:web')->group(function () {
     // Found Dog Report
