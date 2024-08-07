@@ -58,7 +58,7 @@
             <p>Microchip ID: {{ $microchip_id }}</p>
             <p>Medicine information: {{ $medicine_info }}</p>
             <p>Description: {{ $description }}</p>
-            <img src="{{ $images }}" alt="Lost Dog Image" class="dog-image">
+            <img src="http://chasetail.test/{{ $images }}" alt="Lost Dog Image" class="dog-image">
             <p>We appreciate your help in finding our lost dog. Thank you for keeping an eye out!</p>
         </div>
         <div class="footer">
