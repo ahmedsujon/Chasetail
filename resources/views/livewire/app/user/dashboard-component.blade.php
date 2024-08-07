@@ -10,7 +10,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12 col-lg-12 col-12">
-                    <p>You have a lost pet. <a href="/lost-dogs" wire:navigate>Click to Search</a></p>
+                    <p>You have a lost pet. <a href="/lostdogs" wire:navigate>Click to Search</a></p>
                 </div>
             </div>
         </div>

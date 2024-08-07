@@ -40,8 +40,8 @@
                                                     href="/about-us" wire:navigate>About</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="{{ request()->is('lost-dogs') || request()->is('lost-dogs/*') ? 'nav-link active' : '' }}"
-                                                    href="/lost-dogs" wire:navigate>Lost Pets</a>
+                                                <a class="{{ request()->is('lostdogs') || request()->is('lostdogs/*') ? 'nav-link active' : '' }}"
+                                                    href="/lostdogs" wire:navigate>Lost Pets</a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="{{ request()->is('found-dogs') || request()->is('found-dogs/*') ? 'nav-link active' : '' }}"

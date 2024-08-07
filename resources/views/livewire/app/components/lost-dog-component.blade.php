@@ -21,7 +21,7 @@
     <div class="view-all">
         <div class="row">
             <div class="col-md-12 text-center">
-                <a href="/lost-dogs"  wire:navigate class="btn-view">View All</a>
+                <a href="/lostdogs"  wire:navigate class="btn-view">View All</a>
             </div>
         </div>
     </div>

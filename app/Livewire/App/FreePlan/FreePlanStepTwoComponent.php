@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Mail;
 
 class FreePlanStepTwoComponent extends Component
 {
-    public $user_id, $breed, $medicine_info, $payment_status, $address, $longitude, $photos, $images, $name, $gender, $last_seen, $microchip_id, $description;
+    public $user_id, $id, $breed, $medicine_info, $payment_status, $address, $longitude, $photos, $images, $name, $gender, $last_seen, $microchip_id, $description;
 
     public $characterCount = 0;
     public $maxCharacters = 150;
@@ -59,6 +59,7 @@ class FreePlanStepTwoComponent extends Component
         $mailData['microchip_id'] = $this->microchip_id;
         $mailData['medicine_info'] = $this->medicine_info;
         $mailData['description'] = $this->description;
+        $mailData['id'] = $data->id;
 
         // Get all users' emails
         $users = User::all();

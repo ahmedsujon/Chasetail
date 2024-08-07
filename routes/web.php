@@ -65,8 +65,8 @@ use App\Livewire\App\Profile\PersonalInfoComponent;
 Route::get('/', HomeComponent::class)->name('app.home');
 
 // Lost Dog Routes
-Route::get('/lost-dogs', LostDogComponent::class)->name('app.lost.dogs');
-Route::get('/lost-dogs/details/{id}', LostDogDetailsComponent::class)->name('app.lost.dogs.details');
+Route::get('/lostdogs', LostDogComponent::class)->name('app.lost.dogs');
+Route::get('/lostdogs/details/{id}', LostDogDetailsComponent::class)->name('app.lost.dogs.details');
 
 // Found Dog Routes
 Route::get('/found-dogs', FoundDogComponent::class)->name('app.found.dogs');
