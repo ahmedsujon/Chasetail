@@ -5,6 +5,7 @@ namespace App\Livewire\App\FreePlan;
 use App\Models\User;
 use App\Models\LostDog;
 use Livewire\Component;
+use Twilio\Rest\Client;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
@@ -71,6 +72,75 @@ class FreePlanStepTwoComponent extends Component
                     ->subject('Lost Dog Notification');
             });
         }
+
+        // Send SMS to all users
+        $users = User::all();
+        $message = "LOST DOG! Alert!:\n";
+        $message .= "Name: " . $mailData['name'] . "\n";
+        $message .= "Last Seen: " . $mailData['address'] . "\n";
+        $message .= "Description: " . $mailData['description'] . "\n";
+        $message .= "More details & photo: https://chasetail.com/lostdogs/" . $mailData['id'];
+
+        $sid = env('TWILIO_SID');
+        $token = env('TWILIO_TOKEN');
+        $fromNumber = env('TWILIO_FROM');
+
+        $successCount = 0;
+        $errorCount = 0;
+        $errors = [];
+
+        foreach ($users as $user) {
+            $receiverNumber = $user->phone;
+
+            try {
+                $client = new Client($sid, $token);
+                $client->messages->create($receiverNumber, [
+                    'from' => $fromNumber,
+                    'body' => $message
+                ]);
+                $successCount++;
+            } catch (Exception $e) {
+                $errorCount++;
+                $errors[] = 'Error sending to ' . $receiverNumber . ': ' . $e->getMessage();
+            }
+        }
+
+        $resultMessage = "Data stored and SMS sent successfully to $successCount users.";
+        if ($errorCount > 0) {
+            $resultMessage .= " However, there were errors sending to $errorCount users.";
+            $resultMessage .= " Errors: " . implode(", ", $errors);
+        }
+
+        // MMS Send
+        // foreach ($users as $user) {
+        //     $receiverNumber = $user->phone;
+        //     $message = "MMS:\n";
+        //     $message .= "Name: " . $mailData['name'] . "\n";
+        //     $message .= "Description: " . $mailData['description'];
+
+        //     // Extract image URLs from session
+        //     $imageUrls = $mailData['images'] ?? [];
+
+        //     try {
+        //         $client = new Client($sid, $token);
+        //         $client->messages->create($receiverNumber, [
+        //             'from' => $fromNumber,
+        //             'body' => $message,
+        //             'mediaUrl' => $imageUrls // Pass the image URLs here
+        //         ]);
+        //         $successCount++;
+        //     } catch (Exception $e) {
+        //         $errorCount++;
+        //         $errors[] = 'Error sending to ' . $receiverNumber . ': ' . $e->getMessage();
+        //     }
+        // }
+
+        // $resultMessage = "Data stored and MMS sent successfully to $successCount users.";
+        // if ($errorCount > 0) {
+        //     $resultMessage .= " However, there were errors sending to $errorCount users.";
+        //     $resultMessage .= " Errors: " . implode(", ", $errors);
+        // }
+
 
         return $this->redirect('/user/dashboard', navigate: true);
         session()->flash('success', 'Report posted added successfully');
