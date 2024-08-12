@@ -2,12 +2,14 @@
 
 namespace App\Livewire\App\FreePlan;
 
-use App\Models\User;
 use App\Models\LostDog;
+use App\Models\User;
+use Exception;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 use Twilio\Rest\Client;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
 
 class FreePlanStepTwoComponent extends Component
 {
@@ -62,9 +64,34 @@ class FreePlanStepTwoComponent extends Component
         $mailData['description'] = $this->description;
         $mailData['id'] = $data->id;
 
+        $users = DB::table('users')->select('id', 'latitude', 'longitude')->where('id', '!=', Auth::user()->id)->get();
+        // Initialize an array to hold users with their distances
+        $usersWithDistances = [];
+        foreach ($users as $user) {
+            if (isset($data->latitude) && isset($data->longitude)) {
+                $distance = getDistance($data->latitude, $data->longitude, $user->latitude, $user->longitude);
+                // Store the user ID and its distance
+                if ($distance <= 10) {
+                    $usersWithDistances[] = [
+                        'user_id' => $user->id,
+                        'distance' => $distance,
+                    ];
+                }
+            }
+        }
+        // Sort the users by distance
+        usort($usersWithDistances, function ($a, $b) {
+            return $a['distance'] <=> $b['distance'];
+        });
+
+        // Get the nearest users
+        $nearest = 50;
+        $nearestUsers = array_slice($usersWithDistances, 0, $nearest);
+        // Extract the user IDs of the nearest 50 users
+        $userIds = array_column($nearestUsers, 'user_id');
+
         // Get all users' emails
-        $users = User::all();
-        $author_emails = $users->pluck('email');
+        $author_emails = User::whereIn('id', $userIds)->pluck('email')->toArray();
 
         foreach ($author_emails as $email) {
             Mail::send('emails.lostdog-report', $mailData, function ($message) use ($mailData, $email) {
@@ -72,8 +99,6 @@ class FreePlanStepTwoComponent extends Component
                     ->subject('Lost Dog Notification');
             });
         }
-
-
 
         // Send SMS to all users
         // $users = User::all();
@@ -113,9 +138,6 @@ class FreePlanStepTwoComponent extends Component
         //     $resultMessage .= " Errors: " . implode(", ", $errors);
         // }
 
-
-
-
         // MMS Send
         // Send MMS to all users
         $users = User::all(); // Get all users
@@ -143,7 +165,7 @@ class FreePlanStepTwoComponent extends Component
                 $client->messages->create($receiverNumber, [
                     'from' => $fromNumber,
                     'body' => $message,
-                    'mediaUrl' => $imageUrls // Pass the image URLs here
+                    'mediaUrl' => $imageUrls, // Pass the image URLs here
                 ]);
                 $successCount++;
             } catch (Exception $e) {
@@ -157,8 +179,6 @@ class FreePlanStepTwoComponent extends Component
             $resultMessage .= " However, there were errors sending to $errorCount users.";
             $resultMessage .= " Errors: " . implode(", ", $errors);
         }
-
-
 
         return $this->redirect('/user/dashboard', navigate: true);
         session()->flash('success', 'Report posted added successfully');
