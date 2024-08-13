@@ -5,6 +5,7 @@ namespace App\Livewire\App\PlanB;
 use App\Models\User;
 use App\Models\LostDog;
 use Livewire\Component;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
@@ -60,9 +61,34 @@ class PlanBStepTwoComponent extends Component
         $mailData['medicine_info'] = $this->medicine_info;
         $mailData['description'] = $this->description;
 
+        $users = DB::table('users')->select('id', 'latitude', 'longitude')->where('id', '!=', Auth::user()->id)->get();
+        // Initialize an array to hold users with their distances
+        $usersWithDistances = [];
+        foreach ($users as $user) {
+            if (isset($data->latitude) && isset($data->longitude)) {
+                $distance = getDistance($data->latitude, $data->longitude, $user->latitude, $user->longitude);
+                // Store the user ID and its distance
+                if ($distance <= 10) {
+                    $usersWithDistances[] = [
+                        'user_id' => $user->id,
+                        'distance' => $distance,
+                    ];
+                }
+            }
+        }
+        // Sort the users by distance
+        usort($usersWithDistances, function ($a, $b) {
+            return $a['distance'] <=> $b['distance'];
+        });
+
+        // Get the nearest users
+        $nearest = 50;
+        $nearestUsers = array_slice($usersWithDistances, 0, $nearest);
+        // Extract the user IDs of the nearest 50 users
+        $userIds = array_column($nearestUsers, 'user_id');
+
         // Get all users' emails
-        $users = User::all();
-        $author_emails = $users->pluck('email');
+        $author_emails = User::whereIn('id', $userIds)->pluck('email')->toArray();
 
         foreach ($author_emails as $email) {
             Mail::send('emails.lostdog-report', $mailData, function ($message) use ($mailData, $email) {
