@@ -101,7 +101,8 @@ class FreePlanStepTwoComponent extends Component
         }
 
         // Send SMS to all users
-        // $users = User::all();
+        // $author_phones = User::whereIn('id', $userIds)->pluck('phone')->toArray();
+
         // $message = "LOST DOG! Alert!:\n";
         // $message .= "Name: " . $mailData['name'] . "\n";
         // $message .= "Last Seen: " . $mailData['address'] . "\n";
@@ -116,8 +117,8 @@ class FreePlanStepTwoComponent extends Component
         // $errorCount = 0;
         // $errors = [];
 
-        // foreach ($users as $user) {
-        //     $receiverNumber = $user->phone;
+        // foreach ($author_phones as $user_phone) {
+        //     $receiverNumber = $user_phone;
 
         //     try {
         //         $client = new Client($sid, $token);
@@ -140,8 +141,7 @@ class FreePlanStepTwoComponent extends Component
 
         // MMS Send
         // Send MMS to all users
-        $users = User::all(); // Get all users
-
+        $author_phones = User::whereIn('id', $userIds)->pluck('phone')->toArray();
         $sid = env('TWILIO_SID');
         $token = env('TWILIO_TOKEN');
         $fromNumber = env('TWILIO_FROM');
@@ -150,15 +150,15 @@ class FreePlanStepTwoComponent extends Component
         $errorCount = 0;
         $errors = [];
 
-        foreach ($users as $user) {
-            $receiverNumber = $user->phone;
+        foreach ($author_phones as $user_phone) {
+            $receiverNumber = $user_phone;
             $message = "Hi! This is from Chasetail. Lost dog report:\n";
             $message .= "Name: " . $mailData['name'] . "\n";
             $message .= "Last Seen: " . $mailData['last_seen'] . "\n";
             $message .= "Description: " . $mailData['description'];
 
             // Extract image URLs from session
-            $imageUrls = $mailData['images'] ?? [];
+            $imageUrls = url('/') . '/' . $data->images ?? [];
 
             try {
                 $client = new Client($sid, $token);
