@@ -48,9 +48,9 @@ class RegisterComponent extends Component
         $phone = '+1' . preg_replace('/[^\d]/', '', $this->phone);
 
         // Send OTP using Twilio
-        $twilio = new Client(env('TWILIO_SID'), env('TWILIO_AUTH_TOKEN'));
+        $twilio = new Client(env('TWILIO_SID'), env('TWILIO_TOKEN'));
         $twilio->messages->create($phone, [
-            'from' => env('TWILIO_PHONE_NUMBER'),
+            'from' => env('TWILIO_FROM'),
             'body' => "Your OTP code is: $otp"
         ]);
 

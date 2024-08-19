@@ -2,28 +2,25 @@
 
 namespace App\Livewire\App\User\Auth;
 
-use Illuminate\Http\Request;
 use Livewire\Component;
+use Illuminate\Support\Facades\Session;
 
 class OtpVerifyComponent extends Component
 {
 
-    public function verifyOtp(Request $request)
+    public $otp;
+
+    public function verifyOtp()
     {
-        // Retrieve the OTP from the session
-        $storedOtp = session('otp');
+        $storedOtp = Session::get('otp');
 
-        // Check if the entered OTP matches the stored OTP
-        if ($request->input('otp') == $storedOtp) {
-            // OTP is correct, proceed with registration or other logic
-            // Clear the OTP from session
-            session()->forget('otp');
-
-            // Redirect to the user dashboard
+        if ($this->otp == $storedOtp) {
+            // OTP is correct, proceed with registration logic
+            Session::forget('otp');
             return redirect()->route('user.dashboard');
         } else {
-            // OTP is incorrect, redirect back with an error message
-            return redirect()->back()->with('error', 'The OTP you entered is incorrect.');
+            // OTP is incorrect, return error message
+            $this->addError('otp', 'The OTP you entered is incorrect.');
         }
     }
 

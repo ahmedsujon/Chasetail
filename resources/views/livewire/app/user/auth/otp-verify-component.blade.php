@@ -6,7 +6,7 @@
                     <div class="col-md-12 col-lg-12 col-12">
                         <div class="signInSignUpModal">
                             <div class="signup-form">
-                                <form wire:submit.prevent='otpVerify'>
+                                <form wire:submit.prevent='verifyOtp'>
 
                                     <div class="mb-3">
                                         @if (session()->has('error'))

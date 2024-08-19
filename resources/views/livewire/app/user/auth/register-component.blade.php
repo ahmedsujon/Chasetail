@@ -41,15 +41,12 @@
 
                                     <div class="mb-3">
                                         <label for="phone" class="form-label">Phone Number</label>
-                                        <input type="text" wire:model.blur='phone' class="form-control"
-                                            id="phone" pattern="\(\d{3}\) \d{3}-\d{4}"
-                                            title="Phone number format should be (123) 456-7890"
-                                            placeholder="(123) 456-7890">
+                                        <input type="text" wire:model.blur='phone' class="form-control phone"
+                                            id="phone" placeholder="(123) 456-7890">
                                         @error('phone')
                                             <p class="text-danger font-size-12 mb-0">{{ $message }}</p>
                                         @enderror
                                     </div>
-
 
                                     <div class="mb-3">
                                         <label for="password" class="form-label">password</label>
@@ -70,7 +67,6 @@
                                             <p class="text-danger font-size-12 mb-0">{{ $message }}</p>
                                         @enderror
                                     </div>
-
 
                                     @if ($latitude == null || $longitude == null)
                                         <p style="color: red">Please allow location access in your browser settings!</p>
@@ -99,6 +95,21 @@
     </section>
 </div>
 @push('scripts')
+    <!-- Include jQuery and jQuery Input Mask -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7-beta.17/jquery.inputmask.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#phone').inputmask("(999) 999-9999"); // US phone number format
+        });
+
+        $(".phone").on('change', function() {
+            @this.set('user_id', $(this).val());
+        });
+    </script>
+
+
     <script>
         $(document).ready(function() {
             navigator.geolocation.getCurrentPosition((position) => {
