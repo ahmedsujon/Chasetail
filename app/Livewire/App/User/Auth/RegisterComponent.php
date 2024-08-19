@@ -17,11 +17,10 @@ class RegisterComponent extends Component
     {
         $this->validateOnly($fields, [
             'name' => 'required',
-            'phone' => 'required',
             'latitude' => 'required',
             'longitude' => 'required',
             'email' => 'required|email|unique:users,email',
-            'phone' => 'required|unique:users,phone',
+            'phone' => 'required',
             'password' => 'required|min:8|max:30',
             'confirm_password' => 'required|min:8|max:30|same:password',
             'notify_status' => 'required',
@@ -43,10 +42,13 @@ class RegisterComponent extends Component
         $user->latitude = $this->latitude;
         $user->longitude = $this->longitude;
         $user->email = $this->email;
-        $user->phone = $this->phone;
+        $user->phone = preg_replace('/[^\d]/', '', $this->phone);
         $user->notify_status = $this->notify_status;
         $user->password = Hash::make($this->password);
         $user->avatar = 'assets/images/avatar.png';
+
+        dd($user);
+
         $user->save();
 
         Auth::guard('web')->attempt(['email' => $this->email, 'password' => $this->password]);
