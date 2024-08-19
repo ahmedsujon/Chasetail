@@ -101,47 +101,14 @@ class FreePlanStepTwoComponent extends Component
         }
 
         // Send SMS to all users
-        // $author_phones = User::whereIn('id', $userIds)->pluck('phone')->toArray();
-
-        // $message = "LOST DOG! Alert!:\n";
-        // $message .= "Name: " . $mailData['name'] . "\n";
-        // $message .= "Last Seen: " . $mailData['address'] . "\n";
-        // $message .= "Description: " . $mailData['description'] . "\n";
-        // $message .= "More details & photo: https://chasetail.com/lostdogs/" . $mailData['id'];
-
-        // $sid = env('TWILIO_SID');
-        // $token = env('TWILIO_TOKEN');
-        // $fromNumber = env('TWILIO_FROM');
-
-        // $successCount = 0;
-        // $errorCount = 0;
-        // $errors = [];
-
-        // foreach ($author_phones as $user_phone) {
-        //     $receiverNumber = $user_phone;
-
-        //     try {
-        //         $client = new Client($sid, $token);
-        //         $client->messages->create($receiverNumber, [
-        //             'from' => $fromNumber,
-        //             'body' => $message
-        //         ]);
-        //         $successCount++;
-        //     } catch (Exception $e) {
-        //         $errorCount++;
-        //         $errors[] = 'Error sending to ' . $receiverNumber . ': ' . $e->getMessage();
-        //     }
-        // }
-
-        // $resultMessage = "Data stored and SMS sent successfully to $successCount users.";
-        // if ($errorCount > 0) {
-        //     $resultMessage .= " However, there were errors sending to $errorCount users.";
-        //     $resultMessage .= " Errors: " . implode(", ", $errors);
-        // }
-
-        // MMS Send
-        // Send MMS to all users
         $author_phones = User::whereIn('id', $userIds)->pluck('phone')->toArray();
+
+        $message = "LOST DOG! Alert!:\n";
+        $message .= "Name: " . $mailData['name'] . "\n";
+        $message .= "Last Seen: " . $mailData['address'] . "\n";
+        $message .= "Description: " . $mailData['description'] . "\n";
+        $message .= "More details & photo: https://chasetail.com/lostdogs/" . $mailData['id'];
+
         $sid = env('TWILIO_SID');
         $token = env('TWILIO_TOKEN');
         $fromNumber = env('TWILIO_FROM');
@@ -152,20 +119,12 @@ class FreePlanStepTwoComponent extends Component
 
         foreach ($author_phones as $user_phone) {
             $receiverNumber = $user_phone;
-            $message = "Hi! This is from Chasetail. Lost dog report:\n";
-            $message .= "Name: " . $mailData['name'] . "\n";
-            $message .= "Last Seen: " . $mailData['last_seen'] . "\n";
-            $message .= "Description: " . $mailData['description'];
-
-            // Extract image URLs from session
-            $imageUrls = url('/') . '/' . $data->images ?? [];
 
             try {
                 $client = new Client($sid, $token);
                 $client->messages->create($receiverNumber, [
                     'from' => $fromNumber,
-                    'body' => $message,
-                    'mediaUrl' => $imageUrls, // Pass the image URLs here
+                    'body' => $message
                 ]);
                 $successCount++;
             } catch (Exception $e) {
@@ -174,11 +133,52 @@ class FreePlanStepTwoComponent extends Component
             }
         }
 
-        $resultMessage = "Data stored and MMS sent successfully to $successCount users.";
+        $resultMessage = "Data stored and SMS sent successfully to $successCount users.";
         if ($errorCount > 0) {
             $resultMessage .= " However, there were errors sending to $errorCount users.";
             $resultMessage .= " Errors: " . implode(", ", $errors);
         }
+
+        // MMS Send
+        // Send MMS to all users
+        // $author_phones = User::whereIn('id', $userIds)->pluck('phone')->toArray();
+        // $sid = env('TWILIO_SID');
+        // $token = env('TWILIO_TOKEN');
+        // $fromNumber = env('TWILIO_FROM');
+
+        // $successCount = 0;
+        // $errorCount = 0;
+        // $errors = [];
+
+        // foreach ($author_phones as $user_phone) {
+        //     $receiverNumber = $user_phone;
+        //     $message = "Hi! This is from Chasetail. Lost dog report:\n";
+        //     $message .= "Name: " . $mailData['name'] . "\n";
+        //     $message .= "Last Seen: " . $mailData['last_seen'] . "\n";
+        //     $message .= "Description: " . $mailData['description'];
+
+        //     // Extract image URLs from session
+        //     $imageUrls = url('/') . '/' . $data->images ?? [];
+
+        //     try {
+        //         $client = new Client($sid, $token);
+        //         $client->messages->create($receiverNumber, [
+        //             'from' => $fromNumber,
+        //             'body' => $message,
+        //             'mediaUrl' => $imageUrls, // Pass the image URLs here
+        //         ]);
+        //         $successCount++;
+        //     } catch (Exception $e) {
+        //         $errorCount++;
+        //         $errors[] = 'Error sending to ' . $receiverNumber . ': ' . $e->getMessage();
+        //     }
+        // }
+
+        // $resultMessage = "Data stored and MMS sent successfully to $successCount users.";
+        // if ($errorCount > 0) {
+        //     $resultMessage .= " However, there were errors sending to $errorCount users.";
+        //     $resultMessage .= " Errors: " . implode(", ", $errors);
+        // }
 
         return $this->redirect('/user/dashboard', navigate: true);
         session()->flash('success', 'Report posted added successfully');
