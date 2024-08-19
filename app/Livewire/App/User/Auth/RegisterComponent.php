@@ -8,6 +8,8 @@ use Illuminate\Support\Str;
 use Livewire\Attributes\Title;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Twilio\Rest\Client;
+use Illuminate\Support\Facades\Session;
 
 class RegisterComponent extends Component
 {
@@ -37,23 +39,35 @@ class RegisterComponent extends Component
             'notify_status' => 'required',
         ]);
 
+        // Generate a 6-digit OTP code
+        $otp = rand(100000, 999999);
+        // Store the OTP in the session for later verification
+        Session::put('otp', $otp);
+
+        // Clean the phone number and add +1
+        $phone = '+1' . preg_replace('/[^\d]/', '', $this->phone);
+
+        // Send OTP using Twilio
+        $twilio = new Client(env('TWILIO_SID'), env('TWILIO_AUTH_TOKEN'));
+        $twilio->messages->create($phone, [
+            'from' => env('TWILIO_PHONE_NUMBER'),
+            'body' => "Your OTP code is: $otp"
+        ]);
+
         $user = new User();
         $user->name = $this->name;
         $user->latitude = $this->latitude;
         $user->longitude = $this->longitude;
         $user->email = $this->email;
-        $user->phone = preg_replace('/[^\d]/', '', $this->phone);
+        $user->phone = $phone;
         $user->notify_status = $this->notify_status;
         $user->password = Hash::make($this->password);
         $user->avatar = 'assets/images/avatar.png';
-
-        dd($user);
-
         $user->save();
 
         Auth::guard('web')->attempt(['email' => $this->email, 'password' => $this->password]);
         session()->flash('success', 'Registration successful');
-        return redirect()->route('user.dashboard');
+        return redirect()->route('app.phone.verfy');
     }
 
     #[Title('Sign Up')]

@@ -50,6 +50,7 @@ use App\Livewire\App\PlanD\PlanDStepTwoComponent;
 use App\Livewire\App\Profile\MessageComponent;
 use App\Livewire\App\Profile\PaymentHistoryComponent;
 use App\Livewire\App\Profile\PersonalInfoComponent;
+use App\Livewire\App\User\Auth\OtpVerifyComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,6 +62,8 @@ use App\Livewire\App\Profile\PersonalInfoComponent;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('/verify-phone-number', OtpVerifyComponent::class)->name('app.phone.verfy');
 
 Route::get('/', HomeComponent::class)->name('app.home');
 
