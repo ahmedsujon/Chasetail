@@ -141,44 +141,44 @@ class FreePlanStepTwoComponent extends Component
 
         // MMS Send
         // Send MMS to all users
-        // $author_phones = User::whereIn('id', $userIds)->pluck('phone')->toArray();
-        // $sid = env('TWILIO_SID');
-        // $token = env('TWILIO_TOKEN');
-        // $fromNumber = env('TWILIO_FROM');
+        $author_mms_phones = User::whereIn('id', $userIds)->pluck('phone')->toArray();
+        $sid = env('TWILIO_SID');
+        $token = env('TWILIO_TOKEN');
+        $fromNumber = env('TWILIO_FROM');
 
-        // $successCount = 0;
-        // $errorCount = 0;
-        // $errors = [];
+        $successCount = 0;
+        $errorCount = 0;
+        $errors = [];
 
-        // foreach ($author_phones as $user_phone) {
-        //     $receiverNumber = $user_phone;
-        //     $message = "Hi! This is from Chasetail. Lost dog report:\n";
-        //     $message .= "Name: " . $mailData['name'] . "\n";
-        //     $message .= "Last Seen: " . $mailData['last_seen'] . "\n";
-        //     $message .= "Description: " . $mailData['description'];
+        foreach ($author_mms_phones as $user_phone) {
+            $receiverNumber = $user_phone;
+            $message = "Hi! This is from Chasetail. Lost dog report:\n";
+            $message .= "Name: " . $mailData['name'] . "\n";
+            $message .= "Last Seen: " . $mailData['last_seen'] . "\n";
+            $message .= "Description: " . $mailData['description'];
 
-        //     // Extract image URLs from session
-        //     $imageUrls = url('/') . '/' . $data->images ?? [];
+            // Extract image URLs from session
+            $imageUrls = url('/') . '/' . $data->images ?? [];
 
-        //     try {
-        //         $client = new Client($sid, $token);
-        //         $client->messages->create($receiverNumber, [
-        //             'from' => $fromNumber,
-        //             'body' => $message,
-        //             'mediaUrl' => $imageUrls, // Pass the image URLs here
-        //         ]);
-        //         $successCount++;
-        //     } catch (Exception $e) {
-        //         $errorCount++;
-        //         $errors[] = 'Error sending to ' . $receiverNumber . ': ' . $e->getMessage();
-        //     }
-        // }
+            try {
+                $client = new Client($sid, $token);
+                $client->messages->create($receiverNumber, [
+                    'from' => $fromNumber,
+                    'body' => $message,
+                    'mediaUrl' => $imageUrls, // Pass the image URLs here
+                ]);
+                $successCount++;
+            } catch (Exception $e) {
+                $errorCount++;
+                $errors[] = 'Error sending to ' . $receiverNumber . ': ' . $e->getMessage();
+            }
+        }
 
-        // $resultMessage = "Data stored and MMS sent successfully to $successCount users.";
-        // if ($errorCount > 0) {
-        //     $resultMessage .= " However, there were errors sending to $errorCount users.";
-        //     $resultMessage .= " Errors: " . implode(", ", $errors);
-        // }
+        $resultMessage = "Data stored and MMS sent successfully to $successCount users.";
+        if ($errorCount > 0) {
+            $resultMessage .= " However, there were errors sending to $errorCount users.";
+            $resultMessage .= " Errors: " . implode(", ", $errors);
+        }
 
         return $this->redirect('/user/dashboard', navigate: true);
         session()->flash('success', 'Report posted added successfully');

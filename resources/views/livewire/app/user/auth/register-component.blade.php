@@ -40,8 +40,7 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="phone" class="form-label">Phone Number</label>
-                                        <input type="text" wire:model.blur='phone' class="form-control"
-                                            id="phone">
+                                        <input type="text" wire:model.blur='phone' class="form-control" id="phone" placeholder="(123) 456-7890">
                                         @error('phone')
                                             <p class="text-danger font-size-12 mb-0">{{ $message }}</p>
                                         @enderror
@@ -93,6 +92,14 @@
     </section>
 </div>
 @push('scripts')
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7-beta.17/jquery.inputmask.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $('#phone').inputmask("(999) 999-9999");  // US phone number format
+    });
+</script>
     <script>
         $(document).ready(function() {
             navigator.geolocation.getCurrentPosition((position) => {
