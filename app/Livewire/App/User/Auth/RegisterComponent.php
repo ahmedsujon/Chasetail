@@ -63,7 +63,6 @@ class RegisterComponent extends Component
         $user->notify_status = $this->notify_status;
         $user->password = Hash::make($this->password);
         $user->avatar = 'assets/images/avatar.png';
-        dd($user);
         $user->save();
 
         Auth::guard('web')->attempt(['email' => $this->email, 'password' => $this->password]);
