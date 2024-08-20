@@ -9,12 +9,9 @@
                                 <form wire:submit.prevent='verifyOtp'>
 
                                     <div class="mb-3">
-                                        @if (session()->has('error'))
-                                            <div class="alert alert-danger text-center">{{ session('error') }}</div>
-                                        @endif
-                                        @if (session()->has('success'))
-                                            <div class="alert alert-success text-center">{{ session('success') }}</div>
-                                        @endif
+                                        <div class="text-center">A one-time password (OTP) has been sent to your phone
+                                            number. Please enter the OTP below to complete the verification process.
+                                        </div>
 
                                         <label for="otp" class="form-label">Enter OTP</label>
                                         <input type="number" wire:model.blur='otp' class="form-control" id="otp">
@@ -23,7 +20,8 @@
                                         @enderror
                                     </div>
 
-                                    <button type="submit" class="btn btn-primary mt-5 mb-3">{!! loadingStateWithText('userLogin', 'Create your account') !!}</button>
+                                    <button type="submit"
+                                        class="btn btn-primary mt-5 mb-3">{!! loadingStateWithText('userLogin', 'Create your account') !!}</button>
 
                                 </form>
                             </div>
