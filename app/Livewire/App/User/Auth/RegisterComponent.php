@@ -22,7 +22,7 @@ class RegisterComponent extends Component
             'latitude' => 'required',
             'longitude' => 'required',
             'email' => 'required|email|unique:users,email',
-            'phone' => 'required',
+            'phone' => 'required|unique:users,phone',
             'password' => 'required|min:8|max:30',
             'confirm_password' => 'required|min:8|max:30|same:password',
             'notify_status' => 'required',
@@ -63,6 +63,7 @@ class RegisterComponent extends Component
         $user->notify_status = $this->notify_status;
         $user->password = Hash::make($this->password);
         $user->avatar = 'assets/images/avatar.png';
+        dd($user);
         $user->save();
 
         Auth::guard('web')->attempt(['email' => $this->email, 'password' => $this->password]);
