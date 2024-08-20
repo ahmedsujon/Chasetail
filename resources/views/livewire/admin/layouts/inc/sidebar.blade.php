@@ -71,6 +71,17 @@
                         </li>
                     @endif
 
+
+                    @if (isAdminPermitted('settings_manage'))
+                        <li class="menu-title" key="t-setting">Messaging Logs</li>
+                        <li>
+                            <a href="{{ route('admin.messaging.logs') }}" class="waves-effect">
+                                <i class="bx bx-book-open"></i>
+                                <span key="t-chat">Messaging</span>
+                            </a>
+                        </li>
+                    @endif
+
                     @if (isAdminPermitted('settings_manage'))
                         <li class="menu-title" key="t-setting">Setting</li>
                         <li>

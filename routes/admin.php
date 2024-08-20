@@ -15,6 +15,7 @@ use App\Livewire\Admin\Charts\SubscriptionChartComponent;
 use App\Livewire\Admin\Donation\DonationComponent;
 use App\Livewire\Admin\FoundDog\FoundDogComponent;
 use App\Livewire\Admin\LostDog\LostDogComponent;
+use App\Livewire\Admin\MessagingLogs\LogsComponent;
 use App\Livewire\Admin\Subscription\SubscriptionComponent;
 
 /*
@@ -50,6 +51,8 @@ Route::prefix('admin/')->name('admin.')->middleware('auth:admin')->group(functio
     Route::get('donation-chart-report', DonationChartComponent::class)->name('donation.chart.report');
     Route::get('subscription-chart-report', SubscriptionChartComponent::class)->name('subscription.chart.report');
 
+    // twilio logs
+    Route::get('messaging/logs', LogsComponent::class)->name('messaging.logs');
 
     //user management
     Route::get('all-users', UsersComponent::class)->name('allUsers')->middleware('adminPermission:users_manage');
