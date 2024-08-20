@@ -4,7 +4,6 @@ namespace App\Livewire\Admin\MessagingLogs;
 
 use Livewire\Component;
 use Twilio\Rest\Client;
-use Livewire\WithPagination;
 
 class LogsComponent extends Component
 {
