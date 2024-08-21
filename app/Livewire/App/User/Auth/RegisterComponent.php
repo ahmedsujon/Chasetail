@@ -54,16 +54,16 @@ class RegisterComponent extends Component
             'body' => "Your OTP code is: $otp"
         ]);
 
-        $user = new User();
-        $user->name = $this->name;
-        $user->latitude = $this->latitude;
-        $user->longitude = $this->longitude;
-        $user->email = $this->email;
-        $user->phone = $phone;
-        $user->notify_status = $this->notify_status;
-        $user->password = Hash::make($this->password);
-        $user->avatar = 'assets/images/avatar.png';
-        $user->save();
+        // Store user data in the session instead of the database
+        Session::put('user_registration_data', [
+            'name' => $this->name,
+            'latitude' => $this->latitude,
+            'longitude' => $this->longitude,
+            'email' => $this->email,
+            'phone' => $phone,
+            'password' => Hash::make($this->password),
+            'avatar' => 'assets/images/avatar.png',
+        ]);
 
         Auth::guard('web')->attempt(['email' => $this->email, 'password' => $this->password]);
         session()->flash('success', 'Registration successful');

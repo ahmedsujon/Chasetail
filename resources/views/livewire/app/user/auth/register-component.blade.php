@@ -68,7 +68,7 @@
                                         @enderror
                                     </div>
                                     <button type="submit" class="btn btn-primary">{!! loadingStateWithText('userRegistration', 'Create Your Account') !!}</button>
-                                    {{-- @if ($latitude == null || $longitude == null)
+                                    @if ($latitude == null || $longitude == null)
                                         <p style="color: red">Please allow location access in your browser settings!</p>
                                     @endif
 
@@ -77,7 +77,7 @@
                                             class="btn btn-primary">{!! loadingStateWithText('userRegistration', 'Create Your Account') !!}</button>
                                     @else
                                         <button type="submit" class="btn btn-primary">{!! loadingStateWithText('userRegistration', 'Create Your Account') !!}</button>
-                                    @endif --}}
+                                    @endif
 
                                     <p class="click">By clicking "<span>Create Your Account</span>", you agree to our
                                         <a href="/terms-conditions" wire:navigate>Terms & Conditions</a> and <a
