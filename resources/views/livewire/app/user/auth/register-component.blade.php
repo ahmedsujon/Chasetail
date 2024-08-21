@@ -67,7 +67,6 @@
                                             <p class="text-danger font-size-12 mb-0">{{ $message }}</p>
                                         @enderror
                                     </div>
-                                    <button type="submit" class="btn btn-primary">{!! loadingStateWithText('userRegistration', 'Create Your Account') !!}</button>
                                     @if ($latitude == null || $longitude == null)
                                         <p style="color: red">Please allow location access in your browser settings!</p>
                                     @endif
