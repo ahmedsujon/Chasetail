@@ -36,8 +36,12 @@
                                                     href="/" wire:navigate>Chasetail</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="{{ request()->is('about-us') || request()->is('about-us/*') ? 'nav-link active' : '' }}"
-                                                    href="/about-us" wire:navigate>About</a>
+                                                <a class="{{ request()->is('subscription') || request()->is('subscription/*') ? 'nav-link active' : '' }}"
+                                                    href="/subscription" wire:navigate>Pricing</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="{{ request()->is('how-it-works') || request()->is('how-it-works/*') ? 'nav-link active' : '' }}"
+                                                    href="/how-it-works" wire:navigate>How It Works?</a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="{{ request()->is('lostdogs') || request()->is('lostdogs/*') ? 'nav-link active' : '' }}"
@@ -48,21 +52,17 @@
                                                     href="/found-dogs" wire:navigate>Found Pets</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="{{ request()->is('subscription') || request()->is('subscription/*') ? 'nav-link active' : '' }}"
-                                                    href="/subscription" wire:navigate>Pricing</a>
+                                                <a class="{{ request()->is('faq') || request()->is('faq/*') ? 'nav-link active' : '' }}"
+                                                    href="/faq" wire:navigate>FAQ</a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="{{ request()->is('contact-us') || request()->is('contact-us/*') ? 'nav-link active' : '' }}"
                                                     href="/contact-us" wire:navigate>Contact Us</a>
                                             </li>
-                                            <li class="nav-item">
-                                                <a class="{{ request()->is('how-it-works') || request()->is('how-it-works/*') ? 'nav-link active' : '' }}"
-                                                    href="/how-it-works" wire:navigate>How It Works?</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="{{ request()->is('faq') || request()->is('faq/*') ? 'nav-link active' : '' }}"
-                                                    href="/faq" wire:navigate>FAQ</a>
-                                            </li>
+                                            {{-- <li class="nav-item">
+                                                <a class="{{ request()->is('about-us') || request()->is('about-us/*') ? 'nav-link active' : '' }}"
+                                                    href="/about-us" wire:navigate>About</a>
+                                            </li> --}}
                                         </ul>
                                     </div>
                                 </div>
