@@ -61,6 +61,7 @@ class PlanAStepOneComponent extends Component
         $mailData['microchip_id'] = $this->microchip_id;
         $mailData['medicine_info'] = $this->medicine_info;
         $mailData['description'] = $this->description;
+        $mailData['id'] = $data->id;
 
         $users = DB::table('users')->select('id', 'latitude', 'longitude')->where('id', '!=', Auth::user()->id)->get();
         // Initialize an array to hold users with their distances
@@ -83,7 +84,7 @@ class PlanAStepOneComponent extends Component
         });
 
         // Get the nearest users
-        $nearest = 50;
+        $nearest = 250;
         $nearestUsers = array_slice($usersWithDistances, 0, $nearest);
         // Extract the user IDs of the nearest 50 users
         $userIds = array_column($nearestUsers, 'user_id');
@@ -99,13 +100,12 @@ class PlanAStepOneComponent extends Component
         }
 
         // Send SMS to all users
-        $users = User::all(); // Get all users
-        $message = 'Hi! this is from chasetail testing. Let me know if you get this message.';
+        $author_phones = User::whereIn('id', $userIds)->pluck('phone')->toArray();
 
-        //  LOST DOG! Alert!
-        // [dog name]
-        // Last seen: [Location]
-        // More details & photo: [https://chasetail.com/lostdog/(dog]
+        $message = "LOST DOG! Alert!:\n";
+        $message .= "Name: " . $mailData['name'] . "\n";
+        $message .= "Description: " . $mailData['description'] . "\n";
+        $message .= "More details & photo: https://chasetail.com/lostdogs/" . $mailData['id'];
 
         $sid = env('TWILIO_SID');
         $token = env('TWILIO_TOKEN');
@@ -115,8 +115,8 @@ class PlanAStepOneComponent extends Component
         $errorCount = 0;
         $errors = [];
 
-        foreach ($users as $user) {
-            $receiverNumber = $user->phone;
+        foreach ($author_phones as $user_phone) {
+            $receiverNumber = $user_phone;
 
             try {
                 $client = new Client($sid, $token);
