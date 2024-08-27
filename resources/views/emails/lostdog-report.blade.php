@@ -61,7 +61,8 @@
             <p><strong>Description:</strong> {{ $description }}</p>
             <p><a href="https://chasetail.com/lostdogs/details/{{ $id }}"><strong>More details &
                         photo</strong></a> </p>
-            <img src="http://chasetail.test/{{ $images }}" alt="Lost Dog Image" class="dog-image">
+            <img src="https://chasetail.com/{{ $images }}" alt="Lost Dog Image" class="dog-image">
+            {{-- <img src="http://chasetail.test/{{ $images }}" alt="Lost Dog Image" class="dog-image"> --}}
             <p>We appreciate your help in finding our lost dog. Thank you for keeping an eye out!</p>
         </div>
         <div class="footer">
