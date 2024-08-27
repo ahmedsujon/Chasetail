@@ -26,20 +26,20 @@
                                             <span class="plan-price">${{ session('plan_price') }}</span>
                                         </h4>
                                     </div>
-                                    <p>Think to Upgrade Plan? <a href="/subscription" wire:navigate>Click Here to Roll
-                                            Back</a></p>
-                                    <div class="multiple-photo">
-                                        <div class="form-check">
-                                            <input class="form-check-input" wire:model.live='multiple_image'
-                                                name="multiple_image" type="checkbox" value="1"
-                                                id="flexCheckChecked" checked>
-                                            <label class="form-check-label" for="flexCheckChecked">
-                                                Add multiple photo <span class="extra">($29
-                                                    extra)
-                                            </label>
+                                    @if (session('plan_price') > 128)
+                                        <div class="multiple-photo mt-2">
+                                            <div class="form-check">
+                                                <input class="form-check-input" wire:model.live='multiple_image'
+                                                    name="multiple_image" type="checkbox" value="1"
+                                                    id="flexCheckChecked" checked>
+                                                <label class="form-check-label" for="flexCheckChecked">
+                                                    Add multiple photo <span class="extra">($29
+                                                        extra)
+                                                </label>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <img class="img-fluid card-info"
+                                    @endif
+                                    <img class="img-fluid card-info mt-3"
                                         src="{{ asset('assets/app/images/card-information.jpg') }}"
                                         alt="Card Information" />
                                 </div>
@@ -129,28 +129,40 @@
                                                     <td style="text-align: right;">${{ session('plan_price') }}
                                                     </td>
                                                 </tr>
-                                                <tr>
-                                                    <td style="text-align: left;">For Adding Multiple Photos</td>
-                                                    <td style="text-align: center;"> - </td>
-                                                    @if ($multiple_image)
-                                                        <td style="text-align: right;">$29.00</td>
-                                                    @else
-                                                        <td style="text-align: right;">$0.00</td>
-                                                    @endif
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="2"></td>
-                                                    @if ($multiple_image)
-                                                        <td style="text-align: right;"><span
-                                                                class="subtotal">Subtotal:
-                                                                ${{ session('plan_price') + 29 }}.00</span></td>
-                                                    @else
+                                                @if (session('plan_price') > 128)
+                                                    <tr>
+                                                        <td style="text-align: left;">For Adding Multiple Photos</td>
+                                                        <td style="text-align: center;"> - </td>
+                                                        @if ($multiple_image)
+                                                            <td style="text-align: right;">$29.00</td>
+                                                        @else
+                                                            <td style="text-align: right;">$0.00</td>
+                                                        @endif
+                                                    </tr>
+                                                @endif
+
+                                                @if (session('plan_price') > 128)
+                                                    <tr>
+                                                        <td colspan="2"></td>
+                                                        @if ($multiple_image)
+                                                            <td style="text-align: right;"><span
+                                                                    class="subtotal">Subtotal:
+                                                                    ${{ session('plan_price') + 29 }}.00</span></td>
+                                                        @else
+                                                            <td style="text-align: right;"><span
+                                                                    class="subtotal">Subtotal:
+                                                                    ${{ session('plan_price') }}.00</span></td>
+                                                        @endif
+                                                    </tr>
+                                                @else
+                                                    <tr>
+                                                        <td colspan="2"></td>
                                                         <td style="text-align: right;"><span
                                                                 class="subtotal">Subtotal:
                                                                 ${{ session('plan_price') }}.00</span></td>
-                                                    @endif
+                                                    </tr>
+                                                @endif
 
-                                                </tr>
                                             </tbody>
                                         </table>
                                     </div>
