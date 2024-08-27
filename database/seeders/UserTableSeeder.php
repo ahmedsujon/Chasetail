@@ -14,7 +14,7 @@ class UserTableSeeder extends Seeder
      */
     public function run(): void
     {
-        $emails = ["user@example.com", "user1@example.com"];
+        $emails = ["sujonahmed424@gmail.com", "cloudintrigue@gmail.com"];
         $phones = ["+14698783479", "+14696625784"];
         $longitude = ["-96.7674325", "-96.7674325"];
         $latitude = ["32.759853", "32.9264252"];
