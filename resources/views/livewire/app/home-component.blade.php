@@ -40,7 +40,7 @@
                     <div class="article-box">
                         <img class="img-fluid" src="{{ asset('assets/app/images/content-dog01.jpg') }}"
                             alt="Content Dog">
-                        <h4><a href="#">Dogs</a></h4>
+                        <h4><a href="/lostdogs">Lost Dogs</a></h4>
                         <p>We’re here to help you find your pet. It’s a Free and Easy way to post and search for lost pets to help them return home.</p>
                         <ul class="content-hr">
                             <li></li>
@@ -51,7 +51,7 @@
                     <div class="article-box">
                         <img class="img-fluid" src="{{ asset('assets/app/images/content-dog02.jpg') }}"
                             alt="Content Dog">
-                        <h4><a href="#">Found Dogs</a></h4>
+                        <h4><a href="/found-dogs">Found Dogs</a></h4>
                         <p>Help reunite a found pet by snapping a photo and uploading the pet when they go missing. It’s free!</p>
                         <ul class="content-hr">
                             <li></li>
