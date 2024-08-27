@@ -20,6 +20,7 @@ class LostDogSeeder extends Seeder
                 'payment_status' => $faker->randomElement(['paid', 'unpaid']),
                 'name' => "Your pets name",
                 'gender' => $faker->randomElement(['male', 'female']),
+                'last_seen' =>$faker->date,
                 'color' => $faker->colorName,
                 'breed' => $faker->word,
                 'description' => $faker->text,
