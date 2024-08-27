@@ -149,6 +149,7 @@
                                                                 class="subtotal">Subtotal:
                                                                 ${{ session('plan_price') }}.00</span></td>
                                                     @endif
+
                                                 </tr>
                                             </tbody>
                                         </table>
