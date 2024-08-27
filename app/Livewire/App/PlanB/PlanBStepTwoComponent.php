@@ -89,7 +89,7 @@ class PlanBStepTwoComponent extends Component
         // Extract the user IDs of the nearest 50 users
         $userIds = array_column($nearestUsers, 'user_id');
 
-        // Get all users' emails
+        // Get nearest users' emails
         $author_emails = User::whereIn('id', $userIds)->pluck('email')->toArray();
 
         foreach ($author_emails as $email) {
@@ -99,7 +99,7 @@ class PlanBStepTwoComponent extends Component
             });
         }
 
-        // Send SMS to all users
+        // Send SMS to nearest users
         $author_phones = User::whereIn('id', $userIds)->pluck('phone')->toArray();
 
         $message = "LOST DOG! Alert!:\n";
@@ -138,7 +138,7 @@ class PlanBStepTwoComponent extends Component
         }
 
         // MMS Send
-        // Send MMS to all users
+        // Send MMS to nearest users
         $author_mms_phones = User::whereIn('id', $userIds)->pluck('phone')->toArray();
         $sid = env('TWILIO_SID');
         $token = env('TWILIO_TOKEN');
@@ -152,7 +152,6 @@ class PlanBStepTwoComponent extends Component
             $receiverNumber = $user_phone;
             $message = "Hi! This is from Chasetail. Lost dog report:\n";
             $message .= "Name: " . $mailData['name'] . "\n";
-            $message .= "Last Seen: " . $mailData['last_seen'] . "\n";
             $message .= "Description: " . $mailData['description'];
 
             // Extract image URLs from session

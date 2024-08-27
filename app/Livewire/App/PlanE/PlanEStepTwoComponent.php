@@ -5,6 +5,7 @@ namespace App\Livewire\App\PlanE;
 use App\Models\User;
 use App\Models\LostDog;
 use Livewire\Component;
+use Twilio\Rest\Client;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -61,6 +62,7 @@ class PlanEStepTwoComponent extends Component
         $mailData['microchip_id'] = $this->microchip_id;
         $mailData['medicine_info'] = $this->medicine_info;
         $mailData['description'] = $this->description;
+        $mailData['id'] = $data->id;
 
         $users = DB::table('users')->select('id', 'latitude', 'longitude')->where('id', '!=', Auth::user()->id)->get();
         // Initialize an array to hold users with their distances
@@ -83,12 +85,12 @@ class PlanEStepTwoComponent extends Component
         });
 
         // Get the nearest users
-        $nearest = 50;
+        $nearest = 1000;
         $nearestUsers = array_slice($usersWithDistances, 0, $nearest);
         // Extract the user IDs of the nearest 50 users
         $userIds = array_column($nearestUsers, 'user_id');
 
-        // Get all users' emails
+        // Get nearest users' emails
         $author_emails = User::whereIn('id', $userIds)->pluck('email')->toArray();
 
         foreach ($author_emails as $email) {
@@ -96,6 +98,84 @@ class PlanEStepTwoComponent extends Component
                 $message->to($email)
                     ->subject('Lost Dog Notification');
             });
+        }
+
+        // Send SMS to nearest users
+        $author_phones = User::whereIn('id', $userIds)->pluck('phone')->toArray();
+
+        $message = "LOST DOG! Alert!:\n";
+        $message .= "Name: " . $mailData['name'] . "\n";
+        $message .= "Description: " . $mailData['description'] . "\n";
+        $message .= "More details & photo: https://chasetail.com/lostdogs/" . $mailData['id'];
+
+        $sid = env('TWILIO_SID');
+        $token = env('TWILIO_TOKEN');
+        $fromNumber = env('TWILIO_FROM');
+
+        $successCount = 0;
+        $errorCount = 0;
+        $errors = [];
+
+        foreach ($author_phones as $user_phone) {
+            $receiverNumber = $user_phone;
+
+            try {
+                $client = new Client($sid, $token);
+                $client->messages->create($receiverNumber, [
+                    'from' => $fromNumber,
+                    'body' => $message
+                ]);
+                $successCount++;
+            } catch (Exception $e) {
+                $errorCount++;
+                $errors[] = 'Error sending to ' . $receiverNumber . ': ' . $e->getMessage();
+            }
+        }
+
+        $resultMessage = "Data stored and SMS sent successfully to $successCount users.";
+        if ($errorCount > 0) {
+            $resultMessage .= " However, there were errors sending to $errorCount users.";
+            $resultMessage .= " Errors: " . implode(", ", $errors);
+        }
+
+        // MMS Send
+        // Send MMS to nearest users
+        $author_mms_phones = User::whereIn('id', $userIds)->pluck('phone')->toArray();
+        $sid = env('TWILIO_SID');
+        $token = env('TWILIO_TOKEN');
+        $fromNumber = env('TWILIO_FROM');
+
+        $successCount = 0;
+        $errorCount = 0;
+        $errors = [];
+
+        foreach ($author_mms_phones as $user_phone) {
+            $receiverNumber = $user_phone;
+            $message = "Hi! This is from Chasetail. Lost dog report:\n";
+            $message .= "Name: " . $mailData['name'] . "\n";
+            $message .= "Description: " . $mailData['description'];
+
+            // Extract image URLs from session
+            $imageUrls = url('/') . '/' . $data->images ?? [];
+
+            try {
+                $client = new Client($sid, $token);
+                $client->messages->create($receiverNumber, [
+                    'from' => $fromNumber,
+                    'body' => $message,
+                    'mediaUrl' => $imageUrls, // Pass the image URLs here
+                ]);
+                $successCount++;
+            } catch (Exception $e) {
+                $errorCount++;
+                $errors[] = 'Error sending to ' . $receiverNumber . ': ' . $e->getMessage();
+            }
+        }
+
+        $resultMessage = "Data stored and MMS sent successfully to $successCount users.";
+        if ($errorCount > 0) {
+            $resultMessage .= " However, there were errors sending to $errorCount users.";
+            $resultMessage .= " Errors: " . implode(", ", $errors);
         }
 
         return $this->redirect('/user/dashboard', navigate: true);
