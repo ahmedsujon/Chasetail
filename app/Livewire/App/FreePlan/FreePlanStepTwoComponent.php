@@ -52,7 +52,7 @@ class FreePlanStepTwoComponent extends Component
         $user = User::find(Auth::user()->id);
         $user->subscription = 0;
         $user->save();
-
+        session()->forget(['latitude', 'longitude', 'images', 'address']);
         return $this->redirect('/user/dashboard', navigate: true);
         session()->flash('success', 'Report posted added successfully');
         $this->resetInputs();

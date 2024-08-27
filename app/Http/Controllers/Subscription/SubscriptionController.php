@@ -53,17 +53,22 @@ class SubscriptionController extends Controller
             ])->send();
 
             if ($response->isSuccessful()) {
+                if (session('plan') == 'PlanA') {
+                    $total_amount = $request->multiple_image ? session('plan_price') : session('plan_price');
+                } else {
+                    $total_amount = $request->multiple_image ? session('plan_price') + 29 : session('plan_price');
+                }
                 // Captured from the authorization response.
                 $transactionReference = $response->getTransactionReference();
 
                 $response = $this->gateway->capture([
-                    'amount' => $request->multiple_image ? session('plan_price') + 29 : session('plan_price'),
+                    'amount' => $total_amount,
                     'currency' => 'USD',
                     'transactionReference' => $transactionReference,
                 ])->send();
 
                 $transaction_id = $response->getTransactionReference();
-                $amount = $request->multiple_image ? session('plan_price') + 29 : session('plan_price');
+                $amount = $total_amount;
 
                 // Insert transaction data into the database
                 $isPaymentExist = Subscription::where('transaction_id', $transaction_id)->first();
@@ -72,8 +77,8 @@ class SubscriptionController extends Controller
                     $payment = new Subscription;
                     $payment->transaction_id = $transaction_id;
                     $payment->card_holder_name = $request->card_holder_name;
-                    $payment->multiple_image = $request->multiple_image;
-                    $payment->amount = $request->multiple_image ? session('plan_price') + 29 : session('plan_price');
+                    $payment->multiple_image = $request->multiple_image ? 1: 0;
+                    $payment->amount = $total_amount;
                     $payment->plan = session('plan');
                     $payment->currency = 'USD';
                     $payment->payment_status = 'Captured';
@@ -83,6 +88,7 @@ class SubscriptionController extends Controller
                     $user->subscription = 1;
                     $user->save();
                 }
+                session()->forget(['plan_price', 'plan']);
                 return redirect()->route('app.subscription.success', ['transaction_id' => $transaction_id, 'amount' => $amount]);
             } else {
                 // not successful

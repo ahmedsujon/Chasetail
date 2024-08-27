@@ -28,17 +28,33 @@
                                     </div>
                                     <p>Think to Upgrade Plan? <a href="/subscription" wire:navigate>Click Here to Roll
                                             Back</a></p>
-                                    <div class="multiple-photo">
-                                        <div class="form-check">
-                                            <input class="form-check-input" wire:model.live='multiple_image'
-                                                name="multiple_image" type="checkbox" value="1"
-                                                id="flexCheckChecked" checked>
-                                            <label class="form-check-label" for="flexCheckChecked">
-                                                Add multiple photo <span class="extra">($29
-                                                    extra)
-                                            </label>
+                                    @if (session('plan') == 'PlanA')
+                                        <div class="multiple-photo" style="display: none;">
+                                            <div class="form-check">
+                                                <input class="form-check-input" wire:model.live='multiple_image' name="multiple_image"
+                                                    type="checkbox" id="flexCheckChecked" checked>
+                                                <label class="form-check-label" for="flexCheckChecked">
+                                                    Add multiple photo <span class="extra">($29
+                                                        extra)
+                                                </label>
+                                            </div>
                                         </div>
-                                    </div>
+                                    @else
+                                        <div class="multiple-photo">
+                                            <div class="form-check">
+                                                <input class="form-check-input" wire:model.live='multiple_image' name="multiple_image"
+                                                    type="checkbox" id="flexCheckChecked" checked>
+                                                <label class="form-check-label" for="flexCheckChecked">
+                                                    Add multiple photo <span class="extra">($29
+                                                        extra)
+                                                </label>
+                                            </div>
+                                        </div>
+                                    @endif
+
+                                    {{-- <input class="form-check-input" name='multiple_image' type="text"
+                                        value="{{ $multiple_image }}"> --}}
+
                                     <img class="img-fluid card-info"
                                         src="{{ asset('assets/app/images/card-information.jpg') }}"
                                         alt="Card Information" />
@@ -48,12 +64,22 @@
                             <div class="row">
                                 <div class="col-md-12 col-lg-6 col-12">
                                     <div class="form-left-right">
-                                        <div class="mb-4" style="display: none;">
-                                            <label for="amount" class="form-label">Amount</label>
-                                            <input type="text" name='amount'
-                                                value="{{ $multiple_image ? session('plan_price') + 29 : session('plan_price') }}"
-                                                class="form-control card-number" />
-                                        </div>
+                                        @if (session('plan') == 'PlanA')
+                                            <div class="mb-4" style="display: none;">
+                                                <label for="amount" class="form-label">Amount</label>
+                                                <input type="text" name='amount'
+                                                    value="{{ $multiple_image ? session('plan_price') : session('plan_price') }}"
+                                                    class="form-control card-number" />
+                                            </div>
+                                        @else
+                                            <div class="mb-4" style="display: none;">
+                                                <label for="amount" class="form-label">Amount</label>
+                                                <input type="text" name='amount'
+                                                    value="{{ $multiple_image ? session('plan_price') + 29 : session('plan_price') }}"
+                                                    class="form-control card-number" />
+                                            </div>
+                                        @endif
+
 
                                         <div class="mb-4">
                                             <label for="cc_number" class="form-label">Card

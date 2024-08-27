@@ -177,7 +177,7 @@ class PlanEStepTwoComponent extends Component
             $resultMessage .= " However, there were errors sending to $errorCount users.";
             $resultMessage .= " Errors: " . implode(", ", $errors);
         }
-
+        session()->forget(['latitude', 'longitude', 'images', 'address']);
         return $this->redirect('/user/dashboard', navigate: true);
         session()->flash('success', 'Report posted added successfully');
         $this->resetInputs();
