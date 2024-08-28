@@ -93,7 +93,7 @@ class PlanAStepOneComponent extends Component
         $author_emails = User::whereIn('id', $userIds)->pluck('email')->toArray();
 
         foreach ($author_emails as $email) {
-            Mail::send('emails.lostdog-report', $mailData, function ($message) use ($mailData, $email) {
+            Mail::send('emails.text-plan-lostdog-report', $mailData, function ($message) use ($mailData, $email) {
                 $message->to($email)
                     ->subject('Lost Dog Notification');
             });

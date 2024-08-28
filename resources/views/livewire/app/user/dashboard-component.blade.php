@@ -38,11 +38,19 @@
                                                 <div class="row">
                                                     <a
                                                         href="{{ route('app.lost.dogs.details', ['id' => $lost_dog->id]) }}">
+                                                        @if ($lost_dog->images)
                                                         <div class="col-lg-4 col-md-6 col-12">
                                                             <img style="height: 116px; width: 116px;"
                                                                 src="{{ asset($lost_dog->images) }}"
                                                                 alt="{{ $lost_dog->name }}" class="img-fluid">
                                                         </div>
+                                                        @else
+                                                        <div class="col-lg-4 col-md-6 col-12">
+                                                            <img style="height: 116px; width: 116px;"
+                                                                src="{{ asset('assets/app/images/placeholder.jpg') }}"
+                                                                alt="placeholder image" class="img-fluid">
+                                                        </div>
+                                                        @endif
                                                         <div class="col-lg-8 col-md-6 col-12">
                                                             <div class="carousel-caption">
                                                                 <h3>{{ $lost_dog->name }}</h3>
