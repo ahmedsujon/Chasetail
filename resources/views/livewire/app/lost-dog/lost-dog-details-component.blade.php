@@ -19,7 +19,13 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-12">
                     <div class="lost-detail-left">
-                        <img class="img-fluid" src="{{ asset($lost_dog->images) }}" alt="Lost Detail">
+                        @if ($lost_dog->images)
+                            <img class="img-fluid" src="{{ asset($lost_dog->images) }}" alt="Lost Detail">
+                        @else
+                            <img class="img-fluid" src="{{ asset('assets/app/images/placeholder.jpg') }}"
+                                alt="Lost Detail">
+                        @endif
+                        {{-- <img class="img-fluid" src="{{ asset($lost_dog->images) }}" alt="Lost Detail"> --}}
                         <p>Pet reported by Dallas Animal Services</p>
                         <button class="btn btn-primary btn-dog-parent mt-3" type="button">Contact Dog Parent</button>
                     </div>
