@@ -7,9 +7,12 @@
                     <div class="row">
                         <div class="col-md-5 col-lg-5 col-6">
                             <h3>We’ll help you find your lost pet! </h3>
-                            <p>We’ll help you find your lost pet as quickly as possible! Post a picture on our Lost Pet page for free.
-                                Choose an option to send a digital flyer to areas immediately around your location. It’s the most
-                                efficient way to enlist the aid of caring neighbors in the recovery of your beloved animal.</p>
+                            <p>We’ll help you find your lost pet as quickly as possible! Post a picture on our Lost Pet
+                                page for free.
+                                Choose an option to send a digital flyer to areas immediately around your location. It’s
+                                the most
+                                efficient way to enlist the aid of caring neighbors in the recovery of your beloved
+                                animal.</p>
                             {{-- <a href="/subscription" wire:navigate>Get Started</a> --}}
                         </div>
                     </div>
@@ -28,8 +31,10 @@
                         <li></li>
                     </ul>
                     <h3>Unleashing the power of advanced technology to Find Your Pet!</h3>
-                    <p>Time matters when you’ve lost your pet. We actively engage with the majority of people in the area
-                        nearest the last known place of your precious pet. This is not a passive posting on other websites.
+                    <p>Time matters when you’ve lost your pet. We actively engage with the majority of people in the
+                        area
+                        nearest the last known place of your precious pet. This is not a passive posting on other
+                        websites.
                         We engage directly with those in range of your beloved/lost animal.</p>
                 </div>
             </div>
@@ -39,10 +44,11 @@
                 {{-- <div class="col-lg-2 col-md-2 col-5"></div> --}}
                 <div class="col-lg-6 col-md-6 col-12">
                     <div class="article-box">
-                        <img class="img-fluid" src="{{ asset('assets/app/images/content-dog01.jpg') }}"
-                            alt="Content Dog">
+                        <img style="border-radius: 15px" class="img-fluid"
+                            src="{{ asset('assets/images/lost-dog.jpg') }}" alt="Content Dog">
                         <h4><a href="/lostdogs">Lost Dogs</a></h4>
-                        <p>We’re here to help you find your pet. It’s a Free and Easy way to post and search for lost pets to help them return home.</p>
+                        <p>We’re here to help you find your pet. It’s a Free and Easy way to post and search for lost
+                            pets to help them return home.</p>
                         <ul class="content-hr">
                             <li></li>
                         </ul>
@@ -50,10 +56,11 @@
                 </div>
                 <div class="col-lg-6 col-md-6 col-12">
                     <div class="article-box">
-                        <img class="img-fluid" src="{{ asset('assets/app/images/content-dog02.jpg') }}"
-                            alt="Content Dog">
+                        <img style="border-radius: 15px" class="img-fluid"
+                            src="{{ asset('assets/images/found-dog.jpg') }}" alt="Content Dog">
                         <h4><a href="/found-dogs">Found Dogs</a></h4>
-                        <p>Help reunite a found pet by snapping a photo and uploading the pet when they go missing. It’s free!</p>
+                        <p>Help reunite a found pet by snapping a photo and uploading the pet when they go missing. It’s
+                            free!</p>
                         <ul class="content-hr">
                             <li></li>
                         </ul>

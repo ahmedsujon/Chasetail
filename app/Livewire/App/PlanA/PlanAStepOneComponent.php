@@ -12,7 +12,8 @@ use Illuminate\Support\Facades\Mail;
 
 class PlanAStepOneComponent extends Component
 {
-    public $user_id, $breed, $medicine_info, $payment_status, $address, $longitude, $photos, $images, $name, $gender, $last_seen, $microchip_id, $description;
+    public $user_id, $id, $breed, $medicine_info, $payment_status, $address, $longitude, $photos, $images,
+    $name, $gender, $last_seen, $microchip_id, $description, $marking, $color;
 
     public $characterCount = 0;
     public $maxCharacters = 100;
@@ -38,8 +39,10 @@ class PlanAStepOneComponent extends Component
         $data->images = session('images');
         $data->address = session('address');
 
-        $data->breed = $this->breed;
         $data->name = $this->name;
+        $data->breed = $this->breed;
+        $data->color = $this->color;
+        $data->marking = $this->marking;
         $data->payment_status = 'free';
         $data->gender = $this->gender;
         $data->last_seen = $this->last_seen;

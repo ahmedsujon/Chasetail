@@ -18,21 +18,15 @@
                 <div class="row">
                     <div class="col-md-12 col-lg-4 col-12">
                         <div class="contact-left">
-                            <h4>Find fido fast</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua. Ut
-                                enim ad minim veniam, quis nostrud.</p>
                             <img src="{{ asset('assets/app/images/contact-dog.jpg') }}" class="img-fluid mt-4 mb-5"
                                 alt="Contact Dog" />
 
                             <ul>
-                                <li><i class="fa fa-map-marker" aria-hidden="true"></i> 1234, abc street, Dallas, TX
-                                    7525.</li>
+                                <li><i class="fa fa-map-marker" aria-hidden="true"></i>209 State Hwy 121 BYP, Lewisville, TX 75067</li>
                                 <li><i class="fa fa-envelope" aria-hidden="true"></i> <a
-                                        href="mailto:info@findfidofast.com">info@findfidofast.com</a></li>
-                                <li><i class="fa fa-phone" aria-hidden="true"></i> <a href="tel:+11234567890">
-                                        123-456-7890</a></li>
+                                        href="mailto:info@chasetail.com">info@chasetail.com</a></li>
+                                <li><i class="fa fa-phone" aria-hidden="true"></i> <a href="tel:+18555508245">
+                                    855-550-8245</a></li>
                             </ul>
                         </div>
                     </div>
