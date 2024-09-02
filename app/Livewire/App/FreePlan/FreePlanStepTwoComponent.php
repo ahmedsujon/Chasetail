@@ -4,16 +4,13 @@ namespace App\Livewire\App\FreePlan;
 
 use App\Models\LostDog;
 use App\Models\User;
-use Exception;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
-use Twilio\Rest\Client;
 
 class FreePlanStepTwoComponent extends Component
 {
-    public $user_id, $id, $breed, $medicine_info, $payment_status, $address, $longitude, $photos, $images, $name, $gender, $last_seen, $microchip_id, $description;
+    public $user_id, $id, $breed, $medicine_info, $payment_status, $address, $longitude, $photos, $images,
+        $name, $gender, $last_seen, $microchip_id, $description, $marking, $color;
 
     public $characterCount = 0;
     public $maxCharacters = 150;
@@ -27,6 +24,8 @@ class FreePlanStepTwoComponent extends Component
     {
         $this->validate([
             'name' => 'required',
+            'breed' => 'required',
+            'color' => 'required',
             'gender' => 'required',
             'last_seen' => 'required',
         ]);
@@ -39,8 +38,10 @@ class FreePlanStepTwoComponent extends Component
         $data->images = session('images');
         $data->address = session('address');
 
-        $data->breed = $this->breed;
         $data->name = $this->name;
+        $data->breed = $this->breed;
+        $data->color = $this->color;
+        $data->marking = $this->marking;
         $data->payment_status = 'free';
         $data->gender = $this->gender;
         $data->last_seen = $this->last_seen;
@@ -65,6 +66,7 @@ class FreePlanStepTwoComponent extends Component
         $this->payment_status = null;
         $this->photos = null;
         $this->breed = null;
+        $this->marking = null;
         $this->name = null;
         $this->gender = null;
         $this->address = null;

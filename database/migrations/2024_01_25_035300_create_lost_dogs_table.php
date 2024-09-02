@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('gender')->nullable();
             $table->string('color')->nullable();
             $table->string('breed')->nullable();
+            $table->string('marking')->nullable();
             $table->string('last_seen')->nullable();
             $table->string('microchip_id')->nullable();
             $table->longText('medicine_info')->nullable();
