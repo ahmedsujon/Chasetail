@@ -90,7 +90,8 @@
                             <h4>$99<span class="user">/ 250 Texts</span></h4>
                             <p>Send 250 Texts</p>
                             <div class="btn-plan">
-                                <a href="#" wire:click.prevent="subscriptionEvent(99, 'PlanA')">Basic Text Plan</a>
+                                <a href="{{ route('text.plan.report') }}">Basic Text Plan</a>
+                                {{-- <a href="#" wire:click.prevent="subscriptionEvent(99, 'PlanA')">Basic Text Plan</a> --}}
                             </div>
                             <h6>Includes</h6>
                             <ul>
@@ -132,7 +133,8 @@
                             <h4>$139<span class="user">/ 250 Texts</span></h4>
                             <p>Send 250 Texts and Add a Picture</p>
                             <div class="btn-plan">
-                                <a href="#" wire:click.prevent="subscriptionEvent(139, 'PlanB')">Level One Plan</a>
+                                <a href="/plan-one-report" wire:navigate>Level One Plan</a>
+                                {{-- <a href="#" wire:click.prevent="subscriptionEvent(139, 'PlanB')">Level One Plan</a> --}}
                             </div>
                             <h6>Includes</h6>
                             <ul>
@@ -162,6 +164,7 @@
                                 <li>250 Texts Nearby</li>
                                 <li>Can add single photo</li>
                                 <li>Add multiple photo <span style="font-weight: 600">($29 extra)</span></li>
+                                <li>Add multiple photo <span style="font-weight: 600">($29 extra)</span></li>
                                 <li>Can add 275 character description</li>
                                 <li>Add food & medicine info.</li>
                                 <li>Share with selected areas neighbor</li>
@@ -180,7 +183,8 @@
                             <h4>$169<span class="user">/ 500 Texts</span></h4>
                             <p>Send 500 Texts and Add a Picture</p>
                             <div class="btn-plan">
-                                <a href="#" wire:click.prevent="subscriptionEvent(169, 'PlanC')">Level Two Plan</a>
+                                <a href="/plan-two-report" wire:navigate>Level Two Plan</a>
+                                {{-- <a href="#" wire:click.prevent="subscriptionEvent(169, 'PlanC')">Level Two Plan</a> --}}
                             </div>
                             <h6>Includes</h6>
                             <ul>
@@ -228,7 +232,8 @@
                             <h4>$199<span class="user">/ 750 Texts</span></h4>
                             <p>Send 750 Texts and Add a Picture</p>
                             <div class="btn-plan">
-                                <a href="#" wire:click.prevent="subscriptionEvent(199, 'PlanD')">Level Three Plan</a>
+                                <a href="/plan-three-report" wire:navigate>Level Three Plan</a>
+                                {{-- <a href="#" wire:click.prevent="subscriptionEvent(199, 'PlanD')">Level Three Plan</a> --}}
                             </div>
                             <h6>Includes</h6>
                             <ul>
@@ -276,7 +281,8 @@
                             <h4>$239<span class="user">/ 1000 Texts</span></h4>
                             <p>Send 1000 Texts and Add a Picture</p>
                             <div class="btn-plan">
-                                <a href="#" wire:click.prevent="subscriptionEvent(239, 'PlanE')">Level Four Plan</a>
+                                <a href="/plan-four-report" wire:navigate>Level Four Plan</a>
+                                {{-- <a href="#" wire:click.prevent="subscriptionEvent(239, 'PlanE')">Level Four Plan</a> --}}
                             </div>
                             <h6>Includes</h6>
                             <ul>

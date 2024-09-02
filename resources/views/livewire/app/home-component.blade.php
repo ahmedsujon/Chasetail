@@ -36,7 +36,8 @@
         </div>
         <div class="content-top">
             <div class="row">
-                <div class="col-lg-4 col-md-4 col-12">
+                {{-- <div class="col-lg-2 col-md-2 col-5"></div> --}}
+                <div class="col-lg-6 col-md-6 col-12">
                     <div class="article-box">
                         <img class="img-fluid" src="{{ asset('assets/app/images/content-dog01.jpg') }}"
                             alt="Content Dog">
@@ -47,7 +48,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-4 col-12">
+                <div class="col-lg-6 col-md-6 col-12">
                     <div class="article-box">
                         <img class="img-fluid" src="{{ asset('assets/app/images/content-dog02.jpg') }}"
                             alt="Content Dog">
@@ -58,7 +59,8 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-4 col-12">
+                {{-- <div class="col-lg-2 col-md-2 col-5"></div> --}}
+                {{-- <div class="col-lg-4 col-md-4 col-12">
                     <div class="article-box">
                         <img class="img-fluid" src="{{ asset('assets/app/images/content-dog03.jpg') }}"
                             alt="Content Dog">
@@ -69,7 +71,7 @@
                             <li></li>
                         </ul>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

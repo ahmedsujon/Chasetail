@@ -10,7 +10,19 @@ class SubscriptionComponent extends Component
     {
         session()->put('plan_price', $price);
         session()->put('plan', $plan);
-        return redirect()->route('app.payment');
+
+        if ($plan = "PlanA") {
+            return redirect()->route('text.plan.report');
+        } elseif ($plan = "PlanB") {
+            return redirect()->route('plan.one.report');
+        } elseif ($plan = "PlanC") {
+            return redirect()->route('plan.two.report');
+        } elseif ($plan = "PlanD") {
+            return redirect()->route('plan.three.report');
+        } else {
+            return redirect()->route('plan.four.report');
+        }
+        // return redirect()->route('app.text.plan.report');
     }
 
     public function render()

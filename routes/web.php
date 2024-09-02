@@ -100,8 +100,8 @@ Route::get('free-plan-report-step-three', FreePlanStepTwoComponent::class)->name
 Route::prefix('/')->middleware('auth:web')->group(function () {
 
     // Plan A
-    Route::get('text-plan-report', PlanAComponent::class)->name('free.plan.report');
-    Route::get('text-plan-report-step-two', PlanAStepOneComponent::class)->name('free.plan.report.step.two');
+    Route::get('text-plan-report', PlanAComponent::class)->name('text.plan.report');
+    Route::get('text-plan-report-step-two', PlanAStepOneComponent::class)->name('text.plan.report.step.two');
 
     // Plan B
     Route::get('plan-one-report', PlanBComponent::class)->name('plan.one.report');
