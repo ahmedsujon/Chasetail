@@ -30,10 +30,11 @@
         }
 
         .logo h1 {
-            font-size: 40px;
+            font-size: 50px;
             font-weight: 700;
             text-transform: uppercase;
             color: #0082f0;
+            margin-bottom: 15px;
         }
 
         .email-section {
@@ -111,25 +112,26 @@
             <table align="center" role="presentation" width="100%">
                 <tr>
                     <td class="bg_white logo" style="padding: 0; text-align: center">
-                        <h1><a href="index.html">LOST PET</a></h1>
+                        <h1><a href="#">LOST PET</a></h1>
                     </td>
                 </tr>
                 <tr>
                     <td class="bg_white" style="text-align: center;">
                         <div class="heading-section">
                             <h2>{{ $lost_dog->name }}</h2>
-                            <p>Gender:{{ $lost_dog->gender }}, Color:{{ $lost_dog->color }},
-                                Breed:{{ $lost_dog->breed }}
+                            <p>Gender: {{ $lost_dog->gender }}, Color: {{ $lost_dog->color }},
+                                Breed: {{ $lost_dog->breed }}
                             </p>
                         </div>
                     </td>
                 </tr>
                 <tr>
                     <td style="text-align:center;">
-                        <img src="{{ asset('assets/images/newsletter-dog.jpg') }}" width="400" alt="Fido"
-                            style="max-width: 400px;">
+                        <img src="{{ asset('assets/images/newsletter-dog.jpg') }}" width="600" alt="Fido"
+                            style="max-width: 600px;">
                         <div>
-                            <p style="font-weight: 600;">Description: {{ $lost_dog->description }}</p>
+                            <p style="font-weight: 400; font-size: 17px; margin-top: 10px;">Description:
+                                {{ $lost_dog->description }}</p>
                         </div>
                         <table style="width: 100%;">
                             <tr>
@@ -138,21 +140,27 @@
                                         style="max-width: 250px;">
                                 </td>
                                 <td style="text-align: center; padding-top: 20px;">
-
                                     <div class="qr-code-style">
-                                        <img src="data:image/png;base64,{{ base64_encode(QrCode::format('png')->size(80)->generate(
-                                            'Name: ' . $lost_dog->name . "\n" .
-                                            'Gender: ' . $lost_dog->gender . "\n" .
-                                            'Color: ' . $lost_dog->color . "\n" .
-                                            'Breed: ' . $lost_dog->breed . "\n" .
-                                            'https://chasetail.com/flyer/' . $lost_dog->id
-                                        )) }}" alt="QRCode">
+                                        <img src="data:image/png;base64,{{ base64_encode(
+                                            QrCode::format('png')->size(80)->generate(
+                                                    'Name: ' .
+                                                        $lost_dog->name .
+                                                        "\n" .
+                                                        'Gender: ' .
+                                                        $lost_dog->gender .
+                                                        "\n" .
+                                                        'Color: ' .
+                                                        $lost_dog->color .
+                                                        "\n" .
+                                                        'Breed: ' .
+                                                        $lost_dog->breed .
+                                                        "\n" .
+                                                        'https://chasetail.com/lostdogs/flyer/' .
+                                                        $lost_dog->id,
+                                                ),
+                                        ) }}"
+                                            alt="QRCode">
                                     </div>
-
-                                    {{-- <div class="qr-code-style">
-                                        <img src="data:image/png;base64,{{ base64_encode(QrCode::format('png')->size(80)->generate('https://chasetail.com/flyer/' . $lost_dog->id)) }}" alt="QRCode">
-                                    </div> --}}
-
                                     <p style="font-size: 15px; font-weight: 600; color: #0082f0;">
                                         SCAN CODE W/ SMARTPHONE<br>
                                         <a style="color: #0082f0 !important;" href="https://chasetail.com/"

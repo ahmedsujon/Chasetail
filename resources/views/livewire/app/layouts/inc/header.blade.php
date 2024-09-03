@@ -3,6 +3,10 @@
         .nav-link.active {
             color: #007AE2 !important;
         }
+
+        .img-fluid {
+            max-width: 80% !important;
+        }
     </style>
     <header>
         <div class="header-bot">
