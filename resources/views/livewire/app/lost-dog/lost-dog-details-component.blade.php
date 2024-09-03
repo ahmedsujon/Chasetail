@@ -1,11 +1,29 @@
 <div>
+    <style>
+        .print-flyer h5 {
+            padding: 13px 0 13px 0;
+            line-height: 24px;
+            font-family: 'nunito_sansbold';
+            font-size: 16px;
+            text-align: center;
+            text-transform: uppercase;
+            border-top: 1px solid #e7e7e7;
+            border-bottom: 1px solid #e7e7e7;
+            background: url("{{ asset('assets/app/images/print.png') }}") no-repeat 37% 16px;
+        }
+
+        .print-flyer h5 a {
+            text-decoration: none;
+            padding-right: 65px;
+        }
+    </style>
     <!-- Banner -->
     <section id="page-header">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12 col-lg-12 col-12">
                     <div class="page-header-text">
-                        <h4>Lost Dog Report</h4>
+                        <h4>Lost Dog Report Details</h4>
                         <p>You have a found dog. <a href="/lostdogs" wire:navigate>Click to Search</a></p>
                     </div>
                 </div>
@@ -74,7 +92,12 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <h6><a href="#">Report this listing</a></h6>
+                        <div class="print-flyer">
+                            <h6><a href="#">Report this listing</a></h6>
+                            <h5 class="print-flyer"><a
+                                    href="{{ route('app.lost.dogs.flyer', ['id' => $lost_dog->id]) }}">Print Flyer</a>
+                            </h5>
+                        </div>
                     </div>
                 </div>
             </div>

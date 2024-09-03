@@ -1,17 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="x-apple-disable-message-reformatting">
-    <title></title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200..1000&display=swap" rel="stylesheet">
-
+<div>
     <style>
         html,
         body {
@@ -37,16 +24,20 @@
             margin: 0 auto !important;
         }
 
+        .qr-code-style {
+            padding-left: 125px;
+        }
+
         a {
             text-decoration: none;
-            color: #f3a333;
+            color: red;
         }
 
         .logo h1 {
             font-size: 40px;
             font-weight: 700;
             text-transform: uppercase;
-            color: red;
+            color: #0082f0;
         }
 
         .email-section {
@@ -67,15 +58,19 @@
 
         .btn {
             padding: 10px 15px;
-            background: #f3a333;
+            background: #0082f0;
             color: #ffffff;
             border-radius: 30px;
             font-weight: 600;
             cursor: pointer;
             border: none;
-            position: fixed;
-            bottom: 10px;
-            right: 10px;
+            margin-top: 50px;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #0072d1;
+            color: #ffffff;
         }
 
         @media screen and (max-width: 500px) {
@@ -104,7 +99,7 @@
             }
 
             .btn {
-                visibility: hidden;
+                display: none;
             }
         }
     </style>
@@ -114,45 +109,49 @@
             window.print();
         }
     </script>
-</head>
 
-<body>
-    <center id="printableArea" style="width: 100%; background-color: #ffffff; margin: 50px auto;">
+    <center id="printableArea" style="width: 100%; background-color: #ffffff; margin: 20px auto;">
         <div style="max-width: 700px; margin: 0 auto;" class="email-container">
             <table align="center" role="presentation" width="100%">
-                <!-- First Row (Logo and Title Centered) -->
                 <tr>
                     <td class="bg_white logo" style="padding: 0; text-align: center">
                         <h1><a href="index.html">LOST PET</a></h1>
                     </td>
                 </tr>
-                <!-- Second Row (Heading and Subtitle Centered) -->
                 <tr>
                     <td class="bg_white" style="text-align: center;">
                         <div class="heading-section">
-                            <h2>Fido</h2>
-                            <p>Lost on February 29, 2024<br>Lost near Dallas, TX</p>
+                            <h2>{{ $lost_dog->name }}</h2>
+                            <p>Gender:{{ $lost_dog->gender }}, Color:{{ $lost_dog->color }},
+                                Breed:{{ $lost_dog->breed }}
+                            </p>
                         </div>
                     </td>
                 </tr>
                 <tr>
                     <td style="text-align:center;">
-                        <img src="images/newsletter-dog.jpg" width="300" alt="Fido" style="max-width: 300px;">
+                        <img src="{{ asset('assets/images/newsletter-dog.jpg') }}" width="400" alt="Fido"
+                            style="max-width: 400px;">
                         <div>
-                            <p style="font-weight: 600;">Description: My fido .. lost...</p>
+                            <p style="font-weight: 600;">Description: {{ $lost_dog->description }}</p>
                         </div>
                         <table style="width: 100%;">
                             <tr>
                                 <td style="text-align: left;">
-                                    <img src="images/logo.png" width="200" alt="Logo" style="max-width: 200px;">
+                                    <img src="{{ asset('assets/images/logo.png') }}" width="250" alt="Logo"
+                                        style="max-width: 250px;">
                                 </td>
                                 <td style="text-align: center; padding-top: 20px;">
-                                    <img src="images/qr-code.png" width="100" alt="QR Code"
-                                        style="max-width: 100px;">
+                                    <div class="qr-code-style">
+                                        <p>
+                                            {!! DNS2D::getBarcodeHTML('https://chasetail.com/flyer/' . $lost_dog->id, 'QRCODE', 3, 3) !!}
+                                        </p>
+                                    </div>
+
                                     <p style="font-size: 15px; font-weight: 600; color: #0082f0;">
                                         SCAN CODE W/ SMARTPHONE<br>
-                                        <a href="https://findfidofast.intrigueit.com"
-                                            target="_blank">https://findfidofast.intrigueit.com</a>
+                                        <a style="color: #0082f0 !important;" href="https://chasetail.com/"
+                                            target="_blank">https://chasetail.com/</a>
                                     </p>
                                 </td>
                             </tr>
@@ -160,9 +159,7 @@
                     </td>
                 </tr>
             </table>
+            <button class="btn" onclick="printEmail()">Print Flyer</button>
         </div>
     </center>
-    <button class="btn" onclick="printEmail()">Print</button>
-</body>
-
-</html>
+</div>
