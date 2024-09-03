@@ -139,7 +139,7 @@
                                 </td>
                                 <td style="text-align: center; padding-top: 20px;">
                                     <div class="qr-code-style">
-                                        <img src="data:image/png;base64,{{ base64_encode(QrCode::format('png')->size(100)->generate('https://chasetail.com/flyer/' . $lost_dog->id)) }}" alt="QRCode">
+                                        <img src="data:image/png;base64,{{ base64_encode(QrCode::format('png')->size(80)->generate('https://chasetail.com/flyer/' . $lost_dog->id)) }}" alt="QRCode">
                                     </div>
 
                                     <p style="font-size: 15px; font-weight: 600; color: #0082f0;">
