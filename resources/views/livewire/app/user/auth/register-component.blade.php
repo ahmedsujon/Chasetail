@@ -39,7 +39,7 @@
                                         @enderror
                                     </div>
 
-                                    <div class="mb-3">
+                                    <div class="mb-3" wire:ignore>
                                         <label for="phone" class="form-label">Phone Number</label>
                                         <input type="text" wire:model.blur='phone' class="form-control phone"
                                             id="phone" placeholder="(123) 456-7890">
@@ -130,7 +130,6 @@
     <script>
         function updateCheckboxValue(checkbox) {
             checkbox.value = checkbox.checked ? '1' : '0';
-            // Trigger Livewire update
             Livewire.emit('input', checkbox.name, checkbox.value);
         }
     </script>
