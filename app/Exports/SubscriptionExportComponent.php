@@ -16,6 +16,7 @@ class SubscriptionExportComponent implements FromCollection, WithHeadings
     {
         $subscriptions = DB::table('subscriptions')
             ->select(
+                'card_holder_name',
                 'transaction_id',
                 'amount',
                 'currency',
@@ -28,6 +29,7 @@ class SubscriptionExportComponent implements FromCollection, WithHeadings
     public function headings(): array
     {
         return [
+            'Card Holder Name',
             'Transaction ID,',
             'Amount',
             'Currency',

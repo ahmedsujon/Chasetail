@@ -25,7 +25,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
-        var chartData = JSON.parse(`<?php echo $donations; ?>`)
+        var chartData = JSON.parse(`<?php echo $subscriptions; ?>`)
         const ctx = document.getElementById('myChart');
 
         new Chart(ctx, {

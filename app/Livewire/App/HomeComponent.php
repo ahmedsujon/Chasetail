@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Hash;
 class HomeComponent extends Component
 {
 
+    public $subscription;
+
     #[Title('Home Page')]
     public function render()
     {

@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\LostDog;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
 
@@ -15,20 +14,22 @@ class LostDogSeeder extends Seeder
     public function run(): void
     {
         $faker = Faker::create();
-        foreach (range(1, 100) as $index) {
+        foreach (range(1,2) as $index) {
             LostDog::create([
-                'user_id' => $faker->randomDigit(1,10),
+                'user_id' => $faker->randomDigit(1, 2),
                 'payment_status' => $faker->randomElement(['paid', 'unpaid']),
-                'name' => $faker->firstName,
+                'name' => "Your pets name",
                 'gender' => $faker->randomElement(['male', 'female']),
+                'last_seen' =>$faker->date,
                 'color' => $faker->colorName,
                 'breed' => $faker->word,
                 'description' => $faker->text,
                 'longitude' => $faker->longitude,
                 'latitude' => $faker->latitude,
-                'photos' => 'assets/app/images/content-dog01.jpg',
-                'missing_status' => $faker->randomElement(['Found', 'Searching', 'Not Found']),
-                'status' => $faker->numberBetween(0,1),
+                'address' => $faker->address(),
+                'images' => 'assets/app/images/placeholder.jpg',
+                'missing_status' => $faker->randomElement(['Found', 'Rescued']),
+                'status' => $faker->numberBetween(0, 1),
             ]);
         }
     }

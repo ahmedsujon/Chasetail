@@ -12,7 +12,9 @@ use App\Exports\LostDogExportComponent;
 class LostDogComponent extends Component
 {
     use WithPagination;
-    public $sortingValue = 10, $searchTerm, $sortBy = 'created_at', $sortDirection = 'DESC';
+
+    public $sortingValue = 10, $searchTerm, $searchTermGender, $searchTermMissingSatus, $sortBy = 'created_at', $sortDirection = 'DESC';
+
     public $edit_id, $delete_id, $missing_status;
 
 
@@ -97,6 +99,15 @@ class LostDogComponent extends Component
     public function render()
     {
         $lost_dogs = LostDog::where('name', 'like', '%' . $this->searchTerm . '%')
+
+            ->when($this->searchTermGender !== null && $this->searchTermGender !== '', function ($query) {
+                return $query->where('gender', $this->searchTermGender);
+            })
+
+            ->when($this->searchTermMissingSatus !== null && $this->searchTermMissingSatus !== '', function ($query) {
+                return $query->where('missing_status', $this->searchTermMissingSatus);
+            })
+
             ->orderBy($this->sortBy, $this->sortDirection)
             ->paginate($this->sortingValue);
         $this->dispatch('reload_scripts');

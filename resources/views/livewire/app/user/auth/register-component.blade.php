@@ -1,4 +1,17 @@
 <div>
+    <style>
+        .form-check {
+            text-align: left;
+            padding-top: 5px;
+        }
+
+        .form-check-input {}
+
+        .form-check-label {
+            padding: 0px 0px 0px 5px !important;
+            padding:
+        }
+    </style>
     <section id="signup-section">
         <div class="signup">
             <div class="container">
@@ -25,14 +38,16 @@
                                             <p class="text-danger font-size-12 mb-0">{{ $message }}</p>
                                         @enderror
                                     </div>
+
                                     <div class="mb-3">
                                         <label for="phone" class="form-label">Phone Number</label>
-                                        <input type="text" wire:model.blur='phone' class="form-control"
-                                            id="phone">
+                                        <input type="text" wire:model.blur='phone' class="form-control phone"
+                                            id="phone" placeholder="(123) 456-7890">
                                         @error('phone')
                                             <p class="text-danger font-size-12 mb-0">{{ $message }}</p>
                                         @enderror
                                     </div>
+
                                     <div class="mb-3">
                                         <label for="password" class="form-label">password</label>
                                         <input type="password" wire:model.blur='password' class="form-control"
@@ -42,18 +57,30 @@
                                         @enderror
                                     </div>
 
+                                    <div class="form-check">
+                                        <input class="form-check-input" wire:model.blur="notify_status" value="0"
+                                            type="checkbox" id="flexCheckDefault" onchange="updateCheckboxValue(this)">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            I would like to receive EMAIL, SMS and MMS
+                                        </label>
+                                        @error('notify_status')
+                                            <p class="text-danger font-size-12 mb-0">{{ $message }}</p>
+                                        @enderror
+                                    </div>
                                     @if ($latitude == null || $longitude == null)
                                         <p style="color: red">Please allow location access in your browser settings!</p>
                                     @endif
 
                                     @if ($latitude == null || $longitude == null)
-                                    <button type="submit" disabled class="btn btn-primary">{!! loadingStateWithText('userRegistration', 'Create Your Account') !!}</button>
+                                        <button type="submit" disabled
+                                            class="btn btn-primary">{!! loadingStateWithText('userRegistration', 'Create Your Account') !!}</button>
                                     @else
-                                    <button type="submit" class="btn btn-primary">{!! loadingStateWithText('userRegistration', 'Create Your Account') !!}</button>
+                                        <button type="submit" class="btn btn-primary">{!! loadingStateWithText('userRegistration', 'Create Your Account') !!}</button>
                                     @endif
 
                                     <p class="click">By clicking "<span>Create Your Account</span>", you agree to our
-                                        <a href="/terms-conditions" wire:navigate>Terms & Conditions</a> and <a href="/privacy-policy" wire:navigate>Privacy
+                                        <a href="/terms-conditions" wire:navigate>Terms & Conditions</a> and <a
+                                            href="/privacy-policy" wire:navigate>Privacy
                                             Policy</a>.
                                     </p>
                                     <p>Have an account? <a href="/login" wire:navigate>Sign in</a></p>
@@ -67,6 +94,21 @@
     </section>
 </div>
 @push('scripts')
+    <!-- Include jQuery and jQuery Input Mask -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7-beta.17/jquery.inputmask.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#phone').inputmask("(999) 999-9999"); // US phone number format
+        });
+
+        $(".phone").on('change', function() {
+            @this.set('phone', $(this).val());
+        });
+    </script>
+
+
     <script>
         $(document).ready(function() {
             navigator.geolocation.getCurrentPosition((position) => {
@@ -83,5 +125,13 @@
                 }
             });
         });
+    </script>
+
+    <script>
+        function updateCheckboxValue(checkbox) {
+            checkbox.value = checkbox.checked ? '1' : '0';
+            // Trigger Livewire update
+            Livewire.emit('input', checkbox.name, checkbox.value);
+        }
     </script>
 @endpush

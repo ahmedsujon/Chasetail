@@ -15,15 +15,18 @@ return new class extends Migration
             $table->id();
             $table->integer('user_id')->unsigned()->nullable();
             $table->string('name')->nullable();
+            $table->string('found_date')->nullable();
             $table->string('color')->nullable();
             $table->string('gender')->nullable();
             $table->string('breed')->nullable();
+            $table->string('microchip_id')->nullable();
             $table->string('description')->nullable();
-            $table->string('photos')->nullable();
+            $table->string('images')->nullable();
             $table->string('longitude')->nullable();
             $table->string('latitude')->nullable();
+            $table->string('address')->nullable();
             $table->string('status')->default(1);
-            $table->string('missing_status')->default('Searching');
+            $table->string('missing_status')->default('Found');
             $table->timestamps();
         });
     }

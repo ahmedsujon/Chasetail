@@ -1,44 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Get Current Location</title>
-</head>
-<body>
-    <h2>Get Current Location</h2>
-    <button onclick="getLocation()">Get My Location</button>
-    <input type="text" id="locationInput" placeholder="Your Location">
 
-    <script>
-        function getLocation() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(reverseGeocode);
-            } else {
-                alert("Geolocation is not supported by this browser.");
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="x-apple-disable-message-reformatting">
+    <title></title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200..1000&display=swap" rel="stylesheet">
+
+    <style>
+        html,
+        body {
+            padding: 0;
+            background: #ffffff;
+            font-family: 'Nunito', sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            color: rgb(0, 0, 0);
+        }
+
+        * {
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        table,
+        td {
+            mso-table-lspace: 0pt !important;
+            mso-table-rspace: 0pt !important;
+            border-spacing: 0 !important;
+            border-collapse: collapse !important;
+            margin: 0 auto !important;
+        }
+
+        a {
+            text-decoration: none;
+            color: #f3a333;
+        }
+
+        .logo h1 {
+            font-size: 40px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: red;
+        }
+
+        .email-section {
+            text-align: center;
+            padding: 0 30px;
+        }
+
+        .heading-section h2 {
+            font-size: 28px;
+            text-transform: uppercase;
+            color: #000000;
+        }
+
+        .img {
+            width: 100%;
+            height: auto;
+        }
+
+        .btn {
+            padding: 10px 15px;
+            background: #f3a333;
+            color: #ffffff;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+        }
+
+        @media screen and (max-width: 500px) {
+            .text-services {
+                padding-left: 0;
+                padding-right: 20px;
+                text-align: left;
             }
         }
 
-        function reverseGeocode(position) {
-            var latitude = position.coords.latitude;
-            var longitude = position.coords.longitude;
-            var locationInput = document.getElementById("locationInput");
+        @media print {
+            body * {
+                visibility: hidden;
+            }
 
-            // Call Google Maps Geocoding API
-            fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyCXv58qv814Onl51mNpX5v1WCE6QV0XNWE`)
-            .then(response => response.json())
-            .then(data => {
-                if (data.results.length > 0) {
-                    locationInput.value = data.results[0].formatted_address;
-                } else {
-                    locationInput.value = "Address not found";
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                locationInput.value = "Error fetching address";
-            });
+            #printableArea,
+            #printableArea * {
+                visibility: visible;
+            }
+
+            #printableArea {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+            }
+
+            .btn {
+                visibility: hidden;
+            }
+        }
+    </style>
+
+    <script>
+        function printEmail() {
+            window.print();
         }
     </script>
+</head>
+
+<body>
+    <center id="printableArea" style="width: 100%; background-color: #ffffff; margin: 50px auto;">
+        <div style="max-width: 700px; margin: 0 auto;" class="email-container">
+            <table align="center" role="presentation" width="100%">
+                <!-- First Row (Logo and Title Centered) -->
+                <tr>
+                    <td class="bg_white logo" style="padding: 0; text-align: center">
+                        <h1><a href="index.html">LOST PET</a></h1>
+                    </td>
+                </tr>
+                <!-- Second Row (Heading and Subtitle Centered) -->
+                <tr>
+                    <td class="bg_white" style="text-align: center;">
+                        <div class="heading-section">
+                            <h2>Fido</h2>
+                            <p>Lost on February 29, 2024<br>Lost near Dallas, TX</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:center;">
+                        <img src="images/newsletter-dog.jpg" width="300" alt="Fido" style="max-width: 300px;">
+                        <div>
+                            <p style="font-weight: 600;">Description: My fido .. lost...</p>
+                        </div>
+                        <table style="width: 100%;">
+                            <tr>
+                                <td style="text-align: left;">
+                                    <img src="images/logo.png" width="200" alt="Logo" style="max-width: 200px;">
+                                </td>
+                                <td style="text-align: center; padding-top: 20px;">
+                                    <img src="images/qr-code.png" width="100" alt="QR Code"
+                                        style="max-width: 100px;">
+                                    <p style="font-size: 15px; font-weight: 600; color: #0082f0;">
+                                        SCAN CODE W/ SMARTPHONE<br>
+                                        <a href="https://findfidofast.intrigueit.com"
+                                            target="_blank">https://findfidofast.intrigueit.com</a>
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </center>
+    <button class="btn" onclick="printEmail()">Print</button>
 </body>
+
 </html>
