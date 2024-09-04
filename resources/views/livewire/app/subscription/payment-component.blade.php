@@ -31,8 +31,8 @@
                                     @if (session('plan') == 'PlanA')
                                         <div class="multiple-photo" style="display: none;">
                                             <div class="form-check">
-                                                <input class="form-check-input" wire:model.live='multiple_image' name="multiple_image"
-                                                    type="checkbox" id="flexCheckChecked" checked>
+                                                <input class="form-check-input" wire:model.live='multiple_image'
+                                                    name="multiple_image" type="checkbox" id="flexCheckChecked" checked>
                                                 <label class="form-check-label" for="flexCheckChecked">
                                                     Add multiple photo <span class="extra">($29
                                                         extra)
@@ -42,8 +42,8 @@
                                     @else
                                         <div class="multiple-photo">
                                             <div class="form-check">
-                                                <input class="form-check-input" wire:model.live='multiple_image' name="multiple_image"
-                                                    type="checkbox" id="flexCheckChecked" checked>
+                                                <input class="form-check-input" wire:model.live='multiple_image'
+                                                    name="multiple_image" type="checkbox" id="flexCheckChecked" checked>
                                                 <label class="form-check-label" for="flexCheckChecked">
                                                     Add multiple photo <span class="extra">($29
                                                         extra)

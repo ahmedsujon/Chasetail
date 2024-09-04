@@ -6,7 +6,7 @@ use Livewire\Component;
 
 class PlanAComponent extends Component
 {
-    public $latitude, $longitude, $address;
+    public $latitude, $longitude, $address, $plan_price;
 
     public function lostDogReportOne()
     {
@@ -21,6 +21,7 @@ class PlanAComponent extends Component
         session()->put('latitude', $this->latitude);
         session()->put('longitude', $this->longitude);
         session()->put('address', $this->address);
+        session()->put('plan_price', 99);
         return $this->redirect('/text-plan-report-step-two', navigate: true);
     }
 

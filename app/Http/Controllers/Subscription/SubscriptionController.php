@@ -77,7 +77,7 @@ class SubscriptionController extends Controller
                     $payment = new Subscription;
                     $payment->transaction_id = $transaction_id;
                     $payment->card_holder_name = $request->card_holder_name;
-                    $payment->multiple_image = $request->multiple_image ? 1: 0;
+                    $payment->multiple_image = $request->multiple_image ? 1 : 0;
                     $payment->amount = $total_amount;
                     $payment->plan = session('plan');
                     $payment->currency = 'USD';
