@@ -55,14 +55,17 @@
             <p>A dog named <strong>{{ $name }}</strong> was last seen on <strong>{{ $last_seen }}</strong>.
             </p>
             <p><strong>Gender:</strong> {{ $gender }}</p>
+            <p><strong>Color:</strong> {{ $color }}</p>
+            <p><strong>Breed:</strong> {{ $breed }}</p>
             <p><strong>Address:</strong> {{ $address }}</p>
-            <p><strong>Microchip ID:</strong> {{ $microchip_id }}</p>
             <p><strong>Medicine information:</strong> {{ $medicine_info }}</p>
             <p><strong>Description:</strong> {{ $description }}</p>
-            <p><a href="https://chasetail.com/lostdogs/details/{{ $id }}"><strong>More details &
-                        photo</strong></a> </p>
-            <img src="https://chasetail.com/{{ $images }}" alt="Lost Dog Image" class="dog-image">
-            {{-- <img src="http://chasetail.test/{{ $images }}" alt="Lost Dog Image" class="dog-image"> --}}
+            @if ($images)
+                <p><a href="https://chasetail.com/lostdogs/details/{{ $id }}"><strong>More details &
+                            photo</strong></a> </p>
+                {{-- <img src="https://chasetail.com/{{ $images }}" alt="Lost Dog Image" class="dog-image"> --}}
+                <img src="http://chasetail.test/{{ $images }}" alt="Lost Dog Image" class="dog-image">
+            @endif
             <p>We appreciate your help in finding our lost dog. Thank you for keeping an eye out!</p>
         </div>
         <div class="footer">

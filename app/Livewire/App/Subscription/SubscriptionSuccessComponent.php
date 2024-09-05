@@ -8,10 +8,9 @@ class SubscriptionSuccessComponent extends Component
 {
     public $transaction_id, $plan, $amount;
 
-    public function mount($transaction_id, $plan)
+    public function mount($transaction_id)
     {
         $this->transaction_id = $transaction_id;
-        $this->plan = $plan;
     }
 
     public function render()

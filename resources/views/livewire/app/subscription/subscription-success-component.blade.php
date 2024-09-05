@@ -24,23 +24,7 @@
                             </tbody>
                         </table>
                         <div class="btn-group" role="group" aria-label="Basic example">
-                            @if ($plan = 'PlanA')
-                                <a href="/text-plan-report" wire:navigate class="btn btn-primary">Get
-                                    Started</a>
-                            @elseif($plan = 'PlanB')
-                                <a href="/plan-one-report" wire:navigate class="btn btn-primary">Get
-                                    Started</a>
-                            @elseif($plan = 'PlanC')
-                                <a href="/plan-two-report" wire:navigate class="btn btn-primary">Get
-                                    Started</a>
-                            @elseif($plan = 'PlanD')
-                                <a href="/plan-three-report" wire:navigate class="btn btn-primary">Get
-                                    Started</a>
-                            @elseif($plan = 'PlanE')
-                                <a href="/plan-four-report" wire:navigate class="btn btn-primary">Get
-                                    Started</a>
-                            @endif
-                            <button type="button" class="btn btn-primary close">Close</button>
+                            <a href="{{ route('user.dashboard') }}" class="btn btn-primary">Visit Dashboard</a>
                         </div>
                     </div>
                 </div>

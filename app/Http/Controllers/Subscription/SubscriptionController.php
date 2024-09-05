@@ -5,10 +5,14 @@ namespace App\Http\Controllers\Subscription;
 use Carbon\Carbon;
 use App\Models\User;
 use Omnipay\Omnipay;
+use App\Models\LostDog;
+use Twilio\Rest\Client;
 use App\Models\Subscription;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class SubscriptionController extends Controller
 {
@@ -24,7 +28,6 @@ class SubscriptionController extends Controller
 
     public function subscription(Request $request)
     {
-
         // Validate the request data
         $validatedData = $request->validate([
             'cc_number' => 'required',
@@ -58,6 +61,7 @@ class SubscriptionController extends Controller
                 } else {
                     $total_amount = $request->multiple_image ? session('plan_price') + 29 : session('plan_price');
                 }
+
                 // Captured from the authorization response.
                 $transactionReference = $response->getTransactionReference();
 
@@ -84,20 +88,121 @@ class SubscriptionController extends Controller
                     $payment->payment_status = 'Captured';
                     $payment->user_id = Auth::user()->id;
                     $payment->save();
+
                     $user = User::find(Auth::user()->id);
                     $user->subscription = 1;
                     $user->save();
+
+                    // Save the Lost Dog data
+                    $data = new LostDog();
+                    $data->user_id = Auth::user()->id;
+                    $data->latitude = session('latitude');
+                    $data->longitude = session('longitude');
+                    $data->images = session('images');
+                    $data->address = session('address');
+                    $data->name = session('name');
+                    $data->breed = session('breed');
+                    $data->color = session('color');
+                    $data->marking = session('marking');
+                    $data->gender = session('gender');
+                    $data->last_seen = session('last_seen');
+                    $data->medicine_info = session('medicine_info');
+                    $data->description = session('description');
+                    $data->save();
+
+                    $user->subscription = 0;
+                    $user->save();
+
+                    // Prepare email data
+                    $mailData['images'] = session('images');
+                    $mailData['address'] = session('address');
+                    $mailData['name'] = session('name');
+                    $mailData['breed'] = session('breed');
+                    $mailData['color'] = session('color');
+                    $mailData['marking'] = session('marking');
+                    $mailData['gender'] = session('gender');
+                    $mailData['last_seen'] = session('last_seen');
+                    $mailData['medicine_info'] = session('medicine_info');
+                    $mailData['description'] = session('description');
+                    $mailData['id'] = $data->id;
+
+                    $users = DB::table('users')->select('id', 'latitude', 'longitude')->where('id', '!=', Auth::user()->id)->get();
+                    $usersWithDistances = [];
+                    foreach ($users as $user) {
+                        if (isset($data->latitude) && isset($data->longitude)) {
+                            $distance = getDistance($data->latitude, $data->longitude, $user->latitude, $user->longitude);
+                            if ($distance <= 10) {
+                                $usersWithDistances[] = [
+                                    'user_id' => $user->id,
+                                    'distance' => $distance,
+                                ];
+                            }
+                        }
+                    }
+                    usort($usersWithDistances, function ($a, $b) {
+                        return $a['distance'] <=> $b['distance'];
+                    });
+
+                    $nearestUsers = array_slice($usersWithDistances, 0, 250);
+                    $userIds = array_column($nearestUsers, 'user_id');
+
+
+                    // $author_emails = User::whereIn('id', $userIds)->pluck('email')->toArray();
+                    // foreach ($author_emails as $email) {
+                    //     Mail::send('emails.lostdog-report', $mailData, function ($message) use ($mailData, $email) {
+                    //         $message->to($email)
+                    //             ->subject('Lost Dog Notification');
+                    //     });
+                    // }
+
+                    // Send SMS to nearest users
+                    $author_phones = User::whereIn('id', $userIds)->pluck('phone')->toArray();
+
+                    $message = "LOST DOG! Alert!:\n";
+                    $message .= "Name: " . $mailData['name'] . "\n";
+                    $message .= "Description: " . $mailData['description'] . "\n";
+                    $message .= "More details & photo: https://chasetail.com/lostdogs/" . $mailData['id'];
+
+                    $sid = env('TWILIO_SID');
+                    $token = env('TWILIO_TOKEN');
+                    $fromNumber = env('TWILIO_FROM');
+
+                    $successCount = 0;
+                    $errorCount = 0;
+                    $errors = [];
+
+                    foreach ($author_phones as $user_phone) {
+                        $receiverNumber = $user_phone;
+
+                        try {
+                            $client = new Client($sid, $token);
+                            $client->messages->create($receiverNumber, [
+                                'from' => $fromNumber,
+                                'body' => $message
+                            ]);
+                            $successCount++;
+                        } catch (Exception $e) {
+                            $errorCount++;
+                            $errors[] = 'Error sending to ' . $receiverNumber . ': ' . $e->getMessage();
+                        }
+                    }
+
+                    $resultMessage = "Data stored and SMS sent successfully to $successCount users.";
+                    if ($errorCount > 0) {
+                        $resultMessage .= " However, there were errors sending to $errorCount users.";
+                        $resultMessage .= " Errors: " . implode(", ", $errors);
+                    }
                 }
                 session()->forget(['plan_price', 'plan']);
                 return redirect()->route('app.subscription.success', ['transaction_id' => $transaction_id, 'amount' => $amount]);
             } else {
-                // not successful
                 return $response->getMessage();
             }
         } catch (Exception $e) {
             return $e->getMessage();
         }
     }
+
 
     // Luhn algorithm to validate credit card numbers
     private function isValidLuhn($number)

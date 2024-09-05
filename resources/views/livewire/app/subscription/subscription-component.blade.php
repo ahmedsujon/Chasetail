@@ -46,23 +46,24 @@
         <div class="container-fluid">
             <div class="row">
                 @auth
-                    <div class="col-md-6 col-lg-3 col-12">
-                        <div class="package-list">
-                            <h5>Starter</h5>
-                            <h4>FREE</h4>
-                            <p>Free to User</p>
-                            <div class="btn-plan">
-                                <a href="/free-plan-report" wire:navigate>Starter Plan</a>
-                            </div>
-                            <h6>Includes</h6>
-                            <ul class="free-package">
-                                <li>Can add single photo</li>
-                                <li>Can add short description</li>
-                                <li>Add food & medicine info</li>
-                                <li>Add short description (150 character)</li>
-                            </ul>
+                <div class="col-md-6 col-lg-3 col-12">
+                    <div class="package-list">
+                        <h5>Starter</h5>
+                        <h4>FREE</h4>
+                        <p>Free to Use</p>
+                        <div class="btn-plan">
+                            <a href="/free-plan-report?plan=PlanA" wire:navigate>Starter Plan</a>
                         </div>
+                        <h6>Includes</h6>
+                        <ul class="free-package">
+                            <li>Can add single photo</li>
+                            <li>Can add short description</li>
+                            <li>Add food & medicine info</li>
+                            <li>Add short description (150 character)</li>
+                        </ul>
                     </div>
+                </div>
+
                 @else
                     <div class="col-md-6 col-lg-3 col-12">
                         <div class="package-list">
