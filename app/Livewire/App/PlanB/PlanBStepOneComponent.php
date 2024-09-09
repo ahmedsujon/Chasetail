@@ -25,8 +25,7 @@ class PlanBStepOneComponent extends Component
             $uploadedImages = 'uploads/images/' . $fileName;
             session()->put('images', $uploadedImages);
         }
-
-        return $this->redirect('/free-plan-report-step-three', navigate: true);
+        return $this->redirect('/plan-one-report-step-three', navigate: true);
     }
 
     public function render()

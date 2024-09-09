@@ -36,7 +36,7 @@
 
     <section class="step-content mb-5">
         <div class="container">
-            <form class="form-step" wire:submit.prevent="storeData">
+            <form class="form-step" wire:submit.prevent="lostDogReportTwo">
                 <div class="row">
                     <div class="col-md-12 col-lg-12 col-12">
                         <div class="step-page">
@@ -619,7 +619,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="form-left-right">
-                            <button class="btn btn-submit-post" type="submit">{!! loadingStateWithText('storeData', 'Submit Post') !!}</button>
+                            <button type="submit" class="btn btn-primary mt-3">Next</button>
                         </div>
                     </div>
                 </div>

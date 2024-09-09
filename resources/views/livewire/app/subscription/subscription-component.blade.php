@@ -50,7 +50,7 @@
                         <div class="package-list">
                             <h5>Starter</h5>
                             <h4>FREE</h4>
-                            <p>Free to User</p>
+                            <p>Free to Use</p>
                             <div class="btn-plan">
                                 <a href="/free-plan-report" wire:navigate>Starter Plan</a>
                             </div>
@@ -91,7 +91,6 @@
                             <p>Send 250 Texts</p>
                             <div class="btn-plan">
                                 <a href="{{ route('text.plan.report') }}">Basic Text Plan</a>
-                                {{-- <a href="#" wire:click.prevent="subscriptionEvent(99, 'PlanA')">Basic Text Plan</a> --}}
                             </div>
                             <h6>Includes</h6>
                             <ul>

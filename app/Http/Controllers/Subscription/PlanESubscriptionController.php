@@ -14,7 +14,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
-class SubscriptionController extends Controller
+class PlanESubscriptionController extends Controller
 {
     public $gateway;
 
@@ -139,21 +139,13 @@ class SubscriptionController extends Controller
                             }
                         }
                     }
+
                     usort($usersWithDistances, function ($a, $b) {
                         return $a['distance'] <=> $b['distance'];
                     });
 
                     $nearestUsers = array_slice($usersWithDistances, 0, 250);
                     $userIds = array_column($nearestUsers, 'user_id');
-
-
-                    // $author_emails = User::whereIn('id', $userIds)->pluck('email')->toArray();
-                    // foreach ($author_emails as $email) {
-                    //     Mail::send('emails.lostdog-report', $mailData, function ($message) use ($mailData, $email) {
-                    //         $message->to($email)
-                    //             ->subject('Lost Dog Notification');
-                    //     });
-                    // }
 
                     // Send SMS to nearest users
                     $author_phones = User::whereIn('id', $userIds)->pluck('phone')->toArray();

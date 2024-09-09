@@ -12,9 +12,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
 
-class SubscriptionController extends Controller
+class TextPlanSubscriptionController extends Controller
 {
     public $gateway;
 
@@ -26,7 +25,7 @@ class SubscriptionController extends Controller
         $this->gateway->setTestMode(true); //comment this line when move to 'live'
     }
 
-    public function subscription(Request $request)
+    public function textPlanSubscription(Request $request)
     {
         // Validate the request data
         $validatedData = $request->validate([
@@ -113,19 +112,6 @@ class SubscriptionController extends Controller
                     $user->subscription = 0;
                     $user->save();
 
-                    // Prepare email data
-                    $mailData['images'] = session('images');
-                    $mailData['address'] = session('address');
-                    $mailData['name'] = session('name');
-                    $mailData['breed'] = session('breed');
-                    $mailData['color'] = session('color');
-                    $mailData['marking'] = session('marking');
-                    $mailData['gender'] = session('gender');
-                    $mailData['last_seen'] = session('last_seen');
-                    $mailData['medicine_info'] = session('medicine_info');
-                    $mailData['description'] = session('description');
-                    $mailData['id'] = $data->id;
-
                     $users = DB::table('users')->select('id', 'latitude', 'longitude')->where('id', '!=', Auth::user()->id)->get();
                     $usersWithDistances = [];
                     foreach ($users as $user) {
@@ -139,6 +125,7 @@ class SubscriptionController extends Controller
                             }
                         }
                     }
+
                     usort($usersWithDistances, function ($a, $b) {
                         return $a['distance'] <=> $b['distance'];
                     });
@@ -146,22 +133,14 @@ class SubscriptionController extends Controller
                     $nearestUsers = array_slice($usersWithDistances, 0, 250);
                     $userIds = array_column($nearestUsers, 'user_id');
 
-
-                    // $author_emails = User::whereIn('id', $userIds)->pluck('email')->toArray();
-                    // foreach ($author_emails as $email) {
-                    //     Mail::send('emails.lostdog-report', $mailData, function ($message) use ($mailData, $email) {
-                    //         $message->to($email)
-                    //             ->subject('Lost Dog Notification');
-                    //     });
-                    // }
-
                     // Send SMS to nearest users
                     $author_phones = User::whereIn('id', $userIds)->pluck('phone')->toArray();
 
                     $message = "LOST DOG! Alert!:\n";
-                    $message .= "Name: " . $mailData['name'] . "\n";
-                    $message .= "Description: " . $mailData['description'] . "\n";
-                    $message .= "More details & photo: https://chasetail.com/lostdogs/" . $mailData['id'];
+                    $message .= "Name: " . $data->name . "\n";
+                    $message .= "Description: " . $data->description . "\n";
+                    $message .= "More details & photo: https://chasetail.com/lostdogs/" . $data->id;
+
 
                     $sid = env('TWILIO_SID');
                     $token = env('TWILIO_TOKEN');

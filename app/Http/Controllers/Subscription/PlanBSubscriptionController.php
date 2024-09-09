@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Subscription;
 
-use Carbon\Carbon;
 use App\Models\User;
 use Omnipay\Omnipay;
 use App\Models\LostDog;
@@ -12,9 +11,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
 
-class SubscriptionController extends Controller
+class PlanBSubscriptionController extends Controller
 {
     public $gateway;
 
@@ -26,7 +24,7 @@ class SubscriptionController extends Controller
         $this->gateway->setTestMode(true); //comment this line when move to 'live'
     }
 
-    public function subscription(Request $request)
+    public function PlanBSubscription(Request $request)
     {
         // Validate the request data
         $validatedData = $request->validate([
@@ -56,11 +54,7 @@ class SubscriptionController extends Controller
             ])->send();
 
             if ($response->isSuccessful()) {
-                if (session('plan') == 'PlanA') {
-                    $total_amount = $request->multiple_image ? session('plan_price') : session('plan_price');
-                } else {
-                    $total_amount = $request->multiple_image ? session('plan_price') + 29 : session('plan_price');
-                }
+                $total_amount = $request->multiple_image ? session('plan_price') + 29 : session('plan_price');
 
                 // Captured from the authorization response.
                 $transactionReference = $response->getTransactionReference();
@@ -139,6 +133,7 @@ class SubscriptionController extends Controller
                             }
                         }
                     }
+
                     usort($usersWithDistances, function ($a, $b) {
                         return $a['distance'] <=> $b['distance'];
                     });
@@ -146,18 +141,8 @@ class SubscriptionController extends Controller
                     $nearestUsers = array_slice($usersWithDistances, 0, 250);
                     $userIds = array_column($nearestUsers, 'user_id');
 
-
-                    // $author_emails = User::whereIn('id', $userIds)->pluck('email')->toArray();
-                    // foreach ($author_emails as $email) {
-                    //     Mail::send('emails.lostdog-report', $mailData, function ($message) use ($mailData, $email) {
-                    //         $message->to($email)
-                    //             ->subject('Lost Dog Notification');
-                    //     });
-                    // }
-
                     // Send SMS to nearest users
                     $author_phones = User::whereIn('id', $userIds)->pluck('phone')->toArray();
-
                     $message = "LOST DOG! Alert!:\n";
                     $message .= "Name: " . $mailData['name'] . "\n";
                     $message .= "Description: " . $mailData['description'] . "\n";
@@ -188,6 +173,47 @@ class SubscriptionController extends Controller
                     }
 
                     $resultMessage = "Data stored and SMS sent successfully to $successCount users.";
+                    if ($errorCount > 0) {
+                        $resultMessage .= " However, there were errors sending to $errorCount users.";
+                        $resultMessage .= " Errors: " . implode(", ", $errors);
+                    }
+
+                    // MMS Send
+                    // Send MMS to all users
+                    $author_mms_phones = User::whereIn('id', $userIds)->pluck('phone')->toArray();
+                    $sid = env('TWILIO_SID');
+                    $token = env('TWILIO_TOKEN');
+                    $fromNumber = env('TWILIO_FROM');
+
+                    $successCount = 0;
+                    $errorCount = 0;
+                    $errors = [];
+
+                    foreach ($author_mms_phones as $user_phone) {
+                        $receiverNumber = $user_phone;
+                        $message = "Hi! This is from Chasetail. Lost dog report:\n";
+                        $message .= "Name: " . $mailData['name'] . "\n";
+                        $message .= "Last Seen: " . $mailData['last_seen'] . "\n";
+                        $message .= "Description: " . $mailData['description'];
+
+                        // Extract image URLs from session
+                        $imageUrls = url('/') . '/' . $data->images ?? [];
+
+                        try {
+                            $client = new Client($sid, $token);
+                            $client->messages->create($receiverNumber, [
+                                'from' => $fromNumber,
+                                'body' => $message,
+                                'mediaUrl' => $imageUrls, // Pass the image URLs here
+                            ]);
+                            $successCount++;
+                        } catch (Exception $e) {
+                            $errorCount++;
+                            $errors[] = 'Error sending to ' . $receiverNumber . ': ' . $e->getMessage();
+                        }
+                    }
+
+                    $resultMessage = "Data stored and MMS sent successfully to $successCount users.";
                     if ($errorCount > 0) {
                         $resultMessage .= " However, there were errors sending to $errorCount users.";
                         $resultMessage .= " Errors: " . implode(", ", $errors);
