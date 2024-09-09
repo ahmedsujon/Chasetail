@@ -14,24 +14,12 @@
 
     <section class="step-content">
         <div class="container">
-            <form action="{{ url('PlanBSubscription') }}" method="post" class="form-step">
+            <form action="{{ url('subscription-payment-level-one') }}" method="post" class="form-step">
                 @csrf
                 <div class="row">
                     <div class="col-md-12 col-lg-12 col-12">
                         <div class="step-page payment-page">
                             <div class="row">
-                                <p>Plan B</p>
-                                <p><strong>User ID:</strong> {{ session('user_id') }}</p>
-                                <p><strong>Name:</strong> {{ session('name') }}</p>
-                                <p><strong>Last Seen:</strong> {{ session('last_seen') }}</p>
-                                <p><strong>Gender:</strong> {{ session('gender') }}</p>
-                                <p><strong>Color:</strong> {{ session('color') }}</p>
-                                <p><strong>Price:</strong> {{ session('plan_price') }}</p>
-                                <p><strong>Plan:</strong> {{ session('plan') }}</p>
-                                <p><strong>Breed:</strong> {{ session('breed') }}</p>
-                                <p><strong>Marking:</strong> {{ session('marking') }}</p>
-                                <p><strong>Description:</strong> {{ session('description') }}</p>
-                                <p><strong>Medicine Info:</strong> {{ session('medicine_info') }}</p>
                                 <div class="col-lg-12 col-md-12 col-12">
                                     <div class="selected-plan">
                                         <h4>Selected Plan : <span class="gold">GOLD</span>
@@ -141,12 +129,23 @@
                                                 <tr>
                                                     <td style="text-align: left;">For Adding Multiple Photos</td>
                                                     <td style="text-align: center;"> - </td>
-                                                    <td style="text-align: right;">$29.00</td>
+                                                    @if ($multiple_image)
+                                                        <td style="text-align: right;">$29.00</td>
+                                                    @else
+                                                        <td style="text-align: right;">$0.00</td>
+                                                    @endif
                                                 </tr>
                                                 <tr>
                                                     <td colspan="2"></td>
-                                                    <td style="text-align: right;"><span class="subtotal">Subtotal:
-                                                            ${{ session('plan_price') + 29 }}.00</span></td>
+                                                    @if ($multiple_image)
+                                                        <td style="text-align: right;"><span
+                                                                class="subtotal">Subtotal:
+                                                                ${{ session('plan_price') + 29 }}.00</span></td>
+                                                    @else
+                                                        <td style="text-align: right;"><span
+                                                                class="subtotal">Subtotal:
+                                                                ${{ session('plan_price') }}.00</span></td>
+                                                    @endif
                                                 </tr>
                                             </tbody>
                                         </table>

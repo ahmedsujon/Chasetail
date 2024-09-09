@@ -11,7 +11,7 @@ class PlanCStepOneComponent extends Component
     use WithFileUploads;
     public $images, $uploadedImage;
 
-    public function lostDogReportTwo()
+    public function planCStepTwo()
     {
         $this->validate([
             'images' => 'required',
@@ -26,7 +26,7 @@ class PlanCStepOneComponent extends Component
             session()->put('images', $uploadedImages);
         }
 
-        return $this->redirect('/free-plan-report-step-three', navigate: true);
+        return $this->redirect('/plan-two-report-step-three', navigate: true);
     }
 
     public function render()

@@ -36,7 +36,7 @@
 
     <section class="step-content mb-5">
         <div class="container">
-            <form class="form-step" wire:submit.prevent="lostDogReportTwo">
+            <form class="form-step" wire:submit.prevent="planAStepTwo">
                 <div class="row">
                     <div class="col-md-12 col-lg-12 col-12">
                         <div class="step-page">

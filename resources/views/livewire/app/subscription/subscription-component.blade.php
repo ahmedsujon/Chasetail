@@ -133,7 +133,6 @@
                             <p>Send 250 Texts and Add a Picture</p>
                             <div class="btn-plan">
                                 <a href="/plan-one-report" wire:navigate>Level One Plan</a>
-                                {{-- <a href="#" wire:click.prevent="subscriptionEvent(139, 'PlanB')">Level One Plan</a> --}}
                             </div>
                             <h6>Includes</h6>
                             <ul>
@@ -183,7 +182,6 @@
                             <p>Send 500 Texts and Add a Picture</p>
                             <div class="btn-plan">
                                 <a href="/plan-two-report" wire:navigate>Level Two Plan</a>
-                                {{-- <a href="#" wire:click.prevent="subscriptionEvent(169, 'PlanC')">Level Two Plan</a> --}}
                             </div>
                             <h6>Includes</h6>
                             <ul>
@@ -232,7 +230,6 @@
                             <p>Send 750 Texts and Add a Picture</p>
                             <div class="btn-plan">
                                 <a href="/plan-three-report" wire:navigate>Level Three Plan</a>
-                                {{-- <a href="#" wire:click.prevent="subscriptionEvent(199, 'PlanD')">Level Three Plan</a> --}}
                             </div>
                             <h6>Includes</h6>
                             <ul>
@@ -281,7 +278,6 @@
                             <p>Send 1000 Texts and Add a Picture</p>
                             <div class="btn-plan">
                                 <a href="/plan-four-report" wire:navigate>Level Four Plan</a>
-                                {{-- <a href="#" wire:click.prevent="subscriptionEvent(239, 'PlanE')">Level Four Plan</a> --}}
                             </div>
                             <h6>Includes</h6>
                             <ul>

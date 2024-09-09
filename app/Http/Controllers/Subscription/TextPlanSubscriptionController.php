@@ -133,14 +133,14 @@ class TextPlanSubscriptionController extends Controller
                     $nearestUsers = array_slice($usersWithDistances, 0, 250);
                     $userIds = array_column($nearestUsers, 'user_id');
 
-                    // Send SMS to nearest users
+                    // Send SMS or MMS to nearest users
                     $author_phones = User::whereIn('id', $userIds)->pluck('phone')->toArray();
 
                     $message = "LOST DOG! Alert!:\n";
                     $message .= "Name: " . $data->name . "\n";
                     $message .= "Description: " . $data->description . "\n";
                     $message .= "More details & photo: https://chasetail.com/lostdogs/" . $data->id;
-
+                    $imageUrl = "https://chasetail.com/uploads/images/" . $data->image;
 
                     $sid = env('TWILIO_SID');
                     $token = env('TWILIO_TOKEN');
@@ -155,10 +155,16 @@ class TextPlanSubscriptionController extends Controller
 
                         try {
                             $client = new Client($sid, $token);
-                            $client->messages->create($receiverNumber, [
+                            // Check if media (image) is available, then send as MMS
+                            $messageData = [
                                 'from' => $fromNumber,
                                 'body' => $message
-                            ]);
+                            ];
+                            // Add mediaUrl if you want to send an MMS with an image
+                            if (!empty($imageUrl)) {
+                                $messageData['mediaUrl'] = [$imageUrl];
+                            }
+                            $client->messages->create($receiverNumber, $messageData);
                             $successCount++;
                         } catch (Exception $e) {
                             $errorCount++;
@@ -166,7 +172,7 @@ class TextPlanSubscriptionController extends Controller
                         }
                     }
 
-                    $resultMessage = "Data stored and SMS sent successfully to $successCount users.";
+                    $resultMessage = "Data stored and SMS/MMS sent successfully to $successCount users.";
                     if ($errorCount > 0) {
                         $resultMessage .= " However, there were errors sending to $errorCount users.";
                         $resultMessage .= " Errors: " . implode(", ", $errors);

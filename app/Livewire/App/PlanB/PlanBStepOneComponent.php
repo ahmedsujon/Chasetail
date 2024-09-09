@@ -11,7 +11,7 @@ class PlanBStepOneComponent extends Component
     use WithFileUploads;
     public $images, $uploadedImage;
 
-    public function lostDogReportTwo()
+    public function planBStepTwo()
     {
         $this->validate([
             'images' => 'required',

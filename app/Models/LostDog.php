@@ -9,5 +9,19 @@ class LostDog extends Model
 {
     use HasFactory;
 
-    protected $table = 'lost_dogs';
+    protected $fillable = [
+        'user_id',
+        'latitude',
+        'longitude',
+        'images',
+        'address',
+        'name',
+        'breed',
+        'color',
+        'marking',
+        'gender',
+        'last_seen',
+        'medicine_info',
+        'description',
+    ];
 }

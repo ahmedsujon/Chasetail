@@ -22,7 +22,7 @@ class PlanAStepOneComponent extends Component
         $this->characterCount = strlen($this->description);
     }
 
-    public function lostDogReportTwo()
+    public function planAStepTwo()
     {
         $this->validate([
             'name' => 'required',

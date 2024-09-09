@@ -8,7 +8,7 @@ class PlanAComponent extends Component
 {
     public $latitude, $longitude, $address, $plan_price;
 
-    public function lostDogReportOne()
+    public function planAStepOne()
     {
         $this->validate([
             'latitude' => 'required',

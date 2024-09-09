@@ -18,7 +18,7 @@ class PlanBStepTwoComponent extends Component
         $this->characterCount = strlen($this->description);
     }
 
-    public function lostDogReportTwo()
+    public function planBStepThree()
     {
         $this->validate([
             'name' => 'required',
