@@ -23,7 +23,7 @@ class PlanEComponent extends Component
         session()->put('address', $this->address);
         session()->put('plan_price', 239);
         session()->put('plan', 'PlanE');
-        return $this->redirect('/free-plan-report-step-two', navigate: true);
+        return $this->redirect('/plan-four-report-step-two', navigate: true);
     }
 
     public function updated($fields)

@@ -42,7 +42,7 @@ class PlanCStepTwoComponent extends Component
         session()->put('marking', $this->marking);
         session()->put('description', $this->description);
         session()->put('medicine_info', $this->medicine_info);
-        return $this->redirect('/level-one-subscription-payment', navigate: true);
+        return $this->redirect('/level-two-subscription-payment', navigate: true);
     }
 
     public function updated($fields)

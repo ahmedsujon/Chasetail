@@ -14,7 +14,7 @@
 
     <section class="step-content">
         <div class="container">
-            <form action="{{ url('PlanBSubscription') }}" method="post" class="form-step">
+            <form action="{{ url('PlanESubscription') }}" method="post" class="form-step">
                 @csrf
                 <div class="row">
                     <div class="col-md-12 col-lg-12 col-12">

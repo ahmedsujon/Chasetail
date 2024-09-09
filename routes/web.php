@@ -46,11 +46,7 @@ use App\Livewire\App\Subscription\PlanDPaymentComponent;
 use App\Livewire\App\Subscription\PlanEPaymentComponent;
 use App\Livewire\App\Subscription\SubscriptionComponent;
 use App\Livewire\App\Subscription\TextPlanPaymentComponent;
-use App\Http\Controllers\Subscription\SubscriptionController;
-use App\Livewire\App\LostDogReport\LostReportStepOneComponent;
-use App\Livewire\App\LostDogReport\LostReportStepTwoComponent;
 use App\Livewire\App\Subscription\SubscriptionSuccessComponent;
-use App\Livewire\App\LostDogReport\LostReportStepThreeComponent;
 use App\Http\Controllers\Subscription\PlanBSubscriptionController;
 use App\Http\Controllers\Subscription\PlanCSubscriptionController;
 use App\Http\Controllers\Subscription\PlanDSubscriptionController;
@@ -59,6 +55,9 @@ use App\Livewire\App\FoundDogReport\FoundDogReportStepOneComponent;
 use App\Livewire\App\FoundDogReport\FoundDogReportStepTwoComponent;
 use App\Http\Controllers\Subscription\TextPlanSubscriptionController;
 use App\Livewire\App\FoundDogReport\FoundDogReportStepThreeComponent;
+use App\Livewire\App\PlanE\PlanEComponent;
+use App\Livewire\App\PlanE\PlanEStepOneComponent;
+use App\Livewire\App\PlanE\PlanEStepTwoComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -98,11 +97,6 @@ Route::get('/terms-conditions', TermsConditionsComponent::class)->name('app.term
 Route::get('/how-it-works', HowItsWorkComponent::class)->name('app.how.its.work');
 Route::get('/faq', FAQComponent::class)->name('app.faq');
 
-// Lost Dog report
-Route::get('lost-dog-report-first', LostReportStepOneComponent::class)->name('user.report.first.step');
-Route::get('lost-dog-report-seceond', LostReportStepTwoComponent::class)->name('user.report.seceond.step');
-Route::get('lost-dog-report-third', LostReportStepThreeComponent::class)->name('user.report.third.step');
-
 // Free Lost Dog report
 Route::get('free-plan-report', FreePlanComponent::class)->name('free.plan.report');
 Route::get('free-plan-report-step-two', FreePlanStepOneComponent::class)->name('free.plan.report.step.two');
@@ -130,9 +124,9 @@ Route::prefix('/')->middleware('auth:web')->group(function () {
     Route::get('plan-three-report-step-three', PlanDStepTwoComponent::class)->name('plan.three.report.step.three');
 
     // Plan E
-    Route::get('plan-four-report', FreePlanComponent::class)->name('plan.four.report');
-    Route::get('plan-four-report-step-two', FreePlanStepOneComponent::class)->name('plan.four.report.step.two');
-    Route::get('plan-four-report-step-three', FreePlanStepTwoComponent::class)->name('plan.four.report.step.three');
+    Route::get('plan-four-report', PlanEComponent::class)->name('plan.four.report');
+    Route::get('plan-four-report-step-two', PlanEStepOneComponent::class)->name('plan.four.report.step.two');
+    Route::get('plan-four-report-step-three', PlanEStepTwoComponent::class)->name('plan.four.report.step.three');
 
     // Found Dog Report
     Route::get('found/dog/report/first/step', FoundDogReportStepOneComponent::class)->name('user.found.dog.report.first.step');
@@ -160,17 +154,16 @@ Route::get('/subscription-payment', PaymentComponent::class)->name('app.payment'
 
 Route::get('/text-plan-subscription-payment', TextPlanPaymentComponent::class)->name('app.text.plan.payment');
 Route::get('/level-one-subscription-payment', PlanBPaymentComponent::class)->name('app.plan.b.payment');
-// Route::get('/level-two-subscription-payment', PlanCPaymentComponent::class)->name('app.plan.c.payment');
-// Route::get('/level-three-subscription-payment', PlanDPaymentComponent::class)->name('app.plan.d.payment');
-// Route::get('/level-four-subscription-payment', PlanEPaymentComponent::class)->name('app.plan.e.payment');
+Route::get('/level-two-subscription-payment', PlanCPaymentComponent::class)->name('app.plan.c.payment');
+Route::get('/level-three-subscription-payment', PlanDPaymentComponent::class)->name('app.plan.d.payment');
+Route::get('/level-four-subscription-payment', PlanEPaymentComponent::class)->name('app.plan.e.payment');
 
 // Route::post('/payment', [SubscriptionController::class, 'subscription']);
 Route::post('/text-plan-payment', [TextPlanSubscriptionController::class, 'textPlanSubscription']);
 Route::post('/subscription-payment-level-one', [PlanBSubscriptionController::class, 'PlanBSubscription']);
-
-// Route::get('/level-two-subscription-payment', PlanCSubscriptionController::class)->name('app.plan.c.payment');
-// Route::get('/level-three-subscription-payment', PlanDSubscriptionController::class)->name('app.plan.d.payment');
-// Route::get('/level-four-subscription-payment', PlanESubscriptionController::class)->name('app.plan.e.payment');
+Route::post('/subscription-payment-level-two', [PlanCSubscriptionController::class, 'PlanCSubscription']);
+Route::post('/subscription-payment-level-three', [PlanDSubscriptionController::class, 'PlanDSubscription']);
+Route::post('/subscription-payment-level-four', [PlanESubscriptionController::class, 'PlanESubscription']);
 
 Route::get('/subscription-success/{transaction_id}', SubscriptionSuccessComponent::class)->name('app.subscription.success');
 

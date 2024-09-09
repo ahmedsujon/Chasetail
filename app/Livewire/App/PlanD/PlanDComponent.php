@@ -23,7 +23,7 @@ class PlanDComponent extends Component
         session()->put('address', $this->address);
         session()->put('plan_price', 199);
         session()->put('plan', 'PlanD');
-        return $this->redirect('/free-plan-report-step-two', navigate: true);
+        return $this->redirect('/plan-three-report-step-two', navigate: true);
     }
 
     public function updated($fields)
