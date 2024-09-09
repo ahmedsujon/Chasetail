@@ -52,7 +52,7 @@
                             <h4>FREE</h4>
                             <p>Free to Use</p>
                             <div class="btn-plan">
-                                <a href="/free-plan-report" wire:navigate>Starter Plan</a>
+                                <a href="{{ route('free.plan.report') }}">Starter Plan</a>
                             </div>
                             <h6>Includes</h6>
                             <ul class="free-package">
@@ -132,7 +132,7 @@
                             <h4>$139<span class="user">/ 250 Texts</span></h4>
                             <p>Send 250 Texts and Add a Picture</p>
                             <div class="btn-plan">
-                                <a href="/plan-one-report" wire:navigate>Level One Plan</a>
+                                <a href="{{ route('plan.one.report') }}">Level One Plan</a>
                             </div>
                             <h6>Includes</h6>
                             <ul>
@@ -181,7 +181,7 @@
                             <h4>$169<span class="user">/ 500 Texts</span></h4>
                             <p>Send 500 Texts and Add a Picture</p>
                             <div class="btn-plan">
-                                <a href="/plan-two-report" wire:navigate>Level Two Plan</a>
+                                <a href="{{ route('plan.two.report') }}">Level Two Plan</a>
                             </div>
                             <h6>Includes</h6>
                             <ul>
@@ -229,7 +229,7 @@
                             <h4>$199<span class="user">/ 750 Texts</span></h4>
                             <p>Send 750 Texts and Add a Picture</p>
                             <div class="btn-plan">
-                                <a href="/plan-three-report" wire:navigate>Level Three Plan</a>
+                                <a href="{{ route('plan.three.report') }}">Level Three Plan</a>
                             </div>
                             <h6>Includes</h6>
                             <ul>
@@ -277,7 +277,7 @@
                             <h4>$239<span class="user">/ 1000 Texts</span></h4>
                             <p>Send 1000 Texts and Add a Picture</p>
                             <div class="btn-plan">
-                                <a href="/plan-four-report" wire:navigate>Level Four Plan</a>
+                                <a href="{{ route('plan.four.report') }}">Level Four Plan</a>
                             </div>
                             <h6>Includes</h6>
                             <ul>
