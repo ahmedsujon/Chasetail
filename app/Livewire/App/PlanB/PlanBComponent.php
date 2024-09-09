@@ -21,7 +21,7 @@ class PlanBComponent extends Component
         session()->put('latitude', $this->latitude);
         session()->put('longitude', $this->longitude);
         session()->put('address', $this->address);
-        return $this->redirect('/free-plan-report-step-two', navigate: true);
+        return $this->redirect('/plan-two-report-step-two', navigate: true);
     }
 
     public function updated($fields)

@@ -2,56 +2,63 @@
 
 use App\Livewire\App\HomeComponent;
 use Illuminate\Support\Facades\Route;
+use App\Livewire\App\Pages\FAQComponent;
+use App\Livewire\App\Flyer\FlyerComponent;
+use App\Livewire\App\PlanA\PlanAComponent;
+use App\Livewire\App\PlanB\PlanBComponent;
+use App\Livewire\App\PlanC\PlanCComponent;
+use App\Livewire\App\PlanD\PlanDComponent;
 use App\Livewire\App\Pages\AboutUsComponent;
 use App\Livewire\App\Pages\PricingComponent;
+use App\Http\Controllers\SmsTwilioController;
 use App\Livewire\App\Pages\PartnersComponent;
 use App\Livewire\App\LostDog\LostDogComponent;
 use App\Livewire\App\Pages\ContactUsComponent;
+use App\Livewire\App\Profile\MessageComponent;
 use App\Livewire\App\Pages\HowItsWorkComponent;
 use App\Livewire\App\Donation\DonationComponent;
 use App\Livewire\App\FoundDog\FoundDogComponent;
+use App\Livewire\App\FreePlan\FreePlanComponent;
+use App\Livewire\App\PlanA\PlanAStepOneComponent;
+use App\Livewire\App\PlanB\PlanBStepOneComponent;
+use App\Livewire\App\PlanB\PlanBStepTwoComponent;
+use App\Livewire\App\PlanC\PlanCStepOneComponent;
+use App\Livewire\App\PlanC\PlanCStepTwoComponent;
+use App\Livewire\App\PlanD\PlanDStepOneComponent;
+use App\Livewire\App\PlanD\PlanDStepTwoComponent;
 use App\Livewire\App\Pages\PrivacyPolicyComponent;
+use App\Livewire\App\User\Auth\OtpVerifyComponent;
+use App\Livewire\App\Profile\PersonalInfoComponent;
 use App\Livewire\App\Subscription\PaymentComponent;
 use App\Livewire\App\Pages\TermsConditionsComponent;
 use App\Http\Controllers\Donation\DonationController;
+use App\Livewire\App\LostDog\LostDogDetailsComponent;
+use App\Livewire\App\Profile\PaymentHistoryComponent;
 use App\Livewire\App\Donation\DonationSuccessComponent;
+use App\Livewire\App\FoundDog\FoundDogDetailsComponent;
+use App\Livewire\App\FreePlan\FreePlanStepOneComponent;
+use App\Livewire\App\FreePlan\FreePlanStepTwoComponent;
 use App\Livewire\App\User\Auth\ForgotPasswordComponent;
 use App\Livewire\App\User\Auth\UpdatePasswordComponent;
+use App\Livewire\App\Subscription\PlanBPaymentComponent;
+use App\Livewire\App\Subscription\PlanCPaymentComponent;
+use App\Livewire\App\Subscription\PlanDPaymentComponent;
+use App\Livewire\App\Subscription\PlanEPaymentComponent;
 use App\Livewire\App\Subscription\SubscriptionComponent;
-use App\Livewire\App\Subscription\PaymentSuccessComponent;
+use App\Livewire\App\Subscription\TextPlanPaymentComponent;
 use App\Http\Controllers\Subscription\SubscriptionController;
-use App\Livewire\App\Flyer\FlyerComponent;
-use App\Livewire\App\FoundDog\FoundDogDetailsComponent;
 use App\Livewire\App\LostDogReport\LostReportStepOneComponent;
 use App\Livewire\App\LostDogReport\LostReportStepTwoComponent;
 use App\Livewire\App\Subscription\SubscriptionSuccessComponent;
 use App\Livewire\App\LostDogReport\LostReportStepThreeComponent;
+use App\Http\Controllers\Subscription\PlanBSubscriptionController;
+use App\Http\Controllers\Subscription\PlanCSubscriptionController;
+use App\Http\Controllers\Subscription\PlanDSubscriptionController;
+use App\Http\Controllers\Subscription\PlanESubscriptionController;
 use App\Livewire\App\FoundDogReport\FoundDogReportStepOneComponent;
 use App\Livewire\App\FoundDogReport\FoundDogReportStepTwoComponent;
+use App\Http\Controllers\Subscription\TextPlanSubscriptionController;
 use App\Livewire\App\FoundDogReport\FoundDogReportStepThreeComponent;
-use App\Livewire\App\FreeLostDogReport\FreeDogReportStepOneComponent;
-use App\Livewire\App\FreeLostDogReport\FreeDogReportStepTwoComponent;
-use App\Livewire\App\FreeLostDogReport\FreeDogReportStepThreeComponent;
-use App\Livewire\App\FreePlan\FreePlanComponent;
-use App\Livewire\App\FreePlan\FreePlanStepOneComponent;
-use App\Livewire\App\FreePlan\FreePlanStepTwoComponent;
-use App\Livewire\App\LostDog\LostDogDetailsComponent;
-use App\Livewire\App\Pages\FAQComponent;
-use App\Livewire\App\PlanA\PlanAComponent;
-use App\Livewire\App\PlanA\PlanAStepOneComponent;
-use App\Livewire\App\PlanB\PlanBComponent;
-use App\Livewire\App\PlanB\PlanBStepOneComponent;
-use App\Livewire\App\PlanB\PlanBStepTwoComponent;
-use App\Livewire\App\PlanC\PlanCComponent;
-use App\Livewire\App\PlanC\PlanCStepOneComponent;
-use App\Livewire\App\PlanC\PlanCStepTwoComponent;
-use App\Livewire\App\PlanD\PlanDComponent;
-use App\Livewire\App\PlanD\PlanDStepOneComponent;
-use App\Livewire\App\PlanD\PlanDStepTwoComponent;
-use App\Livewire\App\Profile\MessageComponent;
-use App\Livewire\App\Profile\PaymentHistoryComponent;
-use App\Livewire\App\Profile\PersonalInfoComponent;
-use App\Livewire\App\User\Auth\OtpVerifyComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -150,12 +157,22 @@ Route::get('/donation-success/{transaction_id}', DonationSuccessComponent::class
 // Subscription
 Route::get('/subscription', SubscriptionComponent::class)->name('app.subscription');
 Route::get('/subscription-payment', PaymentComponent::class)->name('app.payment');
-Route::post('/payment', [SubscriptionController::class, 'subscription']);
 
+Route::get('/text-plan-subscription-payment', TextPlanPaymentComponent::class)->name('app.text.plan.payment');
+Route::get('/level-one-subscription-payment', PlanBPaymentComponent::class)->name('app.plan.b.payment');
+// Route::get('/level-two-subscription-payment', PlanCPaymentComponent::class)->name('app.plan.c.payment');
+// Route::get('/level-three-subscription-payment', PlanDPaymentComponent::class)->name('app.plan.d.payment');
+// Route::get('/level-four-subscription-payment', PlanEPaymentComponent::class)->name('app.plan.e.payment');
+
+// Route::post('/payment', [SubscriptionController::class, 'subscription']);
+Route::post('/text-plan-payment', [TextPlanSubscriptionController::class, 'textPlanSubscription']);
+Route::post('/subscription-payment-level-one', [PlanBSubscriptionController::class, 'PlanBSubscription']);
+
+// Route::get('/level-two-subscription-payment', PlanCSubscriptionController::class)->name('app.plan.c.payment');
+// Route::get('/level-three-subscription-payment', PlanDSubscriptionController::class)->name('app.plan.d.payment');
+// Route::get('/level-four-subscription-payment', PlanESubscriptionController::class)->name('app.plan.e.payment');
 
 Route::get('/subscription-success/{transaction_id}', SubscriptionSuccessComponent::class)->name('app.subscription.success');
-
-use App\Http\Controllers\SmsTwilioController;
 
 Route::get('sms/send', [SmsTwilioController::class, 'sendSms']);
 

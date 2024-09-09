@@ -41,7 +41,7 @@ class PlanAStepOneComponent extends Component
         session()->put('marking', $this->marking);
         session()->put('description', $this->description);
         session()->put('medicine_info', $this->medicine_info);
-        return $this->redirect('/subscription-payment', navigate: true);
+        return $this->redirect('/text-plan-subscription-payment', navigate: true);
     }
 
     public function updated($fields)
@@ -57,7 +57,7 @@ class PlanAStepOneComponent extends Component
             'medicine_info' => 'required',
         ]);
     }
-    
+
     public function render()
     {
         return view('livewire.app.plan-a.plan-a-step-one-component')->layout('livewire.app.layouts.base');
