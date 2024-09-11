@@ -573,7 +573,8 @@
                                         <div class="mb-4">
                                             <label for="marking" class="form-label">Marking</label>
                                             <input type="text" wire:model.blur="marking" class="form-control"
-                                                placeholder="Describe dogs marking (20 characters max) (Optional)" maxlength="20">
+                                                placeholder="Describe dogs marking (20 characters max) (Optional)"
+                                                maxlength="20">
                                             @error('marking')
                                                 <span class="label-bot-validate">{{ $message }}</span>
                                             @enderror
@@ -612,6 +613,22 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3"></div>
+                                <div class="col-lg-6 col-md-6 col-6">
+                                    <div class="mb-4 mt-5">
+                                        <h6 style="font-size: 20px; font-weight: 600;" class="sms-previw-title">SMS
+                                            PREVIEW</h6>
+                                        <p>Name:{{ $name }}, Color:{{ $color }},
+                                            Breed:{{ $breed }},
+                                            Sex:{{ $gender }}, Lost
+                                            Date:{{ $last_seen }},
+                                            Marking:{{ $marking }}, {{ $description }}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3"></div>
                             </div>
                         </div>
                     </div>

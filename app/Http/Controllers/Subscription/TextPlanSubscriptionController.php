@@ -136,11 +136,12 @@ class TextPlanSubscriptionController extends Controller
                     // Send SMS or MMS to nearest users
                     $author_phones = User::whereIn('id', $userIds)->pluck('phone')->toArray();
 
-                    $message = "LOST DOG! Alert!:\n";
-                    $message .= "Name: " . $data->name . "\n";
-                    $message .= "Description: " . $data->description . "\n";
-                    $message .= "More details & photo: https://chasetail.com/lostdogs/" . $data->id;
-                    $imageUrl = "https://chasetail.com/uploads/images/" . $data->image;
+                    $message = "Name: " . $data->name . "; " .
+                        "Color: " . $data->color . "; " .
+                        "Gender: " . $data->gender . "; " .
+                        "Lost Date: " . $data->last_seen . "; " .
+                        "Marking: " . $data->marking . "; " .
+                        $data->description . ";";
 
                     $sid = env('TWILIO_SID');
                     $token = env('TWILIO_TOKEN');

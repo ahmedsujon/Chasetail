@@ -620,7 +620,8 @@
                                         <h6 style="font-size: 20px; font-weight: 600;" class="sms-previw-title">SMS
                                             PREVIEW</h6>
                                         <p>Name:{{ $name }}, Color:{{ $color }},
-                                            Sex:{{ $gender }}, Lost Date:{{ $last_seen }},
+                                            Sex:{{ $gender }}, Lost
+                                            Date:{{ $last_seen }},
                                             Marking:{{ $marking }}, {{ $description }}
                                         </p>
                                     </div>
