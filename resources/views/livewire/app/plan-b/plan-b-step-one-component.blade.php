@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-md-12 col-lg-12 col-12">
                     <div class="page-header-text">
-                        <h4>Posting as Starter or Free User</h4>
+                        <h4>Posting as Level One Plan</h4>
                         <p>Update Plan? <a href="#">Roll-Back</a></p>
                     </div>
                 </div>
@@ -23,7 +23,17 @@
                 <div class="row">
                     <div class="col-md-12 col-lg-12 col-12">
                         <div class="step-page">
-                            <h3>Add your dog photo</h3>
+                            <div class="multiple-photo">
+                                <div class="form-check">
+                                    <input class="form-check-input" wire:model.live='multiple_image'
+                                        name="multiple_image" type="checkbox" id="flexCheckChecked" checked>
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Add multiple photo <span class="extra">($29
+                                            extra)
+                                    </label>
+                                </div>
+                            </div>
+                            <h3>Add your dog photos</h3>
                             <p>Photo quality will affect your search results. Please select a clear image of one pet
                                 looking directly at the camera.</p>
                             <label for="images" class="drop-container" id="dropcontainer">
