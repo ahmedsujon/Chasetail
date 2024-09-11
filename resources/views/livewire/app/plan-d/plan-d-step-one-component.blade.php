@@ -23,16 +23,6 @@
                 <div class="row">
                     <div class="col-md-12 col-lg-12 col-12">
                         <div class="step-page">
-                            <div class="multiple-photo">
-                                <div class="form-check">
-                                    <input class="form-check-input" wire:model.live='multiple_image'
-                                        name="multiple_image" type="checkbox" id="flexCheckChecked" checked>
-                                    <label class="form-check-label" for="flexCheckChecked">
-                                        Add multiple photo <span class="extra">($29
-                                            extra)
-                                    </label>
-                                </div>
-                            </div>
                             <h3>Add your dog photo</h3>
                             <p>Photo quality will affect your search results. Please select a clear image of one pet
                                 looking directly at the camera.</p>
