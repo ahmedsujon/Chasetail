@@ -141,7 +141,7 @@ class TextPlanSubscriptionController extends Controller
                         "Gender: " . $data->gender . "; " .
                         "Lost Date: " . $data->last_seen . "; " .
                         "Marking: " . $data->marking . "; " .
-                        $data->description . ";";
+                        $data->description . ".";
 
                     $sid = env('TWILIO_SID');
                     $token = env('TWILIO_TOKEN');

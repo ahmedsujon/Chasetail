@@ -120,7 +120,14 @@ class PlanDSubscriptionController extends Controller
 
                     // Send SMS and MMS
                     $phones = User::whereIn('id', $userIds)->pluck('phone')->toArray();
-                    $message = "LOST DOG! Alert!:\nName: {$lostDog->name}\nDescription: {$lostDog->description}\nMore details & photo: https://chasetail.com/lostdogs/{$lostDog->id}";
+
+                    $message = "Name: " . $lostDog->name . "; " .
+                        "Breed: " . $lostDog->breed . "; " .
+                        "Color: " . $lostDog->color . "; " .
+                        "Gender: " . $lostDog->gender . "; " .
+                        "Lost Date: " . $lostDog->last_seen . "; " .
+                        "Marking: " . $lostDog->marking . "; " .
+                        $lostDog->description . ".";
 
                     $sid = env('TWILIO_SID');
                     $token = env('TWILIO_TOKEN');
