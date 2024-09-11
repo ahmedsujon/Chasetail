@@ -136,7 +136,7 @@
                         <table style="width: 100%;">
                             <tr>
                                 <td style="text-align: left;">
-                                    <img src="{{ asset('assets/images/logo.png') }}" width="250" alt="Logo"
+                                    <img src="{{ $lost_dog->images }}" width="250" alt="Logo"
                                         style="max-width: 250px;">
                                 </td>
                                 <td style="text-align: center; padding-top: 20px;">
