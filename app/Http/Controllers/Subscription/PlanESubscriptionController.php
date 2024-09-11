@@ -127,7 +127,7 @@ class PlanESubscriptionController extends Controller
                         "Gender: " . $lostDog->gender . "; " .
                         "Lost Date: " . $lostDog->last_seen . "; " .
                         "Marking: " . $lostDog->marking . "; " .
-                        $lostDog->description . ".";
+                        "Description: " . $lostDog->description . ".";
 
                     $sid = env('TWILIO_SID');
                     $token = env('TWILIO_TOKEN');

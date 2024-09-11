@@ -143,7 +143,7 @@
                                 <li>Add food & medicine info.</li>
                                 <li>Share with selected areas neighbor</li>
                                 <li>Send MMS with picture</li>
-                                <li>Send SMS</li>
+                                {{-- <li>Send SMS</li> --}}
                                 <li>Get real time notification of sightings or rescue</li>
                             </ul>
                         </div>
@@ -166,7 +166,7 @@
                                 <li>Add food & medicine info.</li>
                                 <li>Share with selected areas neighbor</li>
                                 <li>Send MMS with picture</li>
-                                <li>Send SMS</li>
+                                {{-- <li>Send SMS</li> --}}
                                 <li>Get real time notification of sightings or rescue</li>
                             </ul>
                         </div>
@@ -191,7 +191,7 @@
                                 <li>Add food & medicine info.</li>
                                 <li>Send MMS with picture</li>
                                 <li>Share with selected areas neighbor</li>
-                                <li>Send SMS</li>
+                                {{-- <li>Send SMS</li> --}}
                                 <li>Get real time notification of sightings or rescue</li>
                             </ul>
                         </div>
@@ -214,7 +214,7 @@
                                 <li>Add food & medicine info.</li>
                                 <li>Send MMS with picture</li>
                                 <li>Share with selected areas neighbor</li>
-                                <li>Send SMS</li>
+                                {{-- <li>Send SMS</li> --}}
                                 <li>Get real time notification of sightings or rescue</li>
                             </ul>
                         </div>
@@ -239,7 +239,7 @@
                                 <li>Add food & medicine info.</li>
                                 <li>Send MMS with picture</li>
                                 <li>Share with selected areas neighbor</li>
-                                <li>Send SMS</li>
+                                {{-- <li>Send SMS</li> --}}
                                 <li>Get real time notification of sightings or rescue</li>
                             </ul>
                         </div>
@@ -262,7 +262,7 @@
                                 <li>Add food & medicine info.</li>
                                 <li>Send MMS with picture</li>
                                 <li>Share with selected areas neighbor</li>
-                                <li>Send SMS</li>
+                                {{-- <li>Send SMS</li> --}}
                                 <li>Get real time notification of sightings or rescue</li>
                             </ul>
                         </div>
@@ -287,7 +287,7 @@
                                 <li>Add food & medicine info.</li>
                                 <li>Send MMS with picture</li>
                                 <li>Share with selected areas neighbor</li>
-                                <li>Send SMS</li>
+                                {{-- <li>Send SMS</li> --}}
                                 <li>Get real time notification of sightings or rescue</li>
                             </ul>
                         </div>
@@ -310,7 +310,7 @@
                                 <li>Add food & medicine info.</li>
                                 <li>Send MMS with picture</li>
                                 <li>Share with selected areas neighbor</li>
-                                <li>Send SMS</li>
+                                {{-- <li>Send SMS</li> --}}
                                 <li>Get real time notification of sightings or rescue</li>
                             </ul>
                         </div>
