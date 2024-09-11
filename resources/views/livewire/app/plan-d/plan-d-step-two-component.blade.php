@@ -46,7 +46,7 @@
                                         <div class="mb-4">
                                             <label for="exampleFormControlInput1" class="form-label">Dog Name</label>
                                             <input type="text" wire:model.blur="name" class="form-control"
-                                                placeholder="Enter dog name">
+                                                placeholder="Enter dog name (10 characters max)" maxlength="20">
                                             @error('name')
                                                 <span class="label-bot-validate">{{ $message }}</span>
                                             @enderror
@@ -565,7 +565,7 @@
                                         <div class="mb-4">
                                             <label for="color" class="form-label">Dog Color</label>
                                             <input type="text" wire:model.blur="color" class="form-control"
-                                                placeholder="Describe your dogs color">
+                                                placeholder="Describe dogs color (10 characters max)" maxlength="10">
                                             @error('color')
                                                 <span class="label-bot-validate">{{ $message }}</span>
                                             @enderror
@@ -573,7 +573,8 @@
                                         <div class="mb-4">
                                             <label for="marking" class="form-label">Marking</label>
                                             <input type="text" wire:model.blur="marking" class="form-control"
-                                                placeholder="Describe your dogs marking (Optional)">
+                                                placeholder="Describe dogs marking (20 characters max) (Optional)"
+                                                maxlength="20">
                                             @error('marking')
                                                 <span class="label-bot-validate">{{ $message }}</span>
                                             @enderror
@@ -588,8 +589,8 @@
                                             <label for="exampleFormControlInput1" class="form-label">What does your
                                                 dog
                                                 look like?</label>
-                                            <textarea class="form-control" wire:model.blur="description" rows="3" maxlength="150"
-                                                placeholder="Description (150 characters only)"></textarea>
+                                            <textarea class="form-control" wire:model.blur="description" rows="3" maxlength="200"
+                                                placeholder="Description (200 characters only)"></textarea>
                                             @error('description')
                                                 <span class="label-bot-validate">{{ $message }}</span>
                                             @enderror

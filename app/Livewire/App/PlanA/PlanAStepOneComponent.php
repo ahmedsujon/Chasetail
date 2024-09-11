@@ -2,20 +2,15 @@
 
 namespace App\Livewire\App\PlanA;
 
-use App\Models\User;
-use App\Models\LostDog;
 use Livewire\Component;
-use Twilio\Rest\Client;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
 
 class PlanAStepOneComponent extends Component
 {
     public $user_id, $name, $last_seen, $gender, $color, $breed, $marking, $description, $medicine_info;
 
     public $characterCount = 0;
-    public $maxCharacters = 100;
+    public $maxCharacters = 50;
 
     public function updatedDescription()
     {

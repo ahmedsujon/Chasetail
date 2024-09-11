@@ -46,7 +46,7 @@
                                         <div class="mb-4">
                                             <label for="exampleFormControlInput1" class="form-label">Dog Name</label>
                                             <input type="text" wire:model.blur="name" class="form-control"
-                                                placeholder="Enter dog name">
+                                                placeholder="Enter dog name (10 characters max)" maxlength="10">
                                             @error('name')
                                                 <span class="label-bot-validate">{{ $message }}</span>
                                             @enderror
@@ -565,7 +565,7 @@
                                         <div class="mb-4">
                                             <label for="color" class="form-label">Dog Color</label>
                                             <input type="text" wire:model.blur="color" class="form-control"
-                                                placeholder="Describe your dogs color">
+                                                placeholder="Describe dogs color (10 characters max )" maxlength="10">
                                             @error('color')
                                                 <span class="label-bot-validate">{{ $message }}</span>
                                             @enderror
@@ -573,7 +573,7 @@
                                         <div class="mb-4">
                                             <label for="marking" class="form-label">Marking</label>
                                             <input type="text" wire:model.blur="marking" class="form-control"
-                                                placeholder="Describe your dogs marking (Optional)">
+                                                placeholder="Describe dogs marking (20 characters max) (Optional)">
                                             @error('marking')
                                                 <span class="label-bot-validate">{{ $message }}</span>
                                             @enderror
@@ -588,8 +588,8 @@
                                             <label for="exampleFormControlInput1" class="form-label">What does your
                                                 dog
                                                 look like?</label>
-                                            <textarea class="form-control" wire:model.blur="description" rows="3" maxlength="150"
-                                                placeholder="Description (150 characters only)"></textarea>
+                                            <textarea class="form-control" wire:model.blur="description" rows="3" maxlength="50"
+                                                placeholder="Description (50 characters only)"></textarea>
                                             @error('description')
                                                 <span class="label-bot-validate">{{ $message }}</span>
                                             @enderror
@@ -612,6 +612,20 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3"></div>
+                                <div class="col-lg-6 col-md-6 col-6">
+                                    <div class="mb-4 mt-5">
+                                        <h6 style="font-size: 20px; font-weight: 600;" class="sms-previw-title">SMS
+                                            PREVIEW</h6>
+                                        <p>Name:{{ $name }}, Color:{{ $color }},
+                                            Sex:{{ $gender }}, Lost Date:{{ $last_seen }},
+                                            Marking:{{ $marking }}, {{ $description }}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3"></div>
                             </div>
                         </div>
                     </div>

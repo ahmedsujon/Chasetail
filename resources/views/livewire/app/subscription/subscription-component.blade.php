@@ -95,10 +95,10 @@
                             <h6>Includes</h6>
                             <ul>
                                 <li>250 Texts Nearby</li>
-                                <li>Add short description (100 character)</li>
+                                <li>Add short description (50 character)</li>
                                 <li>Add food & medicine info.</li>
                                 <li>Share with selected areas neighbor</li>
-                                <li>Send SMS & Email</li>
+                                <li>Send SMS</li>
                                 <li>Get real time notification of sightings or rescue</li>
                             </ul>
                         </div>
@@ -115,10 +115,10 @@
                             <h6>Includes</h6>
                             <ul>
                                 <li>250 Texts Nearby</li>
-                                <li>Add short description (100 character)</li>
+                                <li>Add short description (50 character)</li>
                                 <li>Add food & medicine info.</li>
                                 <li>Share with selected areas neighbor</li>
-                                <li>Send SMS & Email</li>
+                                <li>Send SMS</li>
                                 <li>Get real time notification of sightings or rescue</li>
                             </ul>
                         </div>
@@ -139,11 +139,11 @@
                                 <li>250 Texts Nearby</li>
                                 <li>Can add single photo</li>
                                 {{-- <li>Add multiple photo <span style="font-weight: 600">($29 extra)</span></li> --}}
-                                <li>Can add 275 character description</li>
+                                <li>Can add 200 character description</li>
                                 <li>Add food & medicine info.</li>
                                 <li>Share with selected areas neighbor</li>
                                 <li>Send MMS with picture</li>
-                                <li>Send SMS & Email</li>
+                                <li>Send SMS</li>
                                 <li>Get real time notification of sightings or rescue</li>
                             </ul>
                         </div>
@@ -162,11 +162,11 @@
                                 <li>250 Texts Nearby</li>
                                 <li>Can add single photo</li>
                                 {{-- <li>Add multiple photo <span style="font-weight: 600">($29 extra)</span></li> --}}
-                                <li>Can add 275 character description</li>
+                                <li>Can add 200 character description</li>
                                 <li>Add food & medicine info.</li>
                                 <li>Share with selected areas neighbor</li>
                                 <li>Send MMS with picture</li>
-                                <li>Send SMS & Email</li>
+                                <li>Send SMS</li>
                                 <li>Get real time notification of sightings or rescue</li>
                             </ul>
                         </div>
@@ -187,11 +187,11 @@
                                 <li>500 Texts Nearby</li>
                                 <li>Can add single photo</li>
                                 {{-- <li>Add multiple photo <span style="font-weight: 600">($29 extra)</span></li> --}}
-                                <li>Can add 275 character description</li>
+                                <li>Can add 200 character description</li>
                                 <li>Add food & medicine info.</li>
                                 <li>Send MMS with picture</li>
                                 <li>Share with selected areas neighbor</li>
-                                <li>Send SMS & Email</li>
+                                <li>Send SMS</li>
                                 <li>Get real time notification of sightings or rescue</li>
                             </ul>
                         </div>
@@ -210,11 +210,11 @@
                                 <li>500 Texts Nearby</li>
                                 <li>Can add single photo</li>
                                 {{-- <li>Add multiple photo <span style="font-weight: 600">($29 extra)</span></li> --}}
-                                <li>Can add 275 character description</li>
+                                <li>Can add 200 character description</li>
                                 <li>Add food & medicine info.</li>
                                 <li>Send MMS with picture</li>
                                 <li>Share with selected areas neighbor</li>
-                                <li>Send SMS & Email</li>
+                                <li>Send SMS</li>
                                 <li>Get real time notification of sightings or rescue</li>
                             </ul>
                         </div>
@@ -235,11 +235,11 @@
                                 <li>750 Texts Nearby</li>
                                 <li>Can add single photo</li>
                                 {{-- <li>Add multiple photo <span style="font-weight: 600">($29 extra)</span></li> --}}
-                                <li>Can add 275 character description</li>
+                                <li>Can add 200 character description</li>
                                 <li>Add food & medicine info.</li>
                                 <li>Send MMS with picture</li>
                                 <li>Share with selected areas neighbor</li>
-                                <li>Send SMS & Email</li>
+                                <li>Send SMS</li>
                                 <li>Get real time notification of sightings or rescue</li>
                             </ul>
                         </div>
@@ -258,11 +258,11 @@
                                 <li>750 Texts Nearby</li>
                                 <li>Can add single photo</li>
                                 {{-- <li>Add multiple photo <span style="font-weight: 600">($29 extra)</span></li> --}}
-                                <li>Can add 275 character description</li>
+                                <li>Can add 200 character description</li>
                                 <li>Add food & medicine info.</li>
                                 <li>Send MMS with picture</li>
                                 <li>Share with selected areas neighbor</li>
-                                <li>Send SMS & Email</li>
+                                <li>Send SMS</li>
                                 <li>Get real time notification of sightings or rescue</li>
                             </ul>
                         </div>
@@ -283,11 +283,11 @@
                                 <li>1000 Texts Nearby</li>
                                 <li>Can add single photo</li>
                                 {{-- <li>Add multiple photo <span style="font-weight: 600">($29 extra)</span></li> --}}
-                                <li>Can add 275 character description</li>
+                                <li>Can add 200 character description</li>
                                 <li>Add food & medicine info.</li>
                                 <li>Send MMS with picture</li>
                                 <li>Share with selected areas neighbor</li>
-                                <li>Send SMS & Email</li>
+                                <li>Send SMS</li>
                                 <li>Get real time notification of sightings or rescue</li>
                             </ul>
                         </div>
@@ -306,11 +306,11 @@
                                 <li>1000 Texts Nearby</li>
                                 <li>Can add single photo</li>
                                 {{-- <li>Add multiple photo <span style="font-weight: 600">($29 extra)</span></li> --}}
-                                <li>Can add 275 character description</li>
+                                <li>Can add 200 character description</li>
                                 <li>Add food & medicine info.</li>
                                 <li>Send MMS with picture</li>
                                 <li>Share with selected areas neighbor</li>
-                                <li>Send SMS & Email</li>
+                                <li>Send SMS</li>
                                 <li>Get real time notification of sightings or rescue</li>
                             </ul>
                         </div>

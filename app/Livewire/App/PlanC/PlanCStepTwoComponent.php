@@ -2,13 +2,8 @@
 
 namespace App\Livewire\App\PlanC;
 
-use App\Models\User;
-use App\Models\LostDog;
 use Livewire\Component;
-use Twilio\Rest\Client;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
 
 class PlanCStepTwoComponent extends Component
 {
@@ -16,7 +11,7 @@ class PlanCStepTwoComponent extends Component
     public $user_id, $name, $last_seen, $gender, $color, $breed, $marking, $description, $medicine_info;
 
     public $characterCount = 0;
-    public $maxCharacters = 100;
+    public $maxCharacters = 200;
 
     public function updatedDescription()
     {
