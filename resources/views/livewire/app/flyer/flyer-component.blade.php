@@ -127,7 +127,7 @@
                 </tr>
                 <tr>
                     <td style="text-align:center;">
-                        <img src="{{ asset('assets/images/newsletter-dog.jpg') }}" width="600" alt="Fido"
+                        <img src="{{ $lost_dog->images }}" width="600" alt="Fido"
                             style="max-width: 600px;">
                         <div>
                             <p style="font-weight: 400; font-size: 17px; margin-top: 10px;">Description:
