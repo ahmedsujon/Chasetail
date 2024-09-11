@@ -10,7 +10,7 @@
                 <div class="col-md-12 col-lg-12 col-12">
                     <div class="page-header-text">
                         <h4>Posting as Level Two Plan</h4>
-                        <p>Update Plan? <a href="#">Roll-Back</a></p>
+                        <p>Update Plan? <a href="/subscription" wire:navigate>Roll-Back</a></p>
                     </div>
                 </div>
             </div>

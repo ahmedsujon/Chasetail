@@ -140,7 +140,7 @@
                                         style="max-width: 250px;">
                                 </td>
                                 <td style="text-align: center; padding-top: 20px;">
-                                    {{-- <div class="qr-code-style">
+                                    <div class="qr-code-style">
                                         <img src="data:image/png;base64,{{ base64_encode(
                                             QrCode::format('png')->size(80)->generate(
                                                     'Name: ' .
@@ -160,7 +160,7 @@
                                                 ),
                                         ) }}"
                                             alt="QRCode">
-                                    </div> --}}
+                                    </div>
                                     <p style="font-size: 15px; font-weight: 600; color: #0082f0;">
                                         SCAN CODE W/ SMARTPHONE<br>
                                         <a style="color: #0082f0 !important;" href="https://chasetail.com/"

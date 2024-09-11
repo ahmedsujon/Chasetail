@@ -138,7 +138,7 @@
                             <ul>
                                 <li>250 Texts Nearby</li>
                                 <li>Can add single photo</li>
-                                <li>Add multiple photo <span style="font-weight: 600">($29 extra)</span></li>
+                                {{-- <li>Add multiple photo <span style="font-weight: 600">($29 extra)</span></li> --}}
                                 <li>Can add 275 character description</li>
                                 <li>Add food & medicine info.</li>
                                 <li>Share with selected areas neighbor</li>
@@ -161,8 +161,7 @@
                             <ul>
                                 <li>250 Texts Nearby</li>
                                 <li>Can add single photo</li>
-                                <li>Add multiple photo <span style="font-weight: 600">($29 extra)</span></li>
-                                <li>Add multiple photo <span style="font-weight: 600">($29 extra)</span></li>
+                                {{-- <li>Add multiple photo <span style="font-weight: 600">($29 extra)</span></li> --}}
                                 <li>Can add 275 character description</li>
                                 <li>Add food & medicine info.</li>
                                 <li>Share with selected areas neighbor</li>
@@ -187,7 +186,7 @@
                             <ul>
                                 <li>500 Texts Nearby</li>
                                 <li>Can add single photo</li>
-                                <li>Add multiple photo <span style="font-weight: 600">($29 extra)</span></li>
+                                {{-- <li>Add multiple photo <span style="font-weight: 600">($29 extra)</span></li> --}}
                                 <li>Can add 275 character description</li>
                                 <li>Add food & medicine info.</li>
                                 <li>Send MMS with picture</li>
@@ -210,7 +209,7 @@
                             <ul>
                                 <li>500 Texts Nearby</li>
                                 <li>Can add single photo</li>
-                                <li>Add multiple photo <span style="font-weight: 600">($29 extra)</span></li>
+                                {{-- <li>Add multiple photo <span style="font-weight: 600">($29 extra)</span></li> --}}
                                 <li>Can add 275 character description</li>
                                 <li>Add food & medicine info.</li>
                                 <li>Send MMS with picture</li>
@@ -235,7 +234,7 @@
                             <ul>
                                 <li>750 Texts Nearby</li>
                                 <li>Can add single photo</li>
-                                <li>Add multiple photo <span style="font-weight: 600">($29 extra)</span></li>
+                                {{-- <li>Add multiple photo <span style="font-weight: 600">($29 extra)</span></li> --}}
                                 <li>Can add 275 character description</li>
                                 <li>Add food & medicine info.</li>
                                 <li>Send MMS with picture</li>
@@ -258,7 +257,7 @@
                             <ul>
                                 <li>750 Texts Nearby</li>
                                 <li>Can add single photo</li>
-                                <li>Add multiple photo <span style="font-weight: 600">($29 extra)</span></li>
+                                {{-- <li>Add multiple photo <span style="font-weight: 600">($29 extra)</span></li> --}}
                                 <li>Can add 275 character description</li>
                                 <li>Add food & medicine info.</li>
                                 <li>Send MMS with picture</li>
@@ -283,7 +282,7 @@
                             <ul>
                                 <li>1000 Texts Nearby</li>
                                 <li>Can add single photo</li>
-                                <li>Add multiple photo <span style="font-weight: 600">($29 extra)</span></li>
+                                {{-- <li>Add multiple photo <span style="font-weight: 600">($29 extra)</span></li> --}}
                                 <li>Can add 275 character description</li>
                                 <li>Add food & medicine info.</li>
                                 <li>Send MMS with picture</li>
@@ -306,7 +305,7 @@
                             <ul>
                                 <li>1000 Texts Nearby</li>
                                 <li>Can add single photo</li>
-                                <li>Add multiple photo <span style="font-weight: 600">($29 extra)</span></li>
+                                {{-- <li>Add multiple photo <span style="font-weight: 600">($29 extra)</span></li> --}}
                                 <li>Can add 275 character description</li>
                                 <li>Add food & medicine info.</li>
                                 <li>Send MMS with picture</li>

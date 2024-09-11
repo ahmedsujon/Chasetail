@@ -7,7 +7,7 @@ use Livewire\Component;
 class PlanBPaymentComponent extends Component
 {
 
-    public $multiple_image = 1;
+    public $multiple_image = 0;
 
     public function render()
     {

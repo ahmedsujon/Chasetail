@@ -1,4 +1,9 @@
 <div>
+    <style>
+        .text-danger {
+            text-align: left !important;
+        }
+    </style>
     <section id="page-header">
         <div class="container-fluid">
             <div class="row">
@@ -14,7 +19,7 @@
 
     <section class="step-content">
         <div class="container">
-            <form action="{{ url('PlanDSubscription') }}" method="post" class="form-step">
+            <form action="{{ url('subscription-payment-level-three') }}" method="post" class="form-step">
                 @csrf
                 <div class="row">
                     <div class="col-md-12 col-lg-12 col-12">
@@ -28,7 +33,7 @@
                                     </div>
                                     <p>Think to Upgrade Plan? <a href="/subscription" wire:navigate>Click Here to Roll
                                             Back</a></p>
-                                    <div class="multiple-photo">
+                                    <div class="multiple-photo" style="display: none;">
                                         <div class="form-check">
                                             <input class="form-check-input" wire:model.live='multiple_image'
                                                 name="multiple_image" type="checkbox" id="flexCheckChecked" checked>

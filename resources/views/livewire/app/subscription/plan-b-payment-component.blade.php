@@ -1,4 +1,9 @@
 <div>
+    <style>
+        .text-danger {
+            text-align: left !important;
+        }
+    </style>
     <section id="page-header">
         <div class="container-fluid">
             <div class="row">
@@ -28,7 +33,7 @@
                                     </div>
                                     <p>Think to Upgrade Plan? <a href="/subscription" wire:navigate>Click Here to Roll
                                             Back</a></p>
-                                    <div class="multiple-photo">
+                                    <div class="multiple-photo" style="display: none;">
                                         <div class="form-check">
                                             <input class="form-check-input" wire:model.live='multiple_image'
                                                 name="multiple_image" type="checkbox" id="flexCheckChecked" checked>
@@ -152,7 +157,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="row">
                                 <div class="col-12">
                                     <div class="make-payment">

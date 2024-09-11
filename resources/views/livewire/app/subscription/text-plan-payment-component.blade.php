@@ -1,4 +1,9 @@
 <div>
+    <style>
+        .text-danger {
+            text-align: left !important;
+        }
+    </style>
     <section id="page-header">
         <div class="container-fluid">
             <div class="row">
@@ -20,18 +25,6 @@
                     <div class="col-md-12 col-lg-12 col-12">
                         <div class="step-page payment-page">
                             <div class="row">
-                                {{-- <p>Text Plan</p>
-                                <p><strong>User ID:</strong> {{ session('user_id') }}</p>
-                                <p><strong>Name:</strong> {{ session('name') }}</p>
-                                <p><strong>Last Seen:</strong> {{ session('last_seen') }}</p>
-                                <p><strong>Gender:</strong> {{ session('gender') }}</p>
-                                <p><strong>Color:</strong> {{ session('color') }}</p>
-                                <p><strong>Price:</strong> {{ session('plan_price') }}</p>
-                                <p><strong>Plan:</strong> {{ session('plan') }}</p>
-                                <p><strong>Breed:</strong> {{ session('breed') }}</p>
-                                <p><strong>Marking:</strong> {{ session('marking') }}</p>
-                                <p><strong>Description:</strong> {{ session('description') }}</p>
-                                <p><strong>Medicine Info:</strong> {{ session('medicine_info') }}</p> --}}
                                 <div class="col-lg-12 col-md-12 col-12">
                                     <div class="selected-plan">
                                         <h4>Selected Plan : <span class="gold">GOLD</span>
