@@ -557,7 +557,7 @@
                                             <label for="exampleFormControlInput1" class="form-label">When was your dog
                                                 last seen?</label>
                                             <input type="date" wire:model.blur="last_seen" class="form-control"
-                                                placeholder="Lost date ( mm/dd/yyyy)">
+                                                placeholder="Lost date ( mm/dd/yyyy)" max="{{ date('Y-m-d') }}">
                                             @error('last_seen')
                                                 <span class="label-bot-validate">{{ $message }}</span>
                                             @enderror
