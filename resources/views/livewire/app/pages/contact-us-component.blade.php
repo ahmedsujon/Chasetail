@@ -22,11 +22,12 @@
                                 alt="Contact Dog" />
 
                             <ul>
-                                <li><i class="fa fa-map-marker" aria-hidden="true"></i>209 State Hwy 121 BYP, Lewisville, TX 75067</li>
+                                <li><i class="fa fa-map-marker" aria-hidden="true"></i>209 State Hwy 121 BYP,
+                                    Lewisville, TX 75067</li>
                                 <li><i class="fa fa-envelope" aria-hidden="true"></i> <a
                                         href="mailto:info@chasetail.com">info@chasetail.com</a></li>
                                 <li><i class="fa fa-phone" aria-hidden="true"></i> <a href="tel:+18555508245">
-                                    855-550-8245</a></li>
+                                        855-550-8245</a></li>
                             </ul>
                         </div>
                     </div>
