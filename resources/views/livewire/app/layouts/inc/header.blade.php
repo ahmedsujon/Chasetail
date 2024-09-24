@@ -63,10 +63,6 @@
                                                 <a class="{{ request()->is('contact-us') || request()->is('contact-us/*') ? 'nav-link active' : '' }}"
                                                     href="/contact-us" wire:navigate>Contact Us</a>
                                             </li>
-                                            {{-- <li class="nav-item">
-                                                <a class="{{ request()->is('about-us') || request()->is('about-us/*') ? 'nav-link active' : '' }}"
-                                                    href="/about-us" wire:navigate>About</a>
-                                            </li> --}}
                                         </ul>
                                     </div>
                                 </div>
@@ -111,23 +107,27 @@
             <i class="fas fa-times"></i>
         </div>
         <div class="menu">
-            <div class="item"><a href="index.html"><i class="fas fa-desktop"></i>Home</a></div>
-            <div class="item">
-                <a class="sub-btn"><i class="fas fa-table"></i>About<i class="fas fa-angle-right dropdown"></i></a>
-                <div class="sub-menu">
-                    <a href="#" class="sub-item">Sub Item 01</a>
-                    <a href="#" class="sub-item">Sub Item 02</a>
-                    <a href="#" class="sub-item">Sub Item 03</a>
-                </div>
+            <div class="{{ request()->is('/') || request()->is('/*') ? 'item active' : 'item' }}"><a href="/"
+                    wire:navigate>Chasetail</a></div>
+            <div
+                class="{{ request()->is('subscription') || request()->is('subscription/*') ? 'item active' : 'item' }}">
+                <a href="/subscription" wire:navigate>Pricing</a>
             </div>
-            <div class="item">
-                <a class="sub-btn"><i class="fas fa-cogs"></i>Partners<i class="fas fa-angle-right dropdown"></i></a>
-                <div class="sub-menu">
-                    <a href="#" class="sub-item">Sub Item 01</a>
-                    <a href="#" class="sub-item">Sub Item 02</a>
-                </div>
-            </div>
-            <div class="item"><a href="#"><i class="fas fa-info-circle"></i>Pricing</a></div>
+            <div
+                class="{{ request()->is('how-it-works') || request()->is('how-it-works/*') ? 'item active' : 'item' }}">
+                <a href="/how-it-works" wire:navigate>How
+                    It Works?</a></div>
+            <div class="{{ request()->is('lostdogs') || request()->is('lostdogs/*') ? 'item active' : 'item' }}"><a
+                    href="/lostdogs" wire:navigate>Lost
+                    Pets</a></div>
+            <div class="{{ request()->is('found-dogs') || request()->is('found-dogs/*') ? 'item active' : 'item' }}"><a
+                    href="/found-dogs" wire:navigate>Found
+                    Pets</a></div>
+            <div class="{{ request()->is('faq') || request()->is('faq/*') ? 'item active' : 'item' }}"><a
+                    href="/faq" wire:navigate>FAQ</a></div>
+            <div class="{{ request()->is('contact-us') || request()->is('contact-us/*') ? 'item active' : 'item' }}"><a
+                    href="/contact-us" wire:navigate>Contact
+                    Us</a></div>
         </div>
     </div>
 </div>

@@ -2,32 +2,6 @@
     @push('styles')
         <link href="{{ asset('assets/app/css/select2.min.css') }}" rel="stylesheet" />
     @endpush
-    <!-- Side bar -->
-    <div class="side-bar">
-        <div class="close-btn">
-            <i class="fas fa-times"></i>
-        </div>
-        <div class="menu">
-            <div class="item"><a href="index.html"><i class="fas fa-desktop"></i>Home</a></div>
-            <div class="item">
-                <a class="sub-btn"><i class="fas fa-table"></i>About<i class="fas fa-angle-right dropdown"></i></a>
-                <div class="sub-menu">
-                    <a href="#" class="sub-item">Sub Item 01</a>
-                    <a href="#" class="sub-item">Sub Item 02</a>
-                    <a href="#" class="sub-item">Sub Item 03</a>
-                </div>
-            </div>
-            <div class="item">
-                <a class="sub-btn"><i class="fas fa-cogs"></i>Partners<i class="fas fa-angle-right dropdown"></i></a>
-                <div class="sub-menu">
-                    <a href="#" class="sub-item">Sub Item 01</a>
-                    <a href="#" class="sub-item">Sub Item 02</a>
-                </div>
-            </div>
-            <div class="item"><a href="#"><i class="fas fa-info-circle"></i>Pricing</a></div>
-        </div>
-    </div>
-
     <!-- Banner -->
     <section id="page-header">
         <div class="container-fluid">
