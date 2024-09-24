@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Lost Dog Notification</title>
+    <title>Lost Pet Notification</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -49,10 +49,10 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>Lost Dog Alert</h1>
+            <h1>Lost Pet Alert</h1>
         </div>
         <div class="content">
-            <p>A dog named <strong>{{ $name }}</strong> was last seen on <strong>{{ $last_seen }}</strong>.
+            <p>A Pet named <strong>{{ $name }}</strong> was last seen on <strong>{{ $last_seen }}</strong>.
             </p>
             <p><strong>Gender:</strong> {{ $gender }}</p>
             <p><strong>Color:</strong> {{ $color }}</p>
@@ -64,13 +64,13 @@
                 <p><a href="https://chasetail.com/lostdogs/details/{{ $id }}"><strong>More details &
                             photo</strong></a> </p>
                 {{-- <img src="https://chasetail.com/{{ $images }}" alt="Lost Dog Image" class="dog-image"> --}}
-                <img src="http://chasetail.test/{{ $images }}" alt="Lost Dog Image" class="dog-image">
+                <img src="http://chasetail.test/{{ $images }}" alt="Lost Pet Image" class="pet-image">
             @endif
-            <p>We appreciate your help in finding our lost dog. Thank you for keeping an eye out!</p>
+            <p>We appreciate your help in finding our lost pet. Thank you for keeping an eye out!</p>
         </div>
         <div class="footer">
             <p>Thank you,</p>
-            <p>The Lost Dog Team</p>
+            <p>The Lost Pet Team</p>
         </div>
     </div>
 </body>

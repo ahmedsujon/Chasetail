@@ -4,11 +4,11 @@
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h4 class="mb-sm-0 font-size-18">Found Dogs</h4>
+                        <h4 class="mb-sm-0 font-size-18">Found Pets</h4>
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                                <li class="breadcrumb-item active">Found Dog</li>
+                                <li class="breadcrumb-item active">Found Pet</li>
                             </ol>
                         </div>
                     </div>
@@ -19,7 +19,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header bg-white" style="border-bottom: 1px solid #e2e2e7;">
-                            <h4 class="card-title" style="float: left;">All Lost Dog</h4>
+                            <h4 class="card-title" style="float: left;">All Lost Pet</h4>
                             <button wire:click="exportFoundDogsExcel"
                                 class="btn btn-sm btn-dark waves-effect waves-light" style="float: right;"><i
                                     class="bx bxs-file-pdf"></i> Export Excel</button>

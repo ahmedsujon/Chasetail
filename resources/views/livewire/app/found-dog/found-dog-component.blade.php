@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-md-12 col-lg-12 col-12">
                     <div class="page-header-text">
-                        <h4>Showing all dogs near you</h4>
+                        <h4>Showing all pets near you</h4>
                     </div>
                 </div>
             </div>
@@ -63,7 +63,7 @@
                             @else
                                 <div class="col-lg-4 col-md-6 col-12">
                                     <div class="lost-dog-list-right-text text-center">
-                                        <p>No dogs found!</p>
+                                        <p>No pets found!</p>
                                     </div>
                                 </div>
                             @endif

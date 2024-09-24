@@ -18,7 +18,7 @@
                 <div class="row">
                     <div class="col-md-12 col-lg-4 col-12">
                         <div class="contact-left">
-                            <img src="{{ asset('assets/app/images/contact-dog.jpg') }}" class="img-fluid mt-4 mb-5"
+                            <img src="{{ asset('assets/app/images/contact-pet.jpg') }}" class="img-fluid mt-4 mb-5"
                                 alt="Contact Dog" />
 
                             <ul>

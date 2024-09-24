@@ -6,7 +6,7 @@
                 <div class="col-md-12 col-lg-12 col-12">
                     <div class="page-header-text">
                         <h4>Lost Dog Report</h4>
-                        <p>You have a found dog. <a href="/found-dogs" wire:navigate>Click to Search</a></p>
+                        <p>You have a found pet. <a href="/found-dogs" wire:navigate>Click to Search</a></p>
                     </div>
                 </div>
             </div>

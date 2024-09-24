@@ -63,7 +63,7 @@
                             @else
                                 <div class="col-lg-4 col-md-6 col-12">
                                     <div class="lost-dog-list-right-text text-center">
-                                        <p>No dogs found!</p>
+                                        <p>No pets found!</p>
                                     </div>
                                 </div>
                             @endif

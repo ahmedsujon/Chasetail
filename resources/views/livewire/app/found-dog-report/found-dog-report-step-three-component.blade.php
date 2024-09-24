@@ -23,12 +23,12 @@
                                 <div class="col-md-12 col-lg-6 col-12">
                                     <div class="form-left-right">
                                         <div class="mb-4 myselect" wire:ignore>
-                                            <label for="breed" class="form-label">Dog's
+                                            <label for="breed" class="form-label">Pet's
                                                 Breed?</label>
                                             <select wire:model.blur="breed"
                                                 class="form-select form-control select2 dogBreed"
                                                 aria-label="Default select example">
-                                                <option selected value="">Dog's
+                                                <option selected value="">Pet's
                                                     Breed?</option>
                                                 <option value="ENGLISH POINTER">ENGLISH POINTER</option>
                                                 <option value="ENGLISH SETTER">ENGLISH SETTER</option>
@@ -497,14 +497,14 @@
                                         <div class="mb-4">
                                             <label for="color" class="form-label">Color</label>
                                             <input type="text" wire:model.blur="color" class="form-control"
-                                                placeholder="Dog's color">
+                                                placeholder="Pet's color">
                                             @error('color')
                                                 <span class="label-bot-validate">{{ $message }}</span>
                                             @enderror
                                         </div>
 
                                         <div class="mb-4" style="text-align: left;">
-                                            <label for="exampleFormControlInput1" class="form-label">Your Dog is
+                                            <label for="exampleFormControlInput1" class="form-label">Your Pet is
                                                 a</label>
                                             <div class="btn-group" role="group"
                                                 aria-label="Basic radio toggle button group">
@@ -544,7 +544,7 @@
                                             @enderror
                                         </div>
                                         <div class="mb-4">
-                                            <label for="microchip_id" class="form-label">What is your dog's
+                                            <label for="microchip_id" class="form-label">What is your pet's
                                                 Microchip ID?</label>
                                             <input type="text" wire:model.blur="microchip_id" class="form-control"
                                                 placeholder="Enter microchip ID (optional)">
@@ -559,7 +559,7 @@
                                 <div class="col-lg-12 col-md-12 col-12">
                                     <div class="form-left-right">
                                         <div class="mb-4">
-                                            <label for="description" class="form-label">What is you dog
+                                            <label for="description" class="form-label">What is you pet
                                                 looks like?</label>
                                             <span class="label-bot"><a href="#">Describe their personality,
                                                     physical traits, etc.</a></span>

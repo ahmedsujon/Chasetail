@@ -15,7 +15,7 @@
                         distribution?</strong><br>
                     Since you choose a package based on the number of people to contact, population density in
                     your area is important. If you live in an apartment complex, for example, you may have over
-                    500 people in that immediate vicinity. A dog can travel past that boundary quickly. In that case
+                    500 people in that immediate vicinity. A pet can travel past that boundary quickly. In that case
                     we suggest choosing a larger distribution package.
                 </h5><br>
                 <h5>

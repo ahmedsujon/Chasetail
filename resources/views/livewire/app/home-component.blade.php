@@ -46,7 +46,7 @@
                     <div class="article-box">
                         <img style="border-radius: 15px" class="img-fluid"
                             src="{{ asset('assets/images/lost-dog.jpg') }}" alt="Content Dog">
-                        <h4><a href="/lostdogs">Lost Dogs</a></h4>
+                        <h4><a href="/lostdogs">Lost Pets</a></h4>
                         <p>We’re here to help you find your pet. It’s a Free and Easy way to post and search for lost
                             pets to help them return home.</p>
                         <ul class="content-hr">
@@ -58,7 +58,7 @@
                     <div class="article-box">
                         <img style="border-radius: 15px" class="img-fluid"
                             src="{{ asset('assets/images/found-dog.jpg') }}" alt="Content Dog">
-                        <h4><a href="/found-dogs">Found Dogs</a></h4>
+                        <h4><a href="/found-dogs">Found Pets</a></h4>
                         <p>Help reunite a found pet by snapping a photo and uploading the pet when they go missing. It’s
                             free!</p>
                         <ul class="content-hr">
@@ -112,20 +112,20 @@
                             <div class="col-lg-4 col-md-4 col-12">
                                 <div class="challenge-box">
                                     <img class="img-fluid" src="{{ asset('assets/app/images/icon-millions-dogs.jpg') }}"
-                                        alt="Millions of Dogs In the U.S.">
-                                    <h5>Millions of Dogs In the U.S.</h5>
+                                        alt="Millions of Pets In the U.S.">
+                                    <h5>Millions of Pets In the U.S.</h5>
                                     <ul>
                                         <li>There are 63.4 million Households in the US.</li>
-                                        <li>There are 89.7 million dogs in the US as Household Pets.</li>
-                                        <li>The average is 1.46 Dogs in Households with dogs.</li>
+                                        <li>There are 89.7 million pets in the US as Household Pets.</li>
+                                        <li>The average is 1.46 pets in Households with pets.</li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-12">
                                 <div class="challenge-box">
                                     <img class="img-fluid" src="{{ asset('assets/app/images/icon-inevery.jpg') }}"
-                                        alt="1 in every 10 Dogs">
-                                    <h5>1 in every 10 Dogs</h5>
+                                        alt="1 in every 10 Pets">
+                                    <h5>1 in every 10 Pets</h5>
                                     <ul>
                                         <li>15 percent of pet owners experience a pet loss.</li>
                                         <li>Only 16% of lost pets eventually return on their own to their owners.</li>

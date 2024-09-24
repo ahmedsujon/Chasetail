@@ -29,7 +29,7 @@
                     <div class="col-md-12 col-lg-7 col-12">
                         <div class="dashboard-page-left">
                             <h5>Lost Dogs</h5>
-                            <a class="btn btn-primary add-dog" href="/subscription" wire:navigate>Add a dog</a>
+                            <a class="btn btn-primary add-dog" href="/subscription" wire:navigate>Add a Pet</a>
                             <div id="lost" class="carousel slide" data-bs-ride="carousel">
                                 <div class="carousel-inner">
                                     @if ($lost_dogs->count() > 0)
@@ -63,7 +63,7 @@
                                         @endforeach
                                     @else
                                         <p class="notfound-message" style="text-align: center;">You didn't report about
-                                            your lost dog yet!</p>
+                                            your lost pet yet!</p>
                                     @endif
                                 </div>
 

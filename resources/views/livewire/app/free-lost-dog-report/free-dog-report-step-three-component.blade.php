@@ -45,16 +45,16 @@
                                     <div class="form-left-right">
 
                                         <div class="mb-4">
-                                            <label for="exampleFormControlInput1" class="form-label">Dog Name</label>
+                                            <label for="exampleFormControlInput1" class="form-label">Pet Name</label>
                                             <input type="text" wire:model.blur="name" class="form-control"
-                                                placeholder="Enter dog name">
+                                                placeholder="Enter pet name">
                                             @error('name')
                                                 <span class="label-bot-validate">{{ $message }}</span>
                                             @enderror
                                         </div>
 
                                         <div class="mb-4" style="text-align: left;">
-                                            <label for="exampleFormControlInput1" class="form-label">Your Dog is
+                                            <label for="exampleFormControlInput1" class="form-label">Your Pet is
                                                 a</label>
                                             <div class="btn-group" role="group"
                                                 aria-label="Basic radio toggle button group">
@@ -84,7 +84,7 @@
                                 <div class="col-md-12 col-lg-6 col-12">
                                     <div class="form-left-right">
                                         <div class="mb-4">
-                                            <label for="exampleFormControlInput1" class="form-label">When was your dog
+                                            <label for="exampleFormControlInput1" class="form-label">When was your pet
                                                 last seen?</label>
                                             <input type="date" wire:model.blur="last_seen" class="form-control"
                                                 placeholder="Lost date ( mm/dd/yyyy)" max="{{ date('Y-m-d') }}">
@@ -96,7 +96,7 @@
                                         </div>
                                         <div class="mb-4">
                                             <label for="exampleFormControlInput1" class="form-label">What is your
-                                                dog's
+                                                pet's
                                                 Microchip ID?</label>
                                             <input type="text" wire:model.blur="microchip_id" class="form-control"
                                                 placeholder="Enter microchip ID (optional)">
@@ -113,10 +113,10 @@
                                         <div class="mb-4">
                                             <label for="exampleFormControlInput1" class="form-label">Add food & medicine
                                                 information</label>
-                                            <span class="label-bot"><a href="#">Describe dog food & medicine
+                                            <span class="label-bot"><a href="#">Describe pet food & medicine
                                                     information etc.</a></span>
                                             <textarea class="form-control mt-4" wire:model.blur="medicine_info" rows="3"
-                                                placeholder="Description dog food & medicine information"></textarea>
+                                                placeholder="Description pet food & medicine information"></textarea>
                                             @error('medicine_info')
                                                 <span class="label-bot-validate">{{ $message }}</span>
                                             @enderror
@@ -126,7 +126,7 @@
                                 <div class="col-lg-6 col-md-6 col-6">
                                     <div class="form-left-right">
                                         <div class="mb-4">
-                                            <label for="exampleFormControlInput1" class="form-label">What does your dog
+                                            <label for="exampleFormControlInput1" class="form-label">What does your pet
                                                 look like?</label>
                                             <span class="label-bot"><a href="#">Describe their personality,
                                                     physical traits, etc.</a></span>

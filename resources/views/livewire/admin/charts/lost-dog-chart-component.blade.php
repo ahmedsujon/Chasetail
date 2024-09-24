@@ -36,7 +36,7 @@
                     'October', 'November', 'December'
                 ],
                 datasets: [{
-                    label: '# Lost Dog Report',
+                    label: '# Lost Pet Report',
                     data: chartData.data,
                     borderWidth: 1
                 }]

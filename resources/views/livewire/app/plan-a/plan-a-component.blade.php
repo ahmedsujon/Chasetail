@@ -58,7 +58,7 @@
                 <div class="row">
                     <div class="col-md-12 col-lg-12 col-12">
                         <div class="step-page">
-                            <h3>Where did your dog get lost?</h3>
+                            <h3>Where did your pet get lost?</h3>
                             <p>You may provide the specific address. We will never share your exact location.</p>
                             <input class="form-control form-location" id="location_address" name="location_address"
                                 oninput="onTyping(this)" autocomplete="off" type="text"
