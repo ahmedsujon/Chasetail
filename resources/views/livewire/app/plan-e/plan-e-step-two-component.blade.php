@@ -152,18 +152,3 @@
         </div>
     </section>
 </div>
-@push('scripts')
-    <link href="{{ asset('assets/app/css/select2.min.css') }}" rel="stylesheet" />
-    <script src="{{ asset('assets/app/js/chart.min.js') }}"></script>
-    <script src="{{ asset('assets/app/js/select2.min.js') }}"></script>
-
-    <script>
-        $(document).ready(function() {
-            $('.dogBreed').select2();
-        });
-
-        $(".select2").on('change', function() {
-            @this.set('breed', $(this).val());
-        });
-    </script>
-@endpush
