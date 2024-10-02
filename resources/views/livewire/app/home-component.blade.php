@@ -47,7 +47,7 @@
                         <img style="border-radius: 15px" class="img-fluid"
                             src="{{ asset('assets/images/lost-dog.jpg') }}" alt="Content Dog">
                         <h4><a href="/lostdogs">Lost Pets</a></h4>
-                        <p>We’re here to help you find your pet. It’s a Free and Easy way to post and search for lost
+                        <p>We’re here to help you find your pet. It’s an easy way to post and search for lost
                             pets to help them return home.</p>
                         <ul class="content-hr">
                             <li></li>

@@ -1317,7 +1317,7 @@ ul.content-hr {
 
 .step-page label {
     width: 100%;
-    line-height: 30px;
+    line-height: 25px !important;
     font-family: 'nunito_sansbold';
     font-size: 24px;
     text-align: left;
@@ -1355,7 +1355,7 @@ ul.content-hr {
 }
 
 .step-page .btn-outline-secondary {
-    margin: 5px 5px 0 0;
+    margin: 0px 5px 0 0;
     font-family: 'nunito_sansregular';
     text-align: left;
     font-size: 16px;
