@@ -33,8 +33,7 @@ class RegisterComponent extends Component
 
     public function userRegistration()
     {
-        // Validation
-        $validatedData = request()->validate([
+        $this->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
             'phone' => 'required|unique:users,phone',
@@ -42,41 +41,39 @@ class RegisterComponent extends Component
             'notify_status' => 'required',
         ]);
 
-        // Format phone number and create new user
-        $formattedPhone = '+1' . preg_replace('/[^\d]/', '', $validatedData['phone']);
+        // Clean phone number
+        $phone = '+1' . preg_replace('/[^\d]/', '', $this->phone);
+        // Create new user instance and save
+        $user = new User();
+        $user->name = $this->name;
+        $user->latitude = $this->latitude;
+        $user->longitude = $this->longitude;
+        $user->email = $this->email;
+        $user->phone = $phone;
+        $user->password = Hash::make($this->password);
+        $user->subscription = 0;
+        $user->save();
 
-        $user = User::create([
-            'name' => $validatedData['name'],
-            'latitude' => request()->input('latitude'),
-            'longitude' => request()->input('longitude'),
-            'email' => $validatedData['email'],
-            'phone' => $formattedPhone,
-            'password' => Hash::make($validatedData['password']),
-            'subscription' => 0,
-        ]);
-
-        // Create a new LostDog entry
-        LostDog::create([
-            'latitude' => request()->input('latitude'),
-            'longitude' => request()->input('longitude'),
-            'images' => request()->input('images'),
-            'address' => request()->input('address'),
-            'payment_status' => 'free',
-            'name' => request()->input('name'),
-            'breed' => request()->input('breed'),
-            'color' => request()->input('color'),
-            'marking' => request()->input('marking'),
-            'gender' => request()->input('gender'),
-            'last_seen' => request()->input('last_seen'),
-            'description' => request()->input('description'),
-        ]);
+        // Create LostDog entry using session data
+        $data = new LostDog();
+        $data->latitude = session('latitude');
+        $data->longitude = session('longitude');
+        $data->images = session('images');
+        $data->address = session('address');
+        $data->payment_status = 'free';
+        $data->name = session('name');
+        $data->breed = session('breed');
+        $data->color = session('color');
+        $data->marking = session('marking');
+        $data->gender = session('gender');
+        $data->last_seen = session('last_seen');
+        $data->description = session('description');
+        $data->save();
 
         // Flash success message and redirect
         session()->flash('success', 'Report posted successfully!');
-        return $this->redirect('/user/dashboard', navigate: true);
+        return redirect('/user/dashboard');
     }
-
-
 
     #[Title('Sign Up')]
     public function render()
