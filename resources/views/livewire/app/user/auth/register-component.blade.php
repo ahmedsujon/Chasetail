@@ -11,6 +11,9 @@
             padding: 0px 0px 0px 5px !important;
             padding:
         }
+        .text-danger{
+            text-align: left;
+        }
     </style>
     <section id="page-header">
         <div class="container-fluid">
