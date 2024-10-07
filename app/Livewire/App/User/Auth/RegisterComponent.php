@@ -70,6 +70,8 @@ class RegisterComponent extends Component
         $data->description = session('description');
         $data->save();
 
+        dd($data);
+
         // Flash success message and redirect
         session()->flash('success', 'Report posted successfully!');
         return redirect('/user/dashboard');
