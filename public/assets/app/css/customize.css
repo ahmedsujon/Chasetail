@@ -14,109 +14,110 @@ body {
 }
 
 @font-face {
-    font-family: 'nunito_sansregular';
-    src: url('../fonts/nunitosans-regular-webfont.woff2') format('woff2'),
-        url('../fonts/nunitosans-regular-webfont.woff') format('woff');
+    font-family: "nunito_sansregular";
+    src: url("../fonts/nunitosans-regular-webfont.woff2") format("woff2"),
+        url("../fonts/nunitosans-regular-webfont.woff") format("woff");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'nunito_sansextralight';
-    src: url('../fonts/nunitosans-extralight-webfont.woff2') format('woff2'),
-        url('../fonts/nunitosans-extralight-webfont.woff') format('woff');
+    font-family: "nunito_sansextralight";
+    src: url("../fonts/nunitosans-extralight-webfont.woff2") format("woff2"),
+        url("../fonts/nunitosans-extralight-webfont.woff") format("woff");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'nunito_sansbold';
-    src: url('../fonts/nunitosans-bold-webfont.woff2') format('woff2'),
-        url('../fonts/nunitosans-bold-webfont.woff') format('woff');
+    font-family: "nunito_sansbold";
+    src: url("../fonts/nunitosans-bold-webfont.woff2") format("woff2"),
+        url("../fonts/nunitosans-bold-webfont.woff") format("woff");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'nunito_sanssemibold';
-    src: url('../fonts/nunitosans-semibold-webfont.woff2') format('woff2'),
-        url('../fonts/nunitosans-semibold-webfont.woff') format('woff');
+    font-family: "nunito_sanssemibold";
+    src: url("../fonts/nunitosans-semibold-webfont.woff2") format("woff2"),
+        url("../fonts/nunitosans-semibold-webfont.woff") format("woff");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'nunito_sansextrabold';
-    src: url('../fonts/nunitosans-extrabold-webfont.woff2') format('woff2'),
-        url('../fonts/nunitosans-extrabold-webfont.woff') format('woff');
+    font-family: "nunito_sansextrabold";
+    src: url("../fonts/nunitosans-extrabold-webfont.woff2") format("woff2"),
+        url("../fonts/nunitosans-extrabold-webfont.woff") format("woff");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: "montserratregular";
-    src: url("../fonts/montserrat-regular-webfont.woff2") format("woff2"), url("../fonts/montserrat-regular-webfont.woff") format("woff");
+    src: url("../fonts/montserrat-regular-webfont.woff2") format("woff2"),
+        url("../fonts/montserrat-regular-webfont.woff") format("woff");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'montserratmedium';
-    src: url('../fonts/montserrat-medium-webfont.woff2') format('woff2'),
-        url('../fonts/montserrat-medium-webfont.woff') format('woff');
+    font-family: "montserratmedium";
+    src: url("../fonts/montserrat-medium-webfont.woff2") format("woff2"),
+        url("../fonts/montserrat-medium-webfont.woff") format("woff");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: "Montserrat";
-    src: url("../fonts/Montserrat-Bold.woff2") format("woff2"), url("../fonts/Montserrat-Bold.woff") format("woff");
+    src: url("../fonts/Montserrat-Bold.woff2") format("woff2"),
+        url("../fonts/Montserrat-Bold.woff") format("woff");
     font-weight: bold;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'montserratsemibold';
-    src: url('../fonts/montserrat-semibold-webfont.woff2') format('woff2'),
-        url('../fonts/montserrat-semibold-webfont.woff') format('woff');
+    font-family: "montserratsemibold";
+    src: url("../fonts/montserrat-semibold-webfont.woff2") format("woff2"),
+        url("../fonts/montserrat-semibold-webfont.woff") format("woff");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'montserratextrabold';
-    src: url('../fonts/montserrat-extrabold-webfont.woff2') format('woff2'),
-        url('../fonts/montserrat-extrabold-webfont.woff') format('woff');
+    font-family: "montserratextrabold";
+    src: url("../fonts/montserrat-extrabold-webfont.woff2") format("woff2"),
+        url("../fonts/montserrat-extrabold-webfont.woff") format("woff");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'robotoregular';
-    src: url('../fonts/roboto-regular-webfont.woff2') format('woff2'),
-        url('../fonts/roboto-regular-webfont.woff') format('woff');
+    font-family: "robotoregular";
+    src: url("../fonts/roboto-regular-webfont.woff2") format("woff2"),
+        url("../fonts/roboto-regular-webfont.woff") format("woff");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'robotomedium';
-    src: url('../fonts/roboto-medium-webfont.woff2') format('woff2'),
-        url('../fonts/roboto-medium-webfont.woff') format('woff');
+    font-family: "robotomedium";
+    src: url("../fonts/roboto-medium-webfont.woff2") format("woff2"),
+        url("../fonts/roboto-medium-webfont.woff") format("woff");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Heebo';
-    src: url('../fonts/Heebo-Light.woff2') format('woff2'),
-        url('../fonts/Heebo-Light.woff') format('woff');
+    font-family: "Heebo";
+    src: url("../fonts/Heebo-Light.woff2") format("woff2"),
+        url("../fonts/Heebo-Light.woff") format("woff");
     font-weight: 300;
     font-style: normal;
     font-display: swap;
 }
-
 
 h1,
 h2,
@@ -170,7 +171,7 @@ ul {
 .top-menu ul li a {
     padding: 0 10px;
     line-height: 24px;
-    font-family: 'nunito_sansregular';
+    font-family: "nunito_sansregular";
     font-size: 13px;
     text-decoration: none;
     color: #5d5d5d;
@@ -200,7 +201,7 @@ ul {
     vertical-align: middle;
     list-style-type: none;
     display: inline-block;
-    font-family: 'nunito_sansregular';
+    font-family: "nunito_sansregular";
     font-size: 12px;
     font-weight: normal;
     color: #5d5d5d;
@@ -209,7 +210,7 @@ ul {
 .top-menu2 ul li a {
     padding: 0 15px;
     line-height: 24px;
-    font-family: 'nunito_sansregular';
+    font-family: "nunito_sansregular";
     font-size: 12px;
     font-weight: normal;
     text-decoration: none;
@@ -293,7 +294,7 @@ ul {
 .main-menu ul li a {
     padding: 0 10px;
     line-height: 20px;
-    font-family: 'nunito_sanssemibold';
+    font-family: "nunito_sanssemibold";
     font-size: 16px;
     text-decoration: none;
     color: #10141d;
@@ -349,7 +350,7 @@ ul {
 .banner h3 {
     margin-bottom: 30px;
     line-height: 70px;
-    font-family: 'nunito_sansextrabold';
+    font-family: "nunito_sansextrabold";
     font-weight: bold;
     font-size: 56px;
     text-align: left;
@@ -359,7 +360,7 @@ ul {
 .banner p {
     margin-bottom: 30px;
     line-height: 25px;
-    font-family: 'nunito_sansregular';
+    font-family: "nunito_sansregular";
     font-size: 18px;
     text-align: justify;
     color: #fff;
@@ -369,7 +370,7 @@ ul {
     padding: 15px 45px;
     display: inline-block;
     line-height: 26px;
-    font-family: 'nunito_sansbold';
+    font-family: "nunito_sansbold";
     font-size: 18px;
     text-align: left;
     text-decoration: none;
@@ -381,7 +382,7 @@ ul {
 
 .banner-text a:hover {
     text-decoration: none;
-    background: #1C3786;
+    background: #1c3786;
 }
 
 .top-donate {
@@ -393,7 +394,7 @@ ul {
 .top-donate a {
     width: auto;
     padding: 15px 30px;
-    font-family: 'nunito_sansbold';
+    font-family: "nunito_sansbold";
     font-size: 17px;
     font-weight: 700;
     text-align: center;
@@ -421,7 +422,7 @@ ul {
     padding: 0 0 5px 0;
     display: inline-block;
     line-height: 26px;
-    font-family: 'nunito_sansregular';
+    font-family: "nunito_sansregular";
     font-size: 20px;
     text-align: center;
 }
@@ -429,7 +430,7 @@ ul {
 .welcome h3 {
     padding: 30px 0 0 0;
     line-height: 56px;
-    font-family: 'nunito_sansextralight';
+    font-family: "nunito_sansextralight";
     font-size: 48px;
     text-align: center;
     color: #0e1b28;
@@ -438,7 +439,7 @@ ul {
 .welcome p {
     padding: 20px 0 0 0;
     line-height: 26px;
-    font-family: 'nunito_sansregular';
+    font-family: "nunito_sansregular";
     font-size: 20px;
     text-align: center;
     color: #0e1b28;
@@ -477,7 +478,7 @@ ul.solution-hr {
 }
 
 .article-box h4 a {
-    font-family: 'nunito_sanssemibold';
+    font-family: "nunito_sanssemibold";
     font-size: 30px;
     text-decoration: none;
     color: #0e1b28;
@@ -492,7 +493,7 @@ ul.solution-hr {
     margin: 0 auto;
     padding: 20px 0 25px 0;
     line-height: 20px;
-    font-family: 'nunito_sansregular';
+    font-family: "nunito_sansregular";
     font-weight: normal;
     font-size: 14px;
     text-align: center;
@@ -533,7 +534,7 @@ ul.content-hr {
 .challenge h4 {
     /* padding: 40px 0 0 0; */
     line-height: 26px;
-    font-family: 'nunito_sansregular';
+    font-family: "nunito_sansregular";
     font-weight: normal;
     font-size: 20px;
     text-align: center;
@@ -543,7 +544,7 @@ ul.content-hr {
 .challenge p {
     padding: 40px 0 0 0;
     line-height: 30px;
-    font-family: 'nunito_sansregular';
+    font-family: "nunito_sansregular";
     font-weight: normal;
     font-size: 24px;
     text-align: center;
@@ -553,7 +554,7 @@ ul.content-hr {
 .challenge h3 {
     padding: 40px 0 0 0;
     line-height: 56px;
-    font-family: 'nunito_sansextralight';
+    font-family: "nunito_sansextralight";
     font-weight: lighter;
     font-size: 48px;
     text-align: center;
@@ -581,7 +582,7 @@ ul.content-hr {
 .challenge-box h5 {
     padding: 20px 0 0 0;
     line-height: 30px;
-    font-family: 'nunito_sanssemibold';
+    font-family: "nunito_sanssemibold";
     font-weight: 600;
     font-size: 24px;
     text-align: center;
@@ -599,7 +600,7 @@ ul.content-hr {
 .challenge-box ul li {
     margin: 0 0 5px 0;
     line-height: 23px;
-    font-family: 'nunito_sansregular';
+    font-family: "nunito_sansregular";
     font-size: 15px;
     list-style-type: none;
     color: #0e1b28;
@@ -644,7 +645,7 @@ ul.content-hr {
 
 .side-bar .menu .item a {
     color: #fff;
-    font-family: 'nunito_sanssemibold';
+    font-family: "nunito_sanssemibold";
     font-size: 14px;
     text-decoration: none;
     display: block;
@@ -653,7 +654,7 @@ ul.content-hr {
 }
 
 .side-bar .menu .item a:hover {
-    background: #8621F8;
+    background: #8621f8;
     transition: 0.3s ease;
 }
 
@@ -705,7 +706,6 @@ ul.content-hr {
     display: none;
 }
 
-
 .footer-top {
     width: 100%;
     padding: 70px 0;
@@ -730,7 +730,7 @@ ul.content-hr {
 }
 
 .footer-top-text ul li a {
-    font-family: 'montserratmedium';
+    font-family: "montserratmedium";
     font-size: 24px;
     text-decoration: none;
     color: #fff;
@@ -742,7 +742,7 @@ ul.content-hr {
 }
 
 .footer-top-text ul li:nth-child(1) span.call {
-    font-family: 'montserratsemibold';
+    font-family: "montserratsemibold";
     font-size: 30px;
 }
 
@@ -759,7 +759,7 @@ ul.content-hr {
 
 .footer-top-text ul li:nth-child(3) a {
     padding: 20px 50px;
-    font-family: 'montserratextrabold';
+    font-family: "montserratextrabold";
     font-size: 22px;
     line-height: 26px;
     border-radius: 50px;
@@ -769,7 +769,7 @@ ul.content-hr {
 }
 
 .footer-top-text ul li:nth-child(3) a:hover {
-    background: #1C3786;
+    background: #1c3786;
 }
 
 .footer-top-text ul li a:hover {
@@ -790,7 +790,7 @@ ul.content-hr {
     padding: 40px 0;
     margin: 0;
     line-height: 22px;
-    font-family: 'montserratmedium';
+    font-family: "montserratmedium";
     font-size: 16px;
     text-align: center;
     color: #fff;
@@ -803,7 +803,7 @@ ul.content-hr {
 
 .footer-text p a:hover {
     text-decoration: none;
-    color: #007AE2;
+    color: #007ae2;
 }
 
 #signup-section {
@@ -830,7 +830,7 @@ ul.content-hr {
     padding: 0 0 20px 0;
     line-height: 60px;
     font-size: 48px;
-    font-family: 'robotomedium';
+    font-family: "robotomedium";
     text-align: center;
     text-transform: uppercase;
     color: #101c1d;
@@ -840,7 +840,7 @@ ul.content-hr {
 .signInSignUpModal .signup-form h5 {
     padding: 20px 0 0 0;
     line-height: 26px;
-    font-family: 'Heebo';
+    font-family: "Heebo";
     font-size: 22px;
     text-align: center;
     color: #333740;
@@ -853,7 +853,7 @@ ul.content-hr {
 .signInSignUpModal .signup-form label {
     padding: 20px 0 0 0;
     line-height: 20px;
-    font-family: 'Heebo';
+    font-family: "Heebo";
     font-size: 13px;
     font-weight: bold;
     text-transform: uppercase;
@@ -863,12 +863,12 @@ ul.content-hr {
 .signInSignUpModal .signup-form .form-control {
     padding: 10px 10px;
     line-height: 20px;
-    font-family: 'Heebo';
+    font-family: "Heebo";
     font-size: 15px;
     background: #f4f8fb;
 }
 
-.signInSignUpModal .signup-form.form-control:not(.btn-check)+.btn:active {
+.signInSignUpModal .signup-form.form-control:not(.btn-check) + .btn:active {
     background: #f4f8fb;
 }
 
@@ -878,7 +878,7 @@ ul.content-hr {
 
 .signInSignUpModal .signup-form .forgot a {
     line-height: 18px;
-    font-family: 'Heebo';
+    font-family: "Heebo";
     font-weight: 600;
     font-size: 15px;
     text-decoration: none;
@@ -892,7 +892,7 @@ ul.content-hr {
 .signInSignUpModal .signup-form p {
     padding: 30px 0;
     line-height: 18px;
-    font-family: 'Heebo';
+    font-family: "Heebo";
     font-weight: 600;
     font-size: 15px;
     color: #000;
@@ -931,7 +931,7 @@ ul.content-hr {
     padding: 20px 0;
     margin-top: 20px;
     line-height: 18px;
-    font-family: 'Heebo';
+    font-family: "Heebo";
     font-weight: bold;
     text-transform: uppercase;
     font-size: 13px;
@@ -940,7 +940,6 @@ ul.content-hr {
     border: 1px solid #007ae2;
     background: #007ae2;
 }
-
 
 /* ==================
     Plan
@@ -960,7 +959,7 @@ ul.content-hr {
 .page-banner-text h4 {
     padding: 0 0 30px 0;
     line-height: 60px;
-    font-family: 'nunito_sansextrabold';
+    font-family: "nunito_sansextrabold";
     font-size: 56px;
     text-align: center;
     color: #fff;
@@ -968,7 +967,7 @@ ul.content-hr {
 
 .page-banner-text p {
     line-height: 30px;
-    font-family: 'nunito_sanssemibold';
+    font-family: "nunito_sanssemibold";
     font-size: 24px;
     text-align: center;
     color: #fff;
@@ -1009,7 +1008,7 @@ ul.content-hr {
 .package-list h5 {
     padding-bottom: 30px;
     line-height: 30px;
-    font-family: 'nunito_sansextrabold';
+    font-family: "nunito_sansextrabold";
     font-size: 26px;
     text-align: left;
     color: #253053;
@@ -1018,7 +1017,7 @@ ul.content-hr {
 .package-list h4 {
     padding-bottom: 50px;
     line-height: 60px;
-    font-family: 'nunito_sansextrabold';
+    font-family: "nunito_sansextrabold";
     font-size: 52px;
     text-align: left;
     color: #253053;
@@ -1032,7 +1031,7 @@ ul.content-hr {
 .package-list h6 {
     padding: 40px 0 10px 0;
     line-height: 26px;
-    font-family: 'nunito_sansextrabold';
+    font-family: "nunito_sansextrabold";
     font-size: 20px;
     text-align: left;
     color: #253053;
@@ -1041,7 +1040,7 @@ ul.content-hr {
 .package-list p {
     padding: 0 0 40px 0;
     line-height: 30px;
-    font-family: 'nunito_sanssemibold';
+    font-family: "nunito_sanssemibold";
     font-size: 18px;
     text-align: left;
     color: #636b83;
@@ -1054,7 +1053,7 @@ ul.content-hr {
 .package-list ul li {
     padding: 5px 0 0 25px;
     line-height: 26px;
-    font-family: 'nunito_sansregular';
+    font-family: "nunito_sansregular";
     font-size: 18px;
     list-style: none;
     color: #4d4e50;
@@ -1071,7 +1070,7 @@ ul.content-hr {
     padding: 25px;
     display: block;
     line-height: 28px;
-    font-family: 'nunito_sansextrabold';
+    font-family: "nunito_sansextrabold";
     font-size: 22px;
     text-decoration: none;
     color: #fff;
@@ -1080,7 +1079,7 @@ ul.content-hr {
 }
 
 .btn-plan a:hover {
-    background: #0F2C88;
+    background: #0f2c88;
 }
 
 .btn-plan a:hover {
@@ -1090,7 +1089,7 @@ ul.content-hr {
 .package-list .ribbon {
     width: 200px;
     height: 50px;
-    font-family: 'nunito_sansextrabold';
+    font-family: "nunito_sansextrabold";
     font-size: 15px;
     text-transform: uppercase;
     font-weight: bold;
@@ -1105,14 +1104,13 @@ ul.content-hr {
     padding-top: 20px;
 }
 
-
 /* ====================
     Step Page
 ==================== */
 #page-header {
     width: 100%;
     padding: 65px 0;
-    background: #F5F6F8;
+    background: #f5f6f8;
 }
 
 .page-header-text {
@@ -1123,7 +1121,7 @@ ul.content-hr {
 .page-header-text h4 {
     padding: 0 0 20px 0;
     line-height: 60px;
-    font-family: 'nunito_sansextrabold';
+    font-family: "nunito_sansextrabold";
     font-size: 56px;
     text-align: center;
     color: #111;
@@ -1131,7 +1129,7 @@ ul.content-hr {
 
 .page-header-text p {
     line-height: 30px;
-    font-family: 'nunito_sanssemibold';
+    font-family: "nunito_sanssemibold";
     font-size: 24px;
     text-align: center;
     color: #454c55;
@@ -1164,7 +1162,7 @@ ul.content-hr {
 
 .step-page h3 {
     line-height: 36px;
-    font-family: 'nunito_sansbold';
+    font-family: "nunito_sansbold";
     font-size: 30px;
     color: #0e1a25;
 }
@@ -1173,7 +1171,7 @@ ul.content-hr {
     padding: 10px 0 5px 22px;
     margin-top: 25px;
     line-height: 24px;
-    font-family: 'nunito_sansregular';
+    font-family: "nunito_sansregular";
     font-size: 18px;
     display: inline-block;
     text-decoration: underline;
@@ -1194,7 +1192,7 @@ ul.content-hr {
 .step-page p {
     padding: 15px 0 0 0;
     line-height: 24px;
-    font-family: 'nunito_sansregular';
+    font-family: "nunito_sansregular";
     font-size: 18px;
     color: #0e1a25;
 }
@@ -1206,7 +1204,7 @@ ul.content-hr {
     padding-bottom: 25%;
 }
 
-.location-map>* {
+.location-map > * {
     display: block;
     position: absolute;
     top: 0;
@@ -1229,7 +1227,7 @@ ul.content-hr {
     margin: 0 auto;
     padding: 15px;
     line-height: 22px;
-    font-family: 'nunito_sansregular';
+    font-family: "nunito_sansregular";
     font-size: 18px;
     color: #696c6f;
     text-align: left;
@@ -1243,7 +1241,7 @@ ul.content-hr {
     margin: 0 auto;
     padding: 15px;
     line-height: 22px;
-    font-family: 'nunito_sansregular';
+    font-family: "nunito_sansregular";
     font-size: 18px;
     color: #696c6f;
     text-align: left;
@@ -1259,25 +1257,25 @@ ul.content-hr {
 }
 
 .form-step .form-control::-webkit-input-placeholder {
-    font-family: 'nunito_sansregular';
+    font-family: "nunito_sansregular";
     font-size: 18px;
     color: #696c6f;
 }
 
 .form-step .form-control::-moz-placeholder {
-    font-family: 'nunito_sansregular';
+    font-family: "nunito_sansregular";
     font-size: 18px;
     color: #696c6f;
 }
 
 .form-step .form-control:-ms-input-placeholder {
-    font-family: 'nunito_sansregular';
+    font-family: "nunito_sansregular";
     font-size: 18px;
     color: #696c6f;
 }
 
 .form-step .form-control:-moz-placeholder {
-    font-family: 'nunito_sansregular';
+    font-family: "nunito_sansregular";
     font-size: 18px;
     color: #696c6f;
 }
@@ -1285,7 +1283,7 @@ ul.content-hr {
 .form-step .btn-primary {
     padding: 15px 70px;
     line-height: 24px;
-    font-family: 'nunito_sansextrabold';
+    font-family: "nunito_sansextrabold";
     font-size: 20px;
     text-transform: uppercase;
     color: #fff;
@@ -1306,7 +1304,7 @@ ul.content-hr {
 }
 
 .step-page .image-upload label {
-    font-family: 'nunito_sansregular';
+    font-family: "nunito_sansregular";
     font-size: 26px;
     color: #0e1a25;
 }
@@ -1318,7 +1316,7 @@ ul.content-hr {
 .step-page label {
     width: 100%;
     line-height: 25px !important;
-    font-family: 'nunito_sansbold';
+    font-family: "nunito_sansbold";
     font-size: 24px;
     text-align: left;
     color: #0e1a25;
@@ -1330,7 +1328,7 @@ ul.content-hr {
     padding: 10px 0 0 0;
     line-height: 20px;
     display: block;
-    font-family: 'nunito_sansregular';
+    font-family: "nunito_sansregular";
     text-align: left;
     font-size: 16px;
     color: #0e1a25;
@@ -1356,7 +1354,7 @@ ul.content-hr {
 
 .step-page .btn-outline-secondary {
     margin: 0px 5px 0 0;
-    font-family: 'nunito_sansregular';
+    font-family: "nunito_sansregular";
     text-align: left;
     font-size: 16px;
     color: #0e1a25;
@@ -1364,12 +1362,12 @@ ul.content-hr {
     background: #fff;
 }
 
-.step-page .btn-group>.btn:not(:last-child):not(.dropdown-toggle) {
+.step-page .btn-group > .btn:not(:last-child):not(.dropdown-toggle) {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
 }
 
-.step-page .btn-group>.btn {
+.step-page .btn-group > .btn {
     border-radius: 5px !important;
 }
 
@@ -1391,8 +1389,8 @@ ul.content-hr {
     background: url("../images/icon-unknown.png") no-repeat 10px 14px;
 }
 
-.btn-group .btn-check:checked+.btn {
-    font-family: 'nunito_sansregular';
+.btn-group .btn-check:checked + .btn {
+    font-family: "nunito_sansregular";
     text-align: left;
     font-size: 16px;
     color: #0282ef;
@@ -1411,7 +1409,7 @@ ul.content-hr {
     display: block;
     text-align: left;
     line-height: 24px;
-    font-family: 'nunito_sansextrabold';
+    font-family: "nunito_sansextrabold";
     font-size: 20px;
     text-transform: uppercase;
     color: #fff;
@@ -1426,7 +1424,7 @@ ul.content-hr {
 .form-step p.plan {
     padding: 20px 70px 40px 70px;
     line-height: 30px;
-    font-family: 'nunito_sanssemibold';
+    font-family: "nunito_sanssemibold";
     font-size: 24px;
 }
 
@@ -1452,7 +1450,7 @@ ul.content-hr {
 .payment-page p {
     margin-bottom: 20px;
     line-height: 22px;
-    font-family: 'nunito_sansregular';
+    font-family: "nunito_sansregular";
     text-align: center;
     font-size: 18px;
     color: #454c55;
@@ -1480,14 +1478,14 @@ ul.content-hr {
 .selected-plan h4 {
     padding: 0;
     line-height: 30px;
-    font-family: 'nunito_sanssemibold';
+    font-family: "nunito_sanssemibold";
     font-size: 24px;
     color: #454c55;
 }
 
 .selected-plan span.gold {
     padding: 15px 90px 0px 15px;
-    font-family: 'nunito_sansextrabold';
+    font-family: "nunito_sansextrabold";
     text-transform: uppercase;
     background: url("../images/icon-gold.png") no-repeat right center;
 }
@@ -1495,7 +1493,7 @@ ul.content-hr {
 .selected-plan span.plan-price {
     padding-left: 20px;
     font-size: 30px;
-    font-family: 'nunito_sansextrabold';
+    font-family: "nunito_sansextrabold";
 }
 
 .multiple-photo {
@@ -1511,7 +1509,7 @@ ul.content-hr {
 .multiple-photo label {
     line-height: 22px;
     font-size: 18px;
-    font-family: 'nunito_sansregular';
+    font-family: "nunito_sansregular";
     text-align: left;
     color: #454c55;
 }
@@ -1536,7 +1534,7 @@ ul.content-hr {
     margin: 15px 0 0 0;
     text-align: right;
     line-height: 24px;
-    font-family: 'nunito_sansextrabold';
+    font-family: "nunito_sansextrabold";
     font-size: 18px;
     color: #fff;
     border-radius: 6px;
@@ -1562,7 +1560,7 @@ ul.content-hr {
 }
 
 .form-step .payment-page label {
-    font-family: 'nunito_sansbold';
+    font-family: "nunito_sansbold";
     font-size: 14px;
     text-transform: uppercase;
     color: #595e6a;
@@ -1598,7 +1596,7 @@ ul.content-hr {
     margin-bottom: 5px;
     line-height: 22px;
     font-size: 16px;
-    font-family: 'nunito_sansregular';
+    font-family: "nunito_sansregular";
     text-align: left;
     color: #454c55;
     box-shadow: unset;
@@ -1612,7 +1610,7 @@ ul.content-hr {
 }
 
 .payment-option .subtotal {
-    font-family: 'nunito_sansbold';
+    font-family: "nunito_sansbold";
     color: #0082f0;
 }
 
@@ -1631,7 +1629,7 @@ ul.content-hr {
     border: 2px dashed #555;
     color: #444;
     cursor: pointer;
-    transition: background .2s ease-in-out, border .2s ease-in-out;
+    transition: background 0.2s ease-in-out, border 0.2s ease-in-out;
 }
 
 .drop-container:hover,
@@ -1650,10 +1648,10 @@ ul.content-hr {
     font-size: 20px;
     font-weight: bold;
     text-align: center;
-    transition: color .2s ease-in-out;
+    transition: color 0.2s ease-in-out;
 }
 
-.drop-container input[type=file] {
+.drop-container input[type="file"] {
     width: 370px;
     max-width: 100%;
     color: #444;
@@ -1663,7 +1661,7 @@ ul.content-hr {
     border: 1px solid #555;
 }
 
-.drop-container input[type=file]::file-selector-button {
+.drop-container input[type="file"]::file-selector-button {
     margin-right: 20px;
     border: none;
     background: #084cdf;
@@ -1671,10 +1669,10 @@ ul.content-hr {
     border-radius: 10px;
     color: #fff;
     cursor: pointer;
-    transition: background .2s ease-in-out;
+    transition: background 0.2s ease-in-out;
 }
 
-.drop-container input[type=file]::file-selector-button:hover {
+.drop-container input[type="file"]::file-selector-button:hover {
     background: #0d45a5;
 }
 
@@ -1703,7 +1701,7 @@ ul.content-hr {
 .payment-success-content h4 {
     margin-bottom: 30px;
     line-height: 34px;
-    font-family: 'nunito_sansextrabold';
+    font-family: "nunito_sansextrabold";
     font-size: 30px;
     text-align: center;
     color: #17b366;
@@ -1714,13 +1712,13 @@ ul.content-hr {
     margin: 0 auto;
 }
 
-.payment-success-content .table>tbody {
+.payment-success-content .table > tbody {
     width: 100%;
     padding: 50px 0 0 0;
     display: block;
 }
 
-.payment-success-content .table>tbody>tr {
+.payment-success-content .table > tbody > tr {
     width: 100%;
     display: flex;
 }
@@ -1729,21 +1727,21 @@ ul.content-hr {
     width: 50%;
     line-height: 22px;
     font-size: 16px;
-    font-family: 'nunito_sansregular';
+    font-family: "nunito_sansregular";
     text-align: left;
     color: #595e6a;
     border: none;
 }
 
 .payment-success-content table tr:first-child td {
-    font-family: 'nunito_sansextrabold';
+    font-family: "nunito_sansextrabold";
 }
 
 .payment-success-content .btn-group .btn-primary {
     padding: 15px 50px;
     margin: 20px 5px 0 5px;
     line-height: 24px;
-    font-family: 'nunito_sansbold';
+    font-family: "nunito_sansbold";
     font-size: 18px;
     color: #fff;
 }
@@ -1768,12 +1766,14 @@ ul.content-hr {
     background: #2ea6d6;
 }
 
-.payment-success-content .btn-group>.btn:not(:last-child):not(.dropdown-toggle) {
+.payment-success-content
+    .btn-group
+    > .btn:not(:last-child):not(.dropdown-toggle) {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
 }
 
-.payment-success-content .btn-group>:not(.btn-check)+.btn {
+.payment-success-content .btn-group > :not(.btn-check) + .btn {
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
 }
@@ -1797,7 +1797,7 @@ ul.content-hr {
     padding: 0;
     margin: 20px 0 0 0;
     line-height: 22px;
-    font-family: 'nunito_sansbold';
+    font-family: "nunito_sansbold";
     text-align: center;
     font-size: 16px;
     color: #000;
@@ -1806,7 +1806,7 @@ ul.content-hr {
 .lost-detail-left .btn-dog-parent {
     padding: 10px 25px;
     line-height: 22px;
-    font-family: 'nunito_sansbold';
+    font-family: "nunito_sansbold";
     text-align: center;
     font-size: 17px;
     color: #fff;
@@ -1815,7 +1815,7 @@ ul.content-hr {
 }
 
 .lost-detail-left .btn-dog-parent:hover {
-    background: #1C3786;
+    background: #1c3786;
 }
 
 .lost-detail-left img {
@@ -1832,7 +1832,7 @@ ul.content-hr {
     padding: 0;
     margin: 0;
     line-height: 34px;
-    font-family: 'nunito_sansregular';
+    font-family: "nunito_sansregular";
     font-weight: normal;
     text-align: left;
     font-size: 30px;
@@ -1843,7 +1843,7 @@ ul.content-hr {
     padding: 10px 0 0 0;
     margin: 0;
     line-height: 22px;
-    font-family: 'nunito_sansbold';
+    font-family: "nunito_sansbold";
     font-size: 16px;
     text-align: left;
     color: #000;
@@ -1861,7 +1861,7 @@ ul.content-hr {
     margin: 0 30px 0 0;
     line-height: 18px;
     display: inline-block;
-    font-family: 'nunito_sansregular';
+    font-family: "nunito_sansregular";
     font-size: 15px;
     font-weight: 500;
     text-align: left;
@@ -1873,7 +1873,7 @@ ul.content-hr {
 .lost-detail-right ul li span {
     padding: 10px 0 0 0;
     display: block;
-    font-family: 'nunito_sansbold';
+    font-family: "nunito_sansbold";
     font-size: 19px;
     text-transform: uppercase;
     color: #0082f0;
@@ -1889,14 +1889,14 @@ ul.content-hr {
     padding: 10px 0;
     line-height: 18px;
     text-align: left;
-    font-family: 'nunito_sansregular';
+    font-family: "nunito_sansregular";
     font-size: 13px;
     color: #767676;
     border-color: #e7e7e7;
 }
 
 .lost-detail-right table td:last-child {
-    font-family: 'nunito_sansbold';
+    font-family: "nunito_sansbold";
     font-size: 16px;
     text-align: right;
     color: #000;
@@ -1906,7 +1906,7 @@ ul.content-hr {
     padding: 13px 0 13px 0;
     margin: 60px 0 0 0;
     line-height: 24px;
-    font-family: 'nunito_sansbold';
+    font-family: "nunito_sansbold";
     font-size: 16px;
     text-align: center;
     text-transform: uppercase;
@@ -1929,7 +1929,7 @@ ul.content-hr {
     padding: 10px 0;
     line-height: 22px;
     text-align: left;
-    font-family: 'nunito_sansregular';
+    font-family: "nunito_sansregular";
     font-size: 16px;
     color: #000;
 }
@@ -1946,7 +1946,7 @@ ul.content-hr {
     margin: 0;
     line-height: 22px;
     text-align: left;
-    font-family: 'nunito_sansregular';
+    font-family: "nunito_sansregular";
     font-size: 16px;
     color: #000;
     list-style-type: none;
@@ -1994,7 +1994,7 @@ ul.content-hr {
     padding: 0 0 15px 0;
     text-align: left;
     line-height: 24px;
-    font-family: 'nunito_sansbold';
+    font-family: "nunito_sansbold";
     font-size: 16px;
     text-align: left;
     color: #000;
@@ -2018,18 +2018,18 @@ ul.content-hr {
 .lost-dog-list-left h5 {
     padding: 20px 0 15px 0;
     line-height: 24px;
-    font-family: 'nunito_sansbold';
+    font-family: "nunito_sansbold";
     font-size: 16px;
     text-align: left;
     color: #000;
 }
 
-.form-floating>.form-control {
+.form-floating > .form-control {
     padding: 40px 10px 25px 10px !important;
     margin: 0 0 15px 0;
     overflow: hidden;
     line-height: 24px;
-    font-family: 'nunito_sansbold';
+    font-family: "nunito_sansbold";
     font-size: 16px;
     text-align: left;
     color: #000;
@@ -2037,10 +2037,10 @@ ul.content-hr {
     border: 1px solid #4e4e50;
 }
 
-.form-floating>label {
+.form-floating > label {
     top: 6px;
     line-height: 20px;
-    font-family: 'nunito_sansregular';
+    font-family: "nunito_sansregular";
     font-size: 13px;
     text-align: left;
     color: #6e6e6e;
@@ -2059,7 +2059,7 @@ ul.content-hr {
     padding: 0;
     margin: 0;
     line-height: 20px;
-    font-family: 'nunito_sansregular';
+    font-family: "nunito_sansregular";
     font-size: 13px;
     text-align: left;
     color: #6e6e6e;
@@ -2069,7 +2069,7 @@ ul.content-hr {
     padding: 0;
     text-align: left;
     line-height: 24px;
-    font-family: 'nunito_sansbold';
+    font-family: "nunito_sansbold";
     font-size: 16px;
     text-align: left;
     color: #000;
@@ -2085,7 +2085,7 @@ ul.content-hr {
     padding: 0 0 5px 20px;
     margin: 0;
     line-height: 20px;
-    font-family: 'nunito_sansregular';
+    font-family: "nunito_sansregular";
     font-size: 14px;
     text-align: left;
     color: #000;
@@ -2112,7 +2112,7 @@ ul.content-hr {
     display: block;
     text-align: left;
     line-height: 24px;
-    font-family: 'nunito_sansbold';
+    font-family: "nunito_sansbold";
     font-size: 16px;
     text-align: left;
     color: #000;
@@ -2125,7 +2125,7 @@ ul.content-hr {
 
 .search-radius #rangeval {
     line-height: 20px;
-    font-family: 'nunito_sansregular';
+    font-family: "nunito_sansregular";
     font-size: 15px;
     text-align: left;
     color: #000;
@@ -2152,12 +2152,12 @@ ul.content-hr {
     border-radius: 0;
     text-align: left;
     background-size: auto;
-    background-image: url("../images/icon-arrow-down.png")
+    background-image: url("../images/icon-arrow-down.png");
 }
 
 .lost-dog-list-left option {
     line-height: 24px;
-    font-family: 'nunito_sansbold';
+    font-family: "nunito_sansbold";
     font-size: 14px;
     text-align: left;
     color: #000;
@@ -2165,13 +2165,13 @@ ul.content-hr {
 
 .lost-dog-list-left select:not(:checked) {
     line-height: 22px;
-    font-family: 'nunito_sansbold';
+    font-family: "nunito_sansbold";
     font-size: 16px;
     text-align: left;
     color: #000;
 }
 
-.lost-dog-list-left input[type='range'] {
+.lost-dog-list-left input[type="range"] {
     -webkit-appearance: none;
     background-color: #bfe0fb;
     overflow: hidden;
@@ -2179,12 +2179,12 @@ ul.content-hr {
     border-radius: 30px;
 }
 
-.lost-dog-list-left input[type='range']::-webkit-slider-runnable-track {
+.lost-dog-list-left input[type="range"]::-webkit-slider-runnable-track {
     -webkit-appearance: none;
     height: 14px;
 }
 
-.lost-dog-list-left input[type='range']::-webkit-slider-thumb {
+.lost-dog-list-left input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     background: #0082f0;
     border-radius: 100%;
@@ -2195,7 +2195,7 @@ ul.content-hr {
     border: 0;
 }
 
-.lost-dog-list-left input[type='range']::-moz-range-thumb {
+.lost-dog-list-left input[type="range"]::-moz-range-thumb {
     background: #333;
     border-radius: 50%;
     box-shadow: -1010px 0 0 1000px #4fa6ef;
@@ -2211,7 +2211,7 @@ ul.content-hr {
 
 .lost-dog-list-left input[type="range"]::-moz-range-progress {
     background-color: #666;
-    height: 14px
+    height: 14px;
 }
 
 .lost-dog-list-left input[type="range"]::-ms-fill-upper {
@@ -2236,7 +2236,7 @@ ul.content-hr {
     padding: 15px 0 0 0;
     margin: 0;
     line-height: 24px;
-    font-family: 'nunito_sansbold';
+    font-family: "nunito_sansbold";
     font-size: 18px;
     text-align: left;
     color: #032763;
@@ -2257,7 +2257,7 @@ ul.content-hr {
     margin: 0;
     display: inline-block;
     line-height: 22px;
-    font-family: 'nunito_sansregular';
+    font-family: "nunito_sansregular";
     font-size: 14px;
     text-transform: capitalize;
     text-align: left;
@@ -2274,7 +2274,7 @@ ul.content-hr {
     margin: 0 0 0 30px;
     padding: 0;
     line-height: 22px;
-    font-family: 'nunito_sansregular';
+    font-family: "nunito_sansregular";
     font-size: 14px;
     text-transform: capitalize;
     text-align: left;
@@ -2316,7 +2316,7 @@ ul.content-hr {
 
 .dog-pagination ul li a {
     line-height: 22px;
-    font-family: 'nunito_sansbold';
+    font-family: "nunito_sansbold";
     font-size: 16px;
     color: #032763;
     border: 0;
@@ -2338,7 +2338,7 @@ ul.content-hr {
 .donate-page .btn-outline-secondary {
     padding: 15px 30px;
     margin: 5px 15px 0 0;
-    font-family: 'nunito_sansregular';
+    font-family: "nunito_sansregular";
     text-align: left;
     font-size: 16px;
     color: #0e1a25;
@@ -2356,7 +2356,7 @@ ul.content-hr {
 .donate-page label {
     width: 100%;
     line-height: 30px;
-    font-family: 'nunito_sansbold';
+    font-family: "nunito_sansbold";
     font-size: 24px;
     text-align: left;
     color: #0e1a25;
@@ -2368,7 +2368,7 @@ ul.content-hr {
     padding: 10px 0 0 0;
     line-height: 20px;
     display: block;
-    font-family: 'nunito_sansregular';
+    font-family: "nunito_sansregular";
     text-align: left;
     font-size: 16px;
     color: #0e1a25;
@@ -2378,17 +2378,17 @@ ul.content-hr {
     color: #e82432;
 }
 
-.donate-page .btn-group>.btn:not(:last-child):not(.dropdown-toggle) {
+.donate-page .btn-group > .btn:not(:last-child):not(.dropdown-toggle) {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
 }
 
-.donate-page .btn-group>.btn {
+.donate-page .btn-group > .btn {
     border-radius: 5px !important;
 }
 
-.donate-page .btn-group .btn-check:checked+.btn {
-    font-family: 'nunito_sansregular';
+.donate-page .btn-group .btn-check:checked + .btn {
+    font-family: "nunito_sansregular";
     text-align: left;
     font-size: 16px;
     color: #000;
@@ -2402,7 +2402,7 @@ ul.content-hr {
     display: inline-block;
     text-align: right;
     line-height: 24px;
-    font-family: 'nunito_sansextrabold';
+    font-family: "nunito_sansextrabold";
     font-size: 20px;
     text-transform: uppercase;
     color: #fff;
@@ -2416,7 +2416,7 @@ ul.content-hr {
 
 .donate-page p {
     padding: 10px 0 15px 0;
-    font-family: 'nunito_sansregular';
+    font-family: "nunito_sansregular";
     text-align: left;
     font-size: 16px;
     color: #0e1a25;
@@ -2427,7 +2427,7 @@ ul.content-hr {
     margin: 0 auto;
     padding: 15px;
     line-height: 22px;
-    font-family: 'nunito_sansregular';
+    font-family: "nunito_sansregular";
     font-size: 18px;
     color: #696c6f;
     text-align: left;
@@ -2441,7 +2441,7 @@ ul.content-hr {
     margin: 0 auto;
     padding: 15px;
     line-height: 22px;
-    font-family: 'nunito_sansregular';
+    font-family: "nunito_sansregular";
     font-size: 18px;
     color: #696c6f;
     text-align: left;
@@ -2486,7 +2486,7 @@ ul.content-hr {
     color: #ffffff;
     cursor: pointer;
     display: inline-block;
-    font-family: 'nunito_sansregular';
+    font-family: "nunito_sansregular";
     font-size: 18px;
     font-weight: 600;
     padding: 20px 0;
@@ -2544,7 +2544,7 @@ ul.content-hr {
     padding: 30px 0 0 0;
 }
 
-.tabBlock-pane> :last-child {
+.tabBlock-pane > :last-child {
     margin-bottom: 0;
 }
 
@@ -2560,7 +2560,7 @@ ul.content-hr {
 
 .dashboard-search p {
     line-height: 30px;
-    font-family: 'nunito_sansextrabold';
+    font-family: "nunito_sansextrabold";
     font-size: 18px;
     color: #fefefe;
 }
@@ -2584,7 +2584,7 @@ ul.content-hr {
 .dashboard-page h4 {
     margin: 0 0 40px 0;
     line-height: 60px;
-    font-family: 'nunito_sansbold';
+    font-family: "nunito_sansbold";
     font-size: 50px;
     text-align: left;
     color: #101c1d;
@@ -2597,7 +2597,7 @@ ul.content-hr {
 
 .dashboard-page-left h5 {
     line-height: 30px;
-    font-family: 'nunito_sansbold';
+    font-family: "nunito_sansbold";
     font-size: 24px;
     text-align: left;
     display: inline-block;
@@ -2607,7 +2607,7 @@ ul.content-hr {
 .dashboard-page .add-dog {
     padding: 5px 30px 4px 30px;
     float: right;
-    font-family: 'nunito_sansbold';
+    font-family: "nunito_sansbold";
     font-size: 18px;
     color: #0072d2;
     border-radius: 100px;
@@ -2617,8 +2617,8 @@ ul.content-hr {
 
 .dashboard-page .add-dog:hover {
     color: #fff;
-    border: 2px solid #1C3786;
-    background: #1C3786;
+    border: 2px solid #1c3786;
+    background: #1c3786;
 }
 
 .dashboard-page-right {
@@ -2629,7 +2629,7 @@ ul.content-hr {
 
 .dashboard-page-right h5 {
     line-height: 30px;
-    font-family: 'nunito_sansbold';
+    font-family: "nunito_sansbold";
     font-size: 24px;
     text-align: left;
     color: #000;
@@ -2670,7 +2670,7 @@ ul.content-hr {
 
 .dashboard-page-right ul li a {
     line-height: 20px;
-    font-family: 'nunito_sansregular';
+    font-family: "nunito_sansregular";
     font-size: 16px;
     text-align: left;
     text-decoration: none;
@@ -2705,14 +2705,14 @@ ul.content-hr {
 
 .dashboard-page .carousel-caption h3 {
     line-height: 26px;
-    font-family: 'nunito_sansbold';
+    font-family: "nunito_sansbold";
     font-size: 18px;
     color: #000;
 }
 
 .dashboard-page .carousel-caption p {
     line-height: 22px;
-    font-family: 'nunito_sansregular';
+    font-family: "nunito_sansregular";
     font-size: 14px;
     color: #484848;
 }
@@ -2741,7 +2741,7 @@ ul.content-hr {
 
 .contact-search-text p {
     line-height: 30px;
-    font-family: 'nunito_sansextrabold';
+    font-family: "nunito_sansextrabold";
     font-size: 18px;
     color: #fff;
 }
@@ -2768,7 +2768,7 @@ ul.content-hr {
 
 .contact-left h4 {
     line-height: 32px;
-    font-family: 'nunito_sansbold';
+    font-family: "nunito_sansbold";
     font-size: 24px;
     text-align: left;
     text-transform: uppercase;
@@ -2778,7 +2778,7 @@ ul.content-hr {
 .contact-left p {
     margin: 15px 0 0 0;
     line-height: 22px;
-    font-family: 'nunito_sansregular';
+    font-family: "nunito_sansregular";
     font-size: 16px;
     text-align: justify;
     color: #454c55;
@@ -2793,7 +2793,7 @@ ul.content-hr {
 .contact-left ul li {
     margin: 0 0 15px 0;
     line-height: 28px;
-    font-family: 'nunito_sansregular';
+    font-family: "nunito_sansregular";
     font-size: 18px;
     list-style-type: none;
     color: #454c55;
@@ -2823,7 +2823,7 @@ ul.content-hr {
 
 .contact-right h4 {
     line-height: 32px;
-    font-family: 'nunito_sansbold';
+    font-family: "nunito_sansbold";
     font-size: 24px;
     text-align: left;
     text-transform: uppercase;
@@ -2838,7 +2838,7 @@ ul.content-hr {
     margin: 0 auto;
     padding: 10px 15px;
     line-height: 22px;
-    font-family: 'nunito_sansregular';
+    font-family: "nunito_sansregular";
     font-size: 18px;
     color: #696c6f;
     text-align: left;
@@ -2849,7 +2849,7 @@ ul.content-hr {
 
 .contact-right label {
     line-height: 24px;
-    font-family: 'nunito_sansregular';
+    font-family: "nunito_sansregular";
     font-size: 16px;
     text-align: left;
     color: #454c55;
@@ -2860,7 +2860,7 @@ ul.content-hr {
     display: inline-block;
     text-align: right;
     line-height: 24px;
-    font-family: 'nunito_sansbold';
+    font-family: "nunito_sansbold";
     font-size: 16px;
     text-transform: uppercase;
     color: #fff;
@@ -2877,7 +2877,6 @@ ul.content-hr {
 ==================== */
 
 @media only screen and (max-width: 1440px) {
-
     .header-bot {
         padding: 10px 0;
     }
@@ -2910,7 +2909,6 @@ ul.content-hr {
         padding: 40px 10px 60px 10px;
     }
 }
-
 
 @media only screen and (max-width: 1366px) {
     .welcome {
@@ -2951,7 +2949,6 @@ ul.content-hr {
     .footer-top-text ul li:nth-child(2) {
         margin: 0 20px;
     }
-
 }
 
 @media only screen and (max-width: 1280px) {
@@ -2988,7 +2985,6 @@ ul.content-hr {
     .footer-top-text ul li:nth-child(2) {
         margin: 0 20px;
     }
-
 }
 
 @media only screen and (max-width: 1024px) {
@@ -3254,7 +3250,6 @@ ul.content-hr {
 }
 
 @media only screen and (max-width: 768px) {
-
     .main-menu ul li a {
         padding: 0 5px;
         line-height: 20px;
@@ -3333,7 +3328,7 @@ ul.content-hr {
         background: url(../images/icon-unknown.png) no-repeat 10px 14px;
     }
 
-    .btn-group .btn-check:checked+.btn {
+    .btn-group .btn-check:checked + .btn {
         background: #fff url(../images/icon-male-active.png) no-repeat 5px 15px;
     }
 
@@ -3391,7 +3386,6 @@ ul.content-hr {
     .footer-top-text ul li:nth-child(2) {
         margin: 0 20px;
     }
-
 }
 
 @media only screen and (max-width: 767px) {
@@ -3564,11 +3558,9 @@ ul.content-hr {
         padding: 25px 0;
         line-height: 25px;
     }
-
 }
 
 @media only screen and (max-width: 375px) {
-
     .top-menu {
         padding: 15px 0 0 0;
         text-align: center;
@@ -3632,7 +3624,6 @@ ul.content-hr {
         padding: 25px 0;
         line-height: 25px;
     }
-
 }
 
 .select2-container .select2-selection--single {

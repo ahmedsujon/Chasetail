@@ -1,19 +1,16 @@
 <?php
 
-namespace App\Livewire\App\User\Auth;
+namespace App\Livewire\App\Signup;
 
 use App\Models\User;
 use App\Models\LostDog;
 use Livewire\Component;
-use Twilio\Rest\Client;
-use Illuminate\Support\Str;
 use Livewire\Attributes\Title;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Session;
 
-class RegisterComponent extends Component
+class SignupComponent extends Component
 {
+
     public $name, $username, $email, $phone, $password, $confirm_password, $notify_status, $latitude, $longitude,
         $subscription;
 
@@ -50,7 +47,6 @@ class RegisterComponent extends Component
         $user->password = Hash::make($this->password);
         $user->subscription = 0;
         $user->notify_status = $this->notify_status;
-        dd($user);
         $user->save();
 
         // Create LostDog entry using session data
@@ -72,12 +68,13 @@ class RegisterComponent extends Component
 
         // Flash success message and redirect
         session()->flash('success', 'Report posted successfully!');
-        return redirect('/user/dashboard');
+        return redirect('/lostdogs');
     }
 
-    #[Title('Sign Up')]
+    #[Title('Account Information')]
+
     public function render()
     {
-        return view('livewire.app.user.auth.register-component')->layout('livewire.app.layouts.base');
+        return view('livewire.app.signup.signup-component')->layout('livewire.app.layouts.base');
     }
 }

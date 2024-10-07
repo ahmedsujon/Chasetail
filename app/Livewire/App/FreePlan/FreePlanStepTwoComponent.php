@@ -38,7 +38,7 @@ class FreePlanStepTwoComponent extends Component
         session()->put('gender', $this->gender);
         session()->put('last_seen', $this->last_seen);
         session()->put('description', $this->description);
-        return $this->redirect('/register', navigate: false);
+        return $this->redirect('/account-information', navigate: false);
     }
 
     public function updated($fields)

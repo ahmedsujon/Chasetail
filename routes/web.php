@@ -58,6 +58,7 @@ use App\Livewire\App\FoundDogReport\FoundDogReportStepThreeComponent;
 use App\Livewire\App\PlanE\PlanEComponent;
 use App\Livewire\App\PlanE\PlanEStepOneComponent;
 use App\Livewire\App\PlanE\PlanEStepTwoComponent;
+use App\Livewire\App\Signup\SignupComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -80,6 +81,10 @@ Route::get('/lostdogs/details/{id}', LostDogDetailsComponent::class)->name('app.
 
 // Lost dog flyer
 Route::get('/lostdogs/flyer/{id}', FlyerComponent::class)->name('app.lost.dogs.flyer');
+
+// account information / signup
+Route::get('/account-information', SignupComponent::class)->name('app.account.info');
+
 
 // Found Dog Routes
 Route::get('/found-dogs', FoundDogComponent::class)->name('app.found.dogs');
