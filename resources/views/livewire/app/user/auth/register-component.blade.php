@@ -44,7 +44,7 @@
 
                                         <div class="mb-4">
                                             <label for="email" class="form-label">Email</label>
-                                            <input type="text" wire:model.blur="email" class="form-control"
+                                            <input type="email" wire:model.blur="email" class="form-control"
                                                 placeholder="Enter your email">
                                             @error('email')
                                                 <p class="text-danger font-size-12 mb-0">{{ $message }}</p>
@@ -66,7 +66,7 @@
                                 </div>
                                 <div class="col-md-12 col-lg-6 col-12">
                                     <div class="form-left-left">
-                                        <div class="mb-4">
+                                        <div class="mb-4" wire:ignore>
                                             <label for="phone" class="form-label">Phone Number</label>
                                             <input type="text" wire:model.blur="phone" id="phone"
                                                 class="form-control" placeholder="(123) 456-7890">
