@@ -140,10 +140,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
+
+                <div class="row mb-5">
                     <div class="col-12">
-                        <div class="form-left-right">
-                            <button class="btn btn-submit-post" type="submit">{!! loadingStateWithText('storeData', 'Submit Post') !!}</button>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <button type="submit" class="btn btn-primary mt-3">Next</button>
                         </div>
                     </div>
                 </div>

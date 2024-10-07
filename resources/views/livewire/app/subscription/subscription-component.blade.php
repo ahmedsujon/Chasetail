@@ -45,273 +45,134 @@
     <section class="page-content">
         <div class="container-fluid">
             <div class="row">
-                @auth
-                    <div class="col-md-6 col-lg-3 col-12">
-                        <div class="package-list">
-                            <h5>Starter</h5>
-                            <h4>FREE</h4>
-                            <p>Post on website only/p>
-                            <div class="btn-plan">
-                                <a href="{{ route('free.plan.report') }}">Starter Plan</a>
-                            </div>
-                            <h6>Includes</h6>
-                            <ul class="free-package">
-                                <li>Can add single photo</li>
-                                <li>Can add short description</li>
-                                <li>Add food & medicine info</li>
-                                <li>Add short description (150 character)</li>
-                                <li><strong>Does not include neighbor contact</strong></li>
-                            </ul>
+                <div class="col-md-6 col-lg-3 col-12">
+                    <div class="package-list">
+                        <h5>Starter</h5>
+                        <h4>FREE</h4>
+                        <p>Post on website only</p>
+                        <div class="btn-plan">
+                            <a href="{{ route('free.plan.report') }}">Starter Plan</a>
                         </div>
+                        <h6>Includes</h6>
+                        <ul class="free-package">
+                            <li>Can add single photo</li>
+                            <li>Can add short description</li>
+                            <li>Add food & medicine info</li>
+                            <li>Add short description (150 character)</li>
+                            <li><strong>Does not include neighbor contact</strong></li>
+                        </ul>
                     </div>
-                @else
-                    <div class="col-md-6 col-lg-3 col-12">
-                        <div class="package-list">
-                            <h5>Starter</h5>
-                            <h4>FREE</h4>
-                            <p>Post on website only</p>
-                            <div class="btn-plan">
-                                <a href="/login" wire:navigate>Starter Plan</a>
-                            </div>
-                            <h6>Includes</h6>
-                            <ul class="free-package">
-                                <li>Can add single photo</li>
-                                <li>Can add short description</li>
-                                <li>Add food & medicine info.</li>
-                                <li>Add short description (150 character)</li>
-                                <li><strong>Does not include neighbor contact</strong></li>
-                            </ul>
-                        </div>
-                    </div>
-                @endauth
+                </div>
 
-                @auth
-                    <div class="col-md-6 col-lg-3 col-12">
-                        <div class="package-list">
-                            <h5>Text Plan</h5>
-                            <h4>$99<span class="user">/ 250 Direct Contacts</span></h4>
-                            <p>Send 250 Texts</p>
-                            <div class="btn-plan">
-                                <a href="{{ route('text.plan.report') }}">Basic Text Plan</a>
-                            </div>
-                            <h6>Includes</h6>
-                            <ul>
-                                <li>250 Texts Nearby</li>
-                                <li>Add short description (50 character)</li>
-                                <li>Add food & medicine info.</li>
-                                <li>Share with selected areas neighbor</li>
-                                <li>Send SMS</li>
-                                <li>Get real time notification of sightings or rescue</li>
-                                <li><strong>Does not include neighbor contact</strong></li>
-                            </ul>
+                <div class="col-md-6 col-lg-3 col-12">
+                    <div class="package-list">
+                        <h5>Text Plan</h5>
+                        <h4>$99<span class="user">/ 250 Direct Contacts</span></h4>
+                        <p>Send 250 Texts</p>
+                        <div class="btn-plan">
+                            <a href="{{ route('text.plan.report') }}">Basic Text Plan</a>
                         </div>
+                        <h6>Includes</h6>
+                        <ul>
+                            <li>250 Texts Nearby</li>
+                            <li>Add short description (50 character)</li>
+                            <li>Add food & medicine info.</li>
+                            <li>Share with selected areas neighbor</li>
+                            <li>Send SMS</li>
+                            <li>Get real time notification of sightings or rescue</li>
+                            <li><strong>Does not include neighbor contact</strong></li>
+                        </ul>
                     </div>
-                @else
-                    <div class="col-md-6 col-lg-3 col-12">
-                        <div class="package-list">
-                            <h5>Basic</h5>
-                            <h4>$99<span class="user">/ 250 Direct Contacts</span></h4>
-                            <p>Send 250 Texts</p>
-                            <div class="btn-plan">
-                                <a href="/login" wire:navigate>Basic Text Plan</a>
-                            </div>
-                            <h6>Includes</h6>
-                            <ul>
-                                <li>250 Texts Nearby</li>
-                                <li>Add short description (150 character)</li>
-                                <li>Add food & medicine info.</li>
-                                <li>Share with selected areas neighbor</li>
-                                <li>Send SMS</li>
-                                <li>Get real time notification of sightings or rescue</li>
-                                <li><strong>Does not include neighbor contact</strong></li>
-                            </ul>
-                        </div>
-                    </div>
-                @endauth
+                </div>
 
-                @auth
-                    <div class="col-md-6 col-lg-3 col-12">
-                        <div class="package-list">
-                            <h5>Level One</h5>
-                            <h4>$139<span class="user">/ 250 Contact 250 Neighbors</span></h4>
-                            <p>Send 250 Texts and Add a Picture</p>
-                            <div class="btn-plan">
-                                <a href="{{ route('plan.one.report') }}">Level One Plan</a>
-                            </div>
-                            <h6>Includes</h6>
-                            <ul>
-                                <li>250 Texts Nearby</li>
-                                <li>Can add single photo</li>
-                                <li>Can add 200 character description</li>
-                                <li>Add food & medicine info.</li>
-                                <li>Share with selected areas neighbor</li>
-                                <li>Send MMS with picture</li>
-                                <li>Get real time notification of sightings or rescue</li>
-                                <li><strong>Does not include neighbor contact</strong></li>
-                            </ul>
+                <div class="col-md-6 col-lg-3 col-12">
+                    <div class="package-list">
+                        <h5>Level One</h5>
+                        <h4>$139<span class="user">/ 250 Contact 250 Neighbors</span></h4>
+                        <p>Send 250 Texts and Add a Picture</p>
+                        <div class="btn-plan">
+                            <a href="{{ route('plan.one.report') }}">Level One Plan</a>
                         </div>
+                        <h6>Includes</h6>
+                        <ul>
+                            <li>250 Texts Nearby</li>
+                            <li>Can add single photo</li>
+                            <li>Can add 200 character description</li>
+                            <li>Add food & medicine info.</li>
+                            <li>Share with selected areas neighbor</li>
+                            <li>Send MMS with picture</li>
+                            <li>Get real time notification of sightings or rescue</li>
+                            <li><strong>Does not include neighbor contact</strong></li>
+                        </ul>
                     </div>
-                @else
-                    <div class="col-md-6 col-lg-3 col-12">
-                        <div class="package-list">
-                            <h5>Level One</h5>
-                            <h4>$139<span class="user">/ Contact 250 Neighbors</span></h4>
-                            <p>Send 250 Texts and Add a Picture</p>
-                            <div class="btn-plan">
-                                <a href="/login" wire:navigate>Level One Plan</a>
-                            </div>
-                            <h6>Includes</h6>
-                            <ul>
-                                <li>250 Texts Nearby</li>
-                                <li>Can add single photo</li>
-                                <li>Can add 200 character description</li>
-                                <li>Add food & medicine info.</li>
-                                <li>Share with selected areas neighbor</li>
-                                <li>Send MMS with picture</li>
-                                <li>Get real time notification of sightings or rescue</li>
-                                <li><strong>Does not include neighbor contact</strong></li>
-                            </ul>
-                        </div>
-                    </div>
-                @endauth
+                </div>
 
-                @auth
-                    <div class="col-md-6 col-lg-3 col-12">
-                        <div class="package-list">
-                            <h5>Level Two</h5>
-                            <h4>$169<span class="user">/ Contact 500 Neighbors</span></h4>
-                            <p>Send 500 Texts and Add a Picture</p>
-                            <div class="btn-plan">
-                                <a href="{{ route('plan.two.report') }}">Level Two Plan</a>
-                            </div>
-                            <h6>Includes</h6>
-                            <ul>
-                                <li>500 Texts Nearby</li>
-                                <li>Can add single photo</li>
-                                <li>Can add 200 character description</li>
-                                <li>Add food & medicine info.</li>
-                                <li>Send MMS with picture</li>
-                                <li>Share with selected areas neighbor</li>
-                                <li>Get real time notification of sightings or rescue</li>
-                                <li><strong>Does not include neighbor contact</strong></li>
-                            </ul>
+                <div class="col-md-6 col-lg-3 col-12">
+                    <div class="package-list">
+                        <h5>Level Two</h5>
+                        <h4>$169<span class="user">/ Contact 500 Neighbors</span></h4>
+                        <p>Send 500 Texts and Add a Picture</p>
+                        <div class="btn-plan">
+                            <a href="{{ route('plan.two.report') }}">Level Two Plan</a>
                         </div>
+                        <h6>Includes</h6>
+                        <ul>
+                            <li>500 Texts Nearby</li>
+                            <li>Can add single photo</li>
+                            <li>Can add 200 character description</li>
+                            <li>Add food & medicine info.</li>
+                            <li>Send MMS with picture</li>
+                            <li>Share with selected areas neighbor</li>
+                            <li>Get real time notification of sightings or rescue</li>
+                            <li><strong>Does not include neighbor contact</strong></li>
+                        </ul>
                     </div>
-                @else
-                    <div class="col-md-6 col-lg-3 col-12">
-                        <div class="package-list">
-                            <h5>Level Two</h5>
-                            <h4>$169<span class="user">/ Contact 500 Neighbors</span></h4>
-                            <p>Send 500 Texts and Add a Picture</p>
-                            <div class="btn-plan">
-                                <a href="/login" wire:navigate>Level Two Plan</a>
-                            </div>
-                            <h6>Includes</h6>
-                            <ul>
-                                <li>500 Texts Nearby</li>
-                                <li>Can add single photo</li>
-                                <li>Can add 200 character description</li>
-                                <li>Add food & medicine info.</li>
-                                <li>Send MMS with picture</li>
-                                <li>Share with selected areas neighbor</li>
-                                <li>Get real time notification of sightings or rescue</li>
-                                <li><strong>Does not include neighbor contact</strong></li>
-                            </ul>
-                        </div>
-                    </div>
-                @endauth
+                </div>
 
-                @auth
-                    <div class="col-md-6 col-lg-3 col-12">
-                        <div class="package-list">
-                            <h5>Level Three</h5>
-                            <h4>$199<span class="user">/ Contact 750 Neighbors</span></h4>
-                            <p>Send 750 Texts and Add a Picture</p>
-                            <div class="btn-plan">
-                                <a href="{{ route('plan.three.report') }}">Level Three Plan</a>
-                            </div>
-                            <h6>Includes</h6>
-                            <ul>
-                                <li>750 Texts Nearby</li>
-                                <li>Can add single photo</li>
-                                <li>Can add 200 character description</li>
-                                <li>Add food & medicine info.</li>
-                                <li>Send MMS with picture</li>
-                                <li>Share with selected areas neighbor</li>
-                                <li>Get real time notification of sightings or rescue</li>
-                                <li><strong>Does not include neighbor contact</strong></li>
-                            </ul>
+                <div class="col-md-6 col-lg-3 col-12">
+                    <div class="package-list">
+                        <h5>Level Three</h5>
+                        <h4>$199<span class="user">/ Contact 750 Neighbors</span></h4>
+                        <p>Send 750 Texts and Add a Picture</p>
+                        <div class="btn-plan">
+                            <a href="{{ route('plan.three.report') }}">Level Three Plan</a>
                         </div>
+                        <h6>Includes</h6>
+                        <ul>
+                            <li>750 Texts Nearby</li>
+                            <li>Can add single photo</li>
+                            <li>Can add 200 character description</li>
+                            <li>Add food & medicine info.</li>
+                            <li>Send MMS with picture</li>
+                            <li>Share with selected areas neighbor</li>
+                            <li>Get real time notification of sightings or rescue</li>
+                            <li><strong>Does not include neighbor contact</strong></li>
+                        </ul>
                     </div>
-                @else
-                    <div class="col-md-6 col-lg-3 col-12">
-                        <div class="package-list">
-                            <h5>Level Three</h5>
-                            <h4>$199<span class="user">/ Contact 750 Neighbors</span></h4>
-                            <p>Send 750 Texts and Add a Picture</p>
-                            <div class="btn-plan">
-                                <a href="/login" wire:navigate>Level Three Plan</a>
-                            </div>
-                            <h6>Includes</h6>
-                            <ul>
-                                <li>750 Texts Nearby</li>
-                                <li>Can add single photo</li>
-                                <li>Can add 200 character description</li>
-                                <li>Add food & medicine info.</li>
-                                <li>Send MMS with picture</li>
-                                <li>Share with selected areas neighbor</li>
-                                <li>Get real time notification of sightings or rescue</li>
-                                <li><strong>Does not include neighbor contact</strong></li>
-                            </ul>
-                        </div>
-                    </div>
-                @endauth
+                </div>
 
-                @auth
-                    <div class="col-md-6 col-lg-3 col-12">
-                        <div class="package-list">
-                            <h5>Level Four</h5>
-                            <h4>$239<span class="user">/ Contact 1000 Neighbors</span></h4>
-                            <p>Send 1000 Texts and Add a Picture</p>
-                            <div class="btn-plan">
-                                <a href="{{ route('plan.four.report') }}">Level Four Plan</a>
-                            </div>
-                            <h6>Includes</h6>
-                            <ul>
-                                <li>1000 Texts Nearby</li>
-                                <li>Can add single photo</li>
-                                <li>Can add 200 character description</li>
-                                <li>Add food & medicine info.</li>
-                                <li>Send MMS with picture</li>
-                                <li>Share with selected areas neighbor</li>
-                                <li>Get real time notification of sightings or rescue</li>
-                                <li><strong>Does not include neighbor contact</strong></li>
-                            </ul>
+                <div class="col-md-6 col-lg-3 col-12">
+                    <div class="package-list">
+                        <h5>Level Four</h5>
+                        <h4>$239<span class="user">/ Contact 1000 Neighbors</span></h4>
+                        <p>Send 1000 Texts and Add a Picture</p>
+                        <div class="btn-plan">
+                            <a href="{{ route('plan.four.report') }}">Level Four Plan</a>
                         </div>
+                        <h6>Includes</h6>
+                        <ul>
+                            <li>1000 Texts Nearby</li>
+                            <li>Can add single photo</li>
+                            <li>Can add 200 character description</li>
+                            <li>Add food & medicine info.</li>
+                            <li>Send MMS with picture</li>
+                            <li>Share with selected areas neighbor</li>
+                            <li>Get real time notification of sightings or rescue</li>
+                            <li><strong>Does not include neighbor contact</strong></li>
+                        </ul>
                     </div>
-                @else
-                    <div class="col-md-6 col-lg-3 col-12">
-                        <div class="package-list">
-                            <h5>Level Four</h5>
-                            <h4>$239<span class="user">/ Contact 1000 Neighbors</span></h4>
-                            <p>Send 1000 Texts and Add a Picture</p>
-                            <div class="btn-plan">
-                                <a href="/login" wire:navigate>Level Four Plan</a>
-                            </div>
-                            <h6>Includes</h6>
-                            <ul>
-                                <li>1000 Texts Nearby</li>
-                                <li>Can add single photo</li>
-                                <li>Can add 200 character description</li>
-                                <li>Add food & medicine info.</li>
-                                <li>Send MMS with picture</li>
-                                <li>Share with selected areas neighbor</li>
-                                <li>Get real time notification of sightings or rescue</li>
-                                <li><strong>Does not include neighbor contact</strong></li>
-                            </ul>
-                        </div>
-                    </div>
-                @endauth
+                </div>
+
             </div>
         </div>
     </section>

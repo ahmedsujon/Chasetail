@@ -3,17 +3,19 @@
 namespace App\Livewire\App\User\Auth;
 
 use App\Models\User;
+use App\Models\LostDog;
 use Livewire\Component;
+use Twilio\Rest\Client;
 use Illuminate\Support\Str;
 use Livewire\Attributes\Title;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Twilio\Rest\Client;
 use Illuminate\Support\Facades\Session;
 
 class RegisterComponent extends Component
 {
-    public $name, $username, $email, $phone, $password, $confirm_password, $notify_status, $latitude, $longitude;
+    public $name, $username, $email, $phone, $password, $confirm_password, $notify_status, $latitude, $longitude,
+        $subscription;
 
     public function updated($fields)
     {
@@ -31,7 +33,8 @@ class RegisterComponent extends Component
 
     public function userRegistration()
     {
-        $this->validate([
+        // Validation
+        $validatedData = request()->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
             'phone' => 'required|unique:users,phone',
@@ -39,36 +42,41 @@ class RegisterComponent extends Component
             'notify_status' => 'required',
         ]);
 
-        // Generate a 6-digit OTP code
-        $otp = rand(100000, 999999);
-        // Store the OTP in the session for later verification
-        Session::put('otp', $otp);
+        // Format phone number and create new user
+        $formattedPhone = '+1' . preg_replace('/[^\d]/', '', $validatedData['phone']);
 
-        // Clean the phone number and add +1
-        $phone = '+1' . preg_replace('/[^\d]/', '', $this->phone);
-
-        // Send OTP using Twilio
-        $twilio = new Client(env('TWILIO_SID'), env('TWILIO_TOKEN'));
-        $twilio->messages->create($phone, [
-            'from' => env('TWILIO_FROM'),
-            'body' => "Your OTP code is: $otp"
+        $user = User::create([
+            'name' => $validatedData['name'],
+            'latitude' => request()->input('latitude'),
+            'longitude' => request()->input('longitude'),
+            'email' => $validatedData['email'],
+            'phone' => $formattedPhone,
+            'password' => Hash::make($validatedData['password']),
+            'subscription' => 0,
         ]);
 
-        // Store user data in the session instead of the database
-        Session::put('user_registration_data', [
-            'name' => $this->name,
-            'latitude' => $this->latitude,
-            'longitude' => $this->longitude,
-            'email' => $this->email,
-            'phone' => $phone,
-            'password' => Hash::make($this->password),
-            'avatar' => 'assets/images/avatar.png',
+        // Create a new LostDog entry
+        LostDog::create([
+            'latitude' => request()->input('latitude'),
+            'longitude' => request()->input('longitude'),
+            'images' => request()->input('images'),
+            'address' => request()->input('address'),
+            'payment_status' => 'free',
+            'name' => request()->input('name'),
+            'breed' => request()->input('breed'),
+            'color' => request()->input('color'),
+            'marking' => request()->input('marking'),
+            'gender' => request()->input('gender'),
+            'last_seen' => request()->input('last_seen'),
+            'description' => request()->input('description'),
         ]);
 
-        Auth::guard('web')->attempt(['email' => $this->email, 'password' => $this->password]);
-        session()->flash('success', 'Registration successful');
-        return redirect()->route('app.phone.verfy');
+        // Flash success message and redirect
+        session()->flash('success', 'Report posted successfully!');
+        return $this->redirect('/user/dashboard', navigate: true);
     }
+
+
 
     #[Title('Sign Up')]
     public function render()

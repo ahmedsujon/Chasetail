@@ -22,6 +22,7 @@ class FreePlanStepTwoComponent extends Component
 
     public function storeData()
     {
+
         $this->validate([
             'name' => 'required',
             'breed' => 'required',
@@ -30,50 +31,25 @@ class FreePlanStepTwoComponent extends Component
             'last_seen' => 'required',
         ]);
 
-        $data = new LostDog();
-        $data->user_id = Auth::user()->id;
-
-        $data->latitude = session('latitude');
-        $data->longitude = session('longitude');
-        $data->images = session('images');
-        $data->address = session('address');
-
-        $data->name = $this->name;
-        $data->breed = $this->breed;
-        $data->color = $this->color;
-        $data->marking = $this->marking;
-        $data->payment_status = 'free';
-        $data->gender = $this->gender;
-        $data->last_seen = $this->last_seen;
-        $data->microchip_id = $this->microchip_id;
-        $data->medicine_info = $this->medicine_info;
-        $data->description = $this->description;
-        $data->save();
-
-        $user = User::find(Auth::user()->id);
-        $user->subscription = 0;
-        $user->save();
-        session()->forget(['latitude', 'longitude', 'images', 'address']);
-        return $this->redirect('/user/dashboard', navigate: true);
-        session()->flash('success', 'Report posted added successfully');
-        $this->resetInputs();
+        session()->put('name', $this->name);
+        session()->put('breed', $this->breed);
+        session()->put('color', $this->color);
+        session()->put('marking', $this->marking);
+        session()->put('gender', $this->gender);
+        session()->put('last_seen', $this->last_seen);
+        session()->put('description', $this->description);
+        return $this->redirect('/register', navigate: true);
     }
 
-    public function resetInputs()
+    public function updated($fields)
     {
-        $this->user_id = null;
-        $this->longitude = null;
-        $this->payment_status = null;
-        $this->photos = null;
-        $this->breed = null;
-        $this->marking = null;
-        $this->name = null;
-        $this->gender = null;
-        $this->address = null;
-        $this->last_seen = null;
-        $this->microchip_id = null;
-        $this->medicine_info = null;
-        $this->description = null;
+        $this->validateOnly($fields, [
+            'name' => 'required',
+            'breed' => 'required',
+            'color' => 'required',
+            'gender' => 'required',
+            'last_seen' => 'required',
+        ]);
     }
 
     public function render()
