@@ -108,12 +108,11 @@
                 <div class="row mb-5">
                     <div class="col-12">
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <button type="submit" class="btn btn-primary mt-3">Submit</button>
-                            {{-- @if ($latitude == null || $longitude == null)
+                            @if ($latitude == null || $longitude == null)
                                 <button disabled type="submit" class="btn btn-primary mt-3">Submit</button>
                             @else
                                 <button type="submit" class="btn btn-primary mt-3">Submit</button>
-                            @endif --}}
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -136,8 +135,7 @@
         });
     </script>
 
-
-    {{-- <script>
+    <script>
         $(document).ready(function() {
             navigator.geolocation.getCurrentPosition((position) => {
                 const p = position.coords;
@@ -153,7 +151,7 @@
                 }
             });
         });
-    </script> --}}
+    </script>
 
     <script>
         function updateCheckboxValue(checkbox) {

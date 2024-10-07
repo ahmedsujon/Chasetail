@@ -5,8 +5,6 @@
             padding-top: 5px;
         }
 
-        .form-check-input {}
-
         .form-check-label {
             padding: 0px 0px 0px 5px !important;
             padding:
