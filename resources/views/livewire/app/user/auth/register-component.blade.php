@@ -80,7 +80,7 @@
 
                                         <div class="mb-4">
                                             <label for="password" class="form-label">Password</label>
-                                            <input type="text" wire:model.blur="password" class="form-control"
+                                            <input type="password" wire:model.blur="password" class="form-control"
                                                 placeholder="Enter password">
                                             @error('password')
                                                 <p class="text-danger font-size-12 mb-0">{{ $message }}</p>
@@ -108,11 +108,12 @@
                 <div class="row mb-5">
                     <div class="col-12">
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            @if ($latitude == null || $longitude == null)
+                            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                            {{-- @if ($latitude == null || $longitude == null)
                                 <button disabled type="submit" class="btn btn-primary mt-3">Submit</button>
                             @else
                                 <button type="submit" class="btn btn-primary mt-3">Submit</button>
-                            @endif
+                            @endif --}}
                         </div>
                     </div>
                 </div>
@@ -136,7 +137,7 @@
     </script>
 
 
-    <script>
+    {{-- <script>
         $(document).ready(function() {
             navigator.geolocation.getCurrentPosition((position) => {
                 const p = position.coords;
@@ -152,7 +153,7 @@
                 }
             });
         });
-    </script>
+    </script> --}}
 
     <script>
         function updateCheckboxValue(checkbox) {

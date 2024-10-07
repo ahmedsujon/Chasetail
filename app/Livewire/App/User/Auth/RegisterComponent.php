@@ -21,8 +21,6 @@ class RegisterComponent extends Component
     {
         $this->validateOnly($fields, [
             'name' => 'required',
-            'latitude' => 'required',
-            'longitude' => 'required',
             'email' => 'required|email|unique:users,email',
             'phone' => 'required|unique:users,phone',
             'password' => 'required|min:8|max:30',
@@ -68,9 +66,9 @@ class RegisterComponent extends Component
         $data->gender = session('gender');
         $data->last_seen = session('last_seen');
         $data->description = session('description');
+        $data->notify_status = $this->notify_status;
+        $data->user_id = $user->id;
         $data->save();
-
-        dd($data);
 
         // Flash success message and redirect
         session()->flash('success', 'Report posted successfully!');
