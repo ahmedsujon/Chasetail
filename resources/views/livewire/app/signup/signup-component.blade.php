@@ -37,7 +37,6 @@
                             <div class="row">
                                 <div class="col-md-12 col-lg-6 col-12">
                                     <div class="form-left-right">
-                                        <label style="color: #0082F0;" class="form-label mb-4">Create Account</label>
                                         <div class="mb-4">
                                             <label for="name" class="form-label">Full Name</label>
                                             <input type="text" wire:model.blur="name" class="form-control"
@@ -47,28 +46,11 @@
                                             @enderror
                                         </div>
 
-                                        <div class="mb-4">
-                                            <label for="email" class="form-label">Email</label>
-                                            <input type="email" wire:model.blur="email" class="form-control"
-                                                placeholder="Enter your email">
-                                            @error('email')
-                                                <p class="text-danger font-size-12 mb-0">{{ $message }}</p>
-                                            @enderror
-                                        </div>
                                         <div class="mb-3" wire:ignore>
                                             <label for="phone" class="form-label">Phone Number</label>
                                             <input type="text" wire:model.blur='phone' class="form-control phone"
                                                 id="phone" placeholder="(123) 456-7890" required>
                                             @error('phone')
-                                                <p class="text-danger font-size-12 mb-0">{{ $message }}</p>
-                                            @enderror
-                                        </div>
-
-                                        <div class="mb-4">
-                                            <label for="password" class="form-label">Password</label>
-                                            <input type="password" wire:model.blur="password" class="form-control"
-                                                placeholder="Enter password">
-                                            @error('password')
                                                 <p class="text-danger font-size-12 mb-0">{{ $message }}</p>
                                             @enderror
                                         </div>
@@ -85,34 +67,30 @@
                                                 <p class="text-danger font-size-12 mb-0">{{ $message }}</p>
                                             @enderror
                                         </div>
-
-                                        @if ($latitude == null || $longitude == null)
-                                            <p style="color: red">Please allow location access in your browser settings!
-                                            </p>
-                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-md-12 col-lg-6 col-12">
                                     <div class="form-left-left">
-                                        <label style="color: #0082F0;" class="form-label mb-4">Sign In Your
-                                            Account</label>
-                                        <div class="mb-3" wire:ignore>
+                                        <div class="mb-4">
                                             <label for="email" class="form-label">Email</label>
-                                            <input type="text" wire:model.blur='email' class="form-control email"
-                                                id="email" placeholder="Enter your email" required>
+                                            <input type="email" wire:model.blur="email" class="form-control"
+                                                placeholder="Enter your email">
                                             @error('email')
-                                                <p class="text-danger font-size-12">{{ $message }}</p>
+                                                <p class="text-danger font-size-12 mb-0">{{ $message }}</p>
                                             @enderror
                                         </div>
-
                                         <div class="mb-4">
                                             <label for="password" class="form-label">Password</label>
                                             <input type="password" wire:model.blur="password" class="form-control"
                                                 placeholder="Enter password">
                                             @error('password')
-                                                <p class="text-danger font-size-12">{{ $message }}</p>
+                                                <p class="text-danger font-size-12 mb-0">{{ $message }}</p>
                                             @enderror
                                         </div>
+                                        @if ($latitude == null || $longitude == null)
+                                            <p style="color: red">Please allow location access in your browser settings!
+                                            </p>
+                                        @endif
                                     </div>
                                 </div>
                             </div>

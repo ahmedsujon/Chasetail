@@ -28,13 +28,10 @@ class LoginComponent extends Component
         ]);
 
         $getUser = User::where('email', $this->email)->first();
-
         if ($getUser) {
             if (Hash::check($this->password, $getUser->password)) {
                 Auth::guard('web')->attempt(['email' => $this->email, 'password' => $this->password]);
-
                 session()->flash('success', 'Login Successful');
-                // return redirect()->to('/user/dashboard');
                 return redirect()->route('user.dashboard');
             } else {
                 session()->flash('error', 'Incorrect email or password');

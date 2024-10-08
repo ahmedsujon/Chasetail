@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\LostDog;
 use Livewire\Component;
 use Livewire\Attributes\Title;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class SignupComponent extends Component

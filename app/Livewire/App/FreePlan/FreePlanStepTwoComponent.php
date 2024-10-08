@@ -41,6 +41,42 @@ class FreePlanStepTwoComponent extends Component
         return $this->redirect('/account-information', navigate: false);
     }
 
+    public function submitData()
+    {
+        $this->validate([
+            'name' => 'required',
+            'breed' => 'required',
+            'color' => 'required',
+            'gender' => 'required',
+            'last_seen' => 'required',
+        ]);
+
+        $data = new LostDog();
+        $data->user_id = Auth::user()->id;
+        $data->latitude = session('latitude');
+        $data->longitude = session('longitude');
+        $data->images = session('images');
+        $data->address = session('address');
+
+        $data->name = $this->name;
+        $data->breed = $this->breed;
+        $data->color = $this->color;
+        $data->marking = $this->marking;
+        $data->payment_status = 'free';
+        $data->gender = $this->gender;
+        $data->last_seen = $this->last_seen;
+        $data->microchip_id = $this->microchip_id;
+        $data->description = $this->description;
+        $data->save();
+
+        $user = User::find(Auth::user()->id);
+        $user->subscription = 0;
+        $user->save();
+        return $this->redirect('/lostdogs', navigate: true);
+        session()->flash('success', 'Report posted successfully!');
+        $this->resetInputs();
+    }
+
     public function updated($fields)
     {
         $this->validateOnly($fields, [
