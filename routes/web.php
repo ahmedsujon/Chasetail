@@ -167,8 +167,6 @@ Route::get('/level-four-subscription-payment', PlanEPaymentComponent::class)->na
 
 // Route::post('/payment', [SubscriptionController::class, 'subscription']);
 Route::post('/text-plan-payment', [TextPlanSubscriptionController::class, 'textPlanSubscription']);
-Route::post('/text-plan-payments', [TextPlanSubscriptionController::class, 'authTextPlanSubscription']);
-
 Route::post('/subscription-payment-level-one', [PlanBSubscriptionController::class, 'PlanBSubscription']);
 Route::post('/subscription-payment-level-two', [PlanCSubscriptionController::class, 'PlanCSubscription']);
 Route::post('/subscription-payment-level-three', [PlanDSubscriptionController::class, 'PlanDSubscription']);

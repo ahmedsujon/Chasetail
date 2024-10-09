@@ -68,10 +68,6 @@ class FreePlanStepTwoComponent extends Component
         $data->microchip_id = $this->microchip_id;
         $data->description = $this->description;
         $data->save();
-
-        $user = User::find(Auth::user()->id);
-        $user->subscription = 0;
-        $user->save();
         return $this->redirect('/lostdogs', navigate: true);
         session()->flash('success', 'Report posted successfully!');
         $this->resetInputs();

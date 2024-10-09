@@ -34,7 +34,12 @@ class PlanAStepOneComponent extends Component
         session()->put('breed', $this->breed);
         session()->put('marking', $this->marking);
         session()->put('description', $this->description);
-        return $this->redirect('/account-informations', navigate: false);
+
+        if (Auth::check()) {
+            return $this->redirect('/text-plan-subscription-payment', navigate: false);
+        } else {
+            return $this->redirect('/account-informations', navigate: false);
+        }
     }
 
     public function updated($fields)
