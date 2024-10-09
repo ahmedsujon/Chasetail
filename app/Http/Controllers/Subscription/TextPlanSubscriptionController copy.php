@@ -37,21 +37,6 @@ class TextPlanSubscriptionController extends Controller
         ]);
 
         try {
-            // Check if the user is logged in
-            if (!Auth::check()) {
-                // Create a new user with session data if the user is not logged in
-                $userData = new User();
-                $userData->name = session('name');
-                $userData->email = session('email');
-                $userData->phone = session('phone');
-                $userData->password = bcrypt(session('password')); // Encrypt the password before saving
-                $userData->save();
-
-                // Log the newly created user in
-                Auth::login($userData);
-            }
-
-            // Process payment using Omnipay
             $creditCard = new \Omnipay\Common\CreditCard([
                 'number' => $request->input('cc_number'),
                 'expiryMonth' => $request->input('expiry_month'),
@@ -59,7 +44,7 @@ class TextPlanSubscriptionController extends Controller
                 'cvv' => $request->input('cvv'),
             ]);
 
-            // Generate a unique merchant site transaction ID
+            // Generate a unique merchant site transaction ID.
             $transactionId = rand(100000000, 999999999);
 
             $response = $this->gateway->authorize([
@@ -70,11 +55,15 @@ class TextPlanSubscriptionController extends Controller
             ])->send();
 
             if ($response->isSuccessful()) {
-                // Determine the total amount
-                $total_amount = session('plan') == 'PlanA' ? session('plan_price') : session('plan_price') + ($request->multiple_image ? 29 : 0);
+                if (session('plan') == 'PlanA') {
+                    $total_amount = $request->multiple_image ? session('plan_price') : session('plan_price');
+                } else {
+                    $total_amount = $request->multiple_image ? session('plan_price') + 29 : session('plan_price');
+                }
 
-                // Capture the authorized payment
+                // Captured from the authorization response.
                 $transactionReference = $response->getTransactionReference();
+
                 $response = $this->gateway->capture([
                     'amount' => $total_amount,
                     'currency' => 'USD',
@@ -82,12 +71,13 @@ class TextPlanSubscriptionController extends Controller
                 ])->send();
 
                 $transaction_id = $response->getTransactionReference();
+                $amount = $total_amount;
 
                 // Insert transaction data into the database
                 $isPaymentExist = Subscription::where('transaction_id', $transaction_id)->first();
 
                 if (!$isPaymentExist) {
-                    $payment = new Subscription();
+                    $payment = new Subscription;
                     $payment->transaction_id = $transaction_id;
                     $payment->card_holder_name = $request->card_holder_name;
                     $payment->multiple_image = $request->multiple_image ? 1 : 0;
@@ -98,11 +88,13 @@ class TextPlanSubscriptionController extends Controller
                     $payment->user_id = Auth::user()->id;
                     $payment->save();
 
-                    // Update user's subscription status
-                    $user = Auth::user();
+                    $user = User::find(Auth::user()->id);
+                    $user->subscription = 1;
+                    $user->save();
+
                     // Save the Lost Dog data
                     $data = new LostDog();
-                    $data->user_id = $user->id;
+                    $data->user_id = Auth::user()->id;
                     $data->latitude = session('latitude');
                     $data->longitude = session('longitude');
                     $data->images = session('images');
@@ -113,35 +105,43 @@ class TextPlanSubscriptionController extends Controller
                     $data->marking = session('marking');
                     $data->gender = session('gender');
                     $data->last_seen = session('last_seen');
+                    $data->medicine_info = session('medicine_info');
                     $data->description = session('description');
                     $data->save();
 
-                    // Notify nearest users via SMS/MMS
-                    $users = DB::table('users')
-                        ->select('id', 'latitude', 'longitude')
-                        ->where('id', '!=', $user->id)
-                        ->get();
+                    $user->subscription = 0;
+                    $user->save();
 
+                    $users = DB::table('users')->select('id', 'latitude', 'longitude')->where('id', '!=', Auth::user()->id)->get();
                     $usersWithDistances = [];
-                    foreach ($users as $nearbyUser) {
+                    foreach ($users as $user) {
                         if (isset($data->latitude) && isset($data->longitude)) {
-                            $distance = getDistance($data->latitude, $data->longitude, $nearbyUser->latitude, $nearbyUser->longitude);
+                            $distance = getDistance($data->latitude, $data->longitude, $user->latitude, $user->longitude);
                             if ($distance <= 10) {
                                 $usersWithDistances[] = [
-                                    'user_id' => $nearbyUser->id,
+                                    'user_id' => $user->id,
                                     'distance' => $distance,
                                 ];
                             }
                         }
                     }
 
-                    usort($usersWithDistances, fn($a, $b) => $a['distance'] <=> $b['distance']);
+                    usort($usersWithDistances, function ($a, $b) {
+                        return $a['distance'] <=> $b['distance'];
+                    });
+
                     $nearestUsers = array_slice($usersWithDistances, 0, 250);
                     $userIds = array_column($nearestUsers, 'user_id');
 
                     // Send SMS or MMS to nearest users
                     $author_phones = User::whereIn('id', $userIds)->pluck('phone')->toArray();
-                    $message = "Name: " . $data->name . "; Color: " . $data->color . "; Gender: " . $data->gender . "; Lost Date: " . $data->last_seen . "; Marking: " . $data->marking . "; " . $data->description . ".";
+
+                    $message = "Name: " . $data->name . "; " .
+                        "Color: " . $data->color . "; " .
+                        "Gender: " . $data->gender . "; " .
+                        "Lost Date: " . $data->last_seen . "; " .
+                        "Marking: " . $data->marking . "; " .
+                        $data->description . ".";
 
                     $sid = env('TWILIO_SID');
                     $token = env('TWILIO_TOKEN');
@@ -152,20 +152,24 @@ class TextPlanSubscriptionController extends Controller
                     $errors = [];
 
                     foreach ($author_phones as $user_phone) {
+                        $receiverNumber = $user_phone;
+
                         try {
                             $client = new Client($sid, $token);
+                            // Check if media (image) is available, then send as MMS
                             $messageData = [
                                 'from' => $fromNumber,
-                                'body' => $message,
+                                'body' => $message
                             ];
+                            // Add mediaUrl if you want to send an MMS with an image
                             if (!empty($imageUrl)) {
-                                $messageData['mediaUrl'] = [$imageUrl]; // Send MMS if media is available
+                                $messageData['mediaUrl'] = [$imageUrl];
                             }
-                            $client->messages->create($user_phone, $messageData);
+                            $client->messages->create($receiverNumber, $messageData);
                             $successCount++;
                         } catch (Exception $e) {
                             $errorCount++;
-                            $errors[] = 'Error sending to ' . $user_phone . ': ' . $e->getMessage();
+                            $errors[] = 'Error sending to ' . $receiverNumber . ': ' . $e->getMessage();
                         }
                     }
 
@@ -175,9 +179,8 @@ class TextPlanSubscriptionController extends Controller
                         $resultMessage .= " Errors: " . implode(", ", $errors);
                     }
                 }
-
                 session()->forget(['plan_price', 'plan']);
-                return redirect()->route('app.subscription.success', ['transaction_id' => $transaction_id, 'amount' => $total_amount]);
+                return redirect()->route('app.subscription.success', ['transaction_id' => $transaction_id, 'amount' => $amount]);
             } else {
                 return $response->getMessage();
             }
@@ -185,6 +188,7 @@ class TextPlanSubscriptionController extends Controller
             return $e->getMessage();
         }
     }
+
 
     // Luhn algorithm to validate credit card numbers
     private function isValidLuhn($number)

@@ -27,7 +27,6 @@ class PlanAStepOneComponent extends Component
             'breed' => 'required',
         ]);
 
-        session()->put('user_id', Auth::user()->id);
         session()->put('name', $this->name);
         session()->put('last_seen', $this->last_seen);
         session()->put('gender', $this->gender);
@@ -35,8 +34,7 @@ class PlanAStepOneComponent extends Component
         session()->put('breed', $this->breed);
         session()->put('marking', $this->marking);
         session()->put('description', $this->description);
-        session()->put('medicine_info', $this->medicine_info);
-        return $this->redirect('/text-plan-subscription-payment', navigate: true);
+        return $this->redirect('/account-informations', navigate: false);
     }
 
     public function updated($fields)

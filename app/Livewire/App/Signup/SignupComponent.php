@@ -12,8 +12,7 @@ use Illuminate\Support\Facades\Hash;
 class SignupComponent extends Component
 {
 
-    public $name, $username, $email, $phone, $password, $confirm_password, $notify_status, $latitude, $longitude,
-        $subscription;
+    public $name, $username, $email, $phone, $password, $confirm_password, $notify_status, $latitude, $longitude;
 
     public function updated($fields)
     {
@@ -46,7 +45,6 @@ class SignupComponent extends Component
         $user->email = $this->email;
         $user->phone = $phone;
         $user->password = Hash::make($this->password);
-        $user->subscription = 0;
         $user->notify_status = $this->notify_status;
         $user->save();
 
@@ -73,7 +71,6 @@ class SignupComponent extends Component
     }
 
     #[Title('Account Information')]
-
     public function render()
     {
         return view('livewire.app.signup.signup-component')->layout('livewire.app.layouts.base');

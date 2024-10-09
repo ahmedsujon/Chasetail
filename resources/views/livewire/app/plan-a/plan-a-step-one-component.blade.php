@@ -142,7 +142,7 @@
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <div class="form-left-right">
+                        <div style="text-align: right;" class="form-left-right">
                             <button type="submit" class="btn btn-primary mt-3">Next</button>
                         </div>
                     </div>

@@ -58,6 +58,7 @@ use App\Livewire\App\FoundDogReport\FoundDogReportStepThreeComponent;
 use App\Livewire\App\PlanE\PlanEComponent;
 use App\Livewire\App\PlanE\PlanEStepOneComponent;
 use App\Livewire\App\PlanE\PlanEStepTwoComponent;
+use App\Livewire\App\Signup\PaidSignupComponent;
 use App\Livewire\App\Signup\SignupComponent;
 
 /*
@@ -84,6 +85,7 @@ Route::get('/lostdogs/flyer/{id}', FlyerComponent::class)->name('app.lost.dogs.f
 
 // account information / signup
 Route::get('/account-information', SignupComponent::class)->name('app.account.info');
+Route::get('/account-informations', PaidSignupComponent::class)->name('app.account.informations');
 
 
 // Found Dog Routes
@@ -107,12 +109,12 @@ Route::get('free-plan-report', FreePlanComponent::class)->name('free.plan.report
 Route::get('free-plan-report-step-two', FreePlanStepOneComponent::class)->name('free.plan.report.step.two');
 Route::get('free-plan-report-step-three', FreePlanStepTwoComponent::class)->name('free.plan.report.step.three');
 
+// Plan A
+Route::get('text-plan-report', PlanAComponent::class)->name('text.plan.report');
+Route::get('text-plan-report-step-two', PlanAStepOneComponent::class)->name('text.plan.report.step.two');
+
+
 Route::prefix('/')->middleware('auth:web')->group(function () {
-
-    // Plan A
-    Route::get('text-plan-report', PlanAComponent::class)->name('text.plan.report');
-    Route::get('text-plan-report-step-two', PlanAStepOneComponent::class)->name('text.plan.report.step.two');
-
     // Plan B
     Route::get('plan-one-report', PlanBComponent::class)->name('plan.one.report');
     Route::get('plan-one-report-step-two', PlanBStepOneComponent::class)->name('plan.one.report.step.two');
@@ -165,6 +167,8 @@ Route::get('/level-four-subscription-payment', PlanEPaymentComponent::class)->na
 
 // Route::post('/payment', [SubscriptionController::class, 'subscription']);
 Route::post('/text-plan-payment', [TextPlanSubscriptionController::class, 'textPlanSubscription']);
+Route::post('/text-plan-payments', [TextPlanSubscriptionController::class, 'authTextPlanSubscription']);
+
 Route::post('/subscription-payment-level-one', [PlanBSubscriptionController::class, 'PlanBSubscription']);
 Route::post('/subscription-payment-level-two', [PlanCSubscriptionController::class, 'PlanCSubscription']);
 Route::post('/subscription-payment-level-three', [PlanDSubscriptionController::class, 'PlanDSubscription']);
