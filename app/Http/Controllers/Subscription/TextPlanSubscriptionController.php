@@ -61,8 +61,9 @@ class TextPlanSubscriptionController extends Controller
             // Generate a unique merchant site transaction ID
             $transactionId = rand(100000000, 999999999);
 
+            // Authorize the payment
             $response = $this->gateway->authorize([
-                'amount' => $request->multiple_image ? session('plan_price') + 29 : session('plan_price'),
+                'amount' => session('plan_price'),
                 'currency' => 'USD',
                 'transactionId' => $transactionId,
                 'card' => $creditCard,
@@ -70,7 +71,7 @@ class TextPlanSubscriptionController extends Controller
 
             if ($response->isSuccessful()) {
                 // Determine the total amount
-                $total_amount = session('plan') == 'PlanA' ? session('plan_price') : session('plan_price') + ($request->multiple_image ? 29 : 0);
+                $total_amount = session('plan_price');
 
                 // Capture the authorized payment
                 $transactionReference = $response->getTransactionReference();
@@ -89,7 +90,6 @@ class TextPlanSubscriptionController extends Controller
                     $payment = new Subscription();
                     $payment->transaction_id = $transaction_id;
                     $payment->card_holder_name = $request->card_holder_name;
-                    $payment->multiple_image = $request->multiple_image ? 1 : 0;
                     $payment->amount = $total_amount;
                     $payment->plan = session('plan');
                     $payment->currency = 'USD';
@@ -99,6 +99,7 @@ class TextPlanSubscriptionController extends Controller
 
                     // Update user's subscription status
                     $user = Auth::user();
+
                     // Save the Lost Dog data
                     $data = new LostDog();
                     $data->user_id = $user->id;
@@ -157,9 +158,6 @@ class TextPlanSubscriptionController extends Controller
                                 'from' => $fromNumber,
                                 'body' => $message,
                             ];
-                            if (!empty($imageUrl)) {
-                                $messageData['mediaUrl'] = [$imageUrl]; // Send MMS if media is available
-                            }
                             $client->messages->create($user_phone, $messageData);
                             $successCount++;
                         } catch (Exception $e) {
@@ -184,6 +182,7 @@ class TextPlanSubscriptionController extends Controller
             return $e->getMessage();
         }
     }
+
 
     // Luhn algorithm to validate credit card numbers
     private function isValidLuhn($number)
