@@ -36,7 +36,12 @@ class PlanDStepTwoComponent extends Component
         session()->put('marking', $this->marking);
         session()->put('description', $this->description);
         session()->put('medicine_info', $this->medicine_info);
-        return $this->redirect('/level-three-subscription-payment', navigate: true);
+
+        if (Auth::check()) {
+            return $this->redirect('/level-three-subscription-payment', navigate: false);
+        } else {
+            return $this->redirect('/account-informations', navigate: false);
+        }
     }
 
     public function updated($fields)

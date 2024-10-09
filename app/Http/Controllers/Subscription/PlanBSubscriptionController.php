@@ -36,6 +36,19 @@ class PlanBSubscriptionController extends Controller
         ]);
 
         try {
+            // Check if the user is logged in
+            if (!Auth::check()) {
+                // Create a new user with session data if the user is not logged in
+                $userData = new User();
+                $userData->name = session('name');
+                $userData->email = session('email');
+                $userData->phone = session('phone');
+                $userData->password = bcrypt(session('password')); // Encrypt the password before saving
+                $userData->save();
+                // Log the newly created user in
+                Auth::login($userData);
+            }
+
             // Prepare credit card data for the gateway
             $creditCard = new \Omnipay\Common\CreditCard([
                 'number' => $request->input('cc_number'),
@@ -44,9 +57,9 @@ class PlanBSubscriptionController extends Controller
                 'cvv' => $request->input('cvv'),
             ]);
 
-            // Set the transaction amount based on plan and multiple_image flag
+            // Set the transaction amount based on plan
             $planPrice = session('plan_price');
-            $totalAmount = $request->multiple_image ? $planPrice + 29 : $planPrice;
+            $totalAmount = $planPrice;
 
             // Generate a unique merchant transaction ID
             $transactionId = rand(100000000, 999999999);
@@ -77,7 +90,6 @@ class PlanBSubscriptionController extends Controller
                     $payment->fill([
                         'transaction_id' => $transaction_id,
                         'card_holder_name' => $request->card_holder_name,
-                        'multiple_image' => $request->multiple_image ? 1 : 0,
                         'amount' => $totalAmount,
                         'plan' => session('plan'),
                         'currency' => 'USD',
@@ -134,7 +146,6 @@ class PlanBSubscriptionController extends Controller
 
                     // $imageUrls = url('/') . '/' . $lostDog->images ?? [];
                     $imageUrls = $lostDog->images ? [url('/') . '/' . $lostDog->images] : [];
-
 
                     $successCount = 0;
                     $errorCount = 0;

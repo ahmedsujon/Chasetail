@@ -19,7 +19,7 @@
 
     <section class="step-content">
         <div class="container">
-            <form action="{{ url('subscription-payment-level-two') }}" method="post" class="form-step">
+            <form action="{{ url('payment') }}" method="post" class="form-step">
                 @csrf
                 <div class="row">
                     <div class="col-md-12 col-lg-12 col-12">
@@ -33,16 +33,6 @@
                                     </div>
                                     <p>Think to Upgrade Plan? <a href="/subscription" wire:navigate>Click Here to Roll
                                             Back</a></p>
-                                    <div class="multiple-photo" style="display: none;">
-                                        <div class="form-check">
-                                            <input class="form-check-input" wire:model.live='multiple_image'
-                                                name="multiple_image" type="checkbox" id="flexCheckChecked" checked>
-                                            <label class="form-check-label" for="flexCheckChecked">
-                                                Add multiple photo <span class="extra">($29
-                                                    extra)
-                                            </label>
-                                        </div>
-                                    </div>
                                     <img class="img-fluid card-info"
                                         src="{{ asset('assets/app/images/card-information.jpg') }}"
                                         alt="Card Information" />
@@ -54,10 +44,10 @@
                                     <div class="form-left-right">
                                         <div class="mb-4" style="display: none;">
                                             <label for="amount" class="form-label">Amount</label>
-                                            <input type="text" name='amount'
-                                                value="{{ $multiple_image ? session('plan_price') + 29 : session('plan_price') }}"
+                                            <input type="text" name='amount' value="{{ session('plan_price') }}"
                                                 class="form-control card-number" />
                                         </div>
+
                                         <div class="mb-4">
                                             <label for="cc_number" class="form-label">Card
                                                 Number</label>
@@ -132,25 +122,10 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td style="text-align: left;">For Adding Multiple Photos</td>
-                                                    <td style="text-align: center;"> - </td>
-                                                    @if ($multiple_image)
-                                                        <td style="text-align: right;">$29.00</td>
-                                                    @else
-                                                        <td style="text-align: right;">$0.00</td>
-                                                    @endif
-                                                </tr>
-                                                <tr>
                                                     <td colspan="2"></td>
-                                                    @if ($multiple_image)
-                                                        <td style="text-align: right;"><span
-                                                                class="subtotal">Subtotal:
-                                                                ${{ session('plan_price') + 29 }}.00</span></td>
-                                                    @else
-                                                        <td style="text-align: right;"><span
-                                                                class="subtotal">Subtotal:
-                                                                ${{ session('plan_price') }}.00</span></td>
-                                                    @endif
+
+                                                    <td style="text-align: right;"><span class="subtotal">Subtotal:
+                                                            ${{ session('plan_price') }}.00</span></td>
                                                 </tr>
                                             </tbody>
                                         </table>

@@ -10,7 +10,6 @@ use App\Livewire\App\PlanC\PlanCComponent;
 use App\Livewire\App\PlanD\PlanDComponent;
 use App\Livewire\App\Pages\AboutUsComponent;
 use App\Livewire\App\Pages\PricingComponent;
-use App\Http\Controllers\SmsTwilioController;
 use App\Livewire\App\Pages\PartnersComponent;
 use App\Livewire\App\LostDog\LostDogComponent;
 use App\Livewire\App\Pages\ContactUsComponent;
@@ -113,28 +112,27 @@ Route::get('free-plan-report-step-three', FreePlanStepTwoComponent::class)->name
 Route::get('text-plan-report', PlanAComponent::class)->name('text.plan.report');
 Route::get('text-plan-report-step-two', PlanAStepOneComponent::class)->name('text.plan.report.step.two');
 
+// Plan B
+Route::get('plan-one-report', PlanBComponent::class)->name('plan.one.report');
+Route::get('plan-one-report-step-two', PlanBStepOneComponent::class)->name('plan.one.report.step.two');
+Route::get('plan-one-report-step-three', PlanBStepTwoComponent::class)->name('plan.one.report.step.three');
+
+// Plan C
+Route::get('plan-two-report', PlanCComponent::class)->name('plan.two.report');
+Route::get('plan-two-report-step-two', PlanCStepOneComponent::class)->name('plan.two.report.step.two');
+Route::get('plan-two-report-step-three', PlanCStepTwoComponent::class)->name('plan.two.report.step.three');
+
+// Plan D
+Route::get('plan-three-report', PlanDComponent::class)->name('plan.three.report');
+Route::get('plan-three-report-step-two', PlanDStepOneComponent::class)->name('plan.three.report.step.two');
+Route::get('plan-three-report-step-three', PlanDStepTwoComponent::class)->name('plan.three.report.step.three');
+
+// Plan E
+Route::get('plan-four-report', PlanEComponent::class)->name('plan.four.report');
+Route::get('plan-four-report-step-two', PlanEStepOneComponent::class)->name('plan.four.report.step.two');
+Route::get('plan-four-report-step-three', PlanEStepTwoComponent::class)->name('plan.four.report.step.three');
 
 Route::prefix('/')->middleware('auth:web')->group(function () {
-    // Plan B
-    Route::get('plan-one-report', PlanBComponent::class)->name('plan.one.report');
-    Route::get('plan-one-report-step-two', PlanBStepOneComponent::class)->name('plan.one.report.step.two');
-    Route::get('plan-one-report-step-three', PlanBStepTwoComponent::class)->name('plan.one.report.step.three');
-
-    // Plan C
-    Route::get('plan-two-report', PlanCComponent::class)->name('plan.two.report');
-    Route::get('plan-two-report-step-two', PlanCStepOneComponent::class)->name('plan.two.report.step.two');
-    Route::get('plan-two-report-step-three', PlanCStepTwoComponent::class)->name('plan.two.report.step.three');
-
-    // Plan D
-    Route::get('plan-three-report', PlanDComponent::class)->name('plan.three.report');
-    Route::get('plan-three-report-step-two', PlanDStepOneComponent::class)->name('plan.three.report.step.two');
-    Route::get('plan-three-report-step-three', PlanDStepTwoComponent::class)->name('plan.three.report.step.three');
-
-    // Plan E
-    Route::get('plan-four-report', PlanEComponent::class)->name('plan.four.report');
-    Route::get('plan-four-report-step-two', PlanEStepOneComponent::class)->name('plan.four.report.step.two');
-    Route::get('plan-four-report-step-three', PlanEStepTwoComponent::class)->name('plan.four.report.step.three');
-
     // Found Dog Report
     Route::get('found/dog/report/first/step', FoundDogReportStepOneComponent::class)->name('user.found.dog.report.first.step');
     Route::get('found/dog/report/seceond/step', FoundDogReportStepTwoComponent::class)->name('user.found.dog.report.seceond.step');
@@ -173,8 +171,6 @@ Route::post('/subscription-payment-level-three', [PlanDSubscriptionController::c
 Route::post('/subscription-payment-level-four', [PlanESubscriptionController::class, 'PlanESubscription']);
 
 Route::get('/subscription-success/{transaction_id}', SubscriptionSuccessComponent::class)->name('app.subscription.success');
-
-Route::get('sms/send', [SmsTwilioController::class, 'sendSms']);
 
 //Call Route Files
 require __DIR__ . '/admin.php';

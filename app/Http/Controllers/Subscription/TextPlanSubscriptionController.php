@@ -46,7 +46,6 @@ class TextPlanSubscriptionController extends Controller
                 $userData->phone = session('phone');
                 $userData->password = bcrypt(session('password')); // Encrypt the password before saving
                 $userData->save();
-
                 // Log the newly created user in
                 Auth::login($userData);
             }
