@@ -10,13 +10,12 @@
         <div class="container">
             <div class="title">
                 <h5>
-                    At ChaseTail.com pet recovery service we have the technology to contact the majority of the nearest
-                    cell
-                    phones registered in your area. Fill out your lost pet’s description, information and
-                    upload a picture. You choose the size of the search that fits your needs and Chase Tail
-                    will actively contact most cell phones registered in the area immediately surrounding
-                    where your pet disappeared. The majority of found pets that don’t return on their own
-                    are found the first day after we start the search.
+                    At ChaseTail.com pet recovery service we have the technology to contact the
+                    majority of the nearest neighbors registered in your area. Fill out your lost pet’s
+                    description, information and upload a picture. You choose the size of the search
+                    that fits your needs and Chase Tail will actively contact people registered in the
+                    area immediately surrounding where your pet disappeared. The majority of found
+                    pets that don’t return on their own are found the first day after we start the search
                 </h5><br>
                 <ul class="hiw-list">
                     <li>Choose a distribution package size</li>

@@ -2092,6 +2092,15 @@ ul.content-hr {
     background: url("../images/icon-loc.png") no-repeat left top;
 }
 
+.found-dog-info p {
+    margin: 0;
+    line-height: 20px;
+    font-family: "nunito_sansregular";
+    font-size: 14px;
+    text-align: left;
+    color: #000;
+}
+
 .current-location p a {
     text-decoration: underline;
     color: #000;

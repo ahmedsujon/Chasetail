@@ -22,17 +22,20 @@
                 <div class="col-lg-3 col-md-4 col-12">
                     <div class="lost-dog-list-left">
                         <form>
-                            <h4>Filters</h4>
+                            <div class="found-dog-info">
+                                <p><a>If you lose a lost pet, use this page to see if the someone found
+                                        and registered your animal with ChaseTail.com. It is helpful to compare the
+                                        picture.
+                                        Type in the city or zip code where you lost the animal to look at lost pets
+                                        close to that
+                                        area. You can expand the area by putting in broader search area</a></p>
+                            </div>
                             <h5>Location</h5>
                             <div class="form-floating">
                                 <input type="text" class="form-control" id="location_address" name="location_address"
                                     autocomplete="off" placeholder="Found near (address or zip)"
                                     wire:model.live="searchByAddressTerm" wire:keyup='resetPage'>
                                 <label for="floatingInputValue">City or Zip</label>
-                            </div>
-
-                            <div class="current-location">
-                                <p><a onclick="getCurrentLocation();">Use current location</a></p>
                             </div>
                         </form>
                     </div>
@@ -43,7 +46,8 @@
                             @if ($found_dogs->count() > 0)
                                 @php
                                     $sl =
-                                        $found_dogs->perPage() * $found_dogs->currentPage() - ($found_dogs->perPage() - 1);
+                                        $found_dogs->perPage() * $found_dogs->currentPage() -
+                                        ($found_dogs->perPage() - 1);
                                 @endphp
                                 @foreach ($found_dogs as $found_dog)
                                     <div class="col-lg-4 col-md-6 col-12">

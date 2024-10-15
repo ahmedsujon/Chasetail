@@ -54,16 +54,11 @@
                                                 <p class="text-danger font-size-12 mb-0">{{ $message }}</p>
                                             @enderror
                                         </div>
-
-                                        <div class="form-check">
-                                            <input class="form-check-input" wire:model.blur="notify_status"
-                                                value="0" type="checkbox" id="flexCheckDefault"
-                                                onchange="updateCheckboxValue(this)">
-                                            <label style="font-size: 16px;" class="form-check-label"
-                                                for="flexCheckDefault">
-                                                I would like to receive EMAIL, SMS and MMS
-                                            </label>
-                                            @error('notify_status')
+                                        <div class="mb-4">
+                                            <label for="confirm_password" class="form-label">Confirm Password</label>
+                                            <input type="password" wire:model.blur="confirm_password"
+                                                class="form-control" placeholder="Enter confirm password">
+                                            @error('confirm_password')
                                                 <p class="text-danger font-size-12 mb-0">{{ $message }}</p>
                                             @enderror
                                         </div>
@@ -84,6 +79,18 @@
                                             <input type="password" wire:model.blur="password" class="form-control"
                                                 placeholder="Enter password">
                                             @error('password')
+                                                <p class="text-danger font-size-12 mb-0">{{ $message }}</p>
+                                            @enderror
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" wire:model.blur="notify_status"
+                                                value="0" type="checkbox" id="flexCheckDefault"
+                                                onchange="updateCheckboxValue(this)">
+                                            <label style="font-size: 16px;" class="form-check-label"
+                                                for="flexCheckDefault">
+                                                I would like to receive EMAIL, SMS and MMS
+                                            </label>
+                                            @error('notify_status')
                                                 <p class="text-danger font-size-12 mb-0">{{ $message }}</p>
                                             @enderror
                                         </div>

@@ -28,7 +28,6 @@ class PlanCStepTwoComponent extends Component
             'breed' => 'required',
         ]);
 
-        session()->put('user_id', Auth::user()->id);
         session()->put('name', $this->name);
         session()->put('last_seen', $this->last_seen);
         session()->put('gender', $this->gender);

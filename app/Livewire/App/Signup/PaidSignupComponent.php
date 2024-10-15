@@ -20,6 +20,7 @@ class PaidSignupComponent extends Component
             'email' => 'required|email|unique:users,email',
             'phone' => 'required|unique:users,phone',
             'password' => 'required|min:8|max:30',
+            'confirm_password' => 'required|min:8|same:password',
         ]);
     }
 
@@ -30,6 +31,7 @@ class PaidSignupComponent extends Component
             'email' => 'required',
             'phone' => 'required',
             'password' => 'required',
+            'confirm_password' => 'required|min:8|same:password',
         ]);
 
         // Format the phone number by removing all non-digit characters
