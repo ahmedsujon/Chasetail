@@ -36,6 +36,7 @@ class RegisterComponent extends Component
             'email' => 'required|email|unique:users,email',
             'phone' => 'required|unique:users,phone',
             'password' => 'required|min:8|max:30',
+            'confirm_password' => 'required|min:8|same:password',
             'notify_status' => 'required',
         ]);
 
@@ -67,7 +68,7 @@ class RegisterComponent extends Component
 
         Auth::guard('web')->attempt(['email' => $this->email, 'password' => $this->password]);
         session()->flash('success', 'Registration successful');
-        return redirect()->route('app.phone.verfy');
+        return redirect()->route('user.dashboard');
     }
 
     #[Title('Sign Up')]

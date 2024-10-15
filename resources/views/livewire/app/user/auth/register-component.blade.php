@@ -54,7 +54,14 @@
                                             <p class="text-danger font-size-12 mb-0">{{ $message }}</p>
                                         @enderror
                                     </div>
-
+                                    <div class="mb-4">
+                                        <label for="confirm_password" class="form-label">Confirm Password</label>
+                                        <input type="password" wire:model.blur="confirm_password"
+                                            class="form-control">
+                                        @error('confirm_password')
+                                            <p class="text-danger font-size-12 mb-0">{{ $message }}</p>
+                                        @enderror
+                                    </div>
                                     <div class="form-check">
                                         <input class="form-check-input" wire:model.blur="notify_status" value="0"
                                             type="checkbox" id="flexCheckDefault" onchange="updateCheckboxValue(this)">
