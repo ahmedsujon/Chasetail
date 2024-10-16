@@ -2,7 +2,7 @@
     <style>
         .form-check {
             text-align: left;
-            padding-top: 5px;
+            padding-top: 30px;
         }
 
         .form-check-input {}
@@ -82,18 +82,18 @@
                                                 <p class="text-danger font-size-12 mb-0">{{ $message }}</p>
                                             @enderror
                                         </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" wire:model.blur="notify_status"
-                                                value="1" type="checkbox" id="flexCheckDefault" checked
-                                                onchange="updateCheckboxValue(this)">
-                                            <label style="font-size: 16px;" class="form-check-label"
-                                                for="flexCheckDefault">
+
+                                        <div class="form-check" wire:ignore>
+                                            <input class="form-check-input notify_status" value="1" type="checkbox"
+                                                id="flexCheckDefault" onchange="updateCheckboxValue(this)" checked>
+                                            <label style="font-size: 16px;" class="form-check-label" for="flexCheckDefault">
                                                 I would like to receive EMAIL, SMS and MMS
                                             </label>
                                             @error('notify_status')
                                                 <p class="text-danger font-size-12 mb-0">{{ $message }}</p>
                                             @enderror
                                         </div>
+
                                         @if ($latitude == null || $longitude == null)
                                             <p style="color: red">Please allow location access in your browser settings!
                                             </p>
@@ -132,6 +132,9 @@
 
         $(".phone").on('change', function() {
             @this.set('phone', $(this).val());
+        });
+        $(".notify_status").on('change', function() {
+            @this.set('notify_status', $(this).val());
         });
     </script>
 
