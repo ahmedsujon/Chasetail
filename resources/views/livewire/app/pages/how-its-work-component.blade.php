@@ -31,7 +31,7 @@
                 <br><br>
                 <h5>
                     <strong>Disclaimer:</strong><br>
-                    We can’t guarantee you find your pet, but we can guarantee more people will be
+                    We can’t guarantee you find your pet, but we can guarantee more people will 
                     actively know of your missing pet and be able to contact you.
                 </h5>
             </div>

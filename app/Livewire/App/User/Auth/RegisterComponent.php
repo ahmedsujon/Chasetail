@@ -24,7 +24,6 @@ class RegisterComponent extends Component
             'phone' => 'required|unique:users,phone',
             'password' => 'required|min:8|max:30',
             'confirm_password' => 'required|min:8|max:30|same:password',
-            'notify_status' => 'required',
         ]);
     }
 
@@ -48,6 +47,7 @@ class RegisterComponent extends Component
         $user->phone = $phone;
         $user->password = Hash::make($this->password);
         $user->notify_status = $this->notify_status;
+        // dd($user);
         $user->save();
 
         // Flash success message and redirect

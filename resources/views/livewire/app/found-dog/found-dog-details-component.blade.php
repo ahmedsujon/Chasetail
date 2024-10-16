@@ -21,7 +21,7 @@
                     <div class="lost-detail-left">
                         <img class="img-fluid" src="{{ asset($found_dog->images) }}" alt="Lost Detail">
                         <p>Pet reported by Dallas Animal Services</p>
-                        <button class="btn btn-primary btn-dog-parent mt-3" type="button">Contact Dog Parent</button>
+                        <button class="btn btn-primary btn-dog-parent mt-3" type="button">Yes! It’s mine!</button>
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-6 col-12">

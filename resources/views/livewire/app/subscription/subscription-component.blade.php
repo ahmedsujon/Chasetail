@@ -11,6 +11,23 @@
             font-size: 18px;
             line-height: 28px;
         }
+
+        < !-- CSS for the badge -->.ribbon {
+            width: 150px;
+            height: 150px;
+            overflow: hidden;
+            position: absolute;
+            top: -10px;
+            right: -10px;
+        }
+
+        .package-list {
+            position: relative;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: white;
+        }
     </style>
     <!-- Banner -->
     <section id="page-banner">
@@ -86,7 +103,12 @@
                 </div>
 
                 <div class="col-md-6 col-lg-3 col-12">
-                    <div class="package-list">
+                    <div class="package-list position-relative"
+                        style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px;">
+                        <!-- Popular Badge -->
+                        <div class="ribbon">
+                            <span>Popular</span>
+                        </div>
                         <h5>Level One</h5>
                         <h4>$139<span class="user">/ 250 Contact 250 Neighbors</span></h4>
                         <p>Send 250 Messages and Add a Picture</p>
@@ -131,6 +153,10 @@
 
                 <div class="col-md-6 col-lg-3 col-12">
                     <div class="package-list">
+                        <!-- Most Popular Badge -->
+                        <div class="ribbon">
+                            <span>Most Popular</span>
+                        </div>
                         <h5>Level Three</h5>
                         <h4>$199<span class="user">/ Contact 750 Neighbors</span></h4>
                         <p>Send 750 Messages and Add a Picture</p>

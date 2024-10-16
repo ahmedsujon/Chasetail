@@ -13,7 +13,9 @@ use Illuminate\Support\Facades\Session;
 
 class RegisterComponent extends Component
 {
-    public $name, $username, $email, $phone, $password, $confirm_password, $notify_status, $latitude, $longitude;
+    public $name, $username, $email, $phone, $password, $confirm_password, $latitude, $longitude;
+
+    public $notify_status = 1;
 
     public function updated($fields)
     {
@@ -25,7 +27,6 @@ class RegisterComponent extends Component
             'phone' => 'required|unique:users,phone',
             'password' => 'required|min:8|max:30',
             'confirm_password' => 'required|min:8|max:30|same:password',
-            'notify_status' => 'required',
         ]);
     }
 
@@ -37,7 +38,6 @@ class RegisterComponent extends Component
             'phone' => 'required|unique:users,phone',
             'password' => 'required|min:8|max:30',
             'confirm_password' => 'required|min:8|same:password',
-            'notify_status' => 'required',
         ]);
 
         // Generate a 6-digit OTP code
