@@ -54,6 +54,9 @@
                                                 <p class="text-danger font-size-12 mb-0">{{ $message }}</p>
                                             @enderror
                                         </div>
+                                        @error('phone')
+                                                <p class="text-danger font-size-12 mb-0">{{ $message }}</p>
+                                            @enderror
                                         <div class="mb-4">
                                             <label for="confirm_password" class="form-label">Confirm Password</label>
                                             <input type="password" wire:model.blur="confirm_password"

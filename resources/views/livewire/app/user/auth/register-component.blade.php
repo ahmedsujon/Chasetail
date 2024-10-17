@@ -45,6 +45,9 @@
                                             <p class="text-danger font-size-12 mb-0">{{ $message }}</p>
                                         @enderror
                                     </div>
+                                    @error('phone')
+                                        <p class="text-danger font-size-12 mb-0">{{ $message }}</p>
+                                    @enderror
 
                                     <div class="mb-3">
                                         <label for="password" class="form-label">password</label>
