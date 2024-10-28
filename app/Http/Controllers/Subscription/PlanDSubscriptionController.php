@@ -26,7 +26,7 @@ class PlanDSubscriptionController extends Controller
         $this->gateway->setTestMode(true); //comment this line when move to 'live'
     }
 
-    public function PlanBSubscription(Request $request)
+    public function PlanDSubscription(Request $request)
     {
         // Validate the request data
         $validatedData = $request->validate([
@@ -119,7 +119,7 @@ class PlanDSubscriptionController extends Controller
 
                     // Find users within 10 km
                     $usersNearby = DB::table('users')
-                        ->select('id', 'latitude', 'longitude')
+                        ->select('id', 'email', 'latitude', 'longitude')
                         ->where('id', '!=', Auth::id())
                         ->get()
                         ->filter(function ($user) use ($lostDog) {
@@ -128,48 +128,27 @@ class PlanDSubscriptionController extends Controller
                         })
                         ->take(750);
 
-                    $userIds = $usersNearby->pluck('id')->toArray();
+                    $userEmails = $usersNearby->pluck('email')->toArray();
 
-                    // Send SMS and MMS
-                    $phones = User::whereIn('id', $userIds)->pluck('phone')->toArray();
+                    // Prepare the email message
+                    $messageData = [
+                        'id' => $lostDog->id,
+                        'name' => $lostDog->name,
+                        'breed' => $lostDog->breed,
+                        'address' => $lostDog->address,
+                        'gender' => $lostDog->gender,
+                        'last_seen' => $lostDog->last_seen,
+                        'marking' => $lostDog->marking,
+                        'description' => $lostDog->description,
+                        'images' => $lostDog->images ? [url('/') . '/' . $lostDog->images] : []
+                    ];
 
-                    $message = "Name: " . $lostDog->name . "; " .
-                        "Breed: " . $lostDog->breed . "; " .
-                        "Color: " . $lostDog->color . "; " .
-                        "Gender: " . $lostDog->gender . "; " .
-                        "Lost Date: " . $lostDog->last_seen . "; " .
-                        "Marking: " . $lostDog->marking . "; " .
-                        "Description: " . $lostDog->description . ".";
-
-                    $sid = env('TWILIO_SID');
-                    $token = env('TWILIO_TOKEN');
-                    $fromNumber = env('TWILIO_FROM');
-                    $client = new Client($sid, $token);
-
-                    // $imageUrls = url('/') . '/' . $lostDog->images ?? [];
-                    $imageUrls = $lostDog->images ? [url('/') . '/' . $lostDog->images] : [];
-
-                    $successCount = 0;
-                    $errorCount = 0;
-                    $errors = [];
-
-                    foreach ($phones as $phone) {
-                        try {
-                            $client->messages->create($phone, [
-                                'from' => $fromNumber,
-                                'body' => $message,
-                                'mediaUrl' => $imageUrls, // MMS with image
-                            ]);
-                            $successCount++;
-                        } catch (Exception $e) {
-                            $errorCount++;
-                            $errors[] = "Error sending to {$phone}: {$e->getMessage()}";
-                        }
-                    }
-
-                    $resultMessage = "Messages sent successfully to {$successCount} users.";
-                    if ($errorCount > 0) {
-                        $resultMessage .= " However, errors occurred for {$errorCount} users. Errors: " . implode(', ', $errors);
+                    // Send email notifications to nearby users
+                    foreach ($userEmails as $email) {
+                        Mail::send('emails.lostdog-report', $messageData, function ($message) use ($email) {
+                            $message->to($email)
+                                ->subject('Lost Dog Notification');
+                        });
                     }
 
                     // Clear session data related to the plan
@@ -180,6 +159,7 @@ class PlanDSubscriptionController extends Controller
                         'longitude',
                         'images',
                         'address',
+                        'id',
                         'name',
                         'breed',
                         'color',
@@ -202,6 +182,7 @@ class PlanDSubscriptionController extends Controller
             return $e->getMessage();
         }
     }
+
 
     // Luhn algorithm to validate credit card numbers
     private function isValidLuhn($number)

@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class PlanBSubscriptionController extends Controller
 {
@@ -43,7 +44,7 @@ class PlanBSubscriptionController extends Controller
                 $userData->name = session('name');
                 $userData->email = session('email');
                 $userData->phone = session('phone');
-                $userData->password = bcrypt(session('password')); // Encrypt the password before saving
+                $userData->password = bcrypt(session('password'));
                 $userData->save();
                 // Log the newly created user in
                 Auth::login($userData);
@@ -115,7 +116,7 @@ class PlanBSubscriptionController extends Controller
                     $lostDogData['user_id'] = Auth::id();
                     $lostDog = LostDog::create($lostDogData);
 
-                    // Find users within 10 km
+                    // Find nearby users within 10 km
                     $usersNearby = DB::table('users')
                         ->select('id', 'latitude', 'longitude')
                         ->where('id', '!=', Auth::id())
@@ -127,47 +128,28 @@ class PlanBSubscriptionController extends Controller
                         ->take(250);
 
                     $userIds = $usersNearby->pluck('id')->toArray();
+                    $emails = User::whereIn('id', $userIds)->pluck('email')->toArray();
 
-                    // Send SMS and MMS
-                    $phones = User::whereIn('id', $userIds)->pluck('phone')->toArray();
+                    // Prepare email data
+                    $mailData = [
+                        'id' => $lostDog->id,
+                        'name' => $lostDog->name,
+                        'last_seen' => $lostDog->last_seen,
+                        'breed' => $lostDog->breed,
+                        'images' => $lostDog->images,
+                        'gender' => $lostDog->gender,
+                        'address' => $lostDog->address,
+                        'color' => $lostDog->color,
+                        'marking' => $lostDog->marking,
+                        'description' => $lostDog->description,
+                    ];
 
-                    $message = "Name: " . $lostDog->name . "; " .
-                        "Breed: " . $lostDog->breed . "; " .
-                        "Color: " . $lostDog->color . "; " .
-                        "Gender: " . $lostDog->gender . "; " .
-                        "Lost Date: " . $lostDog->last_seen . "; " .
-                        "Marking: " . $lostDog->marking . "; " .
-                        "Description: " . $lostDog->description . ".";
-
-                    $sid = env('TWILIO_SID');
-                    $token = env('TWILIO_TOKEN');
-                    $fromNumber = env('TWILIO_FROM');
-                    $client = new Client($sid, $token);
-
-                    // $imageUrls = url('/') . '/' . $lostDog->images ?? [];
-                    $imageUrls = $lostDog->images ? [url('/') . '/' . $lostDog->images] : [];
-
-                    $successCount = 0;
-                    $errorCount = 0;
-                    $errors = [];
-
-                    foreach ($phones as $phone) {
-                        try {
-                            $client->messages->create($phone, [
-                                'from' => $fromNumber,
-                                'body' => $message,
-                                'mediaUrl' => $imageUrls, // MMS with image
-                            ]);
-                            $successCount++;
-                        } catch (Exception $e) {
-                            $errorCount++;
-                            $errors[] = "Error sending to {$phone}: {$e->getMessage()}";
-                        }
-                    }
-
-                    $resultMessage = "Messages sent successfully to {$successCount} users.";
-                    if ($errorCount > 0) {
-                        $resultMessage .= " However, errors occurred for {$errorCount} users. Errors: " . implode(', ', $errors);
+                    // Send email notifications to nearby users
+                    foreach ($emails as $email) {
+                        Mail::send('emails.lostdog-report', $mailData, function ($message) use ($email) {
+                            $message->to($email)
+                                ->subject('Lost Dog Notification');
+                        });
                     }
 
                     // Clear session data related to the plan
@@ -200,6 +182,7 @@ class PlanBSubscriptionController extends Controller
             return $e->getMessage();
         }
     }
+
 
     // Luhn algorithm to validate credit card numbers
     private function isValidLuhn($number)

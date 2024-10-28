@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class TextPlanSubscriptionController extends Controller
 {
@@ -58,123 +59,122 @@ class TextPlanSubscriptionController extends Controller
                 'cvv' => $request->input('cvv'),
             ]);
 
-            // Generate a unique merchant site transaction ID
+            // Set the transaction amount based on plan
+            $planPrice = session('plan_price');
+            $totalAmount = $planPrice;
+
+            // Generate a unique merchant transaction ID
             $transactionId = rand(100000000, 999999999);
 
             // Authorize the payment
             $response = $this->gateway->authorize([
-                'amount' => session('plan_price'),
+                'amount' => $totalAmount,
                 'currency' => 'USD',
                 'transactionId' => $transactionId,
                 'card' => $creditCard,
             ])->send();
 
             if ($response->isSuccessful()) {
-                // Determine the total amount
-                $total_amount = session('plan_price');
-
-                // Capture the authorized payment
+                // Capture the payment
                 $transactionReference = $response->getTransactionReference();
-                $response = $this->gateway->capture([
-                    'amount' => $total_amount,
+                $captureResponse = $this->gateway->capture([
+                    'amount' => $totalAmount,
                     'currency' => 'USD',
                     'transactionReference' => $transactionReference,
                 ])->send();
 
-                $transaction_id = $response->getTransactionReference();
+                $transaction_id = $captureResponse->getTransactionReference();
 
-                // Insert transaction data into the database
-                $isPaymentExist = Subscription::where('transaction_id', $transaction_id)->first();
-
-                if (!$isPaymentExist) {
+                // Check if the transaction already exists
+                if (!Subscription::where('transaction_id', $transaction_id)->exists()) {
+                    // Store the subscription and payment data
                     $payment = new Subscription();
-                    $payment->transaction_id = $transaction_id;
-                    $payment->card_holder_name = $request->card_holder_name;
-                    $payment->amount = $total_amount;
-                    $payment->plan = session('plan');
-                    $payment->currency = 'USD';
-                    $payment->payment_status = 'Captured';
-                    $payment->user_id = Auth::user()->id;
-                    $payment->save();
-
-                    // Update user's subscription status
-                    $user = Auth::user();
+                    $payment->fill([
+                        'transaction_id' => $transaction_id,
+                        'card_holder_name' => $request->card_holder_name,
+                        'amount' => $totalAmount,
+                        'plan' => session('plan'),
+                        'currency' => 'USD',
+                        'payment_status' => 'Captured',
+                        'user_id' => Auth::id(),
+                    ])->save();
 
                     // Save the Lost Dog data
-                    $data = new LostDog();
-                    $data->user_id = $user->id;
-                    $data->latitude = session('latitude');
-                    $data->longitude = session('longitude');
-                    $data->images = session('images');
-                    $data->address = session('address');
-                    $data->name = session('name');
-                    $data->breed = session('breed');
-                    $data->color = session('color');
-                    $data->marking = session('marking');
-                    $data->gender = session('gender');
-                    $data->last_seen = session('last_seen');
-                    $data->description = session('description');
-                    $data->save();
+                    $lostDogData = session()->only([
+                        'latitude',
+                        'longitude',
+                        'images',
+                        'address',
+                        'name',
+                        'breed',
+                        'color',
+                        'marking',
+                        'gender',
+                        'last_seen',
+                        'medicine_info',
+                        'description'
+                    ]);
+                    $lostDogData['user_id'] = Auth::id();
+                    $lostDog = LostDog::create($lostDogData);
 
-                    // Notify nearest users via SMS/MMS
-                    $users = DB::table('users')
+                    // Find nearby users within 10 km
+                    $usersNearby = DB::table('users')
                         ->select('id', 'latitude', 'longitude')
-                        ->where('id', '!=', $user->id)
-                        ->get();
+                        ->where('id', '!=', Auth::id())
+                        ->get()
+                        ->filter(function ($user) use ($lostDog) {
+                            return isset($lostDog->latitude, $lostDog->longitude) &&
+                                getDistance($lostDog->latitude, $lostDog->longitude, $user->latitude, $user->longitude) <= 10;
+                        })
+                        ->take(250);
 
-                    $usersWithDistances = [];
-                    foreach ($users as $nearbyUser) {
-                        if (isset($data->latitude) && isset($data->longitude)) {
-                            $distance = getDistance($data->latitude, $data->longitude, $nearbyUser->latitude, $nearbyUser->longitude);
-                            if ($distance <= 10) {
-                                $usersWithDistances[] = [
-                                    'user_id' => $nearbyUser->id,
-                                    'distance' => $distance,
-                                ];
-                            }
-                        }
+                    $userIds = $usersNearby->pluck('id')->toArray();
+                    $emails = User::whereIn('id', $userIds)->pluck('email')->toArray();
+
+                    // Prepare email data
+                    $mailData = [
+                        'id' => $lostDog->id,
+                        'name' => $lostDog->name,
+                        'last_seen' => $lostDog->last_seen,
+                        'gender' => $lostDog->gender,
+                        'address' => $lostDog->address,
+                        'breed' => $lostDog->breed,
+                        'color' => $lostDog->color,
+                        'marking' => $lostDog->marking,
+                        'description' => $lostDog->description,
+                    ];
+
+                    // Send email notifications to nearby users
+                    foreach ($emails as $email) {
+                        Mail::send('emails.lostdog-report', $mailData, function ($message) use ($email) {
+                            $message->to($email)
+                                ->subject('Lost Dog Notification');
+                        });
                     }
 
-                    usort($usersWithDistances, fn($a, $b) => $a['distance'] <=> $b['distance']);
-                    $nearestUsers = array_slice($usersWithDistances, 0, 250);
-                    $userIds = array_column($nearestUsers, 'user_id');
+                    // Clear session data related to the plan
+                    session()->forget([
+                        'plan_price',
+                        'plan',
+                        'latitude',
+                        'longitude',
+                        'images',
+                        'address',
+                        'name',
+                        'breed',
+                        'color',
+                        'marking',
+                        'gender',
+                        'last_seen',
+                        'medicine_info',
+                        'description'
+                    ]);
 
-                    // Send SMS or MMS to nearest users
-                    $author_phones = User::whereIn('id', $userIds)->pluck('phone')->toArray();
-                    $message = "Name: " . $data->name . "; Color: " . $data->color . "; Gender: " . $data->gender . "; Lost Date: " . $data->last_seen . "; Marking: " . $data->marking . "; " . $data->description . ".";
-
-                    $sid = env('TWILIO_SID');
-                    $token = env('TWILIO_TOKEN');
-                    $fromNumber = env('TWILIO_FROM');
-
-                    $successCount = 0;
-                    $errorCount = 0;
-                    $errors = [];
-
-                    foreach ($author_phones as $user_phone) {
-                        try {
-                            $client = new Client($sid, $token);
-                            $messageData = [
-                                'from' => $fromNumber,
-                                'body' => $message,
-                            ];
-                            $client->messages->create($user_phone, $messageData);
-                            $successCount++;
-                        } catch (Exception $e) {
-                            $errorCount++;
-                            $errors[] = 'Error sending to ' . $user_phone . ': ' . $e->getMessage();
-                        }
-                    }
-
-                    $resultMessage = "Data stored and SMS/MMS sent successfully to $successCount users.";
-                    if ($errorCount > 0) {
-                        $resultMessage .= " However, there were errors sending to $errorCount users.";
-                        $resultMessage .= " Errors: " . implode(", ", $errors);
-                    }
+                    return redirect()->route('app.subscription.success', [
+                        'transaction_id' => $transaction_id,
+                        'amount' => $totalAmount
+                    ]);
                 }
-
-                session()->forget(['plan_price', 'plan']);
-                return redirect()->route('app.subscription.success', ['transaction_id' => $transaction_id, 'amount' => $total_amount]);
             } else {
                 return $response->getMessage();
             }

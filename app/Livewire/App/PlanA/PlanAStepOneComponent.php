@@ -10,7 +10,7 @@ class PlanAStepOneComponent extends Component
     public $user_id, $name, $last_seen, $gender, $color, $breed, $marking, $description, $medicine_info;
 
     public $characterCount = 0;
-    public $maxCharacters = 50;
+    public $maxCharacters = 150;
 
     public function updatedDescription()
     {

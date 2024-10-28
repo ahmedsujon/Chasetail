@@ -19,7 +19,7 @@
 
     <section class="step-content">
         <div class="container">
-            <form action="{{ url('payment') }}" method="post" class="form-step">
+            <form action="{{ url('subscription-payment-level-one') }}" method="post" class="form-step">
                 @csrf
                 <div class="row">
                     <div class="col-md-12 col-lg-12 col-12">
