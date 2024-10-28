@@ -57,6 +57,7 @@ use App\Livewire\App\FoundDogReport\FoundDogReportStepThreeComponent;
 use App\Livewire\App\PlanE\PlanEComponent;
 use App\Livewire\App\PlanE\PlanEStepOneComponent;
 use App\Livewire\App\PlanE\PlanEStepTwoComponent;
+use App\Livewire\App\Signup\FoundPetComponent;
 use App\Livewire\App\Signup\PaidSignupComponent;
 use App\Livewire\App\Signup\SignupComponent;
 
@@ -85,6 +86,7 @@ Route::get('/lostdogs/flyer/{id}', FlyerComponent::class)->name('app.lost.dogs.f
 // account information / signup
 Route::get('/account-information', SignupComponent::class)->name('app.account.info');
 Route::get('/account-informations', PaidSignupComponent::class)->name('app.account.informations');
+Route::get('/account-create-information', FoundPetComponent::class)->name('app.create.account.informations');
 
 
 // Found Dog Routes
@@ -133,16 +135,16 @@ Route::get('plan-four-report-step-two', PlanEStepOneComponent::class)->name('pla
 Route::get('plan-four-report-step-three', PlanEStepTwoComponent::class)->name('plan.four.report.step.three');
 
 Route::prefix('/')->middleware('auth:web')->group(function () {
-    // Found Dog Report
-    Route::get('found/dog/report/first/step', FoundDogReportStepOneComponent::class)->name('user.found.dog.report.first.step');
-    Route::get('found/dog/report/seceond/step', FoundDogReportStepTwoComponent::class)->name('user.found.dog.report.seceond.step');
-    Route::get('found/dog/report/third/step', FoundDogReportStepThreeComponent::class)->name('user.found.dog.report.third.step');
-
     // Profile Pages Routes
     Route::get('messages', MessageComponent::class)->name('messages');
     Route::get('personal-information', PersonalInfoComponent::class)->name('personal.information');
     Route::get('payment-history', PaymentHistoryComponent::class)->name('payment.history');
 });
+
+// Found Dog Report
+Route::get('found/dog/report/first/step', FoundDogReportStepOneComponent::class)->name('user.found.dog.report.first.step');
+Route::get('found/dog/report/seceond/step', FoundDogReportStepTwoComponent::class)->name('user.found.dog.report.seceond.step');
+Route::get('found/dog/report/third/step', FoundDogReportStepThreeComponent::class)->name('user.found.dog.report.third.step');
 
 // Forget Password
 Route::get('user-reset-password', ForgotPasswordComponent::class)->name('user.reset.password');

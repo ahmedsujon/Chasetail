@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-md-12 col-lg-12 col-12">
                     <div class="page-header-text">
-                        <h4>Showing all pets near you</h4>
+                        <h4>Gallery of Found Pets</h4>
                     </div>
                 </div>
             </div>

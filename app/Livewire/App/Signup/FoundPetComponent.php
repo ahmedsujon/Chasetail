@@ -2,17 +2,16 @@
 
 namespace App\Livewire\App\Signup;
 
+use App\Models\FoundDog;
 use App\Models\User;
 use App\Models\LostDog;
 use Livewire\Component;
 use Livewire\Attributes\Title;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
-class SignupComponent extends Component
+class FoundPetComponent extends Component
 {
-
-    public $name, $username, $email, $phone, $password, $confirm_password, $notify_status, $latitude, $longitude;
+    public $name, $username, $email, $phone, $found_date, $password, $confirm_password, $notify_status, $latitude, $longitude;
 
     public function updated($fields)
     {
@@ -49,30 +48,29 @@ class SignupComponent extends Component
         $user->save();
 
         // Create LostDog entry using session data
-        $data = new LostDog();
+        $data = new FoundDog();
         $data->latitude = session('latitude');
         $data->longitude = session('longitude');
         $data->images = session('images');
         $data->address = session('address');
-        $data->payment_status = 'free';
         $data->name = session('name');
         $data->breed = session('breed');
         $data->color = session('color');
         $data->marking = session('marking');
         $data->gender = session('gender');
-        $data->last_seen = session('last_seen');
+        $data->found_date = session('found_date');
         $data->description = session('description');
         $data->user_id = $user->id;
         $data->save();
 
         // Flash success message and redirect
         session()->flash('success', 'Report posted successfully!');
-        return redirect('/lostdogs');
+        return redirect('/found-dogs');
     }
 
     #[Title('Account Information')]
     public function render()
     {
-        return view('livewire.app.signup.signup-component')->layout('livewire.app.layouts.base');
+        return view('livewire.app.signup.found-pet-component')->layout('livewire.app.layouts.base');
     }
 }

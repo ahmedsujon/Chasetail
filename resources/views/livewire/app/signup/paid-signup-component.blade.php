@@ -90,7 +90,7 @@
                                             <input class="form-check-input notify_status" value="1" type="checkbox"
                                                 id="flexCheckDefault" onchange="updateCheckboxValue(this)" checked>
                                             <label style="font-size: 16px;" class="form-check-label" for="flexCheckDefault">
-                                                I would like to receive EMAIL, SMS and MMS
+                                                I would like to receive notifications
                                             </label>
                                             @error('notify_status')
                                                 <p class="text-danger font-size-12 mb-0">{{ $message }}</p>

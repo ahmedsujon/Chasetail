@@ -6,14 +6,15 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-5 col-lg-5 col-6">
-                            <h3>We’ll help you find your lost pet! </h3>
+                            <h3>We’ll help you find your lost pet!</h3>
                             <p>We’ll help you find your lost pet as quickly as possible! Post a picture on our Lost Pet
                                 page for free.
                                 Choose an option to send a digital flyer to areas immediately around your location. It’s
                                 the most
                                 efficient way to enlist the aid of caring neighbors in the recovery of your beloved
                                 animal.</p>
-                            {{-- <a href="/subscription" wire:navigate>Get Started</a> --}}
+                            <a href="{{ route('app.subscription') }}" class="btn btn-primary">Lost Pet</a>
+                            <a href="{{ route('user.found.dog.report.first.step') }}" class="btn btn-primary">Found Pet</a>
                         </div>
                     </div>
                 </div>
