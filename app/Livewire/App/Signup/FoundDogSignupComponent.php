@@ -2,14 +2,13 @@
 
 namespace App\Livewire\App\Signup;
 
-use App\Models\FoundDog;
 use App\Models\User;
-use App\Models\LostDog;
 use Livewire\Component;
+use App\Models\FoundDog;
 use Livewire\Attributes\Title;
 use Illuminate\Support\Facades\Hash;
 
-class FoundPetComponent extends Component
+class FoundDogSignupComponent extends Component
 {
     public $name, $username, $email, $phone, $found_date, $password, $confirm_password, $notify_status, $latitude, $longitude;
 
@@ -69,8 +68,9 @@ class FoundPetComponent extends Component
     }
 
     #[Title('Account Information')]
+
     public function render()
     {
-        return view('livewire.app.signup.found-pet-component')->layout('livewire.app.layouts.base');
+        return view('livewire.app.signup.found-dog-signup-component')->layout('livewire.app.layouts.base');
     }
 }

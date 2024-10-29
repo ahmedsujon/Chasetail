@@ -35,8 +35,15 @@
             padding: 10px;
             font-size: 13px;
         }
+
         ul#to-search-result li a {
             text-decoration: none !important;
+        }
+
+        .error-messsage-style {
+            font-size: 16px !important;
+            text-align: center !important;
+            padding-top: 15px !important;
         }
     </style>
     <section id="page-header">
@@ -63,9 +70,6 @@
                                 oninput="onTyping(this)" autocomplete="off" type="text"
                                 placeholder="Found near (address or zip)">
                             <ul id="search-result"></ul>
-                            @error('longitude')
-                                <p class="text-danger" style="font-size: 16px;">{{ $message }}</p>
-                            @enderror
                             <h5 onclick="getCurrentLocation();" style="cursor: pointer;"> Use current location</h5>
                             <div class="row justify-content-center">
                                 <div class="col-md-9">
@@ -79,6 +83,9 @@
                             </div>
                         </div>
                     </div>
+                    @error('longitude')
+                        <p class="text-danger error-messsage-style">{{ $message }}</p>
+                    @enderror
                 </div>
                 <div class="row mb-5">
                     <div class="col-12">

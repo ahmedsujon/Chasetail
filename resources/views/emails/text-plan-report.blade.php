@@ -52,14 +52,15 @@
             <h1>Lost Pet Alert</h1>
         </div>
         <div class="content">
-            <p>A pet named <strong>{{ $name }}</strong> was last seen on <strong>{{ $last_seen }}</strong>.
+            <p>A Pet named <strong>{{ $name }}</strong> was last seen on <strong>{{ $last_seen }}</strong>.
             </p>
             <p><strong>Gender:</strong> {{ $gender }}</p>
+            <p><strong>Breed:</strong> {{ $breed }}</p>
             <p><strong>Address:</strong> {{ $address }}</p>
-            <p><strong>Microchip ID:</strong> {{ $microchip_id }}</p>
-            <p><strong>Medicine information:</strong> {{ $medicine_info }}</p>
             <p><strong>Description:</strong> {{ $description }}</p>
-            <p><a href="https://chasetail.com/lostdogs/details/{{ $id }}"><strong>More details </strong></a>
+            <p>
+                <a style="height: 200px width: 300px;"
+                    href="https://chasetail.com/lostdogs/details/{{ $id }}"><strong>More details</strong></a>
             </p>
             <p>We appreciate your help in finding our lost pet. Thank you for keeping an eye out!</p>
         </div>

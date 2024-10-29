@@ -38,7 +38,7 @@ class FreePlanStepTwoComponent extends Component
         session()->put('gender', $this->gender);
         session()->put('last_seen', $this->last_seen);
         session()->put('description', $this->description);
-        return $this->redirect('/account-information', navigate: false);
+        return $this->redirect('/free-plan-report-account-create', navigate: false);
     }
 
     public function submitData()

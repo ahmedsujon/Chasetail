@@ -50,13 +50,10 @@
                                             <label for="phone" class="form-label">Phone Number</label>
                                             <input type="text" wire:model.blur='phone' class="form-control phone"
                                                 id="phone" placeholder="(123) 456-7890" required>
-                                            @error('phone')
-                                                <p class="text-danger font-size-12 mb-0">{{ $message }}</p>
-                                            @enderror
                                         </div>
                                         @error('phone')
-                                                <p class="text-danger font-size-12 mb-0">{{ $message }}</p>
-                                            @enderror
+                                            <p class="text-danger font-size-12 mb-0">{{ $message }}</p>
+                                        @enderror
                                         <div class="mb-4">
                                             <label for="confirm_password" class="form-label">Confirm Password</label>
                                             <input type="password" wire:model.blur="confirm_password"
@@ -89,8 +86,9 @@
                                         <div class="form-check" wire:ignore>
                                             <input class="form-check-input notify_status" value="1" type="checkbox"
                                                 id="flexCheckDefault" onchange="updateCheckboxValue(this)" checked>
-                                            <label style="font-size: 16px;" class="form-check-label" for="flexCheckDefault">
-                                                I would like to receive notifications
+                                            <label style="font-size: 16px;" class="form-check-label"
+                                                for="flexCheckDefault">
+                                                I would like to receive notifications.
                                             </label>
                                             @error('notify_status')
                                                 <p class="text-danger font-size-12 mb-0">{{ $message }}</p>
@@ -112,9 +110,9 @@
                     <div class="col-12">
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                             @if ($latitude == null || $longitude == null)
-                                <button disabled type="submit" class="btn btn-primary mt-3">Next</button>
+                                <button disabled type="submit" class="btn btn-primary mt-3">Submit</button>
                             @else
-                                <button type="submit" class="btn btn-primary mt-3">Next</button>
+                                <button type="submit" class="btn btn-primary mt-3">Submit</button>
                             @endif
                         </div>
                     </div>

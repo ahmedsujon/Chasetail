@@ -103,7 +103,6 @@ class TextPlanSubscriptionController extends Controller
                     $lostDogData = session()->only([
                         'latitude',
                         'longitude',
-                        'images',
                         'address',
                         'name',
                         'breed',
@@ -146,7 +145,7 @@ class TextPlanSubscriptionController extends Controller
 
                     // Send email notifications to nearby users
                     foreach ($emails as $email) {
-                        Mail::send('emails.lostdog-report', $mailData, function ($message) use ($email) {
+                        Mail::send('emails.text-plan-report', $mailData, function ($message) use ($email) {
                             $message->to($email)
                                 ->subject('Lost Dog Notification');
                         });
@@ -158,7 +157,6 @@ class TextPlanSubscriptionController extends Controller
                         'plan',
                         'latitude',
                         'longitude',
-                        'images',
                         'address',
                         'name',
                         'breed',

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('found_date')->nullable();
             $table->string('color')->nullable();
             $table->string('gender')->nullable();
+            $table->string('marking')->nullable();
             $table->string('breed')->nullable();
             $table->string('microchip_id')->nullable();
             $table->string('description')->nullable();

@@ -2,15 +2,10 @@
 
 namespace App\Livewire\App\Signup;
 
-use App\Models\User;
-use App\Models\LostDog;
 use Livewire\Component;
-use Livewire\Attributes\Title;
-use Illuminate\Support\Facades\Hash;
 
-class PaidSignupComponent extends Component
+class LevelTwoSignupComponent extends Component
 {
-
     public $name, $username, $email, $phone, $password, $confirm_password, $notify_status, $latitude, $longitude;
 
     public function updated($fields)
@@ -43,13 +38,14 @@ class PaidSignupComponent extends Component
         session()->put('phone', $formattedPhone); // Use formatted phone number
         session()->put('password', $this->password);
 
-        return $this->redirect('/text-plan-subscription-payment', navigate: false);
+        return $this->redirect('/level-two-subscription-payment', navigate: false);
     }
 
 
     #[Title('Account Information')]
+
     public function render()
     {
-        return view('livewire.app.signup.paid-signup-component')->layout('livewire.app.layouts.base');
+        return view('livewire.app.signup.level-two-signup-component')->layout('livewire.app.layouts.base');
     }
 }

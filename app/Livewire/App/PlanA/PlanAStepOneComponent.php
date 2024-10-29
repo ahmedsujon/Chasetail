@@ -38,7 +38,7 @@ class PlanAStepOneComponent extends Component
         if (Auth::check()) {
             return $this->redirect('/text-plan-subscription-payment', navigate: false);
         } else {
-            return $this->redirect('/account-informations', navigate: false);
+            return $this->redirect('/text-plan-report-account-create', navigate: false);
         }
     }
 

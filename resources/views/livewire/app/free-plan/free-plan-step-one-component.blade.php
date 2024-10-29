@@ -27,7 +27,7 @@
                             <p>Photo quality will affect your search results. Please select a clear image of one pet
                                 looking directly at the camera.</p>
                             <label for="images" class="drop-container" id="dropcontainer">
-                                <span class="drop-title">Upload your pets photos</span>
+                                <span class="drop-title">Upload your pet's photo</span>
                                 <input type="file" wire:model.blur="images" id="images" accept="image/*"
                                     style="display:none;" required>
                                 @error('images')

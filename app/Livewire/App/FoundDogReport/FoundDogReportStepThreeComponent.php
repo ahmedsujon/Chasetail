@@ -35,7 +35,7 @@ class FoundDogReportStepThreeComponent extends Component
         session()->put('gender', $this->gender);
         session()->put('found_date', $this->found_date);
         session()->put('description', $this->description);
-        return $this->redirect('/account-create-information', navigate: false);
+        return $this->redirect('/found-dog-report-account-create', navigate: false);
     }
 
     public function submitData()

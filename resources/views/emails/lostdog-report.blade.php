@@ -59,10 +59,11 @@
             <p><strong>Address:</strong> {{ $address }}</p>
             <p><strong>Description:</strong> {{ $description }}</p>
             @if ($images)
-                <p><a style="height: 200px width: 300px;" href="https://chasetail.com/lostdogs/details/{{ $id }}"><strong>More details &
+                <p><a href="https://chasetail.com/lostdogs/details/{{ $id }}"><strong>More details &
                             photo</strong></a> </p>
                 {{-- <img src="https://chasetail.com/{{ $images }}" alt="Lost Dog Image" class="dog-image"> --}}
-                <img src="http://chasetail.test/{{ $images }}" alt="Lost Pet Image" class="pet-image">
+                <img style="height: 250px" src="http://chasetail.test/{{ $images }}" alt="Lost Pet Image"
+                    class="pet-image">
             @endif
             <p>We appreciate your help in finding our lost pet. Thank you for keeping an eye out!</p>
         </div>

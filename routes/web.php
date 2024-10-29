@@ -57,9 +57,16 @@ use App\Livewire\App\FoundDogReport\FoundDogReportStepThreeComponent;
 use App\Livewire\App\PlanE\PlanEComponent;
 use App\Livewire\App\PlanE\PlanEStepOneComponent;
 use App\Livewire\App\PlanE\PlanEStepTwoComponent;
+use App\Livewire\App\Signup\FoundDogSignupComponent;
 use App\Livewire\App\Signup\FoundPetComponent;
+use App\Livewire\App\Signup\FreePlanSignupComponent;
+use App\Livewire\App\Signup\LevelFourSignupComponent;
+use App\Livewire\App\Signup\LevelOneSignupComponent;
+use App\Livewire\App\Signup\LevelThreeSignupComponent;
+use App\Livewire\App\Signup\LevelTwoSignupComponent;
 use App\Livewire\App\Signup\PaidSignupComponent;
 use App\Livewire\App\Signup\SignupComponent;
+use App\Livewire\App\Signup\TextPlanSignupComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -84,9 +91,13 @@ Route::get('/lostdogs/details/{id}', LostDogDetailsComponent::class)->name('app.
 Route::get('/lostdogs/flyer/{id}', FlyerComponent::class)->name('app.lost.dogs.flyer');
 
 // account information / signup
-Route::get('/account-information', SignupComponent::class)->name('app.account.info');
-Route::get('/account-informations', PaidSignupComponent::class)->name('app.account.informations');
-Route::get('/account-create-information', FoundPetComponent::class)->name('app.create.account.informations');
+Route::get('/found-dog-report-account-create', FoundDogSignupComponent::class)->name('app.found.dog.account');
+Route::get('/free-plan-report-account-create', FreePlanSignupComponent::class)->name('app.free.plan.account');
+Route::get('/text-plan-report-account-create', TextPlanSignupComponent::class)->name('app.text.plan.account');
+Route::get('/level-one-plan-report-account-create', LevelOneSignupComponent::class)->name('app.lebel.one.plan.account');
+Route::get('/level-two-plan-report-account-create', LevelTwoSignupComponent::class)->name('app.lebel.two.plan.account');
+Route::get('/level-three-plan-report-account-create', LevelThreeSignupComponent::class)->name('app.lebel.three.plan.account');
+Route::get('/level-four-plan-report-account-create', LevelFourSignupComponent::class)->name('app.lebel.four.plan.account');
 
 
 // Found Dog Routes

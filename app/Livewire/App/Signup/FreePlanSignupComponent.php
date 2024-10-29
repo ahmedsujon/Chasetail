@@ -6,12 +6,10 @@ use App\Models\User;
 use App\Models\LostDog;
 use Livewire\Component;
 use Livewire\Attributes\Title;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
-class SignupComponent extends Component
+class FreePlanSignupComponent extends Component
 {
-
     public $name, $username, $email, $phone, $password, $confirm_password, $notify_status, $latitude, $longitude;
 
     public function updated($fields)
@@ -71,8 +69,9 @@ class SignupComponent extends Component
     }
 
     #[Title('Account Information')]
+
     public function render()
     {
-        return view('livewire.app.signup.signup-component')->layout('livewire.app.layouts.base');
+        return view('livewire.app.signup.free-plan-signup-component')->layout('livewire.app.layouts.base');
     }
 }

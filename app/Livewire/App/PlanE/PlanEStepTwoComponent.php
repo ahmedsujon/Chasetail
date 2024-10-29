@@ -40,7 +40,7 @@ class PlanEStepTwoComponent extends Component
         if (Auth::check()) {
             return $this->redirect('/level-four-subscription-payment', navigate: false);
         } else {
-            return $this->redirect('/account-informations', navigate: false);
+            return $this->redirect('/level-four-plan-report-account-create', navigate: false);
         }
     }
 

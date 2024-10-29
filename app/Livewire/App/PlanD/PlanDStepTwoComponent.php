@@ -39,7 +39,7 @@ class PlanDStepTwoComponent extends Component
         if (Auth::check()) {
             return $this->redirect('/level-three-subscription-payment', navigate: false);
         } else {
-            return $this->redirect('/account-informations', navigate: false);
+            return $this->redirect('/level-three-plan-report-account-create', navigate: false);
         }
     }
 

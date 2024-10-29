@@ -10,7 +10,6 @@
                 <div class="col-md-12 col-lg-12 col-12">
                     <div class="page-header-text">
                         <h4>Describe Your Pet </h4>
-                        <p>Update Plan? <a href="/subscription" wire:navigate>Roll-Back</a></p>
                     </div>
                 </div>
             </div>
@@ -23,11 +22,11 @@
                 <div class="row">
                     <div class="col-md-12 col-lg-12 col-12">
                         <div class="step-page">
-                            <h3>Add your pet photos</h3>
+                            <h3>Add your pet's photo</h3>
                             <p>Photo quality will affect your search results. Please select a clear image of one pet
                                 looking directly at the camera.</p>
                             <label for="images" class="drop-container" id="dropcontainer">
-                                <span class="drop-title">Upload your pets photos</span>
+                                <span class="drop-title">Upload your pet's photo</span>
                                 <input type="file" wire:model.blur="images" id="images" accept="image/*"
                                     style="display:none;" required>
                                 @error('images')
