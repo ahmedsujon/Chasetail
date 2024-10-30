@@ -13,8 +13,7 @@
                                 the most
                                 efficient way to enlist the aid of caring neighbors in the recovery of your beloved
                                 animal.</p>
-                            <a href="{{ route('app.subscription') }}" class="btn btn-primary">Lost Pet</a>
-                            <a href="{{ route('user.found.dog.report.first.step') }}" class="btn btn-primary">Found Pet</a>
+                            <a href="{{ route('app.subscription') }}" class="btn btn-primary">Start Here</a>
                         </div>
                     </div>
                 </div>
