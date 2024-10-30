@@ -9,8 +9,8 @@
                 <div class="col-md-12 col-lg-12 col-12 d-flex align-items-center justify-content-between">
                     <div class="page-header-text">
                         <h4>Gallery of Found Pets</h4>
-                    </div>
                     <a href="{{ route('user.found.dog.report.first.step') }}" class="btn btn-primary">Found Pet</a>
+                    </div>
                 </div>
             </div>
         </div>
