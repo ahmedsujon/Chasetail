@@ -147,7 +147,7 @@ class TextPlanSubscriptionController extends Controller
                     foreach ($emails as $email) {
                         Mail::send('emails.text-plan-report', $mailData, function ($message) use ($email) {
                             $message->to($email)
-                                ->subject('Lost Dog Notification');
+                                ->subject('Lost Pet Notification');
                         });
                     }
 

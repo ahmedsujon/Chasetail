@@ -119,7 +119,7 @@
                     <td class="bg_white" style="text-align: center;">
                         <div class="heading-section">
                             <h2>{{ $lost_dog->name }}</h2>
-                            <p>Gender: {{ $lost_dog->gender }}, Color: {{ $lost_dog->color }},
+                            <p style="padding-bottom: 10px;">Gender: {{ $lost_dog->gender }}, Color: {{ $lost_dog->color }},
                                 Breed: {{ $lost_dog->breed }}
                             </p>
                         </div>

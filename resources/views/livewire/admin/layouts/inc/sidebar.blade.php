@@ -13,13 +13,13 @@
                     </li>
 
                     @if (isAdminPermitted('users_manage') || isAdminPermitted('admins_manage'))
-                        <li class="menu-title" key="t-user">Dogs</li>
+                        <li class="menu-title" key="t-user">Pets</li>
                     @endif
                     @if (isAdminPermitted('users_manage'))
                         <li>
                             <a href="{{ route('admin.lost.dogs') }}" class="waves-effect">
                                 <i class="bx bx-user"></i>
-                                <span key="t-chat">Lost Dogs</span>
+                                <span key="t-chat">Lost Pets</span>
                             </a>
                         </li>
                     @endif
@@ -27,7 +27,7 @@
                         <li>
                             <a href="{{ route('admin.found.dogs') }}" class="waves-effect">
                                 <i class="bx bx-user"></i>
-                                <span key="t-chat">Found Dogs</span>
+                                <span key="t-chat">Found Pets</span>
                             </a>
                         </li>
                     @endif
@@ -82,7 +82,7 @@
                     @endif
 
                     @if (isAdminPermitted('settings_manage'))
-                        <li class="menu-title" key="t-setting">Messaging Logs</li>
+                        <li class="menu-title" key="t-setting">Messaging Pets</li>
                         <li>
                             <a href="{{ route('admin.messaging.logs') }}" class="waves-effect">
                                 <i class="bx bx-book-open"></i>
