@@ -132,8 +132,6 @@
                                 <span key="t-blog">Reports</span>
                             </a>
                             <ul class="sub-menu mm-collapse" aria-expanded="false" style="height: 0px;">
-                                <li><a href="{{ route('admin.donation.chart.report') }}" key="t-blog-details">Donation
-                                        Report</a></li>
                                 <li><a href="{{ route('admin.subscription.chart.report') }}"
                                         key="t-blog-details">Subscription Report</a></li>
                             </ul>
