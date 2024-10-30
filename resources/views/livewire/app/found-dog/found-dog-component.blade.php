@@ -52,7 +52,14 @@
                                 @foreach ($found_dogs as $found_dog)
                                     <div class="col-lg-4 col-md-6 col-12">
                                         <div class="lost-dog-list-right-text">
-                                            <img class="img-fluid" src="{{ asset($found_dog->images) }}" alt="Lost Dog">
+                                            @if ($found_dog->images)
+                                                <img class="img-fluid" src="{{ asset($found_dog->images) }}"
+                                                    alt="found-dog">
+                                            @else
+                                                <img class="img-fluid"
+                                                    src="{{ asset('assets/app/images/placeholder.jpg') }}"
+                                                    alt="Lost Dog">
+                                            @endif
                                             <h4><a
                                                     href="{{ route('app.found.dogs.details', ['id' => $found_dog->id]) }}">{{ $found_dog->name }}</a>
                                             </h4>
