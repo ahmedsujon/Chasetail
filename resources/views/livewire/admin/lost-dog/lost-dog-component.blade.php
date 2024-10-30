@@ -108,10 +108,6 @@
                                                 'thDisplayName' => 'Color',
                                             ])
                                             @include('livewire.admin.datatable.admin-datatable-sorting', [
-                                                'name' => 'status',
-                                                'thDisplayName' => 'Status',
-                                            ])
-                                            @include('livewire.admin.datatable.admin-datatable-sorting', [
                                                 'name' => 'missing_status',
                                                 'thDisplayName' => 'Missing Status',
                                             ])
@@ -131,21 +127,6 @@
                                                     <td>{{ $lost_dog->name }}</td>
                                                     <td>{{ $lost_dog->gender }}</td>
                                                     <td>{{ $lost_dog->color }}</td>
-                                                    <td style="width: 15%;">
-                                                        @if ($lost_dog->status == 0)
-                                                            <span
-                                                                class="badge badge-pill badge-soft-success font-size-11"
-                                                                wire:click.prevent='changeStatus({{ $lost_dog->id }})'>
-                                                                {!! loadingStateStatus('changeStatus(' . $lost_dog->id . ')', 'In-Active') !!}
-                                                            </span>
-                                                        @else
-                                                            <span
-                                                                class="badge badge-pill badge-soft-danger font-size-11"
-                                                                wire:click.prevent='changeStatus({{ $lost_dog->id }})'>
-                                                                {!! loadingStateStatus('changeStatus(' . $lost_dog->id . ')', 'Active') !!}
-                                                            </span>
-                                                        @endif
-                                                    </td>
                                                     <td>
                                                         @if ($lost_dog->missing_status == 'Found')
                                                             <button data-bs-toggle="modal"

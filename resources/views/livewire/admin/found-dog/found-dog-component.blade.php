@@ -72,10 +72,6 @@
                                                 'thDisplayName' => 'Color',
                                             ])
                                             @include('livewire.admin.datatable.admin-datatable-sorting', [
-                                                'name' => 'status',
-                                                'thDisplayName' => 'Status',
-                                            ])
-                                            @include('livewire.admin.datatable.admin-datatable-sorting', [
                                                 'name' => 'missing_status',
                                                 'thDisplayName' => 'Missing Status',
                                             ])
@@ -94,18 +90,6 @@
                                                     <td>{{ $sl++ }}</td>
                                                     <td>{{ $found_dog->gender }}</td>
                                                     <td>{{ $found_dog->color }}</td>
-                                                    <td style="width: 15%;">
-                                                        @if ($found_dog->status == 0)
-                                                            <button class="btn btn-xs btn-danger"
-                                                                wire:click.prevent='changeStatus({{ $found_dog->id }})'
-                                                                style="font-weight: normal; font-size: 11px; padding: 1px 7px;">{!! loadingStateStatus('changeStatus(' . $found_dog->id . ')', 'In-Active') !!}</button>
-                                                        @else
-                                                            <button class="btn btn-xs btn-success"
-                                                                wire:click.prevent='changeStatus({{ $found_dog->id }})'
-                                                                style="font-weight: normal; font-size: 11px; padding: 1px 7px;">{!! loadingStateStatus('changeStatus(' . $found_dog->id . ')', 'Active') !!}</button>
-                                                        @endif
-                                                    </td>
-
                                                     <td style="width: 15%;">
                                                         @if ($found_dog->missing_status == 'Found')
                                                             <button class="btn btn-xs btn-warning"

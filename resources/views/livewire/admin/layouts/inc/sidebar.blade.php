@@ -52,7 +52,7 @@
                                 <span key="t-multi-level">Payments</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="true">
-                                <li><a href="{{ route('admin.donations') }}" key="t-blog-details">Donations</a></li>
+                                {{-- <li><a href="{{ route('admin.donations') }}" key="t-blog-details">Donations</a></li> --}}
                                 <li><a href="{{ route('admin.subscriptions') }}" key="t-blog-details">Subscription</a>
                                 </li>
                             </ul>
@@ -81,7 +81,7 @@
                         </li>
                     @endif
 
-                    @if (isAdminPermitted('settings_manage'))
+                    {{-- @if (isAdminPermitted('settings_manage'))
                         <li class="menu-title" key="t-setting">Messaging Pets</li>
                         <li>
                             <a href="{{ route('admin.messaging.logs') }}" class="waves-effect">
@@ -89,7 +89,7 @@
                                 <span key="t-chat">Messaging</span>
                             </a>
                         </li>
-                    @endif
+                    @endif --}}
 
                     @if (isAdminPermitted('settings_manage'))
                         <li class="menu-title" key="t-setting">Setting</li>
@@ -117,8 +117,7 @@
                     @if (isAdminPermitted('settings_manage'))
                         <li class="menu-title" key="t-setting">Spam Report</li>
                         <li>
-                            <a href="#" class="waves-effect" data-bs-toggle="modal"
-                                data-bs-target="#editProfileModal">
+                            <a href="#" class="waves-effect">
                                 <i class="bx bxs-flag-alt"></i>
                                 <span key="t-chat">Reported Listing</span>
                             </a>
