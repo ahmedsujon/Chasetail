@@ -138,6 +138,7 @@ class PlanESubscriptionController extends Controller
                         'images' => $lostDog->images,
                         'gender' => $lostDog->gender,
                         'address' => $lostDog->address,
+                        'last_seen' => $lostDog->last_seen,
                         'breed' => $lostDog->breed,
                         'color' => $lostDog->color,
                         'marking' => $lostDog->marking,
