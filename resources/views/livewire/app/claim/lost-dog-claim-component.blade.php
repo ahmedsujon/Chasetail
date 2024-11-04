@@ -57,9 +57,9 @@
                                     </div>
                                 </div>
                                 <div class="mb-4">
-                                    <label for="message" class="form-label">Your message</label>
-                                    <textarea class="form-control" wire:model="message" id="message" rows="5" required></textarea>
-                                    @error('message')
+                                    <label for="descriptions" class="form-label">Your message</label>
+                                    <textarea class="form-control" wire:model="descriptions" id="descriptions" rows="5" required></textarea>
+                                    @error('descriptions')
                                         <p class="text-danger" style="font-size: 11.5px;">{{ $message }}</p>
                                     @enderror
                                 </div>

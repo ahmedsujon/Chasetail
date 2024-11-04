@@ -49,7 +49,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>Lost Pet Claim</h1>
+            <h1>Lost Pet Claim Notification</h1>
         </div>
         <div class="content">
             <p>Dear Pet Owner,</p>
@@ -60,7 +60,7 @@
                 <li><strong>Name:</strong> {{ $name }}</li>
                 <li><strong>Email:</strong> {{ $email }}</li>
                 <li><strong>Phone:</strong> {{ $phone }}</li>
-                <li><strong>Message:</strong> {{ $messages }}</li>
+                <li><strong>Message:</strong> {{ $descriptions }}</li>
             </ul>
 
             <p>Please feel free to contact them directly using the provided information to confirm and discuss further.

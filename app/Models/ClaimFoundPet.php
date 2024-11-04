@@ -9,5 +9,6 @@ class ClaimFoundPet extends Model
 {
     use HasFactory;
 
-    protected $table = 'claim_found_pets';
+    protected $fillable = ['user_id', 'name', 'email', 'phone', 'descriptions'];
+
 }

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Mail;
 
 class FoundDogClaimComponent extends Component
 {
-    public $user_id, $name, $email, $phone, $messages;
+    public $user_id, $name, $email, $phone, $descriptions;
 
     public function storeData()
     {
@@ -25,7 +25,7 @@ class FoundDogClaimComponent extends Component
         $data->name = $this->name;
         $data->email = $this->email;
         $data->phone = $this->phone;
-        $data->messages = $this->messages;
+        $data->descriptions = $this->descriptions;
         $data->save();
 
         // Prepare mail data
@@ -34,7 +34,7 @@ class FoundDogClaimComponent extends Component
             'name' => $data->name,
             'email' => $data->email,
             'phone' => $data->phone,
-            'messages' => $data->messages,
+            'descriptions' => $data->descriptions,
         ];
 
         // Get the owner's email
@@ -43,14 +43,12 @@ class FoundDogClaimComponent extends Component
         // Send email
         Mail::send('emails.found-pet-claim', $mailData, function ($message) use ($ownerEmail) {
             $message->to($ownerEmail)
-                ->subject('Found Pet Claim Notification');
+                ->subject('Lost Pet Claim Notification');
         });
-
         // Set success message and reset inputs
         session()->flash('success', 'Your message has been sent successfully! An email will be sent to the owner shortly.');
         $this->resetInputs();
     }
-
 
     public function resetInputs()
     {
@@ -58,7 +56,7 @@ class FoundDogClaimComponent extends Component
         $this->name = null;
         $this->email = null;
         $this->phone = null;
-        $this->messages = null;
+        $this->descriptions = null;
     }
 
     public function render()
