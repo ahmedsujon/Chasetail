@@ -22,7 +22,11 @@
                         <img class="img-fluid" src="{{ asset($found_dog->images) }}" alt="Lost Detail">
                         <p>Pet reported by Dallas Animal Services</p>
                         @auth
-                            <a href="{{ route('app.claim.found.pet') }}?email={{ getUserByID($found_dog->user_id)->email }}"
+                            @php
+                                $ownerEmail = optional(getUserByID($found_dog->user_id))->email;
+                            @endphp
+
+                            <a href="{{ route('app.claim.found.pet') }}?email={{ $ownerEmail }}"
                                 class="btn btn-primary btn-dog-parent mt-3">Yes! It’s mine!</a>
                         @endauth
                         @guest

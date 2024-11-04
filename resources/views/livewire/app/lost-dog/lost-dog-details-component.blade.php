@@ -46,8 +46,13 @@
                         {{-- <img class="img-fluid" src="{{ asset($lost_dog->images) }}" alt="Lost Detail"> --}}
                         <p>Pet reported by Dallas Animal Services</p>
                         @auth
-                            <a href="{{ route('app.claim.lost.pet') }}?email={{ getUserByID($lost_dog->user_id)->email }}" class="btn btn-primary btn-dog-parent mt-3"
-                                type="button">I Found It!</a>
+                            @php
+                                $ownerEmail = optional(getUserByID($lost_dog->user_id))->email;
+                            @endphp
+
+                            <a href="{{ route('app.claim.lost.pet') }}?email={{ $ownerEmail }}"
+                                class="btn btn-primary btn-dog-parent mt-3" type="button">I Found It!</a>
+
                         @endauth
                         @guest
                             <a href="{{ route('login') }}" class="btn btn-primary btn-dog-parent mt-3" type="button">I

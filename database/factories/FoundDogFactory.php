@@ -13,13 +13,13 @@ class FoundDogFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    
+
     public function definition(): array
     {
         $faker = Faker::create();
-        
+
         return [
-            'user_id' => $faker->numberBetween(1, 10),
+            'user_id' => $faker->numberBetween(1, 2),
             'color' => $faker->colorName,
             'gender' => $faker->gender,
             'description' => $faker->text,
