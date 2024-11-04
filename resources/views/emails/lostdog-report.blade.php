@@ -69,7 +69,7 @@
         </div>
         <div class="footer">
             <p>Thank you,</p>
-            <p>The Lost Pet Team</p>
+            <p>The Chasetail Team</p>
         </div>
     </div>
 </body>

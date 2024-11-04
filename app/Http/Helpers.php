@@ -3,6 +3,7 @@
 use App\Models\Admin;
 use App\Models\Permission;
 use App\Models\Setting;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 function admin()
@@ -13,6 +14,11 @@ function admin()
 function getAdminByID($id)
 {
     return Admin::find($id);
+}
+
+function getUserByID($id)
+{
+    return User::find($id);
 }
 
 function vendor()

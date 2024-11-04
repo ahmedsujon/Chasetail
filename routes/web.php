@@ -53,6 +53,8 @@ use App\Http\Controllers\Subscription\PlanESubscriptionController;
 use App\Livewire\App\FoundDogReport\FoundDogReportStepOneComponent;
 use App\Livewire\App\FoundDogReport\FoundDogReportStepTwoComponent;
 use App\Http\Controllers\Subscription\TextPlanSubscriptionController;
+use App\Livewire\App\Claim\FoundDogClaimComponent;
+use App\Livewire\App\Claim\LostDogClaimComponent;
 use App\Livewire\App\FoundDogReport\FoundDogReportStepThreeComponent;
 use App\Livewire\App\PlanE\PlanEComponent;
 use App\Livewire\App\PlanE\PlanEStepOneComponent;
@@ -98,6 +100,11 @@ Route::get('/level-one-plan-report-account-create', LevelOneSignupComponent::cla
 Route::get('/level-two-plan-report-account-create', LevelTwoSignupComponent::class)->name('app.lebel.two.plan.account');
 Route::get('/level-three-plan-report-account-create', LevelThreeSignupComponent::class)->name('app.lebel.three.plan.account');
 Route::get('/level-four-plan-report-account-create', LevelFourSignupComponent::class)->name('app.lebel.four.plan.account');
+
+
+// claim lost/found pets
+Route::get('/claim-lost-pet', LostDogClaimComponent::class)->name('app.claim.lost.pet');
+Route::get('/claim-found-pet', FoundDogClaimComponent::class)->name('app.claim.found.pet');
 
 
 // Found Dog Routes

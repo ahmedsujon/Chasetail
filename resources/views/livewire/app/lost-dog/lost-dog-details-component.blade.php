@@ -45,7 +45,14 @@
                         @endif
                         {{-- <img class="img-fluid" src="{{ asset($lost_dog->images) }}" alt="Lost Detail"> --}}
                         <p>Pet reported by Dallas Animal Services</p>
-                        <button class="btn btn-primary btn-dog-parent mt-3" type="button">I Found It!</button>
+                        @auth
+                            <a href="{{ route('app.claim.lost.pet') }}?email={{ getUserByID($lost_dog->user_id)->email }}" class="btn btn-primary btn-dog-parent mt-3"
+                                type="button">I Found It!</a>
+                        @endauth
+                        @guest
+                            <a href="{{ route('login') }}" class="btn btn-primary btn-dog-parent mt-3" type="button">I
+                                Found It!</a>
+                        @endguest
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-6 col-12">

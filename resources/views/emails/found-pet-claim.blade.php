@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Lost Pet Notification</title>
+    <title>Found Pet Claim Notification</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -49,19 +49,23 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>Lost Pet Alert</h1>
+            <h1>Found Pet Claim</h1>
         </div>
         <div class="content">
-            <p>A Pet named <strong>{{ $name }}</strong> was last seen on <strong>{{ $last_seen }}</strong>.
+            <p>Dear Pet Owner,</p>
+            <p>We have received a claim from someone who believes the pet you posted about is theirs. Here are the
+                details provided by the person who reached out:</p>
+            <ul>
+                <li><strong>Name:</strong> {{ $name }}</li>
+                <li><strong>Email:</strong> {{ $email }}</li>
+                <li><strong>Phone:</strong> {{ $phone }}</li>
+                <li><strong>Message:</strong> {{ $messages }}</li>
+            </ul>
+
+            <p>Please feel free to contact them directly using the provided information to confirm and discuss further.
             </p>
-            <p><strong>Gender:</strong> {{ $gender }}</p>
-            <p><strong>Breed:</strong> {{ $breed }}</p>
-            <p><strong>Address:</strong> {{ $address }}</p>
-            <p><strong>Description:</strong> {{ $description }}</p>
-            <p>
-                <a style="height: 200px width: 300px;"
-                    href="https://chasetail.com/lostdogs/details/{{ $id }}"><strong>More details</strong></a>
-            </p>
+
+            <p>We hope this helps reunite you with your pet soon!</p>
             <p>We appreciate your help in finding our lost pet. Thank you for keeping an eye out!</p>
         </div>
         <div class="footer">
