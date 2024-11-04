@@ -43,7 +43,7 @@ class FoundDogClaimComponent extends Component
         // Send email
         Mail::send('emails.found-pet-claim', $mailData, function ($message) use ($ownerEmail) {
             $message->to($ownerEmail)
-                ->subject('Lost Pet Claim Notification');
+                ->subject('Found Pet Claim Notification');
         });
         // Set success message and reset inputs
         session()->flash('success', 'Your message has been sent successfully! An email will be sent to the owner shortly.');
