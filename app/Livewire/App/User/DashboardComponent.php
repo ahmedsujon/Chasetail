@@ -2,6 +2,7 @@
 
 namespace App\Livewire\App\User;
 
+use App\Models\FoundDog;
 use App\Models\User;
 use App\Models\LostDog;
 use Livewire\Component;
@@ -30,6 +31,7 @@ class DashboardComponent extends Component
     public function render()
     {
         $lost_dogs = LostDog::where('user_id', Auth::user()->id)->orderBy('id', 'DESC')->get();
-        return view('livewire.app.user.dashboard-component', ['lost_dogs' => $lost_dogs])->layout('livewire.app.layouts.base');
+        $found_dogs = FoundDog::where('user_id', Auth::user()->id)->orderBy('id', 'DESC')->get();
+        return view('livewire.app.user.dashboard-component', ['lost_dogs' => $lost_dogs, 'found_dogs'=>$found_dogs])->layout('livewire.app.layouts.base');
     }
 }

@@ -76,7 +76,7 @@
                                                     <label for="expiry_month" class="form-label">Expiration
                                                         Month
                                                         (MM)</label>
-                                                    <input type="number" max="2" name="expiry_month" class="form-control"
+                                                    <input type="number" name="expiry_month" class="form-control"
                                                         id="expiry_month" placeholder="MM">
                                                     @error('expiry_month')
                                                         <p class="text-danger font-size-12">{{ $message }}</p>

@@ -95,7 +95,7 @@ class LostDogComponent extends Component
     //     return Excel::download(new LostDogExportComponent, 'lost-dog-list.pdf');
     // }
 
-    #[Title('Lost Dogs')]
+    #[Title('Lost Pets')]
     public function render()
     {
         $lost_dogs = LostDog::where('name', 'like', '%' . $this->searchTerm . '%')

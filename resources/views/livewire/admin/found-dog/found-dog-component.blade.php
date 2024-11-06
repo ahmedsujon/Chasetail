@@ -121,7 +121,7 @@
                                             @endforeach
                                         @else
                                             <tr>
-                                                <td colspan="7" class="text-center pt-5 pb-5">No lost dogs found!
+                                                <td colspan="7" class="text-center pt-5 pb-5">No lost pets found!
                                                 </td>
                                             </tr>
                                         @endif
