@@ -105,7 +105,9 @@
                             </tbody>
                         </table>
                         <div class="print-flyer">
+                            @auth
                             <h6><a href="#">Report this listing</a></h6>
+                            @endauth
                             <h5 class="print-flyer"><a
                                     href="{{ route('app.lost.dogs.flyer', ['id' => $lost_dog->id]) }}">Print Flyer</a>
                             </h5>
