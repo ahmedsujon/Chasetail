@@ -137,7 +137,9 @@
                             </ul> --}}
                             <h5>Account Settings</h5>
                             <ul>
-                                <li class="personal"><a href="/personal-information" wire:navigate>Personal
+                                <li class="personal"><a
+                                        href="{{ route('personal.information', ['id' => Auth::user()->id]) }}"
+                                        wire:navigate>Personal
                                         information</a></li>
                                 <li class="payment"><a href="/payment-history" wire:navigate>Payment
                                         History</a></li>

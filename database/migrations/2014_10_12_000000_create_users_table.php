@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('avatar', 2048)->nullable();
             $table->string('longitude')->nullable();
             $table->string('latitude')->nullable();
+            $table->string('address')->nullable();
             $table->boolean('status')->default(1);
             $table->boolean('notify_status')->default(1);
             $table->rememberToken();

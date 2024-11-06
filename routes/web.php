@@ -155,7 +155,7 @@ Route::get('plan-four-report-step-three', PlanEStepTwoComponent::class)->name('p
 Route::prefix('/')->middleware('auth:web')->group(function () {
     // Profile Pages Routes
     Route::get('messages', MessageComponent::class)->name('messages');
-    Route::get('personal-information', PersonalInfoComponent::class)->name('personal.information');
+    Route::get('edit/personal-information/{id}', PersonalInfoComponent::class)->name('personal.information');
     Route::get('payment-history', PaymentHistoryComponent::class)->name('payment.history');
 });
 
