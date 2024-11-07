@@ -27,7 +27,7 @@ class FoundDogSeeder extends Seeder
                 'address' => $faker->address(),
                 'images' => 'assets/app/images/placeholder.jpg',
                 'status' => $faker->numberBetween(0,1),
-                'missing_status' => $faker->randomElement(['found', 'Rescued']),
+                'missing_status' => 'Missing',
             ]);
         }
     }
