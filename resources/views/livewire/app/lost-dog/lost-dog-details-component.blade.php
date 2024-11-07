@@ -64,7 +64,7 @@
                     <div class="lost-detail-right">
                         <h4>Lost Pet Report</h4>
                         <ul>
-                            <li>Pet Status<span>FOUND</span></li>
+                            <li>Pet Status<span>{{ $lost_dog->missing_status }}</span></li>
                             <li>Lost Date<span>{{ $lost_dog->last_seen }}</span></li>
                         </ul>
                         <h5>About This Pet</h5>
