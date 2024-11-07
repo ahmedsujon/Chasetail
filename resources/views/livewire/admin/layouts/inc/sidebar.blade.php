@@ -81,63 +81,35 @@
                         </li>
                     @endif
 
-                    {{-- @if (isAdminPermitted('settings_manage'))
-                        <li class="menu-title" key="t-setting">Messaging Pets</li>
-                        <li>
-                            <a href="{{ route('admin.messaging.logs') }}" class="waves-effect">
-                                <i class="bx bx-book-open"></i>
-                                <span key="t-chat">Messaging</span>
-                            </a>
-                        </li>
-                    @endif --}}
-
                     @if (isAdminPermitted('settings_manage'))
-                        <li class="menu-title" key="t-setting">Setting</li>
-                        <li>
-                            <a href="#" class="waves-effect" data-bs-toggle="modal"
-                                data-bs-target="#editProfileModal">
-                                <i class="bx bx-wrench"></i>
-                                <span key="t-chat">Settings</span>
-                            </a>
-                        </li>
-                    @endif
-
-                    {{-- <li>
-                        <a href="javascript: void(0);" class="has-arrow waves-effect">
-                            <i class="bx bx-share-alt"></i>
-                            <span key="t-multi-level">Multi Level</span>
+                    <li class="menu-title" key="t-setting">Reports</li>
+                    <li class="">
+                        <a href="javascript: void(0);" class="has-arrow waves-effect" aria-expanded="false">
+                            <i class="bx bx-detail"></i>
+                            <span key="t-blog">Reports</span>
                         </a>
-                        <ul class="sub-menu" aria-expanded="true">
-                            <li><a href="{{ route('admin.allAdmins') }}" key="t-level-1-1">Level 1.1</a></li>
-                            <li><a href="javascript: void(0);" key="t-level-1-1">Level 1.1</a></li>
-                            <li><a href="javascript: void(0);" key="t-level-1-1">Level 1.1</a></li>
+                        <ul class="sub-menu mm-collapse" aria-expanded="false" style="height: 0px;">
+                            <li><a href="{{ route('admin.subscription.chart.report') }}"
+                                    key="t-blog-details">Subscription Report</a></li>
                         </ul>
-                    </li> --}}
+                    </li>
+                @endif
 
                     @if (isAdminPermitted('settings_manage'))
                         <li class="menu-title" key="t-setting">Spam Report</li>
-                        <li>
-                            <a href="#" class="waves-effect">
-                                <i class="bx bxs-flag-alt"></i>
-                                <span key="t-chat">Reported Listing</span>
-                            </a>
-                        </li>
-                    @endif
-
-                    @if (isAdminPermitted('settings_manage'))
-                        <li class="menu-title" key="t-setting">Reports</li>
                         <li class="">
                             <a href="javascript: void(0);" class="has-arrow waves-effect" aria-expanded="false">
                                 <i class="bx bx-detail"></i>
-                                <span key="t-blog">Reports</span>
+                                <span key="t-blog">Reported Listing</span>
                             </a>
                             <ul class="sub-menu mm-collapse" aria-expanded="false" style="height: 0px;">
-                                <li><a href="{{ route('admin.subscription.chart.report') }}"
-                                        key="t-blog-details">Subscription Report</a></li>
+                                <li><a href="{{ route('admin.lost.pet.report') }}" key="t-blog-details">Lost
+                                        Pet Report</a></li>
+                                <li><a href="{{ route('admin.found.pet.report') }}" key="t-blog-details">Found
+                                        Pet Report</a></li>
                             </ul>
                         </li>
                     @endif
-
                 </ul>
             </div>
         </div>

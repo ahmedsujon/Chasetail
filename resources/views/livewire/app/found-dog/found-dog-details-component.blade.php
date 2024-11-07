@@ -72,13 +72,15 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <h6><a style="padding-left: 25px;" id="reportButton" wire:click="{{ $found_dog->id }}"
-                                data-toggle="modal" data-target="#exampleModalCenter">Report this listing</a></h6>
-                        @if (session()->has('success'))
-                            <div class="alert alert-success">
-                                {{ session('success') }}
-                            </div>
-                        @endif
+                        @auth
+                            <h6><a style="padding-left: 25px;" id="reportButton" wire:click="{{ $found_dog->id }}"
+                                    data-toggle="modal" data-target="#exampleModalCenter">Report this listing</a></h6>
+                            @if (session()->has('success'))
+                                <div class="alert alert-success">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
+                        @endauth
                     </div>
                 </div>
             </div>

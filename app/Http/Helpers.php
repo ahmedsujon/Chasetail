@@ -1,6 +1,8 @@
 <?php
 
 use App\Models\Admin;
+use App\Models\FoundDog;
+use App\Models\LostDog;
 use App\Models\Permission;
 use App\Models\Setting;
 use App\Models\User;
@@ -19,6 +21,16 @@ function getAdminByID($id)
 function getUserByID($id)
 {
     return User::find($id);
+}
+
+function getListingByID($id)
+{
+    return FoundDog::find($id);
+}
+
+function getLostListingByID($id)
+{
+    return LostDog::find($id);
 }
 
 function vendor()

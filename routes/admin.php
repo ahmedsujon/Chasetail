@@ -17,6 +17,8 @@ use App\Livewire\Admin\FoundDog\FoundDogComponent;
 use App\Livewire\Admin\LostDog\LostDogComponent;
 use App\Livewire\Admin\Messages\MessageComponent;
 use App\Livewire\Admin\MessagingLogs\LogsComponent;
+use App\Livewire\Admin\SpamReport\FoundPetSpamReportComponent;
+use App\Livewire\Admin\SpamReport\LostPetSpamReportComponent;
 use App\Livewire\Admin\Subscription\SubscriptionComponent;
 
 /*
@@ -55,6 +57,11 @@ Route::prefix('admin/')->name('admin.')->middleware('auth:admin')->group(functio
     // twilio logs
     Route::get('messaging/logs', LogsComponent::class)->name('messaging.logs');
     Route::get('contact/messages', MessageComponent::class)->name('contact.messages');
+
+    // span report
+    Route::get('found/pet/sapn/report', FoundPetSpamReportComponent::class)->name('found.pet.report');
+    Route::get('lost/pet/sapn/report', LostPetSpamReportComponent::class)->name('lost.pet.report');
+
 
     //user management
     Route::get('all-users', UsersComponent::class)->name('allUsers')->middleware('adminPermission:users_manage');
