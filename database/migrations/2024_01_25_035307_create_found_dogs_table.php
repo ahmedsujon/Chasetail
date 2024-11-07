@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('latitude')->nullable();
             $table->string('address')->nullable();
             $table->string('status')->default(1);
-            $table->string('missing_status')->default('Found');
+            $table->string('missing_status')->default('Missing');
             $table->timestamps();
         });
     }
