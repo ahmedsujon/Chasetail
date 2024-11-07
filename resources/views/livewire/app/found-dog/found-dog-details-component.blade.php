@@ -72,31 +72,64 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <h6><a href="#">Report this listing</a></h6>
+                        <h6><a style="padding-left: 25px;" id="reportButton" wire:click="{{ $found_dog->id }}"
+                                data-toggle="modal" data-target="#exampleModalCenter">Report this listing</a></h6>
+                        @if (session()->has('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <div wire:ignore.self class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Report this Listing</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form wire:submit.prevent="storeData">
+                        <!-- Pass the found dog ID to the Livewire property -->
+                        <input type="hidden" wire:model="found_dog_id" value="{{ $found_dog->id }}">
+
+                        <div class="form-group">
+                            <label for="reportReason">Reason</label>
+                            <select class="form-control" wire:model="reason" id="reportReason">
+                                <option value="">Select reason</option>
+                                <option value="spam">Spam</option>
+                                <option value="inappropriate">Inappropriate Content</option>
+                                <option value="duplicate">Duplicate Listing</option>
+                            </select>
+                            @error('reason')
+                                <p class="text-danger" style="font-size: 11.5px;">{{ $message }}</p>
+                            @enderror
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">
+                                {!! loadingStateWithText('storeData', 'Submit Report') !!}
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 @push('scripts')
     <script>
-        $(document).ready(function() {
-            $(".maps").each(function(index) {
-                var latitude = $(this).data('latitude');
-                var longitude = $(this).data('longitude');
-                var name = $(this).data('name');
-                let mapOptions = {
-                    center: [latitude, longitude],
-                    zoom: 10
-                }
-                let map = new L.map('map', mapOptions);
-                let layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
-                map.addLayer(layer);
-                let marker = new L.Marker([latitude, longitude]);
-                marker.addTo(map);
-            });
+        window.addEventListener('closeModal', event => {
+            $('#exampleModalCenter').modal('hide');
         });
     </script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 @endpush
