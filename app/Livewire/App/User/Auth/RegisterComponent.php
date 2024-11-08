@@ -15,7 +15,8 @@ use Illuminate\Support\Facades\Session;
 
 class RegisterComponent extends Component
 {
-    public $name, $username, $email, $phone, $password, $confirm_password, $notify_status = 1, $latitude, $longitude, $verification_code_input;
+    public $name, $username, $email, $phone, $password, $confirm_password, $notify_status = 1,
+        $latitude, $longitude, $address, $verification_code_input;
 
     public function updated($fields)
     {
@@ -60,6 +61,7 @@ class RegisterComponent extends Component
             'email' => $this->email,
             'latitude' => $this->latitude,
             'longitude' => $this->longitude,
+            // 'address' => $this->address,
             'phone' => '+1' . preg_replace('/[^\d]/', '', $this->phone),
             'password' => Hash::make($this->password),
             'verification_code' => $verificationCode,
@@ -82,6 +84,7 @@ class RegisterComponent extends Component
             $user->email = $registrationData['email'];
             $user->latitude = $registrationData['latitude'];
             $user->longitude = $registrationData['longitude'];
+            // $user->address = $registrationData['address'];
             $user->phone = $registrationData['phone'];
             $user->password = $registrationData['password'];
             $user->save();
