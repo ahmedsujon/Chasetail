@@ -11,6 +11,7 @@ class DonationChartComponent extends Component
 
     public function mount()
     {
+        $data = [];
         $donations = Donation::latest()->get();
         foreach ($donations as $donation) {
             $data['label'][] = $donation->created_at->format('H:i:s');

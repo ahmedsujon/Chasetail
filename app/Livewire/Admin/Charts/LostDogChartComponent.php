@@ -12,6 +12,7 @@ class LostDogChartComponent extends Component
 
     public function mount()
     {
+        $data = [];
         $lost_dogs = LostDog::latest()->get();
         foreach ($lost_dogs as $lost_dog) {
             $data['label'][] = $lost_dog->created_at->format('H:i:s');

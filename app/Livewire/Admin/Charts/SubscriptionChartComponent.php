@@ -11,6 +11,8 @@ class SubscriptionChartComponent extends Component
 
     public function mount()
     {
+        $data = [];
+        
         $subscriptions = Subscription::latest()->get();
         foreach ($subscriptions as $subscription) {
             $data['label'][] = $subscription->created_at->format('H:i:s');
