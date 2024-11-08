@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Session;
 
 class RegisterComponent extends Component
 {
-    public $name, $username, $email, $phone, $password, $confirm_password, $notify_status, $latitude, $longitude;
+    public $name, $username, $email, $phone, $password, $confirm_password, $notify_status = 1, $latitude, $longitude;
 
     public function updated($fields)
     {
