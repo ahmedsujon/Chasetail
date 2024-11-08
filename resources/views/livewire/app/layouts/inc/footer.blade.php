@@ -6,7 +6,7 @@
                    <div class="col-md-12">
                        <div class="footer-top-text">
                            <ul>
-                               <li><a href="tel:+11234567890"><span class="call">Call Now:</span> <span
+                               <li><a href="tel:+18555508245 "><span class="call">Call Now:</span> <span
                                            class="number">855 550 8245</span></a></li>
                                <li><a href="mailto:info@chasetail.com">info@chasetail.com</a></li>
                                {{-- @auth
