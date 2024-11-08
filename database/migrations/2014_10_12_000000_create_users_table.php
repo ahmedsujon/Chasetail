@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('latitude')->nullable();
             $table->string('address')->nullable();
             $table->boolean('status')->default(1);
-            $table->boolean('notify_status')->default(1);
+            $table->tinyInteger('notify_status')->default(1);
             $table->rememberToken();
             $table->timestamps();
         });
