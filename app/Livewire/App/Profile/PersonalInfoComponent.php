@@ -27,8 +27,8 @@ class PersonalInfoComponent extends Component
         $this->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users,email,' . $this->edit_id,
-            'phone' => 'required|unique:users,phone,' . $this->edit_id,
-            'password' => 'sometimes|nullable|min:8|max:30', // Allowing nullable
+            // 'phone' => 'required|unique:users,phone,' . $this->edit_id,
+            'password' => 'sometimes|nullable|min:8|max:30',
             'confirm_password' => 'sometimes|nullable|min:8|max:30|same:password',
         ]);
 
