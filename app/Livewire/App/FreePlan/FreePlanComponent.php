@@ -10,13 +10,13 @@ class FreePlanComponent extends Component
 
     public function lostDogReportOne()
     {
-        // $this->validate([
-        //     'latitude' => 'required',
-        //     'longitude' => 'required',
-        // ], [
-        //     'latitude.required' => 'Location field is required',
-        //     'longitude.required' => 'Location field is required',
-        // ]);
+        $this->validate([
+            'latitude' => 'required',
+            'longitude' => 'required',
+        ], [
+            'latitude.required' => 'Location field is required',
+            'longitude.required' => 'Location field is required',
+        ]);
 
         session()->put('latitude', $this->latitude);
         session()->put('longitude', $this->longitude);

@@ -103,7 +103,7 @@
                                         <div class="mb-4">
                                             <label for="color" class="form-label">Pet Color</label>
                                             <input type="text" wire:model.blur="color" class="form-control"
-                                                placeholder="Describe pets color (10 characters max )" maxlength="10">
+                                                placeholder="Describe pets color" >
                                             @error('color')
                                                 <span class="label-bot-validate">{{ $message }}</span>
                                             @enderror
@@ -111,8 +111,7 @@
                                         <div class="mb-4">
                                             <label for="marking" class="form-label">Marking</label>
                                             <input type="text" wire:model.blur="marking" class="form-control"
-                                                placeholder="Describe pets marking (20 characters max) (Optional)"
-                                                maxlength="20">
+                                                placeholder="Describe pets marking (Optional)" >
                                             @error('marking')
                                                 <span class="label-bot-validate">{{ $message }}</span>
                                             @enderror
@@ -126,8 +125,8 @@
                                         <div class="mb-4">
                                             <label for="exampleFormControlInput1" class="form-label">Brief
                                                 Description</label>
-                                            <textarea class="form-control" wire:model.blur="description" rows="3" maxlength="150"
-                                                placeholder="ie. Pink collar, three legs, deaf, friendly, needs medicine (150 characters only)"></textarea>
+                                            <textarea class="form-control" wire:model.blur="description" rows="3" maxlength="200"
+                                                placeholder="ie. Pink collar, three legs, deaf, friendly, needs medicine (200 characters only)"></textarea>
                                             @error('description')
                                                 <span class="label-bot-validate">{{ $message }}</span>
                                             @enderror
